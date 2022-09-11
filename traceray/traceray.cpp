@@ -4,6 +4,7 @@
 #include "../scene/scene.h"
 #include <algorithm>
 #include <iostream>
+#include <algorithm>
 using std::vector;
 
 Vector3d trace_ray(Vector3d p_0, Vector3d dr,
@@ -12,6 +13,9 @@ Vector3d trace_ray(Vector3d p_0, Vector3d dr,
                    Light light, Light ambient_light)
 {
     Vector3d color;
+
+    // std::cout << light.intensity->toStr() << std::endl;
+    // std::cout << ambient_light.intensity->toStr() << std::endl;
 
     double closest_t = INFINITY;
     Shape *closest_shape = nullptr;
@@ -22,9 +26,11 @@ Vector3d trace_ray(Vector3d p_0, Vector3d dr,
                   {
         //std::cout << "antes intersect" << std::endl;             
         t = shape->intersect(p_0, dr);
+        //std::cout << t << "/" << std::endl;
         //std::cout << "depois intersect" << std::endl;
         if ((t > 0) && ((t>= t_min) && (t <= t_max)) && (t < closest_t))
         {
+        
         closest_t = t;
         closest_shape = shape;
     } });
@@ -32,6 +38,7 @@ Vector3d trace_ray(Vector3d p_0, Vector3d dr,
 
     if (closest_shape == nullptr)
     {
+        // std::cout << bgcolor.x_ << std::endl;
         return bgcolor;
     }
     // std::cout << "linha 37" << std::endl;
@@ -42,7 +49,7 @@ Vector3d trace_ray(Vector3d p_0, Vector3d dr,
     Vector3d normal, lr, v, r;
 
     normal = closest_shape->normal(p_i);
-    std::cout << "linha 45" << std::endl;
+    // std::cout << "linha 45" << std::endl;
     lr = *light.position - p_i;
     lr = lr.normalize();
     v = dr * (-1);
@@ -93,13 +100,16 @@ Vector3d calculate_light_intensity(Light light, Vector3d &n,
 
     Vector3d rgb = *obj.color() * i_eye;
 
-    return rgb;
+    Vector3d rgb_f(std::min(rgb.x_, 255.0), std::min(rgb.y_, 255.0), std::min(rgb.z_, 255.0));
+
+    return rgb_f;
 }
 
 bool light_being_blocked(Shape &cls_shape, vector<Shape *> &shapes,
                          Vector3d &p_i, Light &light,
                          Vector3d &lr)
 {
+    bool is_blocked = false;
     std::for_each(shapes.begin(), shapes.end(), [&](Shape *shape)
                   {
         if (shape != &cls_shape)
@@ -108,9 +118,9 @@ bool light_being_blocked(Shape &cls_shape, vector<Shape *> &shapes,
             double s = shape->intersect(p_i, lr);
             Vector3d pi_to_light = *light.position - p_i;
             double len_pi_to_light = pi_to_light.length();
-            if (s > 0 && s < len_pi_to_light){
-                return true;
+            if (s > 0 && s < len_pi_to_light) {
+                is_blocked = true;
             }
         } });
-    return false;
+    return is_blocked;
 }

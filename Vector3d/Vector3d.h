@@ -22,8 +22,6 @@ public:
     double length();
     double dot(Vector3d const &vector);
     std::string toStr();
-
-private:
     double x_;
     double y_;
     double z_;
