@@ -100,7 +100,9 @@ Vector3d calculate_light_intensity(Light light, Vector3d &n,
 
     Vector3d rgb = *obj.color() * i_eye;
 
-    Vector3d rgb_f(std::min(rgb.x_, 255.0), std::min(rgb.y_, 255.0), std::min(rgb.z_, 255.0));
+    Vector3d rgb_f(std::min(rgb.x_, 255.0),
+                   std::min(rgb.y_, 255.0),
+                   std::min(rgb.z_, 255.0));
 
     return rgb_f;
 }

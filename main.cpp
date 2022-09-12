@@ -82,11 +82,7 @@ int main(int argc, char *argv[])
 
     scene.take_a_picture(camera, vp, bgColor);
 
-    std::cout << "depois do take_a_picture" << std::endl;
-
     SDL_Init(SDL_INIT_EVERYTHING);
-
-    // SDL_Surface *screen = SDL_SetVideoMode(width, height, 24, SDL_SWSURFACE);
 
     SDL_Window *window = SDL_CreateWindow("My Game Window",
                                           SDL_WINDOWPOS_UNDEFINED,

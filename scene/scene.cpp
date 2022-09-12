@@ -11,16 +11,12 @@ Scene::Scene(std::vector<Shape *> shapes,
 
 void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor)
 {
-    std::cout << light_.intensity->toStr() << std::endl;
-    std::cout << ambient_light_.intensity->toStr() << std::endl;
-
     double dx = vp.width / (double)canvas_.n_cols();
     double dy = vp.height / (double)canvas_.n_rows();
-    std::cout << vp.height << std::endl;
-    std::cout << vp.width << std::endl;
-    std::cout << vp.z << std::endl;
+
     double yj;
     double xj;
+
     for (int l = 0; l < canvas_.n_rows(); l++)
     {
         yj = (vp.height / 2) - (dy / 2) - (l * dy);

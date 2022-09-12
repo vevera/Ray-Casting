@@ -1,9 +1,9 @@
 #include "cylinder.h"
 
 Cylinder::Cylinder(Vector3d color,
-             Reflexivity reflexivity,
-             Vector3d p_pi,
-             double radius) : Shape(color, reflexivity), p_pi_(p_pi), radius_(radius){};
+                   Reflexivity reflexivity,
+                   Vector3d p_pi,
+                   double radius) : Shape(color, reflexivity), p_pi_(p_pi), radius_(radius){};
 
 double Cylinder::intersect(Vector3d p_0, Vector3d dr)
 {
@@ -34,11 +34,10 @@ double Cylinder::intersect(Vector3d p_0, Vector3d dr)
     return std::min(t1, t2);
 
     // FALTA FAZER OS TESTES DE INTERSECÇÂO, 3 testes
-
 };
 
 Vector3d Cylinder::normal(Vector3d p_i)
 {
-    
+
     return p_i;
 };
