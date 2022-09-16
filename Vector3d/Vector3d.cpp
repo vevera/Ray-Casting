@@ -46,6 +46,37 @@ double Vector3d::dot(Vector3d const &vector)
     return (x_ * vector.x_) + (y_ * vector.y_) + (z_ * vector.z_);
 };
 
+std::vector<Vector3d> Vector3d::dotTr(Vector3d &vector)
+{
+
+    std::vector<Vector3d> mt;
+
+    mt.push_back(vector * x_);
+    mt.push_back(vector * y_);
+    mt.push_back(vector * z_);
+
+    return mt;
+}
+
+std::vector<Vector3d> Vector3d::subtraction(std::vector<Vector3d> &m1, std::vector<Vector3d> &m2)
+{
+    std::vector<Vector3d> mt;
+
+    mt.push_back(m1.at(0) - m2.at(0));
+    mt.push_back(m1.at(1) - m2.at(1));
+    mt.push_back(m1.at(2) - m2.at(2));
+
+    return mt;
+};
+
+Vector3d Vector3d::mult_vector_matriz(std::vector<Vector3d> &matriz)
+{
+    double x = this->dot(matriz.at(0));
+    double y = this->dot(matriz.at(1));
+    double z = this->dot(matriz.at(2));
+    return Vector3d(x, y, z);
+}
+
 double Vector3d::length()
 {
     double sum = dot(*this);

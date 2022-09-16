@@ -6,20 +6,22 @@
 #include "shapes/plane/plane.h"
 #include "canvas/canvas.h"
 #include <SDL2/SDL.h>
+#include "shapes/cylinder/cylinder.h"
 
 using std::cout;
 
 int main(int argc, char *argv[])
 {
     int wCanvas, hCanvas, dJanela, rEsfera, wJanela, hJanela, nLin, nCol, z;
-    Vector3d esfColor, planeColor, planeColor2, bgColor, i_f, p_f, i_a;
+    Vector3d esfColor, planeColor, planeColor2, cylinderColor, bgColor, i_f, p_f, i_a;
     wCanvas = 500;
     hCanvas = 500;
     dJanela = 30;
     rEsfera = 40;
     wJanela = 60;
     hJanela = 60;
-    esfColor = Vector3d(255.0, 0.0, 0.0);
+    esfColor = Vector3d(0.0, 200.0, 0.0);
+    cylinderColor = Vector3d(200.0, 200.0, 200.0);
     planeColor = Vector3d(100.0, 100.0, 100.0);
     planeColor2 = Vector3d(100.0, 100.0, 100.0);
     bgColor = Vector3d(100.0, 100.0, 100.0);
@@ -67,10 +69,14 @@ int main(int argc, char *argv[])
     Plane background(planeColor, reflex_p, Vector3d(0.0, 0.0, -200), Vector3d(0.0, 0.0, 1));
     Plane floor(planeColor, reflex_f, Vector3d(0.0, -rEsfera, 0.0), Vector3d(0.0, 1, 0.0));
 
+    Cylinder cylinder(cylinderColor, reflex, Vector3d(0.0, 0.0, -100),
+                      3 * rEsfera, Vector3d(-1 / sqrt(3), 1 / sqrt(3), -1 / sqrt(3)), rEsfera / 3);
+
     std::vector<Shape *> shapes;
     shapes.push_back(&background);
     shapes.push_back(&floor);
     shapes.push_back(&sphere);
+    shapes.push_back(&cylinder);
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
     Scene scene(shapes, canvas, light, ambient_light);
