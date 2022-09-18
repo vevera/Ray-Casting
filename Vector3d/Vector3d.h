@@ -20,6 +20,7 @@ public:
     Vector3d operator/(double const &div);
     Vector3d mult_vector_matriz(std::vector<Vector3d> &matriz);
     Vector3d normalize();
+    Vector3d cross_product(Vector3d const &op);
     double length();
     double dot(Vector3d const &vector);
     std::vector<Vector3d> dotTr(Vector3d &vector);

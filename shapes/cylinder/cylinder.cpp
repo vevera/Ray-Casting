@@ -105,7 +105,7 @@ double Cylinder::intersect(Vector3d p_0, Vector3d dr)
         if (t_top_valid)
         {
             type = INTERSECTION_TYPE::TOP_SURFACE;
-            return t_base;
+            return t_top;
         }
     }
 

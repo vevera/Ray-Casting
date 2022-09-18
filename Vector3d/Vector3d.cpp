@@ -1,4 +1,5 @@
 #include "Vector3d.h"
+
 #include <cmath>
 
 using std::vector;
@@ -45,6 +46,13 @@ double Vector3d::dot(Vector3d const &vector)
 
     return (x_ * vector.x_) + (y_ * vector.y_) + (z_ * vector.z_);
 };
+
+Vector3d Vector3d::cross_product(Vector3d const &op)
+{
+    return Vector3d(y_ * op.z_ - z_ * op.y_, 
+                    z_ * op.x_ - x_ * op.z_,
+                    x_ * op.y_ - y_ * op.x_);
+}
 
 std::vector<Vector3d> Vector3d::dotTr(Vector3d &vector)
 {
