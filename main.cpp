@@ -31,72 +31,63 @@ int main(int argc, char *argv[])
     nCol = 500;
     z = -dJanela;
 
+    double x, y, z1;
+    std::cin >> x;
+    std::cin >> y;
+    std::cin >> z1;
+
     i_f = Vector3d(0.7, 0.7, 0.7);
-    p_f = Vector3d(0, 60, -30);
+    // p_f = Vector3d(0, 60, -30);
+    p_f = Vector3d(x, y, z1);
     i_a = Vector3d(0.3, 0.3, 0.3);
 
-    Light light;
-    light.intensity = &i_f;
-    light.position = &p_f;
-
-    Light ambient_light;
-    ambient_light.intensity = &i_a;
+    Light light(&i_f, &p_f, "point");
+    Light ambient_light(&i_a);
 
     Vector3d camera(0, 0, 0);
 
-    Reflexivity reflex;
-    Vector3d k = Vector3d(0.7, 0.2, 0.2);
-    reflex.kd = &k;
-    reflex.ke = &k;
-    reflex.ka = &k;
-    reflex.m = 10;
+    Vector3d k = Vector3d(0.3, 0.55, 0.3);
+    Reflexivity reflex(&k, &k, &k, 10);
 
-    Reflexivity reflex_f;
-    Vector3d ka_f = Vector3d(0.3, 0.3, 0.7);
+    Vector3d ka_f = Vector3d(0.2, 0.7, 0.2);
     Vector3d ke = Vector3d(0.0, 0.0, 0.0);
-    reflex_f.kd = &ka_f;
-    reflex_f.ke = &ke;
-    reflex_f.ka = &ka_f;
-    reflex_f.m = 1;
+    Reflexivity reflex_f(&ka_f, &ke, &ka_f, 1);
 
-    Reflexivity reflex_p;
-    Vector3d ka_p = Vector3d(0.7, 0.2, 0.2);
+    Vector3d ka_p = Vector3d(0.3, 0.3, 0.7);
     Vector3d ke_p = Vector3d(0.0, 0.0, 0.0);
-    reflex_p.kd = &ka_p;
-    reflex_p.ke = &ke_p;
-    reflex_p.ka = &ka_p;
-    reflex_p.m = 1;
+    Reflexivity reflex_p(&ka_p, &ke_p, &ka_p, 1);
 
-    Reflexivity reflex_cy;
-    Vector3d ka_cy = Vector3d( 0.2, 0.3, 0.8);
-    reflex_cy.kd = &ka_cy;
-    reflex_cy.ke = &ka_cy;
-    reflex_cy.ka = &ka_cy;
-    reflex_cy.m = 1;
+    Vector3d ka_cy = Vector3d(0.9, 0.9, 0.9);
+    Reflexivity reflex_cy(&ka_cy, &ka_cy, &ka_cy, 1);
 
-    Reflexivity reflex_c;
-    Vector3d ka_c = Vector3d( 0.8, 0.3, 0.2);
-    reflex_c.kd = &ka_c;
-    reflex_c.ke = &ka_c;
-    reflex_c.ka = &ka_c;
-    reflex_c.m = 1;
+    Vector3d ka_c = Vector3d(0.4, 0.1, 0.1);
+    Reflexivity reflex_c(&ka_c, &ka_c, &ka_c, 1);
 
     Sphere sphere(esfColor, reflex, Vector3d(0.0, 0.0, -100), rEsfera);
     Plane background(planeColor, reflex_p, Vector3d(0.0, 0.0, -200), Vector3d(0.0, 0.0, 1));
     Plane floor(planeColor, reflex_f, Vector3d(0.0, -rEsfera, 0.0), Vector3d(0.0, 1, 0.0));
 
     Cylinder cylinder(cylinderColor, reflex_cy, Vector3d(0.0, 0.0, -100),
-                      3 * rEsfera, Vector3d(-1 / sqrt(3), 1 / sqrt(3), -1 / sqrt(3)), rEsfera / 3);
-    // centro da base localizado no centro do topo do cilindro
-    // raio da base igual a 1.5 do raio da esfera
-    // altura do cone igual a 1/3 do raio da base
-    // vetor direção é bem complicadinho, é parecido com o do outro, é igual ao do outro (cilindro)
-    // coeficiente 
-    Vector3d centro_cone = Vector3d(0.0, 0.0, -100) + Vector3d(-1 / sqrt(3), 1 / sqrt(3), -1 / sqrt(3))*(3*rEsfera);
-    Cone cone(coneColor, reflex, centro_cone,
-                      rEsfera/2, Vector3d(-1 / sqrt(3), 1 / sqrt(3), -1 / sqrt(3)), 1.5*rEsfera);
-    Cone coneTest(esfColor, reflex_c, Vector3d(0.0, 0.0, -100.0),
-                rEsfera, Vector3d(1 / sqrt(3), -1 / sqrt(3), 1 / sqrt(3)), rEsfera);
+                      3 * rEsfera, Vector3d(-1 / sqrt(3), 1 / sqrt(3), -1 / sqrt(3)), rEsfera / 5);
+
+    Vector3d centro_cone = Vector3d(0.0, 0.0, -100) + Vector3d(-1 / sqrt(3), 1 / sqrt(3), -1 / sqrt(3)) * (3 * rEsfera);
+    // Cone cone(coneColor, reflex, centro_cone,
+    //           (1.5 * rEsfera) / 3, Vector3d(0, 0, -1), 1.5 * rEsfera);
+
+    Cone cone(coneColor, reflex_c, centro_cone,
+              (1.5 * rEsfera) / 3, Vector3d(0, 1, 0), 0.9 * rEsfera);
+
+    Vector3d vertex = centro_cone;
+    vertex.y_ = vertex.y_ + 50.0;
+
+    Vector3d cc1 = centro_cone;
+    cc1.z_ = cc1.z_ + 20;
+    Cone cone1(coneColor, reflex_c, Vector3d(-10, 40, -90), Vector3d(-10, 80, -90), rEsfera);
+
+    Cone cone2(coneColor, reflex_c, Vector3d(0, 30, -90), 40, Vector3d(0, 1, 0), rEsfera);
+
+    // Cone coneTest(esfColor, reflex_p, Vector3d(0.0, 0.0, -100.0),
+    //               rEsfera, Vector3d(1 / sqrt(3), -1 / sqrt(3), 1 / sqrt(3)), rEsfera);
 
     std::vector<Shape *> shapes;
     shapes.push_back(&background);
@@ -104,21 +95,18 @@ int main(int argc, char *argv[])
     shapes.push_back(&sphere);
     shapes.push_back(&cylinder);
     shapes.push_back(&cone);
-    //shapes.push_back(&coneTest);
+    //  shapes.push_back(&coneTest);
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
     Scene scene(shapes, canvas, light, ambient_light);
 
-    ViewPort vp;
-    vp.width = wJanela;
-    vp.height = hJanela;
-    vp.z = z;
+    ViewPort vp(wJanela, hJanela, z);
 
     scene.take_a_picture(camera, vp, bgColor);
 
     SDL_Init(SDL_INIT_EVERYTHING);
 
-    SDL_Window *window = SDL_CreateWindow("My Game Window",
+    SDL_Window *window = SDL_CreateWindow("Cena",
                                           SDL_WINDOWPOS_UNDEFINED,
                                           SDL_WINDOWPOS_UNDEFINED,
                                           wCanvas, hCanvas,

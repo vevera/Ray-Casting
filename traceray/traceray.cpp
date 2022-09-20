@@ -73,19 +73,18 @@ Vector3d calculate_light_intensity(Light light, Vector3d &n,
                                    Vector3d &r, Shape &obj,
                                    Light &ambient_l, bool blocked)
 {
-    Vector3d color_scale(255.0,255.0,255.0);
+    Vector3d color_scale(255.0, 255.0, 255.0);
 
     Vector3d *kd = obj.kd();
     Vector3d *ke = obj.ke();
     Vector3d *ka = obj.ka();
     double m = obj.m();
-    Vector3d *color = obj.color();
 
     if (blocked)
     {
         Vector3d i_a = *ambient_l.intensity * (*ka);
 
-        Vector3d rgb = *obj.color() * i_a;
+        Vector3d rgb = i_a;
 
         return rgb;
     }
@@ -98,6 +97,8 @@ Vector3d calculate_light_intensity(Light light, Vector3d &n,
     Vector3d i_a = *ambient_l.intensity * (*ka);
 
     Vector3d i_eye = i_d + i_e + i_a;
+
+    return i_eye;
 
     Vector3d rgb = color_scale * i_eye;
 

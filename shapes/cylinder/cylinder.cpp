@@ -73,11 +73,8 @@ double Cylinder::intersect(Vector3d p_0, Vector3d dr)
     t1 = (-b + sqrt(delta)) / (2 * a);
     t2 = (-b - sqrt(delta)) / (2 * a);
 
-    double min = std::min(t1, t2);
-    double max = std::max(t1, t2);
-
-    bool min_valid = in_cylinder_surface(p_0, dr, min);
-    bool max_valid = in_cylinder_surface(p_0, dr, max);
+    bool min_valid = in_cylinder_surface(p_0, dr, t2);
+    bool max_valid = in_cylinder_surface(p_0, dr, t1);
 
     double t_base = base_plane->intersect(p_0, dr);
     double t_top = top_plane->intersect(p_0, dr);
@@ -85,8 +82,8 @@ double Cylinder::intersect(Vector3d p_0, Vector3d dr)
     bool t_base_valid = in_lid_surface(p_0, dr, t_base, base_center_);
     bool t_top_valid = in_lid_surface(p_0, dr, t_base, base_center_);
 
-    double min_cylinder = min_valid ? min : max_valid ? max
-                                                      : INFINITY;
+    double min_cylinder = min_valid ? t2 : max_valid ? t1
+                                                     : INFINITY;
     double min_lib = t_base_valid ? t_base : t_top_valid ? t_top
                                                          : INFINITY;
 
