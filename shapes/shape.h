@@ -5,6 +5,8 @@
 #include <memory>
 #include <cmath>
 
+#define eps 0.0001
+
 struct Reflexivity
 {
     Vector3d *kd;
