@@ -13,11 +13,11 @@ enum INTERSECTION_CONE_TYPE
 class Cone : public Shape
 {
 public:
-    Cone(Vector3d color, Reflexivity reflexivity,
+    Cone(Reflexivity reflexivity,
          Vector3d base_center, Vector3d vertex,
          double radius);
 
-    Cone(Vector3d color, Reflexivity reflexivity,
+    Cone(Reflexivity reflexivity,
          Vector3d base_center, double height,
          Vector3d cone_direction, double radius);
 
@@ -25,7 +25,6 @@ public:
     Vector3d normal(Vector3d p_i);
 
 private:
-    Plane *base_plane_;
     Vector3d base_center_;
     Vector3d vertex_;
     Vector3d cone_direction_;

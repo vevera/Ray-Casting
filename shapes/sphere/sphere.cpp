@@ -1,9 +1,8 @@
 #include "sphere.h"
 
-Sphere::Sphere(Vector3d color,
-               Reflexivity reflexivity,
+Sphere::Sphere(Reflexivity reflexivity,
                Vector3d center,
-               double radius) : Shape(color, reflexivity),
+               double radius) : Shape(reflexivity),
                                 center_(center),
                                 radius_(radius){};
 

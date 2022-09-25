@@ -1,8 +1,7 @@
 #include "shape.h"
 
-Shape::Shape(Vector3d color,
-             Reflexivity reflexivity)
-    : color_(color), reflexivity_(reflexivity){};
+Shape::Shape(Reflexivity reflexivity)
+    : reflexivity_(reflexivity){};
 
 Vector3d *Shape::kd()
 {
@@ -22,9 +21,4 @@ Vector3d *Shape::ka()
 double Shape::m()
 {
     return reflexivity_.m;
-};
-
-Vector3d *Shape::color()
-{
-    return &color_;
 };

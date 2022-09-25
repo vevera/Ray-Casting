@@ -35,17 +35,15 @@ class Shape
 {
 
 public:
-    Shape(Vector3d color, Reflexivity reflexivity);
+    Shape(Reflexivity reflexivity);
     virtual double intersect(Vector3d p_0, Vector3d dr) = 0;
     virtual Vector3d normal(Vector3d p_i) = 0;
     Vector3d *kd();
     Vector3d *ke();
     Vector3d *ka();
     double m();
-    Vector3d *color();
 
 private:
-    Vector3d color_;
     Reflexivity reflexivity_;
 };
 

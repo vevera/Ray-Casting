@@ -1,9 +1,9 @@
 #include "cylinder.h"
 #include <iostream>
 #include <math.h>
-Cylinder::Cylinder(Vector3d color, Reflexivity reflexivity,
+Cylinder::Cylinder(Reflexivity reflexivity,
                    Vector3d base_center, Vector3d top_center,
-                   double radius) : Shape(color, reflexivity),
+                   double radius) : Shape(reflexivity),
                                     base_center_(base_center),
                                     top_center_(top_center),
                                     radius_(radius),
@@ -23,9 +23,9 @@ Cylinder::Cylinder(Vector3d color, Reflexivity reflexivity,
     M = Vector3d::subtraction(identity, dc_dot_dct);
 };
 
-Cylinder::Cylinder(Vector3d color, Reflexivity reflexivity,
+Cylinder::Cylinder(Reflexivity reflexivity,
                    Vector3d base_center, double height,
-                   Vector3d cylinder_direction, double radius) : Shape(color, reflexivity),
+                   Vector3d cylinder_direction, double radius) : Shape(reflexivity),
                                                                  base_center_(base_center),
                                                                  height(height),
                                                                  radius_(radius),

@@ -14,11 +14,11 @@ enum INTERSECTION_TYPE
 class Cylinder : public Shape
 {
 public:
-    Cylinder(Vector3d color, Reflexivity reflexivity,
+    Cylinder(Reflexivity reflexivity,
              Vector3d base_center, Vector3d top_center,
              double radius);
 
-    Cylinder(Vector3d color, Reflexivity reflexivity,
+    Cylinder(Reflexivity reflexivity,
              Vector3d base_center, double height,
              Vector3d cylinder_direction, double radius);
 

@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-Cone::Cone(Vector3d color, Reflexivity reflexivity,
+Cone::Cone(Reflexivity reflexivity,
            Vector3d base_center, Vector3d vertex,
-           double radius) : Shape(color, reflexivity),
+           double radius) : Shape(reflexivity),
                             base_center_(base_center),
                             vertex_(vertex),
                             radius_(radius)
@@ -12,19 +12,17 @@ Cone::Cone(Vector3d color, Reflexivity reflexivity,
     Vector3d vertex_center = (vertex - base_center_);
     height_ = vertex_center.length();
     cone_direction_ = vertex_center.normalize();
-    base_plane_ = new Plane(color, reflexivity, base_center, cone_direction_ * -1);
 }
 
-Cone::Cone(Vector3d color, Reflexivity reflexivity,
+Cone::Cone(Reflexivity reflexivity,
            Vector3d base_center, double height,
-           Vector3d cone_direction, double radius) : Shape(color, reflexivity),
+           Vector3d cone_direction, double radius) : Shape(reflexivity),
                                                      base_center_(base_center),
                                                      height_(height),
                                                      cone_direction_(cone_direction),
                                                      radius_(radius)
 {
     vertex_ = base_center_ + (cone_direction_ * height_);
-    base_plane_ = new Plane(color, reflexivity, base_center, cone_direction_ * -1);
 }
 
 double Cone::intersect(Vector3d p_0, Vector3d dr)
@@ -105,7 +103,7 @@ Vector3d Cone::normal(Vector3d p_i)
     Vector3d N = N_.cross_product(v_pi);
     Vector3d n = N.normalize();
 
-    if (last_dr->dot(n) > 0)
+    if (last_dr->dot(n) > -eps)
         return n * -1;
 
     return n;
