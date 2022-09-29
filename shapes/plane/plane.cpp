@@ -1,9 +1,8 @@
 #include "plane.h"
 
-Plane::Plane(Vector3d color,
-             Reflexivity reflexivity,
+Plane::Plane(Reflexivity reflexivity,
              Vector3d p_pi,
-             Vector3d n) : Shape(color, reflexivity), p_pi_(p_pi), n_(n){};
+             Vector3d n) : Shape(reflexivity), p_pi_(p_pi), n_(n){};
 
 double Plane::intersect(Vector3d p_0, Vector3d dr)
 {

@@ -11,10 +11,8 @@ public:
     Canvas(int width, int height, int n_col, int n_row);
     int n_cols();
     int n_rows();
-    void add_row(std::vector<Vector3d> row);
     void add_pixel(Vector3d row);
-    void print_vector();
-    unsigned char* pixels;
+    unsigned char *pixels;
 
 private:
     int width_;
@@ -22,7 +20,6 @@ private:
     int n_col_;
     int n_row_;
     int cur_index = 0;
-    std::vector<std::vector<Vector3d>> color_matrix;
 };
 
 #endif

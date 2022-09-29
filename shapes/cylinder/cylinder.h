@@ -14,11 +14,11 @@ enum INTERSECTION_TYPE
 class Cylinder : public Shape
 {
 public:
-    Cylinder(Vector3d color, Reflexivity reflexivity,
+    Cylinder(Reflexivity reflexivity,
              Vector3d base_center, Vector3d top_center,
              double radius);
 
-    Cylinder(Vector3d color, Reflexivity reflexivity,
+    Cylinder(Reflexivity reflexivity,
              Vector3d base_center, double height,
              Vector3d cylinder_direction, double radius);
 
@@ -32,11 +32,9 @@ private:
     vector<Vector3d> M;
     double height;
     double radius_;
-
-    Plane *base_plane;
-    Plane *top_plane;
     bool in_cylinder_surface(Vector3d &p0, Vector3d &dr, double &t);
     bool in_lid_surface(Vector3d &p0, Vector3d &dr, double &t, Vector3d &lid);
+    Vector3d *last_dr;
 
     INTERSECTION_TYPE type = INTERSECTION_TYPE::CYLINDER_SURFACE;
 };

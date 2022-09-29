@@ -11,9 +11,30 @@ using std::string;
 
 struct Light
 {
-    Vector3d *intensity = new Vector3d(1, 1, 1);
-    Vector3d *position = new Vector3d(0, 0, 0);
-    string type = "point";
+    Vector3d *intensity;
+    Vector3d *position;
+    string type;
+
+    Light()
+    {
+        intensity = new Vector3d(1, 1, 1);
+        position = new Vector3d(0, 0, 0);
+        type = "point";
+    }
+
+    Light(Vector3d *intensity_, Vector3d *position_, string type_)
+    {
+        intensity = intensity_;
+        position = position_;
+        type = type_;
+    }
+
+    Light(Vector3d *intensity_)
+    {
+        intensity = intensity_;
+        position = new Vector3d(0, 0, 0);
+        type = "ambient";
+    }
 };
 
 struct ViewPort
@@ -21,6 +42,13 @@ struct ViewPort
     int width;
     int height;
     double z;
+
+    ViewPort(int width_, int height_, int z_)
+    {
+        width = width_;
+        height = height_;
+        z = z_;
+    }
 };
 
 class Scene
