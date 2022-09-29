@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     z = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
-    p_f = Vector3d(0, 200,  -50);
+    p_f = Vector3d(0, 200, -50);
     i_a = Vector3d(0.3, 0.3, 0.3);
 
     Light light(&i_f, &p_f, "point");
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
     Vector3d ka_cy = Vector3d(0.0, 0.9, 0.0);
     Reflexivity reflex_cy(&ka_cy, &ka_cy, &ka_cy, 1);
 
-    Vector3d ka_c = Vector3d(0.0, 0.9, 0.0);
+    Vector3d ka_c = Vector3d(0.8, 0.3, 0.2);
     Reflexivity reflex_c(&ka_c, &ka_c, &ka_c, 1);
 
     Sphere sphere(reflex, Vector3d(0.0, 0.0, -100), rEsfera);
@@ -61,8 +61,8 @@ int main(int argc, char *argv[])
 
     Vector3d centro_cone = Vector3d(0, 0, -100) + Vector3d(-1 / sqrt(3), 1 / sqrt(3), -1 / sqrt(3)) * (3 * rEsfera);
 
-    Cone cone(reflex_c, Vector3d(0, 20, -100),
-              (1.5 * 50) / 2, Vector3d(0, 1, -0.5).normalize(), 1.5 * 20);
+    Cone cone(reflex_c, centro_cone,
+              (1.5 * rEsfera) / 3, Vector3d(-1 / sqrt(3), 1 / sqrt(3), -1 / sqrt(3)).normalize(), 1.5 * rEsfera);
 
     Vector3d vertex = centro_cone;
     vertex.y_ = vertex.y_ + 50.0;
@@ -85,9 +85,10 @@ int main(int argc, char *argv[])
     std::vector<Shape *> shapes;
     shapes.push_back(&background);
     shapes.push_back(&floor);
-    // shapes.push_back(&sphere);
-    // shapes.push_back(&cylinder);
-    shapes.push_back(&cone1);
+
+    shapes.push_back(&sphere);
+    shapes.push_back(&cylinder);
+    shapes.push_back(&cone);
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
     Scene scene(shapes, canvas, light, ambient_light);

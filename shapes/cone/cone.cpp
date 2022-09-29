@@ -69,7 +69,7 @@ double Cone::intersect(Vector3d p_0, Vector3d dr)
 
     bool min_valid = in_cone_surface(p_0, dr, min);
     bool max_valid = in_cone_surface(p_0, dr, max);
-    // base_center_ - p_0 
+    // base_center_ - p_0
     double t_base = ((base_center_ - p_0).dot(cone_direction_)) / (dr.dot(cone_direction_));
 
     // std::cout << t_base_i << t_base << std::endl;
@@ -79,33 +79,39 @@ double Cone::intersect(Vector3d p_0, Vector3d dr)
     double min_cone = min_valid ? min : max_valid ? max
                                                   : INFINITY;
 
-    //return min_cone;
+    return min_cone;
 
-    
-    if ((min_valid || max_valid || t_base_valid)){
+    if ((min_valid || max_valid || t_base_valid))
+    {
 
-        if (t_base_valid) {
-            //std::cout << __LINE__ << std::endl;
-            
-            if (t_base <= min_cone){
+        if (t_base_valid)
+        {
+            // std::cout << __LINE__ << std::endl;
+
+            if (t_base <= min_cone)
+            {
                 type = INTERSECTION_CONE_TYPE::BASE_CONE_SURFACE;
                 return t_base;
-            } 
+            }
             /*else if (t_base > min_cone) {
                 type = INTERSECTION_CONE_TYPE::CONE_SURFACE;
                 return t_base;
             }*/
-                
-            //else {
-            //    return min_cone;
-            //}
+
+            // else {
+            //     return min_cone;
+            // }
         }
-        else {
+        else
+        {
             type = INTERSECTION_CONE_TYPE::CONE_SURFACE;
             return min_cone;
         }
-    } else {
-        if (t_base_valid) {
+    }
+    else
+    {
+        if (t_base_valid)
+        {
             type = INTERSECTION_CONE_TYPE::BASE_CONE_SURFACE;
             return t_base;
         }
@@ -133,8 +139,8 @@ Vector3d Cone::normal(Vector3d p_i)
     Vector3d N = N_.cross_product(v_pi);
     Vector3d n = N.normalize();
 
-    if (last_dr->dot(n) > -eps )
-       return n * -1;
+    if (last_dr->dot(n) > -eps)
+        return n * -1;
 
     return n;
 };
