@@ -79,6 +79,8 @@ Vector3d calculate_light_intensity(Light light, Vector3d &n,
 
     Vector3d i_eye = i_d + i_e + i_a;
 
+    //std::cout << i_eye.toStr() << std::endl;
+
     double max = std::max({i_eye.x_, i_eye.y_, i_eye.z_});
 
     return max > 1 ? i_eye / max : i_eye;

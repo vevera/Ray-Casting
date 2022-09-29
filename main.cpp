@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     z = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
-    p_f = Vector3d(0, 60, -30);
+    p_f = Vector3d(0, 200,  -50);
     i_a = Vector3d(0.3, 0.3, 0.3);
 
     Light light(&i_f, &p_f, "point");
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 
     Vector3d cc1 = centro_cone;
     cc1.z_ = cc1.z_ + 20;
-    Cone cone1(reflex_c, Vector3d(0.0, 30, -100), 30, Vector3d(0.0, 1, 0.0), rEsfera);
+    Cone cone1(reflex_c, Vector3d(0.0, 30.0, -100.0), 30, Vector3d(0.0, 1, 0.0), rEsfera);
 
     Cone cone2(reflex_c, Vector3d(0, 30, -90), 40, Vector3d(0, 1, 0), rEsfera);
 
@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
     shapes.push_back(&floor);
     // shapes.push_back(&sphere);
     // shapes.push_back(&cylinder);
-    shapes.push_back(&cone);
+    shapes.push_back(&cone1);
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
     Scene scene(shapes, canvas, light, ambient_light);
