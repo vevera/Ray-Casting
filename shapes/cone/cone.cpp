@@ -79,28 +79,16 @@ double Cone::intersect(Vector3d p_0, Vector3d dr)
     double min_cone = min_valid ? min : max_valid ? max
                                                   : INFINITY;
 
-    //return min_cone;
-
-    
     if ((min_valid || max_valid || t_base_valid)){
 
         if (t_base_valid) {
-            //std::cout << __LINE__ << std::endl;
             
-            if (t_base <= min_cone){
+            if ((t_base <= min_cone) && t_base > 0.0001){
                 type = INTERSECTION_CONE_TYPE::BASE_CONE_SURFACE;
                 return t_base;
-            } 
-            /*else if (t_base > min_cone) {
-                type = INTERSECTION_CONE_TYPE::CONE_SURFACE;
-                return t_base;
-            }*/
-                
-            //else {
-            //    return min_cone;
-            //}
+            }
         }
-        else {
+        if ((min_valid || max_valid) && min_cone > 0.0001) {
             type = INTERSECTION_CONE_TYPE::CONE_SURFACE;
             return min_cone;
         }
@@ -110,16 +98,7 @@ double Cone::intersect(Vector3d p_0, Vector3d dr)
             return t_base;
         }
     }
-    // if (min_cone < t_base || !t_base_valid)
-    // {
-    //     type = INTERSECTION_CONE_TYPE::CONE_SURFACE;
-    //     return min_cone;
-    // }
-    // else if (t_base <= min_cone && t_base_valid)
-    // {
-    //     type = INTERSECTION_CONE_TYPE::BASE_CONE_SURFACE;
-    //     return t_base;
-    // }
+
     return INFINITY;
 };
 

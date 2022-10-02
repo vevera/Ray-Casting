@@ -40,7 +40,7 @@ Vector3d trace_ray(Vector3d p_0, Vector3d dr,
     lr = *light.position - p_i;
     lr = lr.normalize();
     v = dr * (-1);
-    v = dr.normalize();
+    v = v.normalize();
     r = ((normal * (lr.dot(normal))) * 2) - lr;
 
     // Calculo da iluminação/reflexibilidade dos objetos
