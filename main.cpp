@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     z = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
-    p_f = Vector3d(0, 200,  -50);
+    p_f = Vector3d(-100.0, 140.0, -20.0);
     i_a = Vector3d(0.3, 0.3, 0.3);
 
     Light light(&i_f, &p_f, "point");
@@ -73,21 +73,49 @@ int main(int argc, char *argv[])
 
     Cone cone2(reflex_c, Vector3d(0, 30, -90), 40, Vector3d(0, 1, 0), rEsfera);
 
-    // double f, g, h;
+    // TRABALHO 5 - 
+    Vector3d k_wall = Vector3d(0.686, 0.933, 0.933);
+    Vector3d k_ceil = Vector3d(0.933, 0.933, 0.933);
+    Reflexivity reflex_wall(&k_wall, &k_wall, &k_wall, 1);
+    Reflexivity reflex_ceil(&k_ceil, &k_ceil, &k_ceil, 1);
 
-    // std::cin >> f;
-    // std::cin >> g;
-    // std::cin >> h;
+    // walls
+    Plane floor_wall(reflex_p, Vector3d(0.0, -150.0, 0.0), Vector3d(0.0, 1.0, 0.0));
+    Plane right_wall(reflex_wall, Vector3d(200.0, -150.0, 0.0), Vector3d(-1.0, 0.0, 0.0));
+    Plane front_wall(reflex_wall, Vector3d(200.0, -150.0, -400.0), Vector3d(0.0, 0.0, 1.0));
+    Plane left_wall(reflex_wall, Vector3d(-200.0, -150.0, 0.0), Vector3d(1.0, 0.0, 0.0));
+    Plane ceil_wall(reflex_ceil, Vector3d(0.0, 150.0, 0.0), Vector3d(0.0, -1.0, 0.0));
 
-    // Cylinder cylinder1(esfColor, reflex_cy, Vector3d(0.0, 0.0, -100.0),
-    //                    rEsfera, Vector3d(f, g, h).normalize(), rEsfera / 4);
+    // cylinder
+    Vector3d k_wood = Vector3d(0.824, 0.706, 0.549);
+    Reflexivity reflex_wood(&k_wood, &k_wood, &k_wood, 1);
+    Cylinder wood(reflex_wood, Vector3d(0, -150, -200), 90, Vector3d(0, 1, 0), 5);
+
+    // cone
+    Vector3d k_tree = Vector3d(0.0, 1.0, 0.498);
+    Reflexivity reflex_tree(&k_tree, &k_tree, &k_tree, 1);
+    Cone tree(reflex_tree, Vector3d(0, -60, -200), 150, Vector3d(0, 1, 0), 90);
+
+    // esfera
+    Vector3d k_star = Vector3d(0.854, 0.647, 0.125);
+    Reflexivity reflex_star(&k_star, &k_star, &k_star, 1);
+    Sphere star(reflex_star, Vector3d(0.0, 95.0, -200), 5);
 
     std::vector<Shape *> shapes;
-    shapes.push_back(&background);
-    shapes.push_back(&floor);
+    // shapes.push_back(&background);
+    // shapes.push_back(&floor);
     // shapes.push_back(&sphere);
     // shapes.push_back(&cylinder);
-    shapes.push_back(&cone1);
+    // shapes.push_back(&cone1);
+
+    shapes.push_back(&floor_wall);
+    shapes.push_back(&right_wall);
+    shapes.push_back(&front_wall);
+    shapes.push_back(&left_wall);
+    shapes.push_back(&ceil_wall);
+    shapes.push_back(&wood);
+    shapes.push_back(&tree);
+    shapes.push_back(&star);
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
     Scene scene(shapes, canvas, light, ambient_light);
