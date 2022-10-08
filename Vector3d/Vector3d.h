@@ -12,6 +12,7 @@ class Vector3d
 public:
     Vector3d() = default;
     Vector3d(double x, double y, double z);
+    Vector3d(double x, double y, double z, double w);
     Vector3d operator+(Vector3d const &op);
     Vector3d operator-(Vector3d const &op);
     Vector3d operator*(Vector3d const &op);
@@ -29,6 +30,7 @@ public:
     double x_;
     double y_;
     double z_;
+    double w_;
 };
 
 #endif

@@ -4,7 +4,9 @@
 
 using std::vector;
 
-Vector3d::Vector3d(double x, double y, double z) : x_(x), y_(y), z_(z){};
+Vector3d::Vector3d(double x, double y, double z) : x_(x), y_(y), z_(z), w_(1){};
+
+Vector3d::Vector3d(double x, double y, double z, double w) : x_(x), y_(y), z_(z), w_(w){};
 
 Vector3d Vector3d::operator+(Vector3d const &op)
 {
@@ -49,7 +51,7 @@ double Vector3d::dot(Vector3d const &vector)
 
 Vector3d Vector3d::cross_product(Vector3d const &op)
 {
-    return Vector3d(y_ * op.z_ - z_ * op.y_, 
+    return Vector3d(y_ * op.z_ - z_ * op.y_,
                     z_ * op.x_ - x_ * op.z_,
                     x_ * op.y_ - y_ * op.x_);
 }

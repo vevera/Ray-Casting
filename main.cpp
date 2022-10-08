@@ -8,6 +8,7 @@
 #include "canvas/canvas.h"
 #include <SDL2/SDL.h>
 #include "shapes/cylinder/cylinder.h"
+#include "shapes/mesh/mesh.h"
 
 using std::cout;
 
@@ -17,7 +18,7 @@ int main(int argc, char *argv[])
     Vector3d bgColor, i_f, p_f, i_a;
     wCanvas = 500;
     hCanvas = 500;
-    dJanela = 30;
+    dJanela = 25;
     rEsfera = 40;
     wJanela = 60;
     hJanela = 60;
@@ -27,6 +28,7 @@ int main(int argc, char *argv[])
     z = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
+    // p_f = Vector3d(0, 60.0, -30.0);
     p_f = Vector3d(-100.0, 140.0, -20.0);
     i_a = Vector3d(0.3, 0.3, 0.3);
 
@@ -73,7 +75,10 @@ int main(int argc, char *argv[])
 
     Cone cone2(reflex_c, Vector3d(0, 30, -90), 40, Vector3d(0, 1, 0), rEsfera);
 
-    // TRABALHO 5 - 
+    // TRABALHO 5 -
+    // 1., 0.078., 0.576
+    Vector3d k_gift = Vector3d(1.0, 0.078, 0.576);
+    Reflexivity reflex_gift(&k_gift, &k_gift, &k_gift, 1);
     Vector3d k_wall = Vector3d(0.686, 0.933, 0.933);
     Vector3d k_ceil = Vector3d(0.933, 0.933, 0.933);
     Reflexivity reflex_wall(&k_wall, &k_wall, &k_wall, 1);
@@ -101,7 +106,10 @@ int main(int argc, char *argv[])
     Reflexivity reflex_star(&k_star, &k_star, &k_star, 1);
     Sphere star(reflex_star, Vector3d(0.0, 95.0, -200), 5);
 
-    std::vector<Shape *> shapes;
+    Mesh cubo(reflex_gift, "blender objects/cubo_17.obj");
+
+    std::vector<Shape *>
+        shapes;
     // shapes.push_back(&background);
     // shapes.push_back(&floor);
     // shapes.push_back(&sphere);
@@ -116,6 +124,7 @@ int main(int argc, char *argv[])
     shapes.push_back(&wood);
     shapes.push_back(&tree);
     shapes.push_back(&star);
+    shapes.push_back(&cubo);
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
     Scene scene(shapes, canvas, light, ambient_light);
