@@ -2,9 +2,10 @@
 
 Sphere::Sphere(Reflexivity reflexivity,
                Vector3d center,
-               double radius) : Shape(reflexivity),
-                                center_(center),
-                                radius_(radius){};
+               double radius,
+               std::string texture_path) : Shape(reflexivity, texture_path),
+                                           center_(center),
+                                           radius_(radius){};
 
 double Sphere::intersect(Vector3d p_0, Vector3d dr)
 {

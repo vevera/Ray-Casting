@@ -57,7 +57,10 @@ Vector3d calculate_light_intensity(Light light, Vector3d &n,
                                    Vector3d &r, Shape &obj,
                                    Light &ambient_l, bool blocked)
 {
-
+    l.normalize();
+    v.normalize();
+    r.normalize();
+    n.normalize();
     Vector3d *kd = obj.kd();
     Vector3d *ke = obj.ke();
     Vector3d *ka = obj.ka();
@@ -83,13 +86,14 @@ Vector3d calculate_light_intensity(Light light, Vector3d &n,
 
     double max = std::max({i_eye.x_, i_eye.y_, i_eye.z_});
 
-    return max > 1 ? i_eye / max : i_eye;
+    return max > 1.0 ? i_eye / max : i_eye;
 }
 
 bool light_being_blocked(Shape &cls_shape, vector<Shape *> &shapes,
                          Vector3d &p_i, Light &light,
                          Vector3d &lr)
 {
+
     for (auto shape : shapes)
     {
         double s = shape->intersect(p_i, lr);

@@ -40,7 +40,7 @@ class Mesh : public Shape
 {
 
 public:
-    Mesh(Reflexivity reflexivity, std::string object_data_path);
+    Mesh(Reflexivity reflexivity, std::string object_data_pat, std::string texture_path = "");
     double intersect(Vector3d p_0, Vector3d dr);
     Vector3d normal(Vector3d p_i);
 
@@ -51,7 +51,7 @@ private:
     std::vector<Face> face_list = {Face(0, 0, 0, 0, 0)};
     void read_obj(std::string obj_path);
     void read_mtl(std::string mtl_path);
-    Vector3d *n = nullptr;
+    Vector3d n;
     std::vector<Face> back_face_culling(Vector3d dr);
 };
 

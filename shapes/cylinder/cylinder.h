@@ -16,11 +16,11 @@ class Cylinder : public Shape
 public:
     Cylinder(Reflexivity reflexivity,
              Vector3d base_center, Vector3d top_center,
-             double radius);
+             double radius, std::string texture_path = "");
 
     Cylinder(Reflexivity reflexivity,
              Vector3d base_center, double height,
-             Vector3d cylinder_direction, double radius);
+             Vector3d cylinder_direction, double radius, std::string texture_path = "");
 
     double intersect(Vector3d p_0, Vector3d dr);
     Vector3d normal(Vector3d p_i);

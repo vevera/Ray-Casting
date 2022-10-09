@@ -4,7 +4,7 @@
 #include <iostream>
 #include <cstdio>
 
-Mesh::Mesh(Reflexivity reflexivity, std::string object_data_path) : Shape(reflexivity)
+Mesh::Mesh(Reflexivity reflexivity, std::string object_data_path, std::string texture_path) : Shape(reflexivity, texture_path)
 
 {
 
@@ -105,57 +105,34 @@ double Mesh::intersect(Vector3d p_0, Vector3d dr)
     auto valid_faces = back_face_culling(dr);
     std::for_each(begin(valid_faces), end(valid_faces), [&](Face face)
                   {
-                      // std::cout << __LINE__ << std::endl;
                       p1 = vertex_list.at(edge_list.at(face.edge1_id).v2_id);
-                      // std::cout << __LINE__ << "id: " << edge_list.at(face.edge1_id).v2_id <<  "p1: "<< p1.toStr() << std::endl;
                       p2 = vertex_list.at(edge_list.at(face.edge2_id).v2_id);
-                      // std::cout << __LINE__ << "id: " << edge_list.at(face.edge2_id).v2_id << "p2: "<< p2.toStr() << std::endl;
                       p3 = vertex_list.at(edge_list.at(face.edge3_id).v2_id);
-                      // std::cout << __LINE__ << "id: " << edge_list.at(face.edge3_id).v2_id << "p3: "<< p3.toStr() << std::endl;
+                      
                       r1 = p2 - p1;
                       r2 = p3 - p1;
-                      //   std::cout<< __LINE__ << "r1: " << r1.toStr() << std::endl;
-                      //   std::cout<< __LINE__ << "r2: " << r2.toStr() << std::endl;
-                      // std::cout << "id: " << face.normal_id << std::endl;
+                
                       normal = normal_list.at(face.normal_id);
-                      //   std::cout << "normal: " << normal.toStr() << std::endl;
-                      //   std::cout << "p0: " << p_0.toStr() << std::endl;
-                      //   std::cout << "dr: " << dr.toStr() << std::endl;
-                      // std::cout << __LINE__ << std::endl;
-                      // std::cout <<  p1.toStr() << " : " << normal.toStr() << std::endl;
                       ti = -(p_0 - p1).dot(normal) / dr.dot(normal);
-                      //   std::cout << "dn: " << -((p_0 - p1).dot(normal)) << std::endl;
-                      //   std::cout << "nu: " << dr.dot(normal) << std::endl;
-                      //   std::cout << "ti: " << ti << std::endl;
                       p_i = p_0 + (dr * ti);
-                      //   std::cout << "pi: " << p_i.toStr() << std::endl;
-                      //   std::cout << "p3 - pi: "<< (p3 - p_i).toStr() << std::endl;
-                      //   std::cout << "p1 - pi: "<< (p1 - p_i).toStr() << std::endl;
-                      //   std::cout << "p2 - pi: "<< (p2 - p_i).toStr() << std::endl;
+                      
                       c1 = ((p3 - p_i).cross_product(p1 - p_i).dot(normal) / r1.cross_product(r2).dot(normal));
                       c2 = ((p1 - p_i).cross_product(p2 - p_i).dot(normal) / r1.cross_product(r2).dot(normal));
                       c3 = 1 - c1 - c2;
 
-                      //   std::cout << "c1: " << c1 << std::endl;
-                      //   std::cout << "c2: " << c2 << std::endl;
-                      //   std::cout << "c3: " << c3 << std::endl;
-
                       min = std::min({c1, c2, c3});
-                      //std::cout << "min: " << min << std::endl;
-                      if (min >= 0)
+                      if (min >= 0.0)
                       {
-                          //std::cout << "DENTRO DO IF: " << std::endl;
-                          t_min = ti  < t_min ? ti  : t_min;
-                          n = &normal;
+                          if (ti < t_min){
+                            t_min = ti;
+                            n = normal;
+                          }
                       } });
-    if (t_min != INFINITY && t_min >= 0)
-    {
-        // std::cout << t_min << std::endl;
-    }
+
     // std::cout << "t_min: " << t_min << std::endl;
     return t_min;
 }
 Vector3d Mesh::normal(Vector3d p_i)
 {
-    return *n;
+    return n;
 }

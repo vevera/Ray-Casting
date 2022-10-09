@@ -4,10 +4,10 @@
 
 Cone::Cone(Reflexivity reflexivity,
            Vector3d base_center, Vector3d vertex,
-           double radius) : Shape(reflexivity),
-                            base_center_(base_center),
-                            vertex_(vertex),
-                            radius_(radius)
+           double radius, std::string texture_path) : Shape(reflexivity, texture_path),
+                                                      base_center_(base_center),
+                                                      vertex_(vertex),
+                                                      radius_(radius)
 {
     Vector3d vertex_center = (vertex - base_center_);
     height_ = vertex_center.length();
@@ -16,11 +16,11 @@ Cone::Cone(Reflexivity reflexivity,
 
 Cone::Cone(Reflexivity reflexivity,
            Vector3d base_center, double height,
-           Vector3d cone_direction, double radius) : Shape(reflexivity),
-                                                     base_center_(base_center),
-                                                     height_(height),
-                                                     cone_direction_(cone_direction),
-                                                     radius_(radius)
+           Vector3d cone_direction, double radius, std::string texture_path) : Shape(reflexivity, texture_path),
+                                                                               base_center_(base_center),
+                                                                               height_(height),
+                                                                               cone_direction_(cone_direction),
+                                                                               radius_(radius)
 {
     vertex_ = base_center_ + (cone_direction_ * height_);
 }
@@ -85,13 +85,13 @@ double Cone::intersect(Vector3d p_0, Vector3d dr)
         if (t_base_valid)
         {
 
-            if ((t_base <= min_cone) && t_base > 0.0001)
+            if ((t_base <= min_cone) && t_base > eps)
             {
                 type = INTERSECTION_CONE_TYPE::BASE_CONE_SURFACE;
                 return t_base;
             }
         }
-        if ((min_valid || max_valid) && min_cone > 0.0001)
+        if ((min_valid || max_valid) && min_cone > eps)
         {
             type = INTERSECTION_CONE_TYPE::CONE_SURFACE;
             return min_cone;
@@ -112,15 +112,12 @@ double Cone::intersect(Vector3d p_0, Vector3d dr)
 Vector3d Cone::normal(Vector3d p_i)
 {
     if (type == INTERSECTION_CONE_TYPE::BASE_CONE_SURFACE)
-        return cone_direction_ * -1;
+        return cone_direction_ * -1.0;
 
     Vector3d v_pi = (vertex_ - p_i);
     Vector3d N_ = v_pi.cross_product(cone_direction_);
     Vector3d N = N_.cross_product(v_pi);
     Vector3d n = N.normalize();
-
-    if (last_dr->dot(n) > -eps)
-        return n * -1;
 
     return n;
 };

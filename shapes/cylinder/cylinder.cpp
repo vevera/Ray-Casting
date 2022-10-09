@@ -3,11 +3,11 @@
 #include <math.h>
 Cylinder::Cylinder(Reflexivity reflexivity,
                    Vector3d base_center, Vector3d top_center,
-                   double radius) : Shape(reflexivity),
-                                    base_center_(base_center),
-                                    top_center_(top_center),
-                                    radius_(radius),
-                                    last_dr(nullptr)
+                   double radius, std::string texture_path) : Shape(reflexivity, texture_path),
+                                                              base_center_(base_center),
+                                                              top_center_(top_center),
+                                                              radius_(radius),
+                                                              last_dr(nullptr)
 {
 
     Vector3d Cb_Ct = (top_center - base_center);
@@ -25,12 +25,12 @@ Cylinder::Cylinder(Reflexivity reflexivity,
 
 Cylinder::Cylinder(Reflexivity reflexivity,
                    Vector3d base_center, double height,
-                   Vector3d cylinder_direction, double radius) : Shape(reflexivity),
-                                                                 base_center_(base_center),
-                                                                 height(height),
-                                                                 radius_(radius),
-                                                                 cylinder_direction(cylinder_direction),
-                                                                 last_dr(nullptr)
+                   Vector3d cylinder_direction, double radius, std::string texture_path) : Shape(reflexivity, texture_path),
+                                                                                           base_center_(base_center),
+                                                                                           height(height),
+                                                                                           radius_(radius),
+                                                                                           cylinder_direction(cylinder_direction),
+                                                                                           last_dr(nullptr)
 
 {
 
@@ -127,8 +127,8 @@ Vector3d Cylinder::normal(Vector3d p_i)
     Vector3d N = d.mult_vector_matriz(M);
     Vector3d normal = N.normalize();
 
-    if (last_dr->dot(normal) > 0)
-        return normal * -1;
+    // if (last_dr->dot(normal) > 0)
+    //     return normal * -1;
 
     return normal;
 

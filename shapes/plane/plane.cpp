@@ -2,7 +2,8 @@
 
 Plane::Plane(Reflexivity reflexivity,
              Vector3d p_pi,
-             Vector3d n) : Shape(reflexivity), p_pi_(p_pi), n_(n){};
+             Vector3d n,
+             std::string texture_path) : Shape(reflexivity, texture_path), p_pi_(p_pi), n_(n){};
 
 double Plane::intersect(Vector3d p_0, Vector3d dr)
 {

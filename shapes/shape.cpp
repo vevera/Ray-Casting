@@ -1,7 +1,7 @@
 #include "shape.h"
 
-Shape::Shape(Reflexivity reflexivity)
-    : reflexivity_(reflexivity){};
+Shape::Shape(Reflexivity reflexivity, std::string texture_path)
+    : reflexivity_(reflexivity), texture_path_(texture_path){};
 
 Vector3d *Shape::kd()
 {

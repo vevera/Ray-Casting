@@ -35,7 +35,7 @@ class Shape
 {
 
 public:
-    Shape(Reflexivity reflexivity);
+    Shape(Reflexivity reflexivity, std::string texture_path);
     ~Shape(){};
     virtual double intersect(Vector3d p_0, Vector3d dr) = 0;
     virtual Vector3d normal(Vector3d p_i) = 0;
@@ -46,6 +46,7 @@ public:
 
 private:
     Reflexivity reflexivity_;
+    std::string texture_path_ = "";
 };
 
 #endif

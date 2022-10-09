@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
     i_f = Vector3d(0.7, 0.7, 0.7);
     // p_f = Vector3d(0, 60.0, -30.0);
     p_f = Vector3d(-100.0, 140.0, -20.0);
+    // p_f = Vector3d(0.0, -120.0, -120.0);
     i_a = Vector3d(0.3, 0.3, 0.3);
 
     Light light(&i_f, &p_f, "point");
@@ -77,8 +78,10 @@ int main(int argc, char *argv[])
 
     // TRABALHO 5 -
     // 1., 0.078., 0.576
-    Vector3d k_gift = Vector3d(1.0, 0.078, 0.576);
-    Reflexivity reflex_gift(&k_gift, &k_gift, &k_gift, 1);
+    Vector3d k_gift_a = Vector3d(1.0, 0.078, 0.576);
+    // Vector3d k_gift_e = Vector3d(0.0, 0.0, 0.0);
+    // Vector3d k_gift_d = Vector3d(0.0, 0.0, 0.0);
+    Reflexivity reflex_gift(&k_gift_a, &k_gift_a, &k_gift_a, 1);
     Vector3d k_wall = Vector3d(0.686, 0.933, 0.933);
     Vector3d k_ceil = Vector3d(0.933, 0.933, 0.933);
     Reflexivity reflex_wall(&k_wall, &k_wall, &k_wall, 1);
@@ -97,11 +100,13 @@ int main(int argc, char *argv[])
     Cylinder wood(reflex_wood, Vector3d(0, -150, -200), 90, Vector3d(0, 1, 0), 5);
 
     // cone
-    Vector3d k_tree = Vector3d(0.0, 1.0, 0.498);
-    Reflexivity reflex_tree(&k_tree, &k_tree, &k_tree, 1);
+    // Vector3d k_tree_a = Vector3d(0.0, 0.0, 0.0);
+    Vector3d k_tree_d = Vector3d(0.0, 1.0, 0.498);
+    // Vector3d k_tree_e = Vector3d(0.0, 0.0, 0.0);
+    Reflexivity reflex_tree(&k_tree_d, &k_tree_d, &k_tree_d, 10);
     Cone tree(reflex_tree, Vector3d(0, -60, -200), 150, Vector3d(0, 1, 0), 90);
-
-    // esfera
+    // Cone tree(reflex_tree, Vector3d(0, 0, -200), 150, Vector3d(0, 0, -1), 150);
+    //  esfera
     Vector3d k_star = Vector3d(0.854, 0.647, 0.125);
     Reflexivity reflex_star(&k_star, &k_star, &k_star, 1);
     Sphere star(reflex_star, Vector3d(0.0, 95.0, -200), 5);
