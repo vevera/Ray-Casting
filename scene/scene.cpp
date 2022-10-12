@@ -29,7 +29,7 @@ void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor)
             Vector3d cor = trace_ray(camera, dr,
                                      vp.z, INFINITY,
                                      shapes_, bgColor,
-                                     light_, ambient_light_);
+                                     light_, ambient_light_, c, l);
 
             canvas_.add_pixel(cor);
         }

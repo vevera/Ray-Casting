@@ -10,7 +10,7 @@ using std::vector;
 Vector3d trace_ray(Vector3d p_0, Vector3d dr,
                    double t_min, double t_max,
                    vector<Shape *> &shapes, Vector3d bgcolor,
-                   Light light, Light ambient_light)
+                   Light light, Light ambient_light, int x, int y)
 {
     Vector3d color;
 
@@ -30,7 +30,7 @@ Vector3d trace_ray(Vector3d p_0, Vector3d dr,
 
     if (closest_shape == nullptr)
         return bgcolor;
-    //  Calculo do ponto de intersecção com a esfera
+    //  Calculo do ponto de intersecção
     Vector3d p_i = p_0 + (dr * closest_t); // dr = (D - O)
 
     // Vetores unitários usados no modelo
@@ -47,7 +47,7 @@ Vector3d trace_ray(Vector3d p_0, Vector3d dr,
 
     bool light_blocked = light_being_blocked(*closest_shape, shapes, p_i, light, lr);
 
-    color = calculate_light_intensity(light, normal, lr, v, r, *closest_shape, ambient_light, light_blocked);
+    color = calculate_light_intensity(light, normal, lr, v, r, *closest_shape, ambient_light, light_blocked, x, y);
 
     return color;
 }
@@ -55,15 +55,12 @@ Vector3d trace_ray(Vector3d p_0, Vector3d dr,
 Vector3d calculate_light_intensity(Light light, Vector3d &n,
                                    Vector3d &l, Vector3d &v,
                                    Vector3d &r, Shape &obj,
-                                   Light &ambient_l, bool blocked)
+                                   Light &ambient_l, bool blocked, int x, int y)
 {
-    l.normalize();
-    v.normalize();
-    r.normalize();
-    n.normalize();
-    Vector3d *kd = obj.kd();
-    Vector3d *ke = obj.ke();
-    Vector3d *ka = obj.ka();
+
+    Vector3d *kd = obj.kd(x, y);
+    Vector3d *ke = obj.ke(x, y);
+    Vector3d *ka = obj.ka(x, y);
     double m = obj.m();
 
     if (blocked)

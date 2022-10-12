@@ -269,8 +269,8 @@ C:/Ray\ Casting/raycasting.exe: C:/opencv/build/x64/mingw/lib/libopencv_shape341
 C:/Ray\ Casting/raycasting.exe: C:/opencv/build/x64/mingw/lib/libopencv_stitching341.dll.a
 C:/Ray\ Casting/raycasting.exe: C:/opencv/build/x64/mingw/lib/libopencv_superres341.dll.a
 C:/Ray\ Casting/raycasting.exe: C:/opencv/build/x64/mingw/lib/libopencv_videostab341.dll.a
-C:/Ray\ Casting/raycasting.exe: C:/Ray\ Casting/src/lib/libSDL2.la
-C:/Ray\ Casting/raycasting.exe: C:/Ray\ Casting/src/lib/libSDL2main.la
+C:/Ray\ Casting/raycasting.exe: C:/Ray\ Casting/src/lib/libSDL2.dll.a
+C:/Ray\ Casting/raycasting.exe: C:/Ray\ Casting/src/lib/libSDL2main.a
 C:/Ray\ Casting/raycasting.exe: C:/opencv/build/x64/mingw/lib/libopencv_calib3d341.dll.a
 C:/Ray\ Casting/raycasting.exe: C:/opencv/build/x64/mingw/lib/libopencv_features2d341.dll.a
 C:/Ray\ Casting/raycasting.exe: C:/opencv/build/x64/mingw/lib/libopencv_flann341.dll.a

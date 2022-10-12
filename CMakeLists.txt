@@ -8,7 +8,7 @@ enable_testing()
 
 list(APPEND CMAKE_PREFIX_PATH src/lib/cmake/SDL2/)
 list(APPEND CMAKE_PREFIX_PATH C:/opencv/build/x64/mingw/lib)
-find_package(SDL2 REQUIRED)
+#find_package(SDL2 REQUIRED)
 find_package(OpenCV REQUIRED)
 
 set(SDL2_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/src/include")
@@ -43,9 +43,9 @@ target_link_libraries(
     # ${MAGICK_LIB_DIR}/CORE_RL_Magick++_.lib
     # ${MAGICK_LIB_DIR}/CORE_RL_MagickCore_.lib
     # ${MAGICK_LIB_DIR}/CORE_RL_MagickWand_.lib
-    ${SDL_LIBRARIES} 
-    ${SDL2_LIB_DIR}/libSDL2.la 
-    ${SDL2_LIB_DIR}/libSDL2main.la
+    #${SDL_LIBRARIES} 
+    ${SDL2_LIB_DIR}/libSDL2.dll.a
+    ${SDL2_LIB_DIR}/libSDL2main.a
     )
 
 add_definitions(-DSDL_MAIN_HANDLED)

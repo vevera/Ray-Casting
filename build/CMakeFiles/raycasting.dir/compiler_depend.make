@@ -422,6 +422,206 @@ CMakeFiles/raycasting.dir/main.cpp.obj: C:/Ray\ Casting/main.cpp \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/auto_ptr.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cmath \
   C:/MinGW/x86_64-w64-mingw32/include/math.h \
+  C:/opencv/build/include/opencv2/opencv.hpp \
+  C:/opencv/build/include/opencv2/opencv_modules.hpp \
+  C:/opencv/build/include/opencv2/core.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/core/hal/interface.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstddef \
+  C:/opencv/build/include/opencv2/core/cv_cpu_dispatch.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/emmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xmmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mm_malloc.h \
+  C:/opencv/build/include/opencv2/core/version.hpp \
+  C:/opencv/build/include/opencv2/core/base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/climits \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/algorithm \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algo.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/algorithmfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_heap.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uniform_int_dist.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/limits \
+  C:/opencv/build/include/opencv2/core/cvstd.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring \
+  C:/MinGW/x86_64-w64-mingw32/include/string.h \
+  C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/opencv/build/include/opencv2/core/ptr.inl.hpp \
+  C:/opencv/build/include/opencv2/core/neon_utils.hpp \
+  C:/opencv/build/include/opencv2/core/vsx_utils.hpp \
+  C:/MinGW/x86_64-w64-mingw32/include/assert.h \
+  C:/opencv/build/include/opencv2/core/traits.hpp \
+  C:/opencv/build/include/opencv2/core/matx.hpp \
+  C:/opencv/build/include/opencv2/core/saturate.hpp \
+  C:/opencv/build/include/opencv2/core/fast_math.hpp \
+  C:/opencv/build/include/opencv2/core/types.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cfloat \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h \
+  C:/MinGW/x86_64-w64-mingw32/include/float.h \
+  C:/opencv/build/include/opencv2/core/mat.hpp \
+  C:/opencv/build/include/opencv2/core/bufferpool.hpp \
+  C:/opencv/build/include/opencv2/core/mat.inl.hpp \
+  C:/opencv/build/include/opencv2/core/persistence.hpp \
+  C:/opencv/build/include/opencv2/core/operations.hpp \
+  C:/opencv/build/include/opencv2/core/cvstd.inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/complex \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc \
+  C:/opencv/build/include/opencv2/core/utility.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/functional \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h \
+  C:/opencv/build/include/opencv2/core/core_c.h \
+  C:/opencv/build/include/opencv2/core/types_c.h \
+  C:/opencv/build/include/opencv2/core/optim.hpp \
+  C:/opencv/build/include/opencv2/core/ovx.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/calib3d.hpp \
+  C:/opencv/build/include/opencv2/features2d.hpp \
+  C:/opencv/build/include/opencv2/flann/miniflann.hpp \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/opencv/build/include/opencv2/flann/config.h \
+  C:/opencv/build/include/opencv2/core/affine.hpp \
+  C:/opencv/build/include/opencv2/calib3d/calib3d_c.h \
+  C:/opencv/build/include/opencv2/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dict.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multimap.h \
+  C:/opencv/build/include/opencv2/dnn/layer.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.inl.hpp \
+  C:/opencv/build/include/opencv2/flann.hpp \
+  C:/opencv/build/include/opencv2/flann/flann_base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cassert \
+  C:/opencv/build/include/opencv2/flann/general.h \
+  C:/opencv/build/include/opencv2/flann/matrix.h \
+  C:/opencv/build/include/opencv2/flann/params.h \
+  C:/opencv/build/include/opencv2/flann/any.h \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/opencv/build/include/opencv2/flann/saving.h \
+  C:/opencv/build/include/opencv2/flann/nn_index.h \
+  C:/opencv/build/include/opencv2/flann/result_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h \
+  C:/opencv/build/include/opencv2/flann/all_indices.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_index.h \
+  C:/opencv/build/include/opencv2/flann/dynamic_bitset.h \
+  C:/opencv/build/include/opencv2/flann/dist.h \
+  C:/opencv/build/include/opencv2/flann/heap.h \
+  C:/opencv/build/include/opencv2/flann/allocator.h \
+  C:/opencv/build/include/opencv2/flann/random.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_single_index.h \
+  C:/opencv/build/include/opencv2/flann/kmeans_index.h \
+  C:/opencv/build/include/opencv2/flann/logger.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+  C:/opencv/build/include/opencv2/flann/composite_index.h \
+  C:/opencv/build/include/opencv2/flann/linear_index.h \
+  C:/opencv/build/include/opencv2/flann/hierarchical_clustering_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_table.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iomanip \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/locale \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ctime \
+  C:/MinGW/x86_64-w64-mingw32/include/time.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_timeval.h \
+  C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_conv.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stringfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/allocator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unique_ptr.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/quoted_string.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/unordered_map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable_policy.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unordered_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/math.h \
+  C:/opencv/build/include/opencv2/flann/autotuned_index.h \
+  C:/opencv/build/include/opencv2/flann/ground_truth.h \
+  C:/opencv/build/include/opencv2/flann/index_testing.h \
+  C:/opencv/build/include/opencv2/flann/timer.h \
+  C:/opencv/build/include/opencv2/flann/sampling.h \
+  C:/opencv/build/include/opencv2/highgui.hpp \
+  C:/opencv/build/include/opencv2/imgcodecs.hpp \
+  C:/opencv/build/include/opencv2/videoio.hpp \
+  C:/opencv/build/include/opencv2/highgui/highgui_c.h \
+  C:/opencv/build/include/opencv2/imgproc/imgproc_c.h \
+  C:/opencv/build/include/opencv2/imgproc/types_c.h \
+  C:/opencv/build/include/opencv2/imgcodecs/imgcodecs_c.h \
+  C:/opencv/build/include/opencv2/videoio/videoio_c.h \
+  C:/opencv/build/include/opencv2/imgproc.hpp \
+  C:/opencv/build/include/opencv2/ml.hpp \
+  C:/opencv/build/include/opencv2/ml/ml.inl.hpp \
+  C:/opencv/build/include/opencv2/objdetect.hpp \
+  C:/opencv/build/include/opencv2/objdetect/detection_based_tracker.hpp \
+  C:/opencv/build/include/opencv2/objdetect/objdetect_c.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/deque \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_deque.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/deque.tcc \
+  C:/opencv/build/include/opencv2/photo.hpp \
+  C:/opencv/build/include/opencv2/photo/photo_c.h \
+  C:/opencv/build/include/opencv2/shape.hpp \
+  C:/opencv/build/include/opencv2/shape/emdL1.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_transformer.hpp \
+  C:/opencv/build/include/opencv2/shape/hist_cost.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_distance.hpp \
+  C:/opencv/build/include/opencv2/stitching.hpp \
+  C:/opencv/build/include/opencv2/stitching/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.hpp \
+  C:/opencv/build/include/opencv2/core/cuda_types.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers_inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/motion_estimators.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/util.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/list \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_list.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/list.tcc \
+  C:/opencv/build/include/opencv2/stitching/detail/util_inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/queue \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_queue.h \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/exposure_compensate.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/seam_finders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/blenders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/superres.hpp \
+  C:/opencv/build/include/opencv2/superres/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/video.hpp \
+  C:/opencv/build/include/opencv2/video/tracking.hpp \
+  C:/opencv/build/include/opencv2/video/background_segm.hpp \
+  C:/opencv/build/include/opencv2/video/tracking_c.h \
+  C:/opencv/build/include/opencv2/videostab.hpp \
+  C:/opencv/build/include/opencv2/videostab/stabilizer.hpp \
+  C:/opencv/build/include/opencv2/videostab/global_motion.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/fstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc \
+  C:/opencv/build/include/opencv2/videostab/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_core.hpp \
+  C:/opencv/build/include/opencv2/videostab/outlier_rejection.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_stabilizing.hpp \
+  C:/opencv/build/include/opencv2/videostab/frame_source.hpp \
+  C:/opencv/build/include/opencv2/videostab/log.hpp \
+  C:/opencv/build/include/opencv2/videostab/inpainting.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching_inl.hpp \
+  C:/opencv/build/include/opencv2/videostab/deblurring.hpp \
+  C:/opencv/build/include/opencv2/videostab/wobble_suppression.hpp \
+  C:/opencv/build/include/opencv2/videostab/ring_buffer.hpp \
   C:/Ray\ Casting/canvas/canvas.h \
   C:/Ray\ Casting/Vector3d/Vector3d.h \
   C:/Ray\ Casting/shapes/sphere/sphere.h \
@@ -441,9 +641,7 @@ CMakeFiles/raycasting.dir/main.cpp.obj: C:/Ray\ Casting/main.cpp \
   C:/Ray\ Casting/src/include/SDL2/close_code.h \
   C:/MinGW/x86_64-w64-mingw32/include/winsdkver.h \
   C:/MinGW/x86_64-w64-mingw32/include/winapifamily.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdarg.h \
-  C:/MinGW/x86_64-w64-mingw32/include/stdarg.h \
-  C:/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/sdkddkver.h \
   C:/Ray\ Casting/src/include/SDL2/SDL_assert.h \
   C:/Ray\ Casting/src/include/SDL2/SDL_atomic.h \
   C:/Ray\ Casting/src/include/SDL2/SDL_audio.h \
@@ -459,10 +657,6 @@ CMakeFiles/raycasting.dir/main.cpp.obj: C:/Ray\ Casting/main.cpp \
   C:/MinGW/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/x86intrin.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/ia32intrin.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mmintrin.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xmmintrin.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mm_malloc.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/emmintrin.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/pmmintrin.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/tmmintrin.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/ammintrin.h \
@@ -539,6 +733,7 @@ CMakeFiles/raycasting.dir/main.cpp.obj: C:/Ray\ Casting/main.cpp \
   C:/Ray\ Casting/src/include/SDL2/SDL_scancode.h \
   C:/Ray\ Casting/src/include/SDL2/SDL_mouse.h \
   C:/Ray\ Casting/src/include/SDL2/SDL_joystick.h \
+  C:/Ray\ Casting/src/include/SDL2/SDL_guid.h \
   C:/Ray\ Casting/src/include/SDL2/SDL_gamecontroller.h \
   C:/Ray\ Casting/src/include/SDL2/SDL_sensor.h \
   C:/Ray\ Casting/src/include/SDL2/SDL_quit.h \
@@ -564,67 +759,7 @@ CMakeFiles/raycasting.dir/main.cpp.obj: C:/Ray\ Casting/main.cpp \
   C:/Ray\ Casting/shapes/shape.h \
   C:/Ray\ Casting/shapes/plane/plane.h \
   C:/Ray\ Casting/shapes/mesh/mesh.h \
-  C:/Ray\ Casting/shapes/shape.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h \
-  C:/opencv/build/include/opencv2/core.hpp \
-  C:/opencv/build/include/opencv2/core/cvdef.h \
-  C:/opencv/build/include/opencv2/core/hal/interface.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstddef \
-  C:/opencv/build/include/opencv2/core/cv_cpu_dispatch.h \
-  C:/opencv/build/include/opencv2/core/version.hpp \
-  C:/opencv/build/include/opencv2/core/base.hpp \
-  C:/opencv/build/include/opencv2/opencv_modules.hpp \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/climits \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/algorithm \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algo.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/algorithmfwd.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_heap.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uniform_int_dist.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/limits \
-  C:/opencv/build/include/opencv2/core/cvstd.hpp \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring \
-  C:/MinGW/x86_64-w64-mingw32/include/string.h \
-  C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
-  C:/opencv/build/include/opencv2/core/ptr.inl.hpp \
-  C:/opencv/build/include/opencv2/core/neon_utils.hpp \
-  C:/opencv/build/include/opencv2/core/vsx_utils.hpp \
-  C:/MinGW/x86_64-w64-mingw32/include/assert.h \
-  C:/opencv/build/include/opencv2/core/traits.hpp \
-  C:/opencv/build/include/opencv2/core/matx.hpp \
-  C:/opencv/build/include/opencv2/core/saturate.hpp \
-  C:/opencv/build/include/opencv2/core/fast_math.hpp \
-  C:/opencv/build/include/opencv2/core/types.hpp \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cfloat \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h \
-  C:/MinGW/x86_64-w64-mingw32/include/float.h \
-  C:/opencv/build/include/opencv2/core/mat.hpp \
-  C:/opencv/build/include/opencv2/core/bufferpool.hpp \
-  C:/opencv/build/include/opencv2/core/mat.inl.hpp \
-  C:/opencv/build/include/opencv2/core/persistence.hpp \
-  C:/opencv/build/include/opencv2/core/operations.hpp \
-  C:/opencv/build/include/opencv2/core/cvstd.inl.hpp \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/complex \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc \
-  C:/opencv/build/include/opencv2/core/utility.hpp \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/functional \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h \
-  C:/opencv/build/include/opencv2/core/core_c.h \
-  C:/opencv/build/include/opencv2/core/types_c.h \
-  C:/opencv/build/include/opencv2/core/optim.hpp \
-  C:/opencv/build/include/opencv2/core/ovx.hpp \
-  C:/opencv/build/include/opencv2/core/cvdef.h \
-  C:/opencv/build/include/opencv2/imgcodecs.hpp \
-  C:/opencv/build/include/opencv2/highgui.hpp \
-  C:/opencv/build/include/opencv2/videoio.hpp \
-  C:/opencv/build/include/opencv2/highgui/highgui_c.h \
-  C:/opencv/build/include/opencv2/imgproc/imgproc_c.h \
-  C:/opencv/build/include/opencv2/imgproc/types_c.h \
-  C:/opencv/build/include/opencv2/imgcodecs/imgcodecs_c.h \
-  C:/opencv/build/include/opencv2/videoio/videoio_c.h
+  C:/Ray\ Casting/shapes/shape.h
 
 CMakeFiles/raycasting.dir/scene/scene.cpp.obj: C:/Ray\ Casting/scene/scene.cpp \
   C:/Ray\ Casting/scene/scene.h \
@@ -763,12 +898,51 @@ CMakeFiles/raycasting.dir/scene/scene.cpp.obj: C:/Ray\ Casting/scene/scene.cpp \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/auto_ptr.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cmath \
   C:/MinGW/x86_64-w64-mingw32/include/math.h \
-  C:/Ray\ Casting/canvas/canvas.h \
-  C:/Ray\ Casting/Vector3d/Vector3d.h \
-  C:/Ray\ Casting/traceray/traceray.h \
-  C:/Ray\ Casting/Vector3d/Vector3d.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ostream \
+  C:/opencv/build/include/opencv2/opencv.hpp \
+  C:/opencv/build/include/opencv2/opencv_modules.hpp \
+  C:/opencv/build/include/opencv2/core.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/core/hal/interface.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstddef \
+  C:/opencv/build/include/opencv2/core/cv_cpu_dispatch.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/emmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xmmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mm_malloc.h \
+  C:/opencv/build/include/opencv2/core/version.hpp \
+  C:/opencv/build/include/opencv2/core/base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/climits \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/algorithm \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algo.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/algorithmfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_heap.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uniform_int_dist.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/limits \
+  C:/opencv/build/include/opencv2/core/cvstd.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring \
+  C:/MinGW/x86_64-w64-mingw32/include/string.h \
+  C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/opencv/build/include/opencv2/core/ptr.inl.hpp \
+  C:/opencv/build/include/opencv2/core/neon_utils.hpp \
+  C:/opencv/build/include/opencv2/core/vsx_utils.hpp \
+  C:/MinGW/x86_64-w64-mingw32/include/assert.h \
+  C:/opencv/build/include/opencv2/core/traits.hpp \
+  C:/opencv/build/include/opencv2/core/matx.hpp \
+  C:/opencv/build/include/opencv2/core/saturate.hpp \
+  C:/opencv/build/include/opencv2/core/fast_math.hpp \
+  C:/opencv/build/include/opencv2/core/types.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cfloat \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h \
+  C:/MinGW/x86_64-w64-mingw32/include/float.h \
+  C:/opencv/build/include/opencv2/core/mat.hpp \
+  C:/opencv/build/include/opencv2/core/bufferpool.hpp \
+  C:/opencv/build/include/opencv2/core/mat.inl.hpp \
+  C:/opencv/build/include/opencv2/core/persistence.hpp \
+  C:/opencv/build/include/opencv2/core/operations.hpp \
+  C:/opencv/build/include/opencv2/core/cvstd.inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/complex \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ios \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ios_base.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h \
@@ -786,9 +960,170 @@ CMakeFiles/raycasting.dir/scene/scene.cpp.obj: C:/Ray\ Casting/scene/scene.cpp \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets.tcc \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_ios.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ostream \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ostream.tcc \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/istream.tcc
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/istream.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc \
+  C:/opencv/build/include/opencv2/core/utility.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/functional \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h \
+  C:/opencv/build/include/opencv2/core/core_c.h \
+  C:/opencv/build/include/opencv2/core/types_c.h \
+  C:/opencv/build/include/opencv2/core/optim.hpp \
+  C:/opencv/build/include/opencv2/core/ovx.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/calib3d.hpp \
+  C:/opencv/build/include/opencv2/features2d.hpp \
+  C:/opencv/build/include/opencv2/flann/miniflann.hpp \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/opencv/build/include/opencv2/flann/config.h \
+  C:/opencv/build/include/opencv2/core/affine.hpp \
+  C:/opencv/build/include/opencv2/calib3d/calib3d_c.h \
+  C:/opencv/build/include/opencv2/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dict.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multimap.h \
+  C:/opencv/build/include/opencv2/dnn/layer.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.inl.hpp \
+  C:/opencv/build/include/opencv2/flann.hpp \
+  C:/opencv/build/include/opencv2/flann/flann_base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cassert \
+  C:/opencv/build/include/opencv2/flann/general.h \
+  C:/opencv/build/include/opencv2/flann/matrix.h \
+  C:/opencv/build/include/opencv2/flann/params.h \
+  C:/opencv/build/include/opencv2/flann/any.h \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
+  C:/opencv/build/include/opencv2/flann/saving.h \
+  C:/opencv/build/include/opencv2/flann/nn_index.h \
+  C:/opencv/build/include/opencv2/flann/result_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h \
+  C:/opencv/build/include/opencv2/flann/all_indices.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_index.h \
+  C:/opencv/build/include/opencv2/flann/dynamic_bitset.h \
+  C:/opencv/build/include/opencv2/flann/dist.h \
+  C:/opencv/build/include/opencv2/flann/heap.h \
+  C:/opencv/build/include/opencv2/flann/allocator.h \
+  C:/opencv/build/include/opencv2/flann/random.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_single_index.h \
+  C:/opencv/build/include/opencv2/flann/kmeans_index.h \
+  C:/opencv/build/include/opencv2/flann/logger.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+  C:/opencv/build/include/opencv2/flann/composite_index.h \
+  C:/opencv/build/include/opencv2/flann/linear_index.h \
+  C:/opencv/build/include/opencv2/flann/hierarchical_clustering_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_table.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iomanip \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/locale \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ctime \
+  C:/MinGW/x86_64-w64-mingw32/include/time.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_timeval.h \
+  C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_conv.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stringfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/allocator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unique_ptr.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/quoted_string.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/unordered_map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable_policy.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unordered_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/math.h \
+  C:/opencv/build/include/opencv2/flann/autotuned_index.h \
+  C:/opencv/build/include/opencv2/flann/ground_truth.h \
+  C:/opencv/build/include/opencv2/flann/index_testing.h \
+  C:/opencv/build/include/opencv2/flann/timer.h \
+  C:/opencv/build/include/opencv2/flann/sampling.h \
+  C:/opencv/build/include/opencv2/highgui.hpp \
+  C:/opencv/build/include/opencv2/imgcodecs.hpp \
+  C:/opencv/build/include/opencv2/videoio.hpp \
+  C:/opencv/build/include/opencv2/highgui/highgui_c.h \
+  C:/opencv/build/include/opencv2/imgproc/imgproc_c.h \
+  C:/opencv/build/include/opencv2/imgproc/types_c.h \
+  C:/opencv/build/include/opencv2/imgcodecs/imgcodecs_c.h \
+  C:/opencv/build/include/opencv2/videoio/videoio_c.h \
+  C:/opencv/build/include/opencv2/imgproc.hpp \
+  C:/opencv/build/include/opencv2/ml.hpp \
+  C:/opencv/build/include/opencv2/ml/ml.inl.hpp \
+  C:/opencv/build/include/opencv2/objdetect.hpp \
+  C:/opencv/build/include/opencv2/objdetect/detection_based_tracker.hpp \
+  C:/opencv/build/include/opencv2/objdetect/objdetect_c.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/deque \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_deque.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/deque.tcc \
+  C:/opencv/build/include/opencv2/photo.hpp \
+  C:/opencv/build/include/opencv2/photo/photo_c.h \
+  C:/opencv/build/include/opencv2/shape.hpp \
+  C:/opencv/build/include/opencv2/shape/emdL1.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_transformer.hpp \
+  C:/opencv/build/include/opencv2/shape/hist_cost.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_distance.hpp \
+  C:/opencv/build/include/opencv2/stitching.hpp \
+  C:/opencv/build/include/opencv2/stitching/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.hpp \
+  C:/opencv/build/include/opencv2/core/cuda_types.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers_inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/motion_estimators.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/util.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/list \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_list.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/list.tcc \
+  C:/opencv/build/include/opencv2/stitching/detail/util_inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/queue \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_queue.h \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/exposure_compensate.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/seam_finders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/blenders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/superres.hpp \
+  C:/opencv/build/include/opencv2/superres/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/video.hpp \
+  C:/opencv/build/include/opencv2/video/tracking.hpp \
+  C:/opencv/build/include/opencv2/video/background_segm.hpp \
+  C:/opencv/build/include/opencv2/video/tracking_c.h \
+  C:/opencv/build/include/opencv2/videostab.hpp \
+  C:/opencv/build/include/opencv2/videostab/stabilizer.hpp \
+  C:/opencv/build/include/opencv2/videostab/global_motion.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/fstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc \
+  C:/opencv/build/include/opencv2/videostab/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_core.hpp \
+  C:/opencv/build/include/opencv2/videostab/outlier_rejection.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_stabilizing.hpp \
+  C:/opencv/build/include/opencv2/videostab/frame_source.hpp \
+  C:/opencv/build/include/opencv2/videostab/log.hpp \
+  C:/opencv/build/include/opencv2/videostab/inpainting.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching_inl.hpp \
+  C:/opencv/build/include/opencv2/videostab/deblurring.hpp \
+  C:/opencv/build/include/opencv2/videostab/wobble_suppression.hpp \
+  C:/opencv/build/include/opencv2/videostab/ring_buffer.hpp \
+  C:/Ray\ Casting/canvas/canvas.h \
+  C:/Ray\ Casting/Vector3d/Vector3d.h \
+  C:/Ray\ Casting/traceray/traceray.h \
+  C:/Ray\ Casting/Vector3d/Vector3d.h
 
 CMakeFiles/raycasting.dir/shapes/cone/cone.cpp.obj: C:/Ray\ Casting/shapes/cone/cone.cpp \
   C:/Ray\ Casting/shapes/cone/cone.h \
@@ -926,10 +1261,51 @@ CMakeFiles/raycasting.dir/shapes/cone/cone.cpp.obj: C:/Ray\ Casting/shapes/cone/
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/auto_ptr.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cmath \
   C:/MinGW/x86_64-w64-mingw32/include/math.h \
-  C:/Ray\ Casting/shapes/plane/plane.h \
-  C:/Ray\ Casting/shapes/shape.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ostream \
+  C:/opencv/build/include/opencv2/opencv.hpp \
+  C:/opencv/build/include/opencv2/opencv_modules.hpp \
+  C:/opencv/build/include/opencv2/core.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/core/hal/interface.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstddef \
+  C:/opencv/build/include/opencv2/core/cv_cpu_dispatch.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/emmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xmmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mm_malloc.h \
+  C:/opencv/build/include/opencv2/core/version.hpp \
+  C:/opencv/build/include/opencv2/core/base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/climits \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/algorithm \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algo.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/algorithmfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_heap.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uniform_int_dist.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/limits \
+  C:/opencv/build/include/opencv2/core/cvstd.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring \
+  C:/MinGW/x86_64-w64-mingw32/include/string.h \
+  C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/opencv/build/include/opencv2/core/ptr.inl.hpp \
+  C:/opencv/build/include/opencv2/core/neon_utils.hpp \
+  C:/opencv/build/include/opencv2/core/vsx_utils.hpp \
+  C:/MinGW/x86_64-w64-mingw32/include/assert.h \
+  C:/opencv/build/include/opencv2/core/traits.hpp \
+  C:/opencv/build/include/opencv2/core/matx.hpp \
+  C:/opencv/build/include/opencv2/core/saturate.hpp \
+  C:/opencv/build/include/opencv2/core/fast_math.hpp \
+  C:/opencv/build/include/opencv2/core/types.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cfloat \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h \
+  C:/MinGW/x86_64-w64-mingw32/include/float.h \
+  C:/opencv/build/include/opencv2/core/mat.hpp \
+  C:/opencv/build/include/opencv2/core/bufferpool.hpp \
+  C:/opencv/build/include/opencv2/core/mat.inl.hpp \
+  C:/opencv/build/include/opencv2/core/persistence.hpp \
+  C:/opencv/build/include/opencv2/core/operations.hpp \
+  C:/opencv/build/include/opencv2/core/cvstd.inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/complex \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ios \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ios_base.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h \
@@ -947,9 +1323,168 @@ CMakeFiles/raycasting.dir/shapes/cone/cone.cpp.obj: C:/Ray\ Casting/shapes/cone/
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets.tcc \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_ios.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ostream \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ostream.tcc \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/istream.tcc
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/istream.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc \
+  C:/opencv/build/include/opencv2/core/utility.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/functional \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h \
+  C:/opencv/build/include/opencv2/core/core_c.h \
+  C:/opencv/build/include/opencv2/core/types_c.h \
+  C:/opencv/build/include/opencv2/core/optim.hpp \
+  C:/opencv/build/include/opencv2/core/ovx.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/calib3d.hpp \
+  C:/opencv/build/include/opencv2/features2d.hpp \
+  C:/opencv/build/include/opencv2/flann/miniflann.hpp \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/opencv/build/include/opencv2/flann/config.h \
+  C:/opencv/build/include/opencv2/core/affine.hpp \
+  C:/opencv/build/include/opencv2/calib3d/calib3d_c.h \
+  C:/opencv/build/include/opencv2/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dict.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multimap.h \
+  C:/opencv/build/include/opencv2/dnn/layer.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.inl.hpp \
+  C:/opencv/build/include/opencv2/flann.hpp \
+  C:/opencv/build/include/opencv2/flann/flann_base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cassert \
+  C:/opencv/build/include/opencv2/flann/general.h \
+  C:/opencv/build/include/opencv2/flann/matrix.h \
+  C:/opencv/build/include/opencv2/flann/params.h \
+  C:/opencv/build/include/opencv2/flann/any.h \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
+  C:/opencv/build/include/opencv2/flann/saving.h \
+  C:/opencv/build/include/opencv2/flann/nn_index.h \
+  C:/opencv/build/include/opencv2/flann/result_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h \
+  C:/opencv/build/include/opencv2/flann/all_indices.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_index.h \
+  C:/opencv/build/include/opencv2/flann/dynamic_bitset.h \
+  C:/opencv/build/include/opencv2/flann/dist.h \
+  C:/opencv/build/include/opencv2/flann/heap.h \
+  C:/opencv/build/include/opencv2/flann/allocator.h \
+  C:/opencv/build/include/opencv2/flann/random.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_single_index.h \
+  C:/opencv/build/include/opencv2/flann/kmeans_index.h \
+  C:/opencv/build/include/opencv2/flann/logger.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+  C:/opencv/build/include/opencv2/flann/composite_index.h \
+  C:/opencv/build/include/opencv2/flann/linear_index.h \
+  C:/opencv/build/include/opencv2/flann/hierarchical_clustering_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_table.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iomanip \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/locale \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ctime \
+  C:/MinGW/x86_64-w64-mingw32/include/time.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_timeval.h \
+  C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_conv.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stringfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/allocator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unique_ptr.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/quoted_string.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/unordered_map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable_policy.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unordered_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/math.h \
+  C:/opencv/build/include/opencv2/flann/autotuned_index.h \
+  C:/opencv/build/include/opencv2/flann/ground_truth.h \
+  C:/opencv/build/include/opencv2/flann/index_testing.h \
+  C:/opencv/build/include/opencv2/flann/timer.h \
+  C:/opencv/build/include/opencv2/flann/sampling.h \
+  C:/opencv/build/include/opencv2/highgui.hpp \
+  C:/opencv/build/include/opencv2/imgcodecs.hpp \
+  C:/opencv/build/include/opencv2/videoio.hpp \
+  C:/opencv/build/include/opencv2/highgui/highgui_c.h \
+  C:/opencv/build/include/opencv2/imgproc/imgproc_c.h \
+  C:/opencv/build/include/opencv2/imgproc/types_c.h \
+  C:/opencv/build/include/opencv2/imgcodecs/imgcodecs_c.h \
+  C:/opencv/build/include/opencv2/videoio/videoio_c.h \
+  C:/opencv/build/include/opencv2/imgproc.hpp \
+  C:/opencv/build/include/opencv2/ml.hpp \
+  C:/opencv/build/include/opencv2/ml/ml.inl.hpp \
+  C:/opencv/build/include/opencv2/objdetect.hpp \
+  C:/opencv/build/include/opencv2/objdetect/detection_based_tracker.hpp \
+  C:/opencv/build/include/opencv2/objdetect/objdetect_c.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/deque \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_deque.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/deque.tcc \
+  C:/opencv/build/include/opencv2/photo.hpp \
+  C:/opencv/build/include/opencv2/photo/photo_c.h \
+  C:/opencv/build/include/opencv2/shape.hpp \
+  C:/opencv/build/include/opencv2/shape/emdL1.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_transformer.hpp \
+  C:/opencv/build/include/opencv2/shape/hist_cost.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_distance.hpp \
+  C:/opencv/build/include/opencv2/stitching.hpp \
+  C:/opencv/build/include/opencv2/stitching/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.hpp \
+  C:/opencv/build/include/opencv2/core/cuda_types.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers_inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/motion_estimators.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/util.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/list \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_list.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/list.tcc \
+  C:/opencv/build/include/opencv2/stitching/detail/util_inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/queue \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_queue.h \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/exposure_compensate.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/seam_finders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/blenders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/superres.hpp \
+  C:/opencv/build/include/opencv2/superres/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/video.hpp \
+  C:/opencv/build/include/opencv2/video/tracking.hpp \
+  C:/opencv/build/include/opencv2/video/background_segm.hpp \
+  C:/opencv/build/include/opencv2/video/tracking_c.h \
+  C:/opencv/build/include/opencv2/videostab.hpp \
+  C:/opencv/build/include/opencv2/videostab/stabilizer.hpp \
+  C:/opencv/build/include/opencv2/videostab/global_motion.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/fstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc \
+  C:/opencv/build/include/opencv2/videostab/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_core.hpp \
+  C:/opencv/build/include/opencv2/videostab/outlier_rejection.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_stabilizing.hpp \
+  C:/opencv/build/include/opencv2/videostab/frame_source.hpp \
+  C:/opencv/build/include/opencv2/videostab/log.hpp \
+  C:/opencv/build/include/opencv2/videostab/inpainting.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching_inl.hpp \
+  C:/opencv/build/include/opencv2/videostab/deblurring.hpp \
+  C:/opencv/build/include/opencv2/videostab/wobble_suppression.hpp \
+  C:/opencv/build/include/opencv2/videostab/ring_buffer.hpp \
+  C:/Ray\ Casting/shapes/plane/plane.h \
+  C:/Ray\ Casting/shapes/shape.h
 
 CMakeFiles/raycasting.dir/shapes/cylinder/cylinder.cpp.obj: C:/Ray\ Casting/shapes/cylinder/cylinder.cpp \
   C:/Ray\ Casting/shapes/cylinder/cylinder.h \
@@ -1087,10 +1622,51 @@ CMakeFiles/raycasting.dir/shapes/cylinder/cylinder.cpp.obj: C:/Ray\ Casting/shap
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/auto_ptr.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cmath \
   C:/MinGW/x86_64-w64-mingw32/include/math.h \
-  C:/Ray\ Casting/shapes/plane/plane.h \
-  C:/Ray\ Casting/shapes/shape.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ostream \
+  C:/opencv/build/include/opencv2/opencv.hpp \
+  C:/opencv/build/include/opencv2/opencv_modules.hpp \
+  C:/opencv/build/include/opencv2/core.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/core/hal/interface.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstddef \
+  C:/opencv/build/include/opencv2/core/cv_cpu_dispatch.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/emmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xmmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mm_malloc.h \
+  C:/opencv/build/include/opencv2/core/version.hpp \
+  C:/opencv/build/include/opencv2/core/base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/climits \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/algorithm \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algo.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/algorithmfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_heap.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uniform_int_dist.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/limits \
+  C:/opencv/build/include/opencv2/core/cvstd.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring \
+  C:/MinGW/x86_64-w64-mingw32/include/string.h \
+  C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/opencv/build/include/opencv2/core/ptr.inl.hpp \
+  C:/opencv/build/include/opencv2/core/neon_utils.hpp \
+  C:/opencv/build/include/opencv2/core/vsx_utils.hpp \
+  C:/MinGW/x86_64-w64-mingw32/include/assert.h \
+  C:/opencv/build/include/opencv2/core/traits.hpp \
+  C:/opencv/build/include/opencv2/core/matx.hpp \
+  C:/opencv/build/include/opencv2/core/saturate.hpp \
+  C:/opencv/build/include/opencv2/core/fast_math.hpp \
+  C:/opencv/build/include/opencv2/core/types.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cfloat \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h \
+  C:/MinGW/x86_64-w64-mingw32/include/float.h \
+  C:/opencv/build/include/opencv2/core/mat.hpp \
+  C:/opencv/build/include/opencv2/core/bufferpool.hpp \
+  C:/opencv/build/include/opencv2/core/mat.inl.hpp \
+  C:/opencv/build/include/opencv2/core/persistence.hpp \
+  C:/opencv/build/include/opencv2/core/operations.hpp \
+  C:/opencv/build/include/opencv2/core/cvstd.inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/complex \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ios \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ios_base.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h \
@@ -1108,10 +1684,168 @@ CMakeFiles/raycasting.dir/shapes/cylinder/cylinder.cpp.obj: C:/Ray\ Casting/shap
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets.tcc \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_ios.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ostream \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ostream.tcc \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/istream.tcc \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/math.h
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc \
+  C:/opencv/build/include/opencv2/core/utility.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/functional \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h \
+  C:/opencv/build/include/opencv2/core/core_c.h \
+  C:/opencv/build/include/opencv2/core/types_c.h \
+  C:/opencv/build/include/opencv2/core/optim.hpp \
+  C:/opencv/build/include/opencv2/core/ovx.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/calib3d.hpp \
+  C:/opencv/build/include/opencv2/features2d.hpp \
+  C:/opencv/build/include/opencv2/flann/miniflann.hpp \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/opencv/build/include/opencv2/flann/config.h \
+  C:/opencv/build/include/opencv2/core/affine.hpp \
+  C:/opencv/build/include/opencv2/calib3d/calib3d_c.h \
+  C:/opencv/build/include/opencv2/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dict.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multimap.h \
+  C:/opencv/build/include/opencv2/dnn/layer.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.inl.hpp \
+  C:/opencv/build/include/opencv2/flann.hpp \
+  C:/opencv/build/include/opencv2/flann/flann_base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cassert \
+  C:/opencv/build/include/opencv2/flann/general.h \
+  C:/opencv/build/include/opencv2/flann/matrix.h \
+  C:/opencv/build/include/opencv2/flann/params.h \
+  C:/opencv/build/include/opencv2/flann/any.h \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
+  C:/opencv/build/include/opencv2/flann/saving.h \
+  C:/opencv/build/include/opencv2/flann/nn_index.h \
+  C:/opencv/build/include/opencv2/flann/result_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h \
+  C:/opencv/build/include/opencv2/flann/all_indices.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_index.h \
+  C:/opencv/build/include/opencv2/flann/dynamic_bitset.h \
+  C:/opencv/build/include/opencv2/flann/dist.h \
+  C:/opencv/build/include/opencv2/flann/heap.h \
+  C:/opencv/build/include/opencv2/flann/allocator.h \
+  C:/opencv/build/include/opencv2/flann/random.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_single_index.h \
+  C:/opencv/build/include/opencv2/flann/kmeans_index.h \
+  C:/opencv/build/include/opencv2/flann/logger.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+  C:/opencv/build/include/opencv2/flann/composite_index.h \
+  C:/opencv/build/include/opencv2/flann/linear_index.h \
+  C:/opencv/build/include/opencv2/flann/hierarchical_clustering_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_table.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iomanip \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/locale \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ctime \
+  C:/MinGW/x86_64-w64-mingw32/include/time.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_timeval.h \
+  C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_conv.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stringfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/allocator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unique_ptr.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/quoted_string.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/unordered_map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable_policy.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unordered_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/math.h \
+  C:/opencv/build/include/opencv2/flann/autotuned_index.h \
+  C:/opencv/build/include/opencv2/flann/ground_truth.h \
+  C:/opencv/build/include/opencv2/flann/index_testing.h \
+  C:/opencv/build/include/opencv2/flann/timer.h \
+  C:/opencv/build/include/opencv2/flann/sampling.h \
+  C:/opencv/build/include/opencv2/highgui.hpp \
+  C:/opencv/build/include/opencv2/imgcodecs.hpp \
+  C:/opencv/build/include/opencv2/videoio.hpp \
+  C:/opencv/build/include/opencv2/highgui/highgui_c.h \
+  C:/opencv/build/include/opencv2/imgproc/imgproc_c.h \
+  C:/opencv/build/include/opencv2/imgproc/types_c.h \
+  C:/opencv/build/include/opencv2/imgcodecs/imgcodecs_c.h \
+  C:/opencv/build/include/opencv2/videoio/videoio_c.h \
+  C:/opencv/build/include/opencv2/imgproc.hpp \
+  C:/opencv/build/include/opencv2/ml.hpp \
+  C:/opencv/build/include/opencv2/ml/ml.inl.hpp \
+  C:/opencv/build/include/opencv2/objdetect.hpp \
+  C:/opencv/build/include/opencv2/objdetect/detection_based_tracker.hpp \
+  C:/opencv/build/include/opencv2/objdetect/objdetect_c.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/deque \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_deque.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/deque.tcc \
+  C:/opencv/build/include/opencv2/photo.hpp \
+  C:/opencv/build/include/opencv2/photo/photo_c.h \
+  C:/opencv/build/include/opencv2/shape.hpp \
+  C:/opencv/build/include/opencv2/shape/emdL1.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_transformer.hpp \
+  C:/opencv/build/include/opencv2/shape/hist_cost.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_distance.hpp \
+  C:/opencv/build/include/opencv2/stitching.hpp \
+  C:/opencv/build/include/opencv2/stitching/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.hpp \
+  C:/opencv/build/include/opencv2/core/cuda_types.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers_inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/motion_estimators.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/util.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/list \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_list.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/list.tcc \
+  C:/opencv/build/include/opencv2/stitching/detail/util_inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/queue \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_queue.h \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/exposure_compensate.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/seam_finders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/blenders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/superres.hpp \
+  C:/opencv/build/include/opencv2/superres/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/video.hpp \
+  C:/opencv/build/include/opencv2/video/tracking.hpp \
+  C:/opencv/build/include/opencv2/video/background_segm.hpp \
+  C:/opencv/build/include/opencv2/video/tracking_c.h \
+  C:/opencv/build/include/opencv2/videostab.hpp \
+  C:/opencv/build/include/opencv2/videostab/stabilizer.hpp \
+  C:/opencv/build/include/opencv2/videostab/global_motion.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/fstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc \
+  C:/opencv/build/include/opencv2/videostab/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_core.hpp \
+  C:/opencv/build/include/opencv2/videostab/outlier_rejection.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_stabilizing.hpp \
+  C:/opencv/build/include/opencv2/videostab/frame_source.hpp \
+  C:/opencv/build/include/opencv2/videostab/log.hpp \
+  C:/opencv/build/include/opencv2/videostab/inpainting.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching_inl.hpp \
+  C:/opencv/build/include/opencv2/videostab/deblurring.hpp \
+  C:/opencv/build/include/opencv2/videostab/wobble_suppression.hpp \
+  C:/opencv/build/include/opencv2/videostab/ring_buffer.hpp \
+  C:/Ray\ Casting/shapes/plane/plane.h \
+  C:/Ray\ Casting/shapes/shape.h
 
 CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.obj: C:/Ray\ Casting/shapes/mesh/mesh.cpp \
   C:/Ray\ Casting/shapes/mesh/mesh.h \
@@ -1249,11 +1983,50 @@ CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.obj: C:/Ray\ Casting/shapes/mesh/
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/auto_ptr.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cmath \
   C:/MinGW/x86_64-w64-mingw32/include/math.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/fstream \
+  C:/opencv/build/include/opencv2/opencv.hpp \
+  C:/opencv/build/include/opencv2/opencv_modules.hpp \
+  C:/opencv/build/include/opencv2/core.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/core/hal/interface.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstddef \
+  C:/opencv/build/include/opencv2/core/cv_cpu_dispatch.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/emmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xmmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mm_malloc.h \
+  C:/opencv/build/include/opencv2/core/version.hpp \
+  C:/opencv/build/include/opencv2/core/base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/climits \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/algorithm \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algo.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/algorithmfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_heap.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uniform_int_dist.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/limits \
+  C:/opencv/build/include/opencv2/core/cvstd.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring \
+  C:/MinGW/x86_64-w64-mingw32/include/string.h \
+  C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/opencv/build/include/opencv2/core/ptr.inl.hpp \
+  C:/opencv/build/include/opencv2/core/neon_utils.hpp \
+  C:/opencv/build/include/opencv2/core/vsx_utils.hpp \
+  C:/MinGW/x86_64-w64-mingw32/include/assert.h \
+  C:/opencv/build/include/opencv2/core/traits.hpp \
+  C:/opencv/build/include/opencv2/core/matx.hpp \
+  C:/opencv/build/include/opencv2/core/saturate.hpp \
+  C:/opencv/build/include/opencv2/core/fast_math.hpp \
+  C:/opencv/build/include/opencv2/core/types.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cfloat \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h \
+  C:/MinGW/x86_64-w64-mingw32/include/float.h \
+  C:/opencv/build/include/opencv2/core/mat.hpp \
+  C:/opencv/build/include/opencv2/core/bufferpool.hpp \
+  C:/opencv/build/include/opencv2/core/mat.inl.hpp \
+  C:/opencv/build/include/opencv2/core/persistence.hpp \
+  C:/opencv/build/include/opencv2/core/operations.hpp \
+  C:/opencv/build/include/opencv2/core/cvstd.inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/complex \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ios \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ios_base.h \
@@ -1275,20 +2048,65 @@ CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.obj: C:/Ray\ Casting/shapes/mesh/
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ostream \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ostream.tcc \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/istream.tcc \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/regex \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/algorithm \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algo.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/algorithmfwd.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_heap.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uniform_int_dist.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/limits \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bitset \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iterator \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stream_iterator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc \
+  C:/opencv/build/include/opencv2/core/utility.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/functional \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h \
+  C:/opencv/build/include/opencv2/core/core_c.h \
+  C:/opencv/build/include/opencv2/core/types_c.h \
+  C:/opencv/build/include/opencv2/core/optim.hpp \
+  C:/opencv/build/include/opencv2/core/ovx.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/calib3d.hpp \
+  C:/opencv/build/include/opencv2/features2d.hpp \
+  C:/opencv/build/include/opencv2/flann/miniflann.hpp \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/opencv/build/include/opencv2/flann/config.h \
+  C:/opencv/build/include/opencv2/core/affine.hpp \
+  C:/opencv/build/include/opencv2/calib3d/calib3d_c.h \
+  C:/opencv/build/include/opencv2/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dict.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multimap.h \
+  C:/opencv/build/include/opencv2/dnn/layer.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.inl.hpp \
+  C:/opencv/build/include/opencv2/flann.hpp \
+  C:/opencv/build/include/opencv2/flann/flann_base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cassert \
+  C:/opencv/build/include/opencv2/flann/general.h \
+  C:/opencv/build/include/opencv2/flann/matrix.h \
+  C:/opencv/build/include/opencv2/flann/params.h \
+  C:/opencv/build/include/opencv2/flann/any.h \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
+  C:/opencv/build/include/opencv2/flann/saving.h \
+  C:/opencv/build/include/opencv2/flann/nn_index.h \
+  C:/opencv/build/include/opencv2/flann/result_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h \
+  C:/opencv/build/include/opencv2/flann/all_indices.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_index.h \
+  C:/opencv/build/include/opencv2/flann/dynamic_bitset.h \
+  C:/opencv/build/include/opencv2/flann/dist.h \
+  C:/opencv/build/include/opencv2/flann/heap.h \
+  C:/opencv/build/include/opencv2/flann/allocator.h \
+  C:/opencv/build/include/opencv2/flann/random.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_single_index.h \
+  C:/opencv/build/include/opencv2/flann/kmeans_index.h \
+  C:/opencv/build/include/opencv2/flann/logger.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+  C:/opencv/build/include/opencv2/flann/composite_index.h \
+  C:/opencv/build/include/opencv2/flann/linear_index.h \
+  C:/opencv/build/include/opencv2/flann/hierarchical_clustering_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_table.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iomanip \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/locale \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ctime \
@@ -1297,26 +2115,102 @@ CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.obj: C:/Ray\ Casting/shapes/mesh/
   C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.tcc \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_conv.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stringfwd.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/allocator.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unique_ptr.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/stack \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/quoted_string.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/unordered_map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable_policy.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unordered_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/math.h \
+  C:/opencv/build/include/opencv2/flann/autotuned_index.h \
+  C:/opencv/build/include/opencv2/flann/ground_truth.h \
+  C:/opencv/build/include/opencv2/flann/index_testing.h \
+  C:/opencv/build/include/opencv2/flann/timer.h \
+  C:/opencv/build/include/opencv2/flann/sampling.h \
+  C:/opencv/build/include/opencv2/highgui.hpp \
+  C:/opencv/build/include/opencv2/imgcodecs.hpp \
+  C:/opencv/build/include/opencv2/videoio.hpp \
+  C:/opencv/build/include/opencv2/highgui/highgui_c.h \
+  C:/opencv/build/include/opencv2/imgproc/imgproc_c.h \
+  C:/opencv/build/include/opencv2/imgproc/types_c.h \
+  C:/opencv/build/include/opencv2/imgcodecs/imgcodecs_c.h \
+  C:/opencv/build/include/opencv2/videoio/videoio_c.h \
+  C:/opencv/build/include/opencv2/imgproc.hpp \
+  C:/opencv/build/include/opencv2/ml.hpp \
+  C:/opencv/build/include/opencv2/ml/ml.inl.hpp \
+  C:/opencv/build/include/opencv2/objdetect.hpp \
+  C:/opencv/build/include/opencv2/objdetect/detection_based_tracker.hpp \
+  C:/opencv/build/include/opencv2/objdetect/objdetect_c.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/deque \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_deque.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/deque.tcc \
+  C:/opencv/build/include/opencv2/photo.hpp \
+  C:/opencv/build/include/opencv2/photo/photo_c.h \
+  C:/opencv/build/include/opencv2/shape.hpp \
+  C:/opencv/build/include/opencv2/shape/emdL1.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_transformer.hpp \
+  C:/opencv/build/include/opencv2/shape/hist_cost.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_distance.hpp \
+  C:/opencv/build/include/opencv2/stitching.hpp \
+  C:/opencv/build/include/opencv2/stitching/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.hpp \
+  C:/opencv/build/include/opencv2/core/cuda_types.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers_inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/motion_estimators.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/util.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/list \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_list.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/list.tcc \
+  C:/opencv/build/include/opencv2/stitching/detail/util_inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/queue \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_queue.h \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/exposure_compensate.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/seam_finders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/blenders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/superres.hpp \
+  C:/opencv/build/include/opencv2/superres/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/video.hpp \
+  C:/opencv/build/include/opencv2/video/tracking.hpp \
+  C:/opencv/build/include/opencv2/video/background_segm.hpp \
+  C:/opencv/build/include/opencv2/video/tracking_c.h \
+  C:/opencv/build/include/opencv2/videostab.hpp \
+  C:/opencv/build/include/opencv2/videostab/stabilizer.hpp \
+  C:/opencv/build/include/opencv2/videostab/global_motion.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/fstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc \
+  C:/opencv/build/include/opencv2/videostab/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_core.hpp \
+  C:/opencv/build/include/opencv2/videostab/outlier_rejection.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_stabilizing.hpp \
+  C:/opencv/build/include/opencv2/videostab/frame_source.hpp \
+  C:/opencv/build/include/opencv2/videostab/log.hpp \
+  C:/opencv/build/include/opencv2/videostab/inpainting.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching_inl.hpp \
+  C:/opencv/build/include/opencv2/videostab/deblurring.hpp \
+  C:/opencv/build/include/opencv2/videostab/wobble_suppression.hpp \
+  C:/opencv/build/include/opencv2/videostab/ring_buffer.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/regex \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bitset \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iterator \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stream_iterator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/stack \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_stack.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/map \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_map.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multimap.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring \
-  C:/MinGW/x86_64-w64-mingw32/include/string.h \
-  C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_constants.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_error.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_automaton.h \
@@ -1328,8 +2222,7 @@ CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.obj: C:/Ray\ Casting/shapes/mesh/
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex.tcc \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_executor.h \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_executor.tcc \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_executor.tcc
 
 CMakeFiles/raycasting.dir/shapes/plane/plane.cpp.obj: C:/Ray\ Casting/shapes/plane/plane.cpp \
   C:/Ray\ Casting/shapes/plane/plane.h \
@@ -1466,7 +2359,229 @@ CMakeFiles/raycasting.dir/shapes/plane/plane.cpp.obj: C:/Ray\ Casting/shapes/pla
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/atomic_lockfree_defines.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/auto_ptr.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cmath \
-  C:/MinGW/x86_64-w64-mingw32/include/math.h
+  C:/MinGW/x86_64-w64-mingw32/include/math.h \
+  C:/opencv/build/include/opencv2/opencv.hpp \
+  C:/opencv/build/include/opencv2/opencv_modules.hpp \
+  C:/opencv/build/include/opencv2/core.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/core/hal/interface.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstddef \
+  C:/opencv/build/include/opencv2/core/cv_cpu_dispatch.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/emmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xmmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mm_malloc.h \
+  C:/opencv/build/include/opencv2/core/version.hpp \
+  C:/opencv/build/include/opencv2/core/base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/climits \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/algorithm \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algo.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/algorithmfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_heap.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uniform_int_dist.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/limits \
+  C:/opencv/build/include/opencv2/core/cvstd.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring \
+  C:/MinGW/x86_64-w64-mingw32/include/string.h \
+  C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/opencv/build/include/opencv2/core/ptr.inl.hpp \
+  C:/opencv/build/include/opencv2/core/neon_utils.hpp \
+  C:/opencv/build/include/opencv2/core/vsx_utils.hpp \
+  C:/MinGW/x86_64-w64-mingw32/include/assert.h \
+  C:/opencv/build/include/opencv2/core/traits.hpp \
+  C:/opencv/build/include/opencv2/core/matx.hpp \
+  C:/opencv/build/include/opencv2/core/saturate.hpp \
+  C:/opencv/build/include/opencv2/core/fast_math.hpp \
+  C:/opencv/build/include/opencv2/core/types.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cfloat \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h \
+  C:/MinGW/x86_64-w64-mingw32/include/float.h \
+  C:/opencv/build/include/opencv2/core/mat.hpp \
+  C:/opencv/build/include/opencv2/core/bufferpool.hpp \
+  C:/opencv/build/include/opencv2/core/mat.inl.hpp \
+  C:/opencv/build/include/opencv2/core/persistence.hpp \
+  C:/opencv/build/include/opencv2/core/operations.hpp \
+  C:/opencv/build/include/opencv2/core/cvstd.inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/complex \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ios \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ios_base.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/system_error \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/streambuf \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/streambuf.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_ios.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cwctype \
+  C:/MinGW/x86_64-w64-mingw32/include/wctype.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/streambuf_iterator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_ios.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ostream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ostream.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/istream.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc \
+  C:/opencv/build/include/opencv2/core/utility.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/functional \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h \
+  C:/opencv/build/include/opencv2/core/core_c.h \
+  C:/opencv/build/include/opencv2/core/types_c.h \
+  C:/opencv/build/include/opencv2/core/optim.hpp \
+  C:/opencv/build/include/opencv2/core/ovx.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/calib3d.hpp \
+  C:/opencv/build/include/opencv2/features2d.hpp \
+  C:/opencv/build/include/opencv2/flann/miniflann.hpp \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/opencv/build/include/opencv2/flann/config.h \
+  C:/opencv/build/include/opencv2/core/affine.hpp \
+  C:/opencv/build/include/opencv2/calib3d/calib3d_c.h \
+  C:/opencv/build/include/opencv2/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dict.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multimap.h \
+  C:/opencv/build/include/opencv2/dnn/layer.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.inl.hpp \
+  C:/opencv/build/include/opencv2/flann.hpp \
+  C:/opencv/build/include/opencv2/flann/flann_base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cassert \
+  C:/opencv/build/include/opencv2/flann/general.h \
+  C:/opencv/build/include/opencv2/flann/matrix.h \
+  C:/opencv/build/include/opencv2/flann/params.h \
+  C:/opencv/build/include/opencv2/flann/any.h \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
+  C:/opencv/build/include/opencv2/flann/saving.h \
+  C:/opencv/build/include/opencv2/flann/nn_index.h \
+  C:/opencv/build/include/opencv2/flann/result_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h \
+  C:/opencv/build/include/opencv2/flann/all_indices.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_index.h \
+  C:/opencv/build/include/opencv2/flann/dynamic_bitset.h \
+  C:/opencv/build/include/opencv2/flann/dist.h \
+  C:/opencv/build/include/opencv2/flann/heap.h \
+  C:/opencv/build/include/opencv2/flann/allocator.h \
+  C:/opencv/build/include/opencv2/flann/random.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_single_index.h \
+  C:/opencv/build/include/opencv2/flann/kmeans_index.h \
+  C:/opencv/build/include/opencv2/flann/logger.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+  C:/opencv/build/include/opencv2/flann/composite_index.h \
+  C:/opencv/build/include/opencv2/flann/linear_index.h \
+  C:/opencv/build/include/opencv2/flann/hierarchical_clustering_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_table.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iomanip \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/locale \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ctime \
+  C:/MinGW/x86_64-w64-mingw32/include/time.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_timeval.h \
+  C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_conv.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stringfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/allocator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unique_ptr.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/quoted_string.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/unordered_map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable_policy.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unordered_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/math.h \
+  C:/opencv/build/include/opencv2/flann/autotuned_index.h \
+  C:/opencv/build/include/opencv2/flann/ground_truth.h \
+  C:/opencv/build/include/opencv2/flann/index_testing.h \
+  C:/opencv/build/include/opencv2/flann/timer.h \
+  C:/opencv/build/include/opencv2/flann/sampling.h \
+  C:/opencv/build/include/opencv2/highgui.hpp \
+  C:/opencv/build/include/opencv2/imgcodecs.hpp \
+  C:/opencv/build/include/opencv2/videoio.hpp \
+  C:/opencv/build/include/opencv2/highgui/highgui_c.h \
+  C:/opencv/build/include/opencv2/imgproc/imgproc_c.h \
+  C:/opencv/build/include/opencv2/imgproc/types_c.h \
+  C:/opencv/build/include/opencv2/imgcodecs/imgcodecs_c.h \
+  C:/opencv/build/include/opencv2/videoio/videoio_c.h \
+  C:/opencv/build/include/opencv2/imgproc.hpp \
+  C:/opencv/build/include/opencv2/ml.hpp \
+  C:/opencv/build/include/opencv2/ml/ml.inl.hpp \
+  C:/opencv/build/include/opencv2/objdetect.hpp \
+  C:/opencv/build/include/opencv2/objdetect/detection_based_tracker.hpp \
+  C:/opencv/build/include/opencv2/objdetect/objdetect_c.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/deque \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_deque.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/deque.tcc \
+  C:/opencv/build/include/opencv2/photo.hpp \
+  C:/opencv/build/include/opencv2/photo/photo_c.h \
+  C:/opencv/build/include/opencv2/shape.hpp \
+  C:/opencv/build/include/opencv2/shape/emdL1.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_transformer.hpp \
+  C:/opencv/build/include/opencv2/shape/hist_cost.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_distance.hpp \
+  C:/opencv/build/include/opencv2/stitching.hpp \
+  C:/opencv/build/include/opencv2/stitching/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.hpp \
+  C:/opencv/build/include/opencv2/core/cuda_types.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers_inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/motion_estimators.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/util.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/list \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_list.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/list.tcc \
+  C:/opencv/build/include/opencv2/stitching/detail/util_inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/queue \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_queue.h \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/exposure_compensate.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/seam_finders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/blenders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/superres.hpp \
+  C:/opencv/build/include/opencv2/superres/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/video.hpp \
+  C:/opencv/build/include/opencv2/video/tracking.hpp \
+  C:/opencv/build/include/opencv2/video/background_segm.hpp \
+  C:/opencv/build/include/opencv2/video/tracking_c.h \
+  C:/opencv/build/include/opencv2/videostab.hpp \
+  C:/opencv/build/include/opencv2/videostab/stabilizer.hpp \
+  C:/opencv/build/include/opencv2/videostab/global_motion.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/fstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc \
+  C:/opencv/build/include/opencv2/videostab/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_core.hpp \
+  C:/opencv/build/include/opencv2/videostab/outlier_rejection.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_stabilizing.hpp \
+  C:/opencv/build/include/opencv2/videostab/frame_source.hpp \
+  C:/opencv/build/include/opencv2/videostab/log.hpp \
+  C:/opencv/build/include/opencv2/videostab/inpainting.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching_inl.hpp \
+  C:/opencv/build/include/opencv2/videostab/deblurring.hpp \
+  C:/opencv/build/include/opencv2/videostab/wobble_suppression.hpp \
+  C:/opencv/build/include/opencv2/videostab/ring_buffer.hpp
 
 CMakeFiles/raycasting.dir/shapes/shape.cpp.obj: C:/Ray\ Casting/shapes/shape.cpp \
   C:/Ray\ Casting/shapes/shape.h \
@@ -1602,7 +2717,229 @@ CMakeFiles/raycasting.dir/shapes/shape.cpp.obj: C:/Ray\ Casting/shapes/shape.cpp
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/atomic_lockfree_defines.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/auto_ptr.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cmath \
-  C:/MinGW/x86_64-w64-mingw32/include/math.h
+  C:/MinGW/x86_64-w64-mingw32/include/math.h \
+  C:/opencv/build/include/opencv2/opencv.hpp \
+  C:/opencv/build/include/opencv2/opencv_modules.hpp \
+  C:/opencv/build/include/opencv2/core.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/core/hal/interface.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstddef \
+  C:/opencv/build/include/opencv2/core/cv_cpu_dispatch.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/emmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xmmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mm_malloc.h \
+  C:/opencv/build/include/opencv2/core/version.hpp \
+  C:/opencv/build/include/opencv2/core/base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/climits \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/algorithm \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algo.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/algorithmfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_heap.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uniform_int_dist.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/limits \
+  C:/opencv/build/include/opencv2/core/cvstd.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring \
+  C:/MinGW/x86_64-w64-mingw32/include/string.h \
+  C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/opencv/build/include/opencv2/core/ptr.inl.hpp \
+  C:/opencv/build/include/opencv2/core/neon_utils.hpp \
+  C:/opencv/build/include/opencv2/core/vsx_utils.hpp \
+  C:/MinGW/x86_64-w64-mingw32/include/assert.h \
+  C:/opencv/build/include/opencv2/core/traits.hpp \
+  C:/opencv/build/include/opencv2/core/matx.hpp \
+  C:/opencv/build/include/opencv2/core/saturate.hpp \
+  C:/opencv/build/include/opencv2/core/fast_math.hpp \
+  C:/opencv/build/include/opencv2/core/types.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cfloat \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h \
+  C:/MinGW/x86_64-w64-mingw32/include/float.h \
+  C:/opencv/build/include/opencv2/core/mat.hpp \
+  C:/opencv/build/include/opencv2/core/bufferpool.hpp \
+  C:/opencv/build/include/opencv2/core/mat.inl.hpp \
+  C:/opencv/build/include/opencv2/core/persistence.hpp \
+  C:/opencv/build/include/opencv2/core/operations.hpp \
+  C:/opencv/build/include/opencv2/core/cvstd.inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/complex \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ios \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ios_base.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/system_error \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/streambuf \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/streambuf.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_ios.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cwctype \
+  C:/MinGW/x86_64-w64-mingw32/include/wctype.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/streambuf_iterator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_ios.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ostream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ostream.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/istream.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc \
+  C:/opencv/build/include/opencv2/core/utility.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/functional \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h \
+  C:/opencv/build/include/opencv2/core/core_c.h \
+  C:/opencv/build/include/opencv2/core/types_c.h \
+  C:/opencv/build/include/opencv2/core/optim.hpp \
+  C:/opencv/build/include/opencv2/core/ovx.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/calib3d.hpp \
+  C:/opencv/build/include/opencv2/features2d.hpp \
+  C:/opencv/build/include/opencv2/flann/miniflann.hpp \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/opencv/build/include/opencv2/flann/config.h \
+  C:/opencv/build/include/opencv2/core/affine.hpp \
+  C:/opencv/build/include/opencv2/calib3d/calib3d_c.h \
+  C:/opencv/build/include/opencv2/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dict.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multimap.h \
+  C:/opencv/build/include/opencv2/dnn/layer.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.inl.hpp \
+  C:/opencv/build/include/opencv2/flann.hpp \
+  C:/opencv/build/include/opencv2/flann/flann_base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cassert \
+  C:/opencv/build/include/opencv2/flann/general.h \
+  C:/opencv/build/include/opencv2/flann/matrix.h \
+  C:/opencv/build/include/opencv2/flann/params.h \
+  C:/opencv/build/include/opencv2/flann/any.h \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
+  C:/opencv/build/include/opencv2/flann/saving.h \
+  C:/opencv/build/include/opencv2/flann/nn_index.h \
+  C:/opencv/build/include/opencv2/flann/result_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h \
+  C:/opencv/build/include/opencv2/flann/all_indices.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_index.h \
+  C:/opencv/build/include/opencv2/flann/dynamic_bitset.h \
+  C:/opencv/build/include/opencv2/flann/dist.h \
+  C:/opencv/build/include/opencv2/flann/heap.h \
+  C:/opencv/build/include/opencv2/flann/allocator.h \
+  C:/opencv/build/include/opencv2/flann/random.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_single_index.h \
+  C:/opencv/build/include/opencv2/flann/kmeans_index.h \
+  C:/opencv/build/include/opencv2/flann/logger.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+  C:/opencv/build/include/opencv2/flann/composite_index.h \
+  C:/opencv/build/include/opencv2/flann/linear_index.h \
+  C:/opencv/build/include/opencv2/flann/hierarchical_clustering_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_table.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iomanip \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/locale \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ctime \
+  C:/MinGW/x86_64-w64-mingw32/include/time.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_timeval.h \
+  C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_conv.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stringfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/allocator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unique_ptr.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/quoted_string.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/unordered_map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable_policy.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unordered_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/math.h \
+  C:/opencv/build/include/opencv2/flann/autotuned_index.h \
+  C:/opencv/build/include/opencv2/flann/ground_truth.h \
+  C:/opencv/build/include/opencv2/flann/index_testing.h \
+  C:/opencv/build/include/opencv2/flann/timer.h \
+  C:/opencv/build/include/opencv2/flann/sampling.h \
+  C:/opencv/build/include/opencv2/highgui.hpp \
+  C:/opencv/build/include/opencv2/imgcodecs.hpp \
+  C:/opencv/build/include/opencv2/videoio.hpp \
+  C:/opencv/build/include/opencv2/highgui/highgui_c.h \
+  C:/opencv/build/include/opencv2/imgproc/imgproc_c.h \
+  C:/opencv/build/include/opencv2/imgproc/types_c.h \
+  C:/opencv/build/include/opencv2/imgcodecs/imgcodecs_c.h \
+  C:/opencv/build/include/opencv2/videoio/videoio_c.h \
+  C:/opencv/build/include/opencv2/imgproc.hpp \
+  C:/opencv/build/include/opencv2/ml.hpp \
+  C:/opencv/build/include/opencv2/ml/ml.inl.hpp \
+  C:/opencv/build/include/opencv2/objdetect.hpp \
+  C:/opencv/build/include/opencv2/objdetect/detection_based_tracker.hpp \
+  C:/opencv/build/include/opencv2/objdetect/objdetect_c.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/deque \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_deque.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/deque.tcc \
+  C:/opencv/build/include/opencv2/photo.hpp \
+  C:/opencv/build/include/opencv2/photo/photo_c.h \
+  C:/opencv/build/include/opencv2/shape.hpp \
+  C:/opencv/build/include/opencv2/shape/emdL1.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_transformer.hpp \
+  C:/opencv/build/include/opencv2/shape/hist_cost.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_distance.hpp \
+  C:/opencv/build/include/opencv2/stitching.hpp \
+  C:/opencv/build/include/opencv2/stitching/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.hpp \
+  C:/opencv/build/include/opencv2/core/cuda_types.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers_inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/motion_estimators.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/util.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/list \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_list.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/list.tcc \
+  C:/opencv/build/include/opencv2/stitching/detail/util_inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/queue \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_queue.h \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/exposure_compensate.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/seam_finders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/blenders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/superres.hpp \
+  C:/opencv/build/include/opencv2/superres/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/video.hpp \
+  C:/opencv/build/include/opencv2/video/tracking.hpp \
+  C:/opencv/build/include/opencv2/video/background_segm.hpp \
+  C:/opencv/build/include/opencv2/video/tracking_c.h \
+  C:/opencv/build/include/opencv2/videostab.hpp \
+  C:/opencv/build/include/opencv2/videostab/stabilizer.hpp \
+  C:/opencv/build/include/opencv2/videostab/global_motion.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/fstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc \
+  C:/opencv/build/include/opencv2/videostab/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_core.hpp \
+  C:/opencv/build/include/opencv2/videostab/outlier_rejection.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_stabilizing.hpp \
+  C:/opencv/build/include/opencv2/videostab/frame_source.hpp \
+  C:/opencv/build/include/opencv2/videostab/log.hpp \
+  C:/opencv/build/include/opencv2/videostab/inpainting.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching_inl.hpp \
+  C:/opencv/build/include/opencv2/videostab/deblurring.hpp \
+  C:/opencv/build/include/opencv2/videostab/wobble_suppression.hpp \
+  C:/opencv/build/include/opencv2/videostab/ring_buffer.hpp
 
 CMakeFiles/raycasting.dir/shapes/sphere/sphere.cpp.obj: C:/Ray\ Casting/shapes/sphere/sphere.cpp \
   C:/Ray\ Casting/shapes/sphere/sphere.h \
@@ -1739,7 +3076,229 @@ CMakeFiles/raycasting.dir/shapes/sphere/sphere.cpp.obj: C:/Ray\ Casting/shapes/s
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/atomic_lockfree_defines.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/auto_ptr.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cmath \
-  C:/MinGW/x86_64-w64-mingw32/include/math.h
+  C:/MinGW/x86_64-w64-mingw32/include/math.h \
+  C:/opencv/build/include/opencv2/opencv.hpp \
+  C:/opencv/build/include/opencv2/opencv_modules.hpp \
+  C:/opencv/build/include/opencv2/core.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/core/hal/interface.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstddef \
+  C:/opencv/build/include/opencv2/core/cv_cpu_dispatch.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/emmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xmmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mm_malloc.h \
+  C:/opencv/build/include/opencv2/core/version.hpp \
+  C:/opencv/build/include/opencv2/core/base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/climits \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/algorithm \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algo.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/algorithmfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_heap.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uniform_int_dist.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/limits \
+  C:/opencv/build/include/opencv2/core/cvstd.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring \
+  C:/MinGW/x86_64-w64-mingw32/include/string.h \
+  C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/opencv/build/include/opencv2/core/ptr.inl.hpp \
+  C:/opencv/build/include/opencv2/core/neon_utils.hpp \
+  C:/opencv/build/include/opencv2/core/vsx_utils.hpp \
+  C:/MinGW/x86_64-w64-mingw32/include/assert.h \
+  C:/opencv/build/include/opencv2/core/traits.hpp \
+  C:/opencv/build/include/opencv2/core/matx.hpp \
+  C:/opencv/build/include/opencv2/core/saturate.hpp \
+  C:/opencv/build/include/opencv2/core/fast_math.hpp \
+  C:/opencv/build/include/opencv2/core/types.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cfloat \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h \
+  C:/MinGW/x86_64-w64-mingw32/include/float.h \
+  C:/opencv/build/include/opencv2/core/mat.hpp \
+  C:/opencv/build/include/opencv2/core/bufferpool.hpp \
+  C:/opencv/build/include/opencv2/core/mat.inl.hpp \
+  C:/opencv/build/include/opencv2/core/persistence.hpp \
+  C:/opencv/build/include/opencv2/core/operations.hpp \
+  C:/opencv/build/include/opencv2/core/cvstd.inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/complex \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ios \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ios_base.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/system_error \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/streambuf \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/streambuf.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_ios.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cwctype \
+  C:/MinGW/x86_64-w64-mingw32/include/wctype.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/streambuf_iterator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_ios.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ostream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ostream.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/istream.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc \
+  C:/opencv/build/include/opencv2/core/utility.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/functional \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h \
+  C:/opencv/build/include/opencv2/core/core_c.h \
+  C:/opencv/build/include/opencv2/core/types_c.h \
+  C:/opencv/build/include/opencv2/core/optim.hpp \
+  C:/opencv/build/include/opencv2/core/ovx.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/calib3d.hpp \
+  C:/opencv/build/include/opencv2/features2d.hpp \
+  C:/opencv/build/include/opencv2/flann/miniflann.hpp \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/opencv/build/include/opencv2/flann/config.h \
+  C:/opencv/build/include/opencv2/core/affine.hpp \
+  C:/opencv/build/include/opencv2/calib3d/calib3d_c.h \
+  C:/opencv/build/include/opencv2/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dict.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multimap.h \
+  C:/opencv/build/include/opencv2/dnn/layer.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.inl.hpp \
+  C:/opencv/build/include/opencv2/flann.hpp \
+  C:/opencv/build/include/opencv2/flann/flann_base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cassert \
+  C:/opencv/build/include/opencv2/flann/general.h \
+  C:/opencv/build/include/opencv2/flann/matrix.h \
+  C:/opencv/build/include/opencv2/flann/params.h \
+  C:/opencv/build/include/opencv2/flann/any.h \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
+  C:/opencv/build/include/opencv2/flann/saving.h \
+  C:/opencv/build/include/opencv2/flann/nn_index.h \
+  C:/opencv/build/include/opencv2/flann/result_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h \
+  C:/opencv/build/include/opencv2/flann/all_indices.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_index.h \
+  C:/opencv/build/include/opencv2/flann/dynamic_bitset.h \
+  C:/opencv/build/include/opencv2/flann/dist.h \
+  C:/opencv/build/include/opencv2/flann/heap.h \
+  C:/opencv/build/include/opencv2/flann/allocator.h \
+  C:/opencv/build/include/opencv2/flann/random.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_single_index.h \
+  C:/opencv/build/include/opencv2/flann/kmeans_index.h \
+  C:/opencv/build/include/opencv2/flann/logger.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+  C:/opencv/build/include/opencv2/flann/composite_index.h \
+  C:/opencv/build/include/opencv2/flann/linear_index.h \
+  C:/opencv/build/include/opencv2/flann/hierarchical_clustering_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_table.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iomanip \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/locale \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ctime \
+  C:/MinGW/x86_64-w64-mingw32/include/time.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_timeval.h \
+  C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_conv.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stringfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/allocator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unique_ptr.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/quoted_string.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/unordered_map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable_policy.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unordered_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/math.h \
+  C:/opencv/build/include/opencv2/flann/autotuned_index.h \
+  C:/opencv/build/include/opencv2/flann/ground_truth.h \
+  C:/opencv/build/include/opencv2/flann/index_testing.h \
+  C:/opencv/build/include/opencv2/flann/timer.h \
+  C:/opencv/build/include/opencv2/flann/sampling.h \
+  C:/opencv/build/include/opencv2/highgui.hpp \
+  C:/opencv/build/include/opencv2/imgcodecs.hpp \
+  C:/opencv/build/include/opencv2/videoio.hpp \
+  C:/opencv/build/include/opencv2/highgui/highgui_c.h \
+  C:/opencv/build/include/opencv2/imgproc/imgproc_c.h \
+  C:/opencv/build/include/opencv2/imgproc/types_c.h \
+  C:/opencv/build/include/opencv2/imgcodecs/imgcodecs_c.h \
+  C:/opencv/build/include/opencv2/videoio/videoio_c.h \
+  C:/opencv/build/include/opencv2/imgproc.hpp \
+  C:/opencv/build/include/opencv2/ml.hpp \
+  C:/opencv/build/include/opencv2/ml/ml.inl.hpp \
+  C:/opencv/build/include/opencv2/objdetect.hpp \
+  C:/opencv/build/include/opencv2/objdetect/detection_based_tracker.hpp \
+  C:/opencv/build/include/opencv2/objdetect/objdetect_c.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/deque \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_deque.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/deque.tcc \
+  C:/opencv/build/include/opencv2/photo.hpp \
+  C:/opencv/build/include/opencv2/photo/photo_c.h \
+  C:/opencv/build/include/opencv2/shape.hpp \
+  C:/opencv/build/include/opencv2/shape/emdL1.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_transformer.hpp \
+  C:/opencv/build/include/opencv2/shape/hist_cost.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_distance.hpp \
+  C:/opencv/build/include/opencv2/stitching.hpp \
+  C:/opencv/build/include/opencv2/stitching/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.hpp \
+  C:/opencv/build/include/opencv2/core/cuda_types.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers_inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/motion_estimators.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/util.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/list \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_list.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/list.tcc \
+  C:/opencv/build/include/opencv2/stitching/detail/util_inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/queue \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_queue.h \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/exposure_compensate.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/seam_finders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/blenders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/superres.hpp \
+  C:/opencv/build/include/opencv2/superres/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/video.hpp \
+  C:/opencv/build/include/opencv2/video/tracking.hpp \
+  C:/opencv/build/include/opencv2/video/background_segm.hpp \
+  C:/opencv/build/include/opencv2/video/tracking_c.h \
+  C:/opencv/build/include/opencv2/videostab.hpp \
+  C:/opencv/build/include/opencv2/videostab/stabilizer.hpp \
+  C:/opencv/build/include/opencv2/videostab/global_motion.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/fstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc \
+  C:/opencv/build/include/opencv2/videostab/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_core.hpp \
+  C:/opencv/build/include/opencv2/videostab/outlier_rejection.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_stabilizing.hpp \
+  C:/opencv/build/include/opencv2/videostab/frame_source.hpp \
+  C:/opencv/build/include/opencv2/videostab/log.hpp \
+  C:/opencv/build/include/opencv2/videostab/inpainting.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching_inl.hpp \
+  C:/opencv/build/include/opencv2/videostab/deblurring.hpp \
+  C:/opencv/build/include/opencv2/videostab/wobble_suppression.hpp \
+  C:/opencv/build/include/opencv2/videostab/ring_buffer.hpp
 
 CMakeFiles/raycasting.dir/traceray/traceray.cpp.obj: C:/Ray\ Casting/traceray/traceray.cpp \
   C:/Ray\ Casting/traceray/traceray.h \
@@ -1878,19 +3437,51 @@ CMakeFiles/raycasting.dir/traceray/traceray.cpp.obj: C:/Ray\ Casting/traceray/tr
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/auto_ptr.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cmath \
   C:/MinGW/x86_64-w64-mingw32/include/math.h \
-  C:/Ray\ Casting/scene/scene.h \
-  C:/Ray\ Casting/Vector3d/Vector3d.h \
-  C:/Ray\ Casting/shapes/shape.h \
-  C:/Ray\ Casting/canvas/canvas.h \
-  C:/Ray\ Casting/Vector3d/Vector3d.h \
+  C:/opencv/build/include/opencv2/opencv.hpp \
+  C:/opencv/build/include/opencv2/opencv_modules.hpp \
+  C:/opencv/build/include/opencv2/core.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/core/hal/interface.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstddef \
+  C:/opencv/build/include/opencv2/core/cv_cpu_dispatch.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/emmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xmmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mmintrin.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mm_malloc.h \
+  C:/opencv/build/include/opencv2/core/version.hpp \
+  C:/opencv/build/include/opencv2/core/base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/climits \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/algorithm \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algo.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/algorithmfwd.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_heap.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uniform_int_dist.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/limits \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ostream \
+  C:/opencv/build/include/opencv2/core/cvstd.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring \
+  C:/MinGW/x86_64-w64-mingw32/include/string.h \
+  C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/opencv/build/include/opencv2/core/ptr.inl.hpp \
+  C:/opencv/build/include/opencv2/core/neon_utils.hpp \
+  C:/opencv/build/include/opencv2/core/vsx_utils.hpp \
+  C:/MinGW/x86_64-w64-mingw32/include/assert.h \
+  C:/opencv/build/include/opencv2/core/traits.hpp \
+  C:/opencv/build/include/opencv2/core/matx.hpp \
+  C:/opencv/build/include/opencv2/core/saturate.hpp \
+  C:/opencv/build/include/opencv2/core/fast_math.hpp \
+  C:/opencv/build/include/opencv2/core/types.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cfloat \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h \
+  C:/MinGW/x86_64-w64-mingw32/include/float.h \
+  C:/opencv/build/include/opencv2/core/mat.hpp \
+  C:/opencv/build/include/opencv2/core/bufferpool.hpp \
+  C:/opencv/build/include/opencv2/core/mat.inl.hpp \
+  C:/opencv/build/include/opencv2/core/persistence.hpp \
+  C:/opencv/build/include/opencv2/core/operations.hpp \
+  C:/opencv/build/include/opencv2/core/cvstd.inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/complex \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ios \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ios_base.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h \
@@ -1908,9 +3499,171 @@ CMakeFiles/raycasting.dir/traceray/traceray.cpp.obj: C:/Ray\ Casting/traceray/tr
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets.tcc \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_ios.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ostream \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ostream.tcc \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream \
-  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/istream.tcc
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/istream.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc \
+  C:/opencv/build/include/opencv2/core/utility.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/functional \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h \
+  C:/opencv/build/include/opencv2/core/core_c.h \
+  C:/opencv/build/include/opencv2/core/types_c.h \
+  C:/opencv/build/include/opencv2/core/optim.hpp \
+  C:/opencv/build/include/opencv2/core/ovx.hpp \
+  C:/opencv/build/include/opencv2/core/cvdef.h \
+  C:/opencv/build/include/opencv2/calib3d.hpp \
+  C:/opencv/build/include/opencv2/features2d.hpp \
+  C:/opencv/build/include/opencv2/flann/miniflann.hpp \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/opencv/build/include/opencv2/flann/config.h \
+  C:/opencv/build/include/opencv2/core/affine.hpp \
+  C:/opencv/build/include/opencv2/calib3d/calib3d_c.h \
+  C:/opencv/build/include/opencv2/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.hpp \
+  C:/opencv/build/include/opencv2/dnn/dict.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multimap.h \
+  C:/opencv/build/include/opencv2/dnn/layer.hpp \
+  C:/opencv/build/include/opencv2/dnn/dnn.inl.hpp \
+  C:/opencv/build/include/opencv2/flann.hpp \
+  C:/opencv/build/include/opencv2/flann/flann_base.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cassert \
+  C:/opencv/build/include/opencv2/flann/general.h \
+  C:/opencv/build/include/opencv2/flann/matrix.h \
+  C:/opencv/build/include/opencv2/flann/params.h \
+  C:/opencv/build/include/opencv2/flann/any.h \
+  C:/opencv/build/include/opencv2/flann/defines.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
+  C:/opencv/build/include/opencv2/flann/saving.h \
+  C:/opencv/build/include/opencv2/flann/nn_index.h \
+  C:/opencv/build/include/opencv2/flann/result_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h \
+  C:/opencv/build/include/opencv2/flann/all_indices.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_index.h \
+  C:/opencv/build/include/opencv2/flann/dynamic_bitset.h \
+  C:/opencv/build/include/opencv2/flann/dist.h \
+  C:/opencv/build/include/opencv2/flann/heap.h \
+  C:/opencv/build/include/opencv2/flann/allocator.h \
+  C:/opencv/build/include/opencv2/flann/random.h \
+  C:/opencv/build/include/opencv2/flann/kdtree_single_index.h \
+  C:/opencv/build/include/opencv2/flann/kmeans_index.h \
+  C:/opencv/build/include/opencv2/flann/logger.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/stdarg.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+  C:/opencv/build/include/opencv2/flann/composite_index.h \
+  C:/opencv/build/include/opencv2/flann/linear_index.h \
+  C:/opencv/build/include/opencv2/flann/hierarchical_clustering_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_index.h \
+  C:/opencv/build/include/opencv2/flann/lsh_table.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iomanip \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/locale \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ctime \
+  C:/MinGW/x86_64-w64-mingw32/include/time.h \
+  C:/MinGW/x86_64-w64-mingw32/include/_timeval.h \
+  C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.tcc \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_conv.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stringfwd.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/allocator.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unique_ptr.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/quoted_string.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/unordered_map \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable_policy.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unordered_map.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/math.h \
+  C:/opencv/build/include/opencv2/flann/autotuned_index.h \
+  C:/opencv/build/include/opencv2/flann/ground_truth.h \
+  C:/opencv/build/include/opencv2/flann/index_testing.h \
+  C:/opencv/build/include/opencv2/flann/timer.h \
+  C:/opencv/build/include/opencv2/flann/sampling.h \
+  C:/opencv/build/include/opencv2/highgui.hpp \
+  C:/opencv/build/include/opencv2/imgcodecs.hpp \
+  C:/opencv/build/include/opencv2/videoio.hpp \
+  C:/opencv/build/include/opencv2/highgui/highgui_c.h \
+  C:/opencv/build/include/opencv2/imgproc/imgproc_c.h \
+  C:/opencv/build/include/opencv2/imgproc/types_c.h \
+  C:/opencv/build/include/opencv2/imgcodecs/imgcodecs_c.h \
+  C:/opencv/build/include/opencv2/videoio/videoio_c.h \
+  C:/opencv/build/include/opencv2/imgproc.hpp \
+  C:/opencv/build/include/opencv2/ml.hpp \
+  C:/opencv/build/include/opencv2/ml/ml.inl.hpp \
+  C:/opencv/build/include/opencv2/objdetect.hpp \
+  C:/opencv/build/include/opencv2/objdetect/detection_based_tracker.hpp \
+  C:/opencv/build/include/opencv2/objdetect/objdetect_c.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/deque \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_deque.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/deque.tcc \
+  C:/opencv/build/include/opencv2/photo.hpp \
+  C:/opencv/build/include/opencv2/photo/photo_c.h \
+  C:/opencv/build/include/opencv2/shape.hpp \
+  C:/opencv/build/include/opencv2/shape/emdL1.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_transformer.hpp \
+  C:/opencv/build/include/opencv2/shape/hist_cost.hpp \
+  C:/opencv/build/include/opencv2/shape/shape_distance.hpp \
+  C:/opencv/build/include/opencv2/stitching.hpp \
+  C:/opencv/build/include/opencv2/stitching/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.hpp \
+  C:/opencv/build/include/opencv2/core/cuda_types.hpp \
+  C:/opencv/build/include/opencv2/core/cuda.inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers_inl.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/motion_estimators.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/util.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/list \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_list.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/list.tcc \
+  C:/opencv/build/include/opencv2/stitching/detail/util_inl.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/queue \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_queue.h \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/exposure_compensate.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/seam_finders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/blenders.hpp \
+  C:/opencv/build/include/opencv2/stitching/detail/camera.hpp \
+  C:/opencv/build/include/opencv2/superres.hpp \
+  C:/opencv/build/include/opencv2/superres/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/video.hpp \
+  C:/opencv/build/include/opencv2/video/tracking.hpp \
+  C:/opencv/build/include/opencv2/video/background_segm.hpp \
+  C:/opencv/build/include/opencv2/video/tracking_c.h \
+  C:/opencv/build/include/opencv2/videostab.hpp \
+  C:/opencv/build/include/opencv2/videostab/stabilizer.hpp \
+  C:/opencv/build/include/opencv2/videostab/global_motion.hpp \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/fstream \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc \
+  C:/opencv/build/include/opencv2/videostab/optical_flow.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_core.hpp \
+  C:/opencv/build/include/opencv2/videostab/outlier_rejection.hpp \
+  C:/opencv/build/include/opencv2/videostab/motion_stabilizing.hpp \
+  C:/opencv/build/include/opencv2/videostab/frame_source.hpp \
+  C:/opencv/build/include/opencv2/videostab/log.hpp \
+  C:/opencv/build/include/opencv2/videostab/inpainting.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching.hpp \
+  C:/opencv/build/include/opencv2/videostab/fast_marching_inl.hpp \
+  C:/opencv/build/include/opencv2/videostab/deblurring.hpp \
+  C:/opencv/build/include/opencv2/videostab/wobble_suppression.hpp \
+  C:/opencv/build/include/opencv2/videostab/ring_buffer.hpp \
+  C:/Ray\ Casting/scene/scene.h \
+  C:/Ray\ Casting/Vector3d/Vector3d.h \
+  C:/Ray\ Casting/shapes/shape.h \
+  C:/Ray\ Casting/canvas/canvas.h \
+  C:/Ray\ Casting/Vector3d/Vector3d.h
 
 
 C:/Ray\ Casting/src/include/SDL2/SDL_rect.h:
@@ -1923,19 +3676,25 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/istream.tcc:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h:
 
+C:/opencv/build/include/opencv2/video/tracking.hpp:
+
 C:/Ray\ Casting/Vector3d/Vector3d.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/wchar.h:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstddef:
+C:/Ray\ Casting/src/include/SDL2/SDL_guid.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mm_malloc.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstddef:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/cpp_type_traits.h:
 
 C:/Ray\ Casting/shapes/shape.cpp:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/vector:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h:
 
@@ -1956,6 +3715,8 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/functexcept.h:
 C:/MinGW/x86_64-w64-mingw32/include/sec_api/stdlib_s.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/exception_defines.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/unordered_map.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ext/type_traits.h:
 
@@ -1979,11 +3740,17 @@ C:/Ray\ Casting/src/include/SDL2/SDL_version.h:
 
 C:/Ray\ Casting/shapes/sphere/sphere.h:
 
+C:/opencv/build/include/opencv2/flann/lsh_index.h:
+
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/move.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/postypes.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/swprintf.inl:
+
+C:/opencv/build/include/opencv2/ml/ml.inl.hpp:
+
+C:/opencv/build/include/opencv2/flann/logger.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/streambuf.tcc:
 
@@ -1993,11 +3760,11 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/type_traits:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/exception:
 
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xsaveintrin.h:
+
 C:/MinGW/x86_64-w64-mingw32/include/time.h:
 
 C:/opencv/build/include/opencv2/core/cv_cpu_dispatch.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xsaveintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_iterator_base_types.h:
 
@@ -2011,11 +3778,19 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_iterator_base_funcs.h:
 
+C:/opencv/build/include/opencv2/superres/optical_flow.hpp:
+
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/debug/assertions.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/fxsrintrin.h:
 
+C:/opencv/build/include/opencv2/flann/index_testing.h:
+
+C:/opencv/build/include/opencv2/flann/kdtree_single_index.h:
+
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stringfwd.h:
+
+C:/opencv/build/include/opencv2/video/background_segm.hpp:
 
 C:/opencv/build/include/opencv2/opencv_modules.hpp:
 
@@ -2033,9 +3808,13 @@ C:/Ray\ Casting/scene/scene.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/cxxabi_init_exception.h:
 
+C:/opencv/build/include/opencv2/videostab/ring_buffer.hpp:
+
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/debug/debug.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h:
+
+C:/opencv/build/include/opencv2/flann/defines.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/nested_exception.h:
 
@@ -2050,6 +3829,8 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/shaintrin.h:
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/exception.h:
 
 C:/Ray\ Casting/src/include/SDL2/SDL_messagebox.h:
+
+C:/opencv/build/include/opencv2/videostab/fast_marching_inl.hpp:
 
 C:/MinGW/x86_64-w64-mingw32/include/stddef.h:
 
@@ -2081,9 +3862,13 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_uninitialized.h:
 
 C:/Ray\ Casting/shapes/plane/plane.h:
 
+C:/opencv/build/include/opencv2/flann/heap.h:
+
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/typeinfo:
 
 C:/Ray\ Casting/src/include/SDL2/SDL_stdinc.h:
+
+C:/opencv/build/include/opencv2/flann/flann_base.hpp:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/invoke.h:
 
@@ -2123,9 +3908,11 @@ C:/opencv/build/include/opencv2/imgcodecs.hpp:
 
 C:/MinGW/x86_64-w64-mingw32/include/_mingw_off_t.h:
 
+C:/Ray\ Casting/src/include/SDL2/SDL_log.h:
+
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/locale:
 
-C:/Ray\ Casting/src/include/SDL2/SDL_log.h:
+C:/opencv/build/include/opencv2/flann/any.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/_mingw_stat64.h:
 
@@ -2149,9 +3936,13 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512cdintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h:
 
+C:/opencv/build/include/opencv2/shape/hist_cost.hpp:
+
 C:/MinGW/x86_64-w64-mingw32/include/locale.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/stdio.h:
+
+C:/opencv/build/include/opencv2/stitching/detail/util_inl.hpp:
 
 C:/MinGW/x86_64-w64-mingw32/include/sec_api/stdio_s.h:
 
@@ -2189,17 +3980,23 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/gt
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h:
 
+C:/Ray\ Casting/shapes/cone/cone.h:
+
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.tcc:
+
+C:/opencv/build/include/opencv2/flann/lsh_table.h:
+
+C:/opencv/build/include/opencv2/flann/kmeans_index.h:
 
 C:/opencv/build/include/opencv2/core/neon_utils.hpp:
 
 C:/opencv/build/include/opencv2/core/cvdef.h:
 
-C:/Ray\ Casting/shapes/cone/cone.h:
-
 C:/MinGW/x86_64-w64-mingw32/include/pthread.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/errno.h:
+
+C:/opencv/build/include/opencv2/stitching/detail/matchers.hpp:
 
 C:/MinGW/x86_64-w64-mingw32/include/sys/types.h:
 
@@ -2214,6 +4011,8 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h:
 C:/MinGW/x86_64-w64-mingw32/include/limits.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/signal.h:
+
+C:/opencv/build/include/opencv2/superres.hpp:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uses_allocator.h:
 
@@ -2269,6 +4068,8 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algo.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_error.h:
 
+C:/opencv/build/include/opencv2/video/tracking_c.h:
+
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/algorithmfwd.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_heap.h:
@@ -2277,9 +4078,15 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tempbuf.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xsaveoptintrin.h:
 
+C:/opencv/build/include/opencv2/flann/kdtree_index.h:
+
+C:/opencv/build/include/opencv2/dnn/dnn.inl.hpp:
+
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/uniform_int_dist.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream:
+
+C:/opencv/build/include/opencv2/flann/ground_truth.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ios:
 
@@ -2305,9 +4112,9 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/er
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/stdexcept:
 
-C:/opencv/build/include/opencv2/core/saturate.hpp:
-
 C:/Ray\ Casting/src/include/SDL2/SDL_system.h:
+
+C:/opencv/build/include/opencv2/core/saturate.hpp:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/streambuf:
 
@@ -2328,6 +4135,10 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_ios.tcc:
 C:/Ray\ Casting/src/include/SDL2/SDL_scancode.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ostream.tcc:
+
+C:/opencv/build/include/opencv2/shape/shape_transformer.hpp:
+
+C:/opencv/build/include/opencv2/dnn/dict.hpp:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/istream:
 
@@ -2355,11 +4166,13 @@ C:/MinGW/x86_64-w64-mingw32/include/setjmp.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/shared_ptr.h:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/functional:
-
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/clzerointrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/movdirintrin.h:
+
+C:/opencv/build/include/opencv2/features2d.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/functional:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/shared_ptr_base.h:
 
@@ -2385,9 +4198,325 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_conv.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/auto_ptr.h:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/deque.tcc:
+C:/opencv/build/include/opencv2/opencv.hpp:
+
+C:/opencv/build/include/opencv2/shape/shape_distance.hpp:
+
+C:/opencv/build/include/opencv2/core.hpp:
+
+C:/opencv/build/include/opencv2/core/hal/interface.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_stack.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/emmintrin.h:
+
+C:/opencv/build/include/opencv2/videostab/global_motion.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xmmintrin.h:
+
+C:/opencv/build/include/opencv2/flann/miniflann.hpp:
+
+C:/opencv/build/include/opencv2/core/version.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/wbnoinvdintrin.h:
+
+C:/opencv/build/include/opencv2/core/base.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/climits:
+
+C:/opencv/build/include/opencv2/core/cvstd.hpp:
+
+C:/opencv/build/include/opencv2/videostab/motion_core.hpp:
+
+C:/opencv/build/include/opencv2/flann/dist.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring:
+
+C:/opencv/build/include/opencv2/objdetect/objdetect_c.h:
+
+C:/MinGW/x86_64-w64-mingw32/include/string.h:
+
+C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/quoted_string.h:
+
+C:/opencv/build/include/opencv2/core/ptr.inl.hpp:
+
+C:/Ray\ Casting/src/include/SDL2/SDL_touch.h:
+
+C:/opencv/build/include/opencv2/core/vsx_utils.hpp:
+
+C:/opencv/build/include/opencv2/stitching/detail/seam_finders.hpp:
+
+C:/MinGW/x86_64-w64-mingw32/include/assert.h:
+
+C:/opencv/build/include/opencv2/core/traits.hpp:
+
+C:/opencv/build/include/opencv2/core/matx.hpp:
+
+C:/opencv/build/include/opencv2/core/fast_math.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vbmi2vlintrin.h:
+
+C:/opencv/build/include/opencv2/core/types.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h:
+
+C:/opencv/build/include/opencv2/core/mat.hpp:
+
+C:/opencv/build/include/opencv2/core/mat.inl.hpp:
+
+C:/opencv/build/include/opencv2/core/persistence.hpp:
+
+C:/opencv/build/include/opencv2/flann/linear_index.h:
+
+C:/opencv/build/include/opencv2/core/operations.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/complex:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc:
+
+C:/opencv/build/include/opencv2/core/utility.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vbmivlintrin.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h:
+
+C:/opencv/build/include/opencv2/flann.hpp:
+
+C:/opencv/build/include/opencv2/core/types_c.h:
+
+C:/opencv/build/include/opencv2/flann/sampling.h:
+
+C:/opencv/build/include/opencv2/core/optim.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/f16cintrin.h:
+
+C:/opencv/build/include/opencv2/calib3d.hpp:
+
+C:/opencv/build/include/opencv2/stitching/detail/util.hpp:
+
+C:/opencv/build/include/opencv2/flann/config.h:
+
+C:/Ray\ Casting/src/include/SDL2/SDL_hidapi.h:
+
+C:/opencv/build/include/opencv2/core/affine.hpp:
+
+C:/opencv/build/include/opencv2/core/cuda_types.hpp:
+
+C:/opencv/build/include/opencv2/calib3d/calib3d_c.h:
+
+C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h:
+
+C:/opencv/build/include/opencv2/dnn.hpp:
+
+C:/opencv/build/include/opencv2/dnn/dnn.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/map:
+
+C:/MinGW/x86_64-w64-mingw32/include/winsdkver.h:
+
+C:/opencv/build/include/opencv2/videostab/inpainting.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h:
+
+C:/opencv/build/include/opencv2/videostab/optical_flow.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_map.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multimap.h:
+
+C:/Ray\ Casting/src/include/SDL2/SDL_sensor.h:
+
+C:/opencv/build/include/opencv2/dnn/layer.hpp:
+
+C:/Ray\ Casting/src/include/SDL2/SDL_power.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cassert:
+
+C:/opencv/build/include/opencv2/flann/general.h:
+
+C:/opencv/build/include/opencv2/flann/matrix.h:
+
+C:/opencv/build/include/opencv2/flann/params.h:
+
+C:/opencv/build/include/opencv2/stitching/warpers.hpp:
+
+C:/opencv/build/include/opencv2/flann/saving.h:
+
+C:/opencv/build/include/opencv2/flann/nn_index.h:
+
+C:/opencv/build/include/opencv2/flann/result_set.h:
+
+C:/opencv/build/include/opencv2/stitching/detail/motion_estimators.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/gfniintrin.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h:
+
+C:/opencv/build/include/opencv2/flann/all_indices.h:
+
+C:/opencv/build/include/opencv2/flann/dynamic_bitset.h:
+
+C:/opencv/build/include/opencv2/flann/allocator.h:
+
+C:/opencv/build/include/opencv2/flann/random.h:
+
+C:/MinGW/x86_64-w64-mingw32/include/stdarg.h:
+
+C:/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h:
+
+C:/opencv/build/include/opencv2/flann/autotuned_index.h:
+
+C:/opencv/build/include/opencv2/flann/composite_index.h:
+
+C:/opencv/build/include/opencv2/flann/hierarchical_clustering_index.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iomanip:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xsavesintrin.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vpopcntdqvlintrin.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/bmiintrin.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ctime:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/adxintrin.h:
+
+C:/MinGW/x86_64-w64-mingw32/include/_timeval.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/list.tcc:
+
+C:/opencv/build/include/opencv2/imgcodecs/imgcodecs_c.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/unordered_map:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iterator:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hashtable_policy.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/math.h:
+
+C:/opencv/build/include/opencv2/flann/timer.h:
+
+C:/opencv/build/include/opencv2/highgui.hpp:
+
+C:/opencv/build/include/opencv2/imgproc/imgproc_c.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vlintrin.h:
+
+C:/opencv/build/include/opencv2/imgproc/types_c.h:
+
+C:/opencv/build/include/opencv2/stitching/detail/exposure_compensate.hpp:
+
+C:/opencv/build/include/opencv2/photo/photo_c.h:
+
+C:/opencv/build/include/opencv2/videoio/videoio_c.h:
+
+C:/opencv/build/include/opencv2/stitching/detail/blenders.hpp:
+
+C:/opencv/build/include/opencv2/imgproc.hpp:
+
+C:/opencv/build/include/opencv2/ml.hpp:
+
+C:/opencv/build/include/opencv2/objdetect.hpp:
+
+C:/opencv/build/include/opencv2/shape.hpp:
+
+C:/opencv/build/include/opencv2/objdetect/detection_based_tracker.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/deque:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_deque.h:
 
 C:/Ray\ Casting/src/include/SDL2/SDL.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/deque.tcc:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/pkuintrin.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vnniintrin.h:
+
+C:/opencv/build/include/opencv2/photo.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/vaesintrin.h:
+
+C:/opencv/build/include/opencv2/shape/emdL1.hpp:
+
+C:/opencv/build/include/opencv2/stitching.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h:
+
+C:/opencv/build/include/opencv2/stitching/detail/warpers.hpp:
+
+C:/opencv/build/include/opencv2/core/cuda.hpp:
+
+C:/opencv/build/include/opencv2/core/cuda.inl.hpp:
+
+C:/opencv/build/include/opencv2/stitching/detail/warpers_inl.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_compiler.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/list:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_list.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512fintrin.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/queue:
+
+C:/Ray\ Casting/src/include/SDL2/SDL_assert.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_queue.h:
+
+C:/opencv/build/include/opencv2/stitching/detail/camera.hpp:
+
+C:/opencv/build/include/opencv2/video.hpp:
+
+C:/Ray\ Casting/src/include/SDL2/SDL_shape.h:
+
+C:/opencv/build/include/opencv2/videostab.hpp:
+
+C:/opencv/build/include/opencv2/videostab/stabilizer.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/fstream:
+
+C:/Ray\ Casting/shapes/cylinder/cylinder.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512ifmaintrin.h:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h:
+
+C:/opencv/build/include/opencv2/videostab/wobble_suppression.hpp:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc:
+
+C:/opencv/build/include/opencv2/videostab/outlier_rejection.hpp:
+
+C:/opencv/build/include/opencv2/videostab/motion_stabilizing.hpp:
+
+C:/opencv/build/include/opencv2/videostab/frame_source.hpp:
+
+C:/opencv/build/include/opencv2/videostab/log.hpp:
+
+C:/opencv/build/include/opencv2/videostab/fast_marching.hpp:
+
+C:/opencv/build/include/opencv2/videostab/deblurring.hpp:
 
 C:/Ray\ Casting/src/include/SDL2/SDL_main.h:
 
@@ -2401,19 +4530,11 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/fma4intrin.h:
 
 C:/Ray\ Casting/src/include/SDL2/close_code.h:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_tree.h:
-
-C:/MinGW/x86_64-w64-mingw32/include/winsdkver.h:
-
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512ifmavlintrin.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/winapifamily.h:
 
-C:/MinGW/x86_64-w64-mingw32/include/stdarg.h:
-
-C:/MinGW/x86_64-w64-mingw32/include/_mingw_stdarg.h:
-
-C:/Ray\ Casting/src/include/SDL2/SDL_assert.h:
+C:/MinGW/x86_64-w64-mingw32/include/sdkddkver.h:
 
 C:/Ray\ Casting/src/include/SDL2/SDL_atomic.h:
 
@@ -2439,12 +4560,6 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/x86intrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/ia32intrin.h:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xmmintrin.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_stack.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/emmintrin.h:
-
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512dqintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/pmmintrin.h:
@@ -2463,15 +4578,9 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avxintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx2intrin.h:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512fintrin.h:
-
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512erintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512pfintrin.h:
-
-C:/opencv/build/include/opencv2/imgproc/types_c.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vlintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512bwintrin.h:
 
@@ -2481,61 +4590,25 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx5124fmapsintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vlbwintrin.h:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h:
-
-C:/Ray\ Casting/shapes/cylinder/cylinder.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512ifmaintrin.h:
-
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vbmiintrin.h:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_function.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vbmivlintrin.h:
-
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vpopcntdqintrin.h:
-
-C:/opencv/build/include/opencv2/core/types.hpp:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vbmi2vlintrin.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/pkuintrin.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vnniintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_constants.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vnnivlintrin.h:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/locale_facets_nonio.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xsavesintrin.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512vpopcntdqvlintrin.h:
-
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/avx512bitalgintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/lzcntintrin.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ctime:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/bmiintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/bmi2intrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/fmaintrin.h:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/f16cintrin.h:
-
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/rtmintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xtestintrin.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multiset.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/gfniintrin.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/vaesintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/lwpintrin.h:
 
@@ -2549,17 +4622,9 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/sgxintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/pconfigintrin.h:
 
-C:/MinGW/x86_64-w64-mingw32/include/_timeval.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/adxintrin.h:
-
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/xsavecintrin.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/mwaitxintrin.h:
-
-C:/opencv/build/include/opencv2/core/base.hpp:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/wbnoinvdintrin.h:
 
 C:/Ray\ Casting/src/include/SDL2/SDL_events.h:
 
@@ -2579,15 +4644,7 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex.tcc:
 
 C:/Ray\ Casting/src/include/SDL2/SDL_gamecontroller.h:
 
-C:/Ray\ Casting/src/include/SDL2/SDL_sensor.h:
-
 C:/Ray\ Casting/src/include/SDL2/SDL_gesture.h:
-
-C:/opencv/build/include/opencv2/core/vsx_utils.hpp:
-
-C:/Ray\ Casting/src/include/SDL2/SDL_touch.h:
-
-C:/Ray\ Casting/src/include/SDL2/SDL_hidapi.h:
 
 C:/Ray\ Casting/src/include/SDL2/SDL_hints.h:
 
@@ -2595,11 +4652,7 @@ C:/Ray\ Casting/src/include/SDL2/SDL_loadso.h:
 
 C:/Ray\ Casting/src/include/SDL2/SDL_metal.h:
 
-C:/Ray\ Casting/src/include/SDL2/SDL_power.h:
-
 C:/Ray\ Casting/src/include/SDL2/SDL_render.h:
-
-C:/Ray\ Casting/src/include/SDL2/SDL_shape.h:
 
 C:/Ray\ Casting/src/include/SDL2/SDL_timer.h:
 
@@ -2611,107 +4664,17 @@ C:/Ray\ Casting/src/include/SDL2/SDL_misc.h:
 
 C:/Ray\ Casting/shapes/mesh/mesh.h:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/set:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_set.h:
-
-C:/opencv/build/include/opencv2/core.hpp:
-
-C:/opencv/build/include/opencv2/core/hal/interface.h:
-
-C:/opencv/build/include/opencv2/core/version.hpp:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/climits:
-
-C:/opencv/build/include/opencv2/core/cvstd.hpp:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstring:
-
-C:/MinGW/x86_64-w64-mingw32/include/string.h:
-
-C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h:
-
-C:/opencv/build/include/opencv2/core/ptr.inl.hpp:
-
-C:/MinGW/x86_64-w64-mingw32/include/assert.h:
-
-C:/opencv/build/include/opencv2/core/traits.hpp:
-
-C:/opencv/build/include/opencv2/core/matx.hpp:
-
-C:/opencv/build/include/opencv2/core/fast_math.hpp:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/float.h:
-
-C:/opencv/build/include/opencv2/core/mat.hpp:
-
-C:/opencv/build/include/opencv2/core/mat.inl.hpp:
-
-C:/opencv/build/include/opencv2/core/persistence.hpp:
-
-C:/opencv/build/include/opencv2/core/operations.hpp:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/complex:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc:
-
-C:/opencv/build/include/opencv2/core/utility.hpp:
-
-C:/opencv/build/include/opencv2/core/types_c.h:
-
-C:/opencv/build/include/opencv2/core/optim.hpp:
-
-C:/opencv/build/include/opencv2/highgui.hpp:
-
-C:/opencv/build/include/opencv2/imgproc/imgproc_c.h:
-
-C:/opencv/build/include/opencv2/imgcodecs/imgcodecs_c.h:
-
-C:/opencv/build/include/opencv2/videoio/videoio_c.h:
-
 C:/Ray\ Casting/traceray/traceray.h:
 
 C:/Ray\ Casting/shapes/cylinder/cylinder.cpp:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/math.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/fstream:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc:
-
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bitset:
 
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iterator:
-
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stream_iterator.h:
-
-C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/deque:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_deque.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/map:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_map.h:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_multimap.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_automaton.tcc:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_scanner.tcc:
-
-C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_compiler.h:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/regex_compiler.tcc:
 

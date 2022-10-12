@@ -5,6 +5,12 @@
 #include <memory>
 #include <cmath>
 
+#include <opencv2/opencv.hpp>
+
+#include <opencv2/core.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
+
 /*#define eps 0.0001*/
 
 struct Reflexivity
@@ -39,14 +45,19 @@ public:
     ~Shape(){};
     virtual double intersect(Vector3d p_0, Vector3d dr) = 0;
     virtual Vector3d normal(Vector3d p_i) = 0;
-    Vector3d *kd();
-    Vector3d *ke();
-    Vector3d *ka();
+    Vector3d *kd(int x, int y);
+    Vector3d *ke(int x, int y);
+    Vector3d *ka(int x, int y);
     double m();
+    bool has_texture();
+    Vector3d *get_pixel(int x, int y);
 
 private:
     Reflexivity reflexivity_;
     std::string texture_path_ = "";
+    cv::Mat img;
+    int img_w = 0;
+    int img_h = 0;
 };
 
 #endif

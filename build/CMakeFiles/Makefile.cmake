@@ -42,8 +42,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.24.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.24.2/CMakeRCCompiler.cmake"
   "CMakeFiles/3.24.2/CMakeSystem.cmake"
-  "C:/Ray Casting/src/lib/cmake/SDL2/sdl2-config-version.cmake"
-  "C:/Ray Casting/src/lib/cmake/SDL2/sdl2-config.cmake"
   "C:/opencv/build/x64/mingw/lib/OpenCVConfig-version.cmake"
   "C:/opencv/build/x64/mingw/lib/OpenCVConfig.cmake"
   "C:/opencv/build/x64/mingw/lib/OpenCVModules-release.cmake"
