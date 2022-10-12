@@ -12,15 +12,11 @@ CMakeFiles/raycasting.dir/main.cpp.obj: C:\Ray\ Casting\main.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwchar \
  c:\mingw\include\wchar.h c:\mingw\include\_mingw.h \
  c:\mingw\include\msvcrtver.h c:\mingw\include\w32api.h \
- c:\mingw\include\sdkddkver.h c:\mingw\include\wctype.h \
+ c:\mingw\include\sdkddkver.h c:\mingw\include\stdio.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\stddef.h \
- c:\mingw\include\sys\types.h c:\mingw\include\stdio.h \
- c:\mingw\include\sys/types.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h \
- c:\mingw\include\stdlib.h c:\mingw\include\direct.h \
- c:\mingw\include\sys/stat.h c:\mingw\include\io.h \
- c:\mingw\include\stdint.h c:\mingw\include\time.h \
- c:\mingw\include\locale.h c:\mingw\include\process.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\time.h \
+ c:\mingw\include\sys\types.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\exception \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_lockfree_defines.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\exception_ptr.h \
@@ -91,6 +87,7 @@ CMakeFiles/raycasting.dir/main.cpp.obj: C:\Ray\ Casting\main.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwctype \
+ c:\mingw\include\wctype.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_base.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf_iterator.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_inline.h \
@@ -148,7 +145,7 @@ CMakeFiles/raycasting.dir/main.cpp.obj: C:\Ray\ Casting\main.cpp \
  C:/RAYCAS~1/src/include/SDL2/SDL_endian.h \
  C:/RAYCAS~1/src/include/SDL2/SDL_mutex.h \
  C:/RAYCAS~1/src/include/SDL2/SDL_thread.h c:\mingw\include\process.h \
- C:/RAYCAS~1/src/include/SDL2/SDL_rwops.h \
+ c:\mingw\include\stdint.h C:/RAYCAS~1/src/include/SDL2/SDL_rwops.h \
  C:/RAYCAS~1/src/include/SDL2/SDL_clipboard.h \
  C:/RAYCAS~1/src/include/SDL2/SDL_cpuinfo.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\immintrin.h \
@@ -222,4 +219,153 @@ CMakeFiles/raycasting.dir/main.cpp.obj: C:\Ray\ Casting\main.cpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\set \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_tree.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_set.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_multiset.h
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_multiset.h \
+ C:/RAYCAS~1/magic/include/Magick++.h \
+ C:/RAYCAS~1/magic/include/Magick++/Include.h \
+ C:/RAYCAS~1/magic/include/MagickCore/magick-config.h \
+ C:/RAYCAS~1/magic/include/MagickCore/magick-baseconfig.h \
+ c:\mingw\include\time.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\math.h \
+ C:/RAYCAS~1/magic/include/MagickCore/MagickCore.h \
+ C:/RAYCAS~1/magic/include/MagickCore/method-attribute.h \
+ C:/RAYCAS~1/magic/include/MagickCore/magick-type.h \
+ C:/RAYCAS~1/magic/include/MagickCore/animate.h \
+ C:/RAYCAS~1/magic/include/MagickCore/annotate.h \
+ C:/RAYCAS~1/magic/include/MagickCore/draw.h \
+ C:/RAYCAS~1/magic/include/MagickCore/geometry.h \
+ C:/RAYCAS~1/magic/include/MagickCore/image.h \
+ C:/RAYCAS~1/magic/include/MagickCore/blob.h \
+ C:/RAYCAS~1/magic/include/MagickCore/stream.h \
+ C:/RAYCAS~1/magic/include/MagickCore/pixel.h \
+ C:/RAYCAS~1/magic/include/MagickCore/colorspace.h \
+ C:/RAYCAS~1/magic/include/MagickCore/cache-view.h \
+ C:/RAYCAS~1/magic/include/MagickCore/color.h \
+ C:/RAYCAS~1/magic/include/MagickCore/exception.h \
+ C:/RAYCAS~1/magic/include/MagickCore/semaphore.h \
+ C:/RAYCAS~1/magic/include/MagickCore/composite.h \
+ C:/RAYCAS~1/magic/include/MagickCore/compress.h \
+ C:/RAYCAS~1/magic/include/MagickCore/effect.h \
+ C:/RAYCAS~1/magic/include/MagickCore/morphology.h \
+ C:/RAYCAS~1/magic/include/MagickCore/layer.h \
+ C:/RAYCAS~1/magic/include/MagickCore/locale_.h \
+ C:/RAYCAS~1/magic/include/MagickCore/linked-list.h \
+ C:/RAYCAS~1/magic/include/MagickCore/monitor.h \
+ C:/RAYCAS~1/magic/include/MagickCore/profile.h \
+ C:/RAYCAS~1/magic/include/MagickCore/string_.h \
+ C:/RAYCAS~1/magic/include/MagickCore/quantum.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\float.h c:\mingw\include\float.h \
+ C:/RAYCAS~1/magic/include/MagickCore/resample.h \
+ C:/RAYCAS~1/magic/include/MagickCore/resize.h \
+ C:/RAYCAS~1/magic/include/MagickCore/timer.h \
+ C:/RAYCAS~1/magic/include/MagickCore/type.h \
+ C:/RAYCAS~1/magic/include/MagickCore/artifact.h \
+ C:/RAYCAS~1/magic/include/MagickCore/attribute.h \
+ C:/RAYCAS~1/magic/include/MagickCore/cache.h \
+ C:/RAYCAS~1/magic/include/MagickCore/channel.h \
+ C:/RAYCAS~1/magic/include/MagickCore/cipher.h \
+ C:/RAYCAS~1/magic/include/MagickCore/client.h \
+ C:/RAYCAS~1/magic/include/MagickCore/coder.h \
+ C:/RAYCAS~1/magic/include/MagickCore/colormap.h \
+ C:/RAYCAS~1/magic/include/MagickCore/compare.h \
+ C:/RAYCAS~1/magic/include/MagickCore/configure.h \
+ C:/RAYCAS~1/magic/include/MagickCore/constitute.h \
+ C:/RAYCAS~1/magic/include/MagickCore/decorate.h \
+ C:/RAYCAS~1/magic/include/MagickCore/delegate.h \
+ C:/RAYCAS~1/magic/include/MagickCore/deprecate.h \
+ C:/RAYCAS~1/magic/include/MagickCore/magick.h \
+ C:/RAYCAS~1/magic/include/MagickCore/display.h \
+ C:/RAYCAS~1/magic/include/MagickCore/distort.h \
+ C:/RAYCAS~1/magic/include/MagickCore/distribute-cache.h \
+ C:/RAYCAS~1/magic/include/MagickCore/enhance.h \
+ C:/RAYCAS~1/magic/include/MagickCore/feature.h \
+ C:/RAYCAS~1/magic/include/MagickCore/fourier.h \
+ C:/RAYCAS~1/magic/include/MagickCore/fx.h \
+ C:/RAYCAS~1/magic/include/MagickCore/gem.h \
+ C:/RAYCAS~1/magic/include/MagickCore/random_.h \
+ C:/RAYCAS~1/magic/include/MagickCore/histogram.h \
+ C:/RAYCAS~1/magic/include/MagickCore/identify.h \
+ C:/RAYCAS~1/magic/include/MagickCore/image-view.h \
+ C:/RAYCAS~1/magic/include/MagickCore/list.h \
+ C:/RAYCAS~1/magic/include/MagickCore/log.h \
+ C:/RAYCAS~1/magic/include/MagickCore/magic.h \
+ C:/RAYCAS~1/magic/include/MagickCore/matrix.h \
+ C:/RAYCAS~1/magic/include/MagickCore/memory_.h \
+ C:/RAYCAS~1/magic/include/MagickCore/module.h \
+ C:/RAYCAS~1/magic/include/MagickCore/version.h \
+ C:/RAYCAS~1/magic/include/MagickCore/mime.h \
+ C:/RAYCAS~1/magic/include/MagickCore/montage.h \
+ C:/RAYCAS~1/magic/include/MagickCore/opencl.h \
+ C:/RAYCAS~1/magic/include/MagickCore/option.h \
+ C:/RAYCAS~1/magic/include/MagickCore/paint.h \
+ C:/RAYCAS~1/magic/include/MagickCore/pixel-accessor.h \
+ C:/RAYCAS~1/magic/include/MagickCore/policy.h \
+ C:/RAYCAS~1/magic/include/MagickCore/prepress.h \
+ C:/RAYCAS~1/magic/include/MagickCore/property.h \
+ C:/RAYCAS~1/magic/include/MagickCore/quantize.h \
+ C:/RAYCAS~1/magic/include/MagickCore/registry.h \
+ C:/RAYCAS~1/magic/include/MagickCore/resource_.h \
+ C:/RAYCAS~1/magic/include/MagickCore/segment.h \
+ C:/RAYCAS~1/magic/include/MagickCore/shear.h \
+ C:/RAYCAS~1/magic/include/MagickCore/signature.h \
+ C:/RAYCAS~1/magic/include/MagickCore/splay-tree.h \
+ C:/RAYCAS~1/magic/include/MagickCore/static.h \
+ C:/RAYCAS~1/magic/include/MagickCore/statistic.h \
+ C:/RAYCAS~1/magic/include/MagickCore/token.h \
+ C:/RAYCAS~1/magic/include/MagickCore/transform.h \
+ C:/RAYCAS~1/magic/include/MagickCore/threshold.h \
+ C:/RAYCAS~1/magic/include/MagickCore/utility.h \
+ C:/RAYCAS~1/magic/include/MagickCore/vision.h \
+ C:/RAYCAS~1/magic/include/MagickCore/visual-effects.h \
+ C:/RAYCAS~1/magic/include/MagickCore/xml-tree.h \
+ C:/RAYCAS~1/magic/include/MagickCore/xwindow.h \
+ C:/RAYCAS~1/magic/include/MagickWand/MagickWand.h \
+ C:/RAYCAS~1/magic/include/MagickWand/method-attribute.h \
+ C:/RAYCAS~1/magic/include/MagickWand/animate.h \
+ C:/RAYCAS~1/magic/include/MagickWand/compare.h \
+ C:/RAYCAS~1/magic/include/MagickWand/composite.h \
+ C:/RAYCAS~1/magic/include/MagickWand/conjure.h \
+ C:/RAYCAS~1/magic/include/MagickWand/convert.h \
+ C:/RAYCAS~1/magic/include/MagickWand/deprecate.h \
+ C:/RAYCAS~1/magic/include/MagickWand/pixel-wand.h \
+ C:/RAYCAS~1/magic/include/MagickWand/display.h \
+ C:/RAYCAS~1/magic/include/MagickWand/drawing-wand.h \
+ C:/RAYCAS~1/magic/include/MagickWand/identify.h \
+ C:/RAYCAS~1/magic/include/MagickWand/import.h \
+ C:/RAYCAS~1/magic/include/MagickWand/wandcli.h \
+ C:/RAYCAS~1/magic/include/MagickWand/operation.h \
+ C:/RAYCAS~1/magic/include/MagickWand/magick-cli.h \
+ C:/RAYCAS~1/magic/include/MagickWand/magick-property.h \
+ C:/RAYCAS~1/magic/include/MagickWand/magick-image.h \
+ C:/RAYCAS~1/magic/include/MagickWand/mogrify.h \
+ C:/RAYCAS~1/magic/include/MagickWand/montage.h \
+ C:/RAYCAS~1/magic/include/MagickWand/pixel-iterator.h \
+ C:/RAYCAS~1/magic/include/MagickWand/stream.h \
+ C:/RAYCAS~1/magic/include/MagickWand/wand-view.h \
+ C:/RAYCAS~1/magic/include/Magick++/Functions.h \
+ C:/RAYCAS~1/magic/include/Magick++/Image.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\list \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_list.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\list.tcc \
+ C:/RAYCAS~1/magic/include/Magick++/Blob.h \
+ C:/RAYCAS~1/magic/include/Magick++/Color.h \
+ C:/RAYCAS~1/magic/include/Magick++/Drawable.h \
+ C:/RAYCAS~1/magic/include/Magick++/Geometry.h \
+ C:/RAYCAS~1/magic/include/Magick++/Exception.h \
+ C:/RAYCAS~1/magic/include/Magick++/Statistic.h \
+ C:/RAYCAS~1/magic/include/Magick++/TypeMetric.h \
+ C:/RAYCAS~1/magic/include/Magick++/Pixels.h \
+ C:/RAYCAS~1/magic/include/Magick++/ResourceLimits.h \
+ C:/RAYCAS~1/magic/include/Magick++/STL.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\algorithm \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algo.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\algorithmfwd.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_heap.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\uniform_int_dist.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\limits \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iterator \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stream_iterator.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\map \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_map.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_multimap.h \
+ C:/RAYCAS~1/magic/include/Magick++/CoderInfo.h \
+ C:/RAYCAS~1/magic/include/Magick++/Montage.h

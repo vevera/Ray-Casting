@@ -43,6 +43,14 @@
         "typeinfo": "cpp",
         "bitset": "cpp",
         "cstring": "cpp",
-        "ctime": "cpp"
+        "ctime": "cpp",
+        "bit": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "set": "cpp",
+        "regex": "cpp",
+        "string_view": "cpp",
+        "numbers": "cpp",
+        "cinttypes": "cpp"
     }
 }

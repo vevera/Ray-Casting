@@ -250,44 +250,44 @@ raycasting_OBJECTS = \
 # External object files for target raycasting
 raycasting_EXTERNAL_OBJECTS =
 
-raycasting.exe: CMakeFiles/raycasting.dir/Vector3d/Vector3d.cpp.obj
-raycasting.exe: CMakeFiles/raycasting.dir/shapes/shape.cpp.obj
-raycasting.exe: CMakeFiles/raycasting.dir/shapes/plane/plane.cpp.obj
-raycasting.exe: CMakeFiles/raycasting.dir/shapes/sphere/sphere.cpp.obj
-raycasting.exe: CMakeFiles/raycasting.dir/shapes/cylinder/cylinder.cpp.obj
-raycasting.exe: CMakeFiles/raycasting.dir/shapes/cone/cone.cpp.obj
-raycasting.exe: CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.obj
-raycasting.exe: CMakeFiles/raycasting.dir/scene/scene.cpp.obj
-raycasting.exe: CMakeFiles/raycasting.dir/canvas/canvas.cpp.obj
-raycasting.exe: CMakeFiles/raycasting.dir/traceray/traceray.cpp.obj
-raycasting.exe: CMakeFiles/raycasting.dir/main.cpp.obj
-raycasting.exe: CMakeFiles/raycasting.dir/build.make
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
-raycasting.exe: C:/Ray\ Casting/src/lib/libSDL2.dll.a
-raycasting.exe: C:/Ray\ Casting/src/lib/libSDL2main.a
-raycasting.exe: CMakeFiles/raycasting.dir/linklibs.rsp
-raycasting.exe: CMakeFiles/raycasting.dir/objects1.rsp
-raycasting.exe: CMakeFiles/raycasting.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Ray Casting\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable raycasting.exe"
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/Vector3d/Vector3d.cpp.obj
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/shapes/shape.cpp.obj
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/shapes/plane/plane.cpp.obj
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/shapes/sphere/sphere.cpp.obj
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/shapes/cylinder/cylinder.cpp.obj
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/shapes/cone/cone.cpp.obj
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.obj
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/scene/scene.cpp.obj
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/canvas/canvas.cpp.obj
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/traceray/traceray.cpp.obj
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/main.cpp.obj
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/build.make
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: D:/opencv/build/x64/vc15/lib/opencv_world455d.lib
+C:/Ray\ Casting/raycasting.exe: C:/Ray\ Casting/src/lib/libSDL2.dll.a
+C:/Ray\ Casting/raycasting.exe: C:/Ray\ Casting/src/lib/libSDL2main.a
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/linklibs.rsp
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/objects1.rsp
+C:/Ray\ Casting/raycasting.exe: CMakeFiles/raycasting.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Ray Casting\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable \"C:\Ray Casting\raycasting.exe\""
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\raycasting.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/raycasting.dir/build: raycasting.exe
+CMakeFiles/raycasting.dir/build: C:/Ray\ Casting/raycasting.exe
 .PHONY : CMakeFiles/raycasting.dir/build
 
 CMakeFiles/raycasting.dir/clean:

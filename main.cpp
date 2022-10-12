@@ -10,8 +10,8 @@
 #include "shapes/cylinder/cylinder.h"
 #include "shapes/mesh/mesh.h"
 
-//#include <opencv2/opencv.hpp>
-
+#include <opencv2/opencv.hpp>
+//#include <Magick++.h>
 using std::cout;
 
 int main(int argc, char *argv[])

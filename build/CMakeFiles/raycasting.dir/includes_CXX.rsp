@@ -1,1 +1,1 @@
--IC:/RAYCAS~1/src/include -isystem D:/opencv/build/include
+-IC:/RAYCAS~1/src/include -IC:/RAYCAS~1/opencv/include -isystem D:/opencv/build/include

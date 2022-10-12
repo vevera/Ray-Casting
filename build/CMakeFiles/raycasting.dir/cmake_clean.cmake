@@ -1,4 +1,7 @@
 file(REMOVE_RECURSE
+  "C:/Ray Casting/raycasting.exe"
+  "C:/Ray Casting/raycasting.exe.manifest"
+  "C:/Ray Casting/raycasting.pdb"
   "CMakeFiles/raycasting.dir/Vector3d/Vector3d.cpp.obj"
   "CMakeFiles/raycasting.dir/Vector3d/Vector3d.cpp.obj.d"
   "CMakeFiles/raycasting.dir/canvas/canvas.cpp.obj"
@@ -22,9 +25,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/raycasting.dir/traceray/traceray.cpp.obj"
   "CMakeFiles/raycasting.dir/traceray/traceray.cpp.obj.d"
   "libraycasting.dll.a"
-  "raycasting.exe"
-  "raycasting.exe.manifest"
-  "raycasting.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
