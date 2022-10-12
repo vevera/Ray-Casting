@@ -53,7 +53,9 @@
 #include "opencv2/core/traits.hpp"
 #include "opencv2/core/saturate.hpp"
 
+#ifdef CV_CXX11
 #include <initializer_list>
+#endif
 
 namespace cv
 {
@@ -64,14 +66,13 @@ namespace cv
 ////////////////////////////// Small Matrix ///////////////////////////
 
 //! @cond IGNORED
-// FIXIT Remove this (especially CV_EXPORTS modifier)
-struct CV_EXPORTS Matx_AddOp { Matx_AddOp() {} Matx_AddOp(const Matx_AddOp&) {} };
-struct CV_EXPORTS Matx_SubOp { Matx_SubOp() {} Matx_SubOp(const Matx_SubOp&) {} };
-struct CV_EXPORTS Matx_ScaleOp { Matx_ScaleOp() {} Matx_ScaleOp(const Matx_ScaleOp&) {} };
-struct CV_EXPORTS Matx_MulOp { Matx_MulOp() {} Matx_MulOp(const Matx_MulOp&) {} };
-struct CV_EXPORTS Matx_DivOp { Matx_DivOp() {} Matx_DivOp(const Matx_DivOp&) {} };
-struct CV_EXPORTS Matx_MatMulOp { Matx_MatMulOp() {} Matx_MatMulOp(const Matx_MatMulOp&) {} };
-struct CV_EXPORTS Matx_TOp { Matx_TOp() {} Matx_TOp(const Matx_TOp&) {} };
+struct CV_EXPORTS Matx_AddOp {};
+struct CV_EXPORTS Matx_SubOp {};
+struct CV_EXPORTS Matx_ScaleOp {};
+struct CV_EXPORTS Matx_MulOp {};
+struct CV_EXPORTS Matx_DivOp {};
+struct CV_EXPORTS Matx_MatMulOp {};
+struct CV_EXPORTS Matx_TOp {};
 //! @endcond
 
 /** @brief Template class for small matrices whose type and size are known at compilation time
@@ -117,7 +118,7 @@ public:
     //! default constructor
     Matx();
 
-    explicit Matx(_Tp v0); //!< 1x1 matrix
+    Matx(_Tp v0); //!< 1x1 matrix
     Matx(_Tp v0, _Tp v1); //!< 1x2 or 2x1 matrix
     Matx(_Tp v0, _Tp v1, _Tp v2); //!< 1x3 or 3x1 matrix
     Matx(_Tp v0, _Tp v1, _Tp v2, _Tp v3); //!< 1x4, 2x2 or 4x1 matrix
@@ -140,24 +141,17 @@ public:
          _Tp v12, _Tp v13, _Tp v14, _Tp v15); //!< 1x16, 4x4 or 16x1 matrix
     explicit Matx(const _Tp* vals); //!< initialize from a plain array
 
+#ifdef CV_CXX11
     Matx(std::initializer_list<_Tp>); //!< initialize from an initializer list
+#endif
 
-    CV_NODISCARD_STD static Matx all(_Tp alpha);
-    CV_NODISCARD_STD static Matx zeros();
-    CV_NODISCARD_STD static Matx ones();
-    CV_NODISCARD_STD static Matx eye();
-    CV_NODISCARD_STD static Matx diag(const diag_type& d);
-    /** @brief Generates uniformly distributed random numbers
-    @param a Range boundary.
-    @param b The other range boundary (boundaries don't have to be ordered, the lower boundary is inclusive,
-    the upper one is exclusive).
-     */
-    CV_NODISCARD_STD static Matx randu(_Tp a, _Tp b);
-    /** @brief Generates normally distributed random numbers
-    @param a Mean value.
-    @param b Standard deviation.
-     */
-    CV_NODISCARD_STD static Matx randn(_Tp a, _Tp b);
+    static Matx all(_Tp alpha);
+    static Matx zeros();
+    static Matx ones();
+    static Matx eye();
+    static Matx diag(const diag_type& d);
+    static Matx randu(_Tp a, _Tp b);
+    static Matx randn(_Tp a, _Tp b);
 
     //! dot product computed with the default precision
     _Tp dot(const Matx<_Tp, m, n>& v) const;
@@ -172,7 +166,7 @@ public:
     template<int m1, int n1> Matx<_Tp, m1, n1> reshape() const;
 
     //! extract part of the matrix
-    template<int m1, int n1> Matx<_Tp, m1, n1> get_minor(int base_row, int base_col) const;
+    template<int m1, int n1> Matx<_Tp, m1, n1> get_minor(int i, int j) const;
 
     //! extract the matrix row
     Matx<_Tp, 1, n> row(int i) const;
@@ -200,8 +194,8 @@ public:
     Matx<_Tp, m, n> div(const Matx<_Tp, m, n>& a) const;
 
     //! element access
-    const _Tp& operator ()(int row, int col) const;
-    _Tp& operator ()(int row, int col);
+    const _Tp& operator ()(int i, int j) const;
+    _Tp& operator ()(int i, int j);
 
     //! 1D element access
     const _Tp& operator ()(int i) const;
@@ -367,7 +361,9 @@ public:
     Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5, _Tp v6, _Tp v7, _Tp v8, _Tp v9, _Tp v10, _Tp v11, _Tp v12, _Tp v13); //!< 14-element vector constructor
     explicit Vec(const _Tp* values);
 
+#ifdef CV_CXX11
     Vec(std::initializer_list<_Tp>);
+#endif
 
     Vec(const Vec<_Tp, cn>& v);
 
@@ -393,10 +389,6 @@ public:
     _Tp& operator[](int i);
     const _Tp& operator ()(int i) const;
     _Tp& operator ()(int i);
-
-#ifdef CV_CXX11
-    Vec<_Tp, cn>& operator=(const Vec<_Tp, cn>& rhs) = default;
-#endif
 
     Vec(const Matx<_Tp, cn, 1>& a, const Matx<_Tp, cn, 1>& b, Matx_AddOp);
     Vec(const Matx<_Tp, cn, 1>& a, const Matx<_Tp, cn, 1>& b, Matx_SubOp);
@@ -673,6 +665,7 @@ Matx<_Tp, m, n>::Matx(const _Tp* values)
     for( int i = 0; i < channels; i++ ) val[i] = values[i];
 }
 
+#ifdef CV_CXX11
 template<typename _Tp, int m, int n> inline
 Matx<_Tp, m, n>::Matx(std::initializer_list<_Tp> list)
 {
@@ -683,6 +676,7 @@ Matx<_Tp, m, n>::Matx(std::initializer_list<_Tp> list)
         val[i++] = elem;
     }
 }
+#endif
 
 template<typename _Tp, int m, int n> inline
 Matx<_Tp, m, n> Matx<_Tp, m, n>::all(_Tp alpha)
@@ -755,13 +749,13 @@ Matx<_Tp, m1, n1> Matx<_Tp, m, n>::reshape() const
 
 template<typename _Tp, int m, int n>
 template<int m1, int n1> inline
-Matx<_Tp, m1, n1> Matx<_Tp, m, n>::get_minor(int base_row, int base_col) const
+Matx<_Tp, m1, n1> Matx<_Tp, m, n>::get_minor(int i, int j) const
 {
-    CV_DbgAssert(0 <= base_row && base_row+m1 <= m && 0 <= base_col && base_col+n1 <= n);
+    CV_DbgAssert(0 <= i && i+m1 <= m && 0 <= j && j+n1 <= n);
     Matx<_Tp, m1, n1> s;
     for( int di = 0; di < m1; di++ )
         for( int dj = 0; dj < n1; dj++ )
-            s(di, dj) = (*this)(base_row+di, base_col+dj);
+            s(di, dj) = (*this)(i+di, j+dj);
     return s;
 }
 
@@ -792,17 +786,17 @@ typename Matx<_Tp, m, n>::diag_type Matx<_Tp, m, n>::diag() const
 }
 
 template<typename _Tp, int m, int n> inline
-const _Tp& Matx<_Tp, m, n>::operator()(int row_idx, int col_idx) const
+const _Tp& Matx<_Tp, m, n>::operator()(int i, int j) const
 {
-    CV_DbgAssert( (unsigned)row_idx < (unsigned)m && (unsigned)col_idx < (unsigned)n );
-    return this->val[row_idx*n + col_idx];
+    CV_DbgAssert( (unsigned)i < (unsigned)m && (unsigned)j < (unsigned)n );
+    return this->val[i*n + j];
 }
 
 template<typename _Tp, int m, int n> inline
-_Tp& Matx<_Tp, m, n>::operator ()(int row_idx, int col_idx)
+_Tp& Matx<_Tp, m, n>::operator ()(int i, int j)
 {
-    CV_DbgAssert( (unsigned)row_idx < (unsigned)m && (unsigned)col_idx < (unsigned)n );
-    return val[row_idx*n + col_idx];
+    CV_DbgAssert( (unsigned)i < (unsigned)m && (unsigned)j < (unsigned)n );
+    return val[i*n + j];
 }
 
 template<typename _Tp, int m, int n> inline
@@ -1025,9 +1019,11 @@ template<typename _Tp, int cn> inline
 Vec<_Tp, cn>::Vec(const _Tp* values)
     : Matx<_Tp, cn, 1>(values) {}
 
+#ifdef CV_CXX11
 template<typename _Tp, int cn> inline
 Vec<_Tp, cn>::Vec(std::initializer_list<_Tp> list)
     : Matx<_Tp, cn, 1>(list) {}
+#endif
 
 template<typename _Tp, int cn> inline
 Vec<_Tp, cn>::Vec(const Vec<_Tp, cn>& m)
@@ -1276,34 +1272,6 @@ template<typename _Tp, int m, int n> static inline
 Matx<_Tp, m, n> operator * (double alpha, const Matx<_Tp, m, n>& a)
 {
     return Matx<_Tp, m, n>(a, alpha, Matx_ScaleOp());
-}
-
-template<typename _Tp, int m, int n> static inline
-Matx<_Tp, m, n>& operator /= (Matx<_Tp, m, n>& a, float alpha)
-{
-    for( int i = 0; i < m*n; i++ )
-        a.val[i] = a.val[i] / alpha;
-    return a;
-}
-
-template<typename _Tp, int m, int n> static inline
-Matx<_Tp, m, n>& operator /= (Matx<_Tp, m, n>& a, double alpha)
-{
-    for( int i = 0; i < m*n; i++ )
-        a.val[i] = a.val[i] / alpha;
-    return a;
-}
-
-template<typename _Tp, int m, int n> static inline
-Matx<_Tp, m, n> operator / (const Matx<_Tp, m, n>& a, float alpha)
-{
-    return Matx<_Tp, m, n>(a, 1.f/alpha, Matx_ScaleOp());
-}
-
-template<typename _Tp, int m, int n> static inline
-Matx<_Tp, m, n> operator / (const Matx<_Tp, m, n>& a, double alpha)
-{
-    return Matx<_Tp, m, n>(a, 1./alpha, Matx_ScaleOp());
 }
 
 template<typename _Tp, int m, int n> static inline

@@ -50,12 +50,13 @@ public:
     Vector3d *ka(int x, int y);
     double m();
     bool has_texture();
-    Vector3d *get_pixel(int x, int y);
+    Vector3d *get_pixel(double x, double z);
 
 private:
     Reflexivity reflexivity_;
     std::string texture_path_ = "";
     cv::Mat img;
+    Vector3d *color = nullptr;
     int img_w = 0;
     int img_h = 0;
 };

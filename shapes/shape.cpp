@@ -7,7 +7,7 @@ Shape::Shape(Reflexivity reflexivity, std::string texture_path)
     if (!texture_path.empty())
     {
         img = imread(texture_path, cv::IMREAD_COLOR);
-        cv::resize(img, img, cv::Size(200, 200), cv::INTER_LINEAR);
+        // cv::resize(img, img, cv::Size(500, 500), cv::INTER_LINEAR);
 
         img_w = img.cols;
         img_h = img.rows;
@@ -56,12 +56,20 @@ bool Shape::has_texture()
     return !texture_path_.empty();
 };
 
-Vector3d *Shape::get_pixel(int x, int y)
+Vector3d *Shape::get_pixel(double x, double z)
 {
 
-    int map_x = x % img_h;
-    int map_y = y % img_w;
-    cv::Vec3b bgrPixel = img.at<cv::Vec3b>(map_x, map_y);
+    double fx = (x - (-200.0)) / (200.0 - (-200.0));
+    double fz = (z - (-400.0)) / (0.0 - (-400.0));
 
-    return new Vector3d(bgrPixel[2] / 255.0, bgrPixel[1] / 255.0, bgrPixel[0] / 255.0);
+    int map_x = 0.0 + fx * (img_w - 1);
+    int map_z = 0.0 + fz * (img_h - 1);
+
+    cv::Vec3b bgrPixel = img.at<cv::Vec3b>(map_x, map_z);
+
+    if (color)
+        delete color;
+
+    color = new Vector3d(bgrPixel[2] / 255.0, bgrPixel[1] / 255.0, bgrPixel[0] / 255.0);
+    return color;
 }

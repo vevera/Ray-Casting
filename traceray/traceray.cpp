@@ -47,7 +47,7 @@ Vector3d trace_ray(Vector3d p_0, Vector3d dr,
 
     bool light_blocked = light_being_blocked(*closest_shape, shapes, p_i, light, lr);
 
-    color = calculate_light_intensity(light, normal, lr, v, r, *closest_shape, ambient_light, light_blocked, x, y);
+    color = calculate_light_intensity(light, normal, lr, v, r, *closest_shape, ambient_light, light_blocked, p_i.x_, p_i.z_);
 
     return color;
 }
