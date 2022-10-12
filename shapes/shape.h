@@ -5,7 +5,7 @@
 #include <memory>
 #include <cmath>
 
-#define eps 0.0001
+/*#define eps 0.0001*/
 
 struct Reflexivity
 {

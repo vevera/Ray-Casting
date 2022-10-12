@@ -44,11 +44,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.24.2/CMakeSystem.cmake"
   "C:/Ray Casting/src/lib/cmake/SDL2/sdl2-config-version.cmake"
   "C:/Ray Casting/src/lib/cmake/SDL2/sdl2-config.cmake"
-  "D:/opencv/build/x64/vc15/lib/OpenCVConfig-version.cmake"
-  "D:/opencv/build/x64/vc15/lib/OpenCVConfig.cmake"
-  "D:/opencv/build/x64/vc15/lib/OpenCVModules-debug.cmake"
-  "D:/opencv/build/x64/vc15/lib/OpenCVModules-release.cmake"
-  "D:/opencv/build/x64/vc15/lib/OpenCVModules.cmake"
+  "C:/opencv/build/x64/mingw/lib/OpenCVConfig-version.cmake"
+  "C:/opencv/build/x64/mingw/lib/OpenCVConfig.cmake"
+  "C:/opencv/build/x64/mingw/lib/OpenCVModules-release.cmake"
+  "C:/opencv/build/x64/mingw/lib/OpenCVModules.cmake"
   )
 
 # The corresponding makefile is:

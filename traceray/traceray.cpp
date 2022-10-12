@@ -99,7 +99,7 @@ bool light_being_blocked(Shape &cls_shape, vector<Shape *> &shapes,
         double s = shape->intersect(p_i, lr);
         Vector3d pi_to_light = *light.position - p_i;
         double len_pi_to_light = pi_to_light.length();
-        if (s > eps && s < len_pi_to_light)
+        if (s > 0.0001 && s < len_pi_to_light)
         {
             return true;
         }

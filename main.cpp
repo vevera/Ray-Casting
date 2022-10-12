@@ -10,12 +10,26 @@
 #include "shapes/cylinder/cylinder.h"
 #include "shapes/mesh/mesh.h"
 
-#include <opencv2/opencv.hpp>
+//#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
 //#include <Magick++.h>
 using std::cout;
-
+using namespace cv;
 int main(int argc, char *argv[])
 {
+
+    // std::string image_path = samples::findFile("./texture/wood.png");
+    Mat img = imread("wood.png", IMREAD_COLOR);
+    if (img.empty())
+    {
+        std::cout << "Could not read the image: "
+                  << "image_path" << std::endl;
+        return 1;
+    }
+    imshow("Display window", img);
+    int g = waitKey(0);
     int wCanvas, hCanvas, dJanela, rEsfera, wJanela, hJanela, nLin, nCol, z;
     Vector3d bgColor, i_f, p_f, i_a;
     wCanvas = 500;
@@ -140,50 +154,50 @@ int main(int argc, char *argv[])
 
     scene.take_a_picture(camera, vp, bgColor);
 
-    SDL_Init(SDL_INIT_EVERYTHING);
+    // SDL_Init(SDL_INIT_EVERYTHING);
 
-    SDL_Window *window = SDL_CreateWindow("Cena",
-                                          SDL_WINDOWPOS_UNDEFINED,
-                                          SDL_WINDOWPOS_UNDEFINED,
-                                          wCanvas, hCanvas,
-                                          SDL_WINDOW_ALLOW_HIGHDPI);
+    // SDL_Window *window = SDL_CreateWindow("Cena",
+    //                                       SDL_WINDOWPOS_UNDEFINED,
+    //                                       SDL_WINDOWPOS_UNDEFINED,
+    //                                       wCanvas, hCanvas,
+    //                                       SDL_WINDOW_ALLOW_HIGHDPI);
 
-    SDL_Surface *screen = SDL_GetWindowSurface(window);
+    // SDL_Surface *screen = SDL_GetWindowSurface(window);
 
-    SDL_Surface *surf = SDL_CreateRGBSurfaceFrom((void *)canvas.pixels, wCanvas, hCanvas, 24, 3 * wCanvas,
-                                                 0x000000ff, 0x0000ff00, 0x00ff0000, 0xff000000);
-    SDL_Rect offset;
+    // SDL_Surface *surf = SDL_CreateRGBSurfaceFrom((void *)canvas.pixels, wCanvas, hCanvas, 24, 3 * wCanvas,
+    //                                              0x000000ff, 0x0000ff00, 0x00ff0000, 0xff000000);
+    // SDL_Rect offset;
 
-    // Give the offsets to the rectangle
-    offset.x = 0;
-    offset.y = 0;
+    // // Give the offsets to the rectangle
+    // offset.x = 0;
+    // offset.y = 0;
 
-    // Blit the surface
-    SDL_BlitSurface(surf, NULL, screen, &offset);
-    SDL_FreeSurface(surf);
-    SDL_UpdateWindowSurface(window);
+    // // Blit the surface
+    // SDL_BlitSurface(surf, NULL, screen, &offset);
+    // SDL_FreeSurface(surf);
+    // SDL_UpdateWindowSurface(window);
 
-    if (NULL == surf)
-    {
-        std::cout << "Could not create window: " << SDL_GetError() << std::endl;
-        return 1;
-    }
+    // if (NULL == surf)
+    // {
+    //     std::cout << "Could not create window: " << SDL_GetError() << std::endl;
+    //     return 1;
+    // }
 
-    SDL_Event windowEvent;
+    // SDL_Event windowEvent;
 
-    while (true)
-    {
-        if (SDL_PollEvent(&windowEvent))
-        {
-            if (SDL_QUIT == windowEvent.type)
-            {
-                break;
-            }
-        }
-    }
+    // while (true)
+    // {
+    //     if (SDL_PollEvent(&windowEvent))
+    //     {
+    //         if (SDL_QUIT == windowEvent.type)
+    //         {
+    //             break;
+    //         }
+    //     }
+    // }
 
-    SDL_DestroyWindow(window);
-    SDL_Quit();
+    // SDL_DestroyWindow(window);
+    // SDL_Quit();
 
-    return EXIT_SUCCESS;
+    // return EXIT_SUCCESS;
 }

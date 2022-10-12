@@ -85,13 +85,13 @@ double Cone::intersect(Vector3d p_0, Vector3d dr)
         if (t_base_valid)
         {
 
-            if ((t_base <= min_cone) && t_base > eps)
+            if ((t_base <= min_cone) && t_base > 0.0001)
             {
                 type = INTERSECTION_CONE_TYPE::BASE_CONE_SURFACE;
                 return t_base;
             }
         }
-        if ((min_valid || max_valid) && min_cone > eps)
+        if ((min_valid || max_valid) && min_cone > 0.0001)
         {
             type = INTERSECTION_CONE_TYPE::CONE_SURFACE;
             return min_cone;
@@ -126,7 +126,7 @@ bool Cone::in_cone_surface(Vector3d &p0, Vector3d &dr, double &t)
 {
     Vector3d p_i = (p0 + dr * t);
     double h = (vertex_ - p_i).dot(cone_direction_);
-    return h >= eps && h <= height_;
+    return h >= 0.0001 && h <= height_;
 };
 
 bool Cone::in_base_surface(Vector3d &p0, Vector3d &dr, double &t, Vector3d &base_center_)

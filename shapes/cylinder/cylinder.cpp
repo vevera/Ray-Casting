@@ -154,7 +154,7 @@ bool Cylinder::in_cylinder_surface(Vector3d &p0, Vector3d &dr, double &t)
     Vector3d cb_pi = p_i - base_center_;
 
     double h = cb_pi.dot(cylinder_direction);
-    return h >= eps && h <= height;
+    return h >= 0.0001 && h <= height;
 }
 
 bool Cylinder::in_lid_surface(Vector3d &p0, Vector3d &dr, double &t, Vector3d &lid_center)

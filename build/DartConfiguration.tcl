@@ -64,7 +64,7 @@ UpdateType: git
 
 # Compiler info
 Compiler: C:/MinGW/bin/g++.exe
-CompilerVersion: 6.3.0
+CompilerVersion: 8.1.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 
@@ -81,7 +81,7 @@ MemoryCheckCommandOptions:
 MemoryCheckSuppressionFile: 
 
 # Coverage
-CoverageCommand: C:/MinGW/bin/gcov.exe
+CoverageCommand: C:/Users/danie/OneDrive/Imagens/mingw/x86_64-8.1.0-release-posix-seh-rt_v6-rev0/mingw64/bin/gcov.exe
 CoverageExtraFlags: -l
 
 # Testing options
