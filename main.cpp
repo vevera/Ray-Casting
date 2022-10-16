@@ -9,6 +9,10 @@
 #include <SDL2/SDL.h>
 #include "shapes/cylinder/cylinder.h"
 #include "shapes/mesh/mesh.h"
+#include "light/point/point_light.h"
+#include "light/ambient/ambient.h"
+#include "light/directional/directional.h"
+#include "light/spot/spot.h"
 
 //#include <opencv2/opencv.hpp>
 
@@ -36,7 +40,7 @@ int main(int argc, char *argv[])
     rEsfera = 40;
     wJanela = 60;
     hJanela = 60;
-    bgColor = Vector3d(0.5, 0.5, 0.5);
+    bgColor = Vector3d(0., 0., 0.);
     nLin = 500;
     nCol = 500;
     z = -dJanela;
@@ -47,8 +51,10 @@ int main(int argc, char *argv[])
     // p_f = Vector3d(0.0, -120.0, -120.0);
     i_a = Vector3d(0.3, 0.3, 0.3);
 
-    Light light(&i_f, &p_f, "point");
-    Light ambient_light(&i_a);
+    PointLight light(&i_f, &p_f);
+    Ambient ambient_light(&i_a);
+    Directional d_light(&i_f, new Vector3d(0, 0, -1));
+    Spot s_light(&i_f, new Vector3d(0, 0, -25), new Vector3d(0, 0, -1), 0.9);
 
     Vector3d camera(0, 0, 0);
 
@@ -139,14 +145,14 @@ int main(int argc, char *argv[])
     shapes.push_back(&right_wall);
     shapes.push_back(&front_wall);
     shapes.push_back(&left_wall);
-    shapes.push_back(&ceil_wall);
+    // shapes.push_back(&ceil_wall);
     shapes.push_back(&wood);
     shapes.push_back(&tree);
     shapes.push_back(&star);
     shapes.push_back(&cubo);
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
-    Scene scene(shapes, canvas, light, ambient_light);
+    Scene scene(shapes, canvas, d_light, ambient_light);
 
     ViewPort vp(wJanela, hJanela, z);
 

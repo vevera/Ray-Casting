@@ -3,11 +3,11 @@
 #include <iostream>
 Scene::Scene(std::vector<Shape *> shapes,
              Canvas canvas,
-             Light light,
-             Light ambient_light) : shapes_(shapes),
-                                    canvas_(canvas),
-                                    light_(light),
-                                    ambient_light_(ambient_light){};
+             Light &light,
+             Light &ambient_light) : shapes_(shapes),
+                                     canvas_(canvas),
+                                     light_(&light),
+                                     ambient_light_(&ambient_light){};
 
 void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor)
 {
@@ -29,7 +29,7 @@ void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor)
             Vector3d cor = trace_ray(camera, dr,
                                      vp.z, INFINITY,
                                      shapes_, bgColor,
-                                     light_, ambient_light_, c, l);
+                                     *light_, *ambient_light_, c, l);
 
             canvas_.add_pixel(cor);
         }

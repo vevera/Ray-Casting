@@ -2,6 +2,7 @@
 #include <vector>
 #include "../shapes/shape.h"
 #include "../scene/scene.h"
+#include "../light/light.h"
 #include <algorithm>
 #include <iostream>
 #include <algorithm>
@@ -10,7 +11,7 @@ using std::vector;
 Vector3d trace_ray(Vector3d p_0, Vector3d dr,
                    double t_min, double t_max,
                    vector<Shape *> &shapes, Vector3d bgcolor,
-                   Light light, Light ambient_light, int x, int y)
+                   Light &light, Light &ambient_light, int x, int y)
 {
     Vector3d color;
 
@@ -37,7 +38,8 @@ Vector3d trace_ray(Vector3d p_0, Vector3d dr,
     Vector3d normal, lr, v, r;
 
     normal = closest_shape->normal(p_i);
-    lr = *light.position - p_i;
+    lr = *light.get_l(p_i);
+    // lr = *light.position - p_i;
     lr = lr.normalize();
     v = dr * (-1);
     v = v.normalize();
@@ -52,7 +54,7 @@ Vector3d trace_ray(Vector3d p_0, Vector3d dr,
     return color;
 }
 
-Vector3d calculate_light_intensity(Light light, Vector3d &n,
+Vector3d calculate_light_intensity(Light &light, Vector3d &n,
                                    Vector3d &l, Vector3d &v,
                                    Vector3d &r, Shape &obj,
                                    Light &ambient_l, bool blocked, int x, int y)
@@ -63,21 +65,23 @@ Vector3d calculate_light_intensity(Light light, Vector3d &n,
     Vector3d *ka = obj.ka(x, y);
     double m = obj.m();
 
+    Reflexivity reflex = Reflexivity(kd, ke, ka, m);
+
     if (blocked)
     {
-        Vector3d i_a = *ambient_l.intensity * (*ka);
+        Vector3d i_a = *ambient_l.get_contribution(reflex, l, n, v, r);
 
         return i_a;
     }
 
     // diffuse reflection
-    Vector3d i_d = ((*light.intensity * (*kd)) * std::max(l.dot(n), 0.0));
+    // Vector3d i_d = ((*light.get_intensity() * (*kd)) * std::max(l.dot(n), 0.0));
     // specular reflection
-    Vector3d i_e = ((*light.intensity * (*ke)) * std::max(pow(v.dot(r), m), 0.0));
+    // Vector3d i_e = ((*light.get_intensity() * (*ke)) * std::max(pow(v.dot(r), m), 0.0));
+    Vector3d i_l = *light.get_contribution(reflex, l, n, v, r);
+    Vector3d i_a = *ambient_l.get_contribution(reflex, l, n, v, r);
 
-    Vector3d i_a = *ambient_l.intensity * (*ka);
-
-    Vector3d i_eye = i_d + i_e + i_a;
+    Vector3d i_eye = i_l + i_a;
 
     // std::cout << i_eye.toStr() << std::endl;
 
@@ -94,8 +98,8 @@ bool light_being_blocked(Shape &cls_shape, vector<Shape *> &shapes,
     for (auto shape : shapes)
     {
         double s = shape->intersect(p_i, lr);
-        Vector3d pi_to_light = *light.position - p_i;
-        double len_pi_to_light = pi_to_light.length();
+        // Vector3d pi_to_light = *light.get_l(p_i);
+        double len_pi_to_light = light.get_distance_from_p(p_i);
         if (s > 0.0001 && s < len_pi_to_light)
         {
             return true;

@@ -32,7 +32,12 @@ add_executable(raycasting
                 shapes/cone/cone.cpp 
                 shapes/mesh/mesh.cpp 
                 scene/scene.cpp 
-                canvas/canvas.cpp 
+                canvas/canvas.cpp
+                light/light.cpp
+                light/point/point_light.cpp
+                light/ambient/ambient.cpp
+                light/directional/directional.cpp
+                light/spot/spot.cpp
                 traceray/traceray.cpp 
                 main.cpp)
 
