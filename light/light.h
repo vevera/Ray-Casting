@@ -36,9 +36,9 @@ class Light
 {
 protected:
     Vector3d *intensity_;
-    Vector3d *position_;
 
 public:
+    Vector3d *position_;
     Light(Vector3d *intensity);
     Light(Vector3d *intensity, Vector3d *position);
     ~Light(){};

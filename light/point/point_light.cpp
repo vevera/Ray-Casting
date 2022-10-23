@@ -1,6 +1,7 @@
 #include "point_light.h"
 #include "../../Vector3d/Vector3d.h"
 #include "../../shapes/shape.h"
+#include <memory>
 
 PointLight::PointLight(Vector3d *intensity) : Light(intensity){};
 PointLight::PointLight(Vector3d *intensity, Vector3d *position) : Light(intensity, position){};
@@ -12,13 +13,8 @@ Vector3d *PointLight::get_intensity()
 
 Vector3d *PointLight::get_l(Vector3d &p)
 {
-
-    double x = this->position_->x_ - p.x_;
-    double y = this->position_->y_ - p.y_;
-    double z = this->position_->z_ - p.z_;
-
-    Vector3d *l = new Vector3d(x, y, z);
-    l->normalize();
+    Vector3d *l = *this->position_ - &p;
+    *l = l->normalize();
     return l;
 }
 

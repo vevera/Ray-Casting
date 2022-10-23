@@ -13,6 +13,30 @@
 
 /*#define eps 0.0001*/
 
+enum Axis
+{
+    X_AXIS,
+    Y_AXIS,
+    Z_AXIS
+};
+
+enum ReflectionPlane
+{
+    XY_PLANE,
+    YZ_PLANE,
+    XZ_PLANE
+};
+
+enum ShearingTypes
+{
+    XZ,
+    ZX,
+    YZ,
+    ZY,
+    XY,
+    YX
+};
+
 struct Reflexivity
 {
     Vector3d *kd;
@@ -43,14 +67,27 @@ class Shape
 public:
     Shape(Reflexivity reflexivity, std::string texture_path);
     ~Shape(){};
+
     virtual double intersect(Vector3d p_0, Vector3d dr) = 0;
     virtual Vector3d normal(Vector3d p_i) = 0;
+
     Vector3d *kd(int x, int y);
     Vector3d *ke(int x, int y);
     Vector3d *ka(int x, int y);
     double m();
+
     bool has_texture();
     Vector3d *get_pixel(double x, double z);
+
+    // transformations
+
+    // virtual void scaleX(double scale_factor) = 0;
+    // virtual void scaleY(double scale_factor) = 0;
+    // virtual void scaleZ(double scale_factor) = 0;
+    // virtual void translate(Vector3d target_position) = 0;
+    // virtual void rotate(Axis rotation_axis, double angle) = 0;
+    // virtual void shearing(Axis shearing_axis, double sh_1, double sh_2) = 0;
+    // virtual void reflection(ReflectionPlane r_plane) = 0;
 
 private:
     Reflexivity reflexivity_;

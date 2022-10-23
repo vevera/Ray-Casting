@@ -46,16 +46,25 @@ int main(int argc, char *argv[])
     z = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
-    // p_f = Vector3d(0, 60.0, -30.0);
     p_f = Vector3d(-100.0, 140.0, -20.0);
-    // p_f = Vector3d(0.0, -120.0, -120.0);
     i_a = Vector3d(0.3, 0.3, 0.3);
+
+    std::vector<Light *> lights;
 
     PointLight light(&i_f, &p_f);
     Ambient ambient_light(&i_a);
-    Directional d_light(&i_f, new Vector3d(0, 0, -1));
-    Spot s_light(&i_f, new Vector3d(0, 0, -25), new Vector3d(0, 0, -1), 0.9);
+    Directional d_light(&i_f, new Vector3d(0, -1, 0));
+    Spot s_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0.5, -1), 0.2);
 
+    Spot s1_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0, -1), 0.9);
+
+    // lights.push_back(&light);
+    // lights.push_back(&ambient_light);
+    //  lights.push_back(&d_light);
+    lights.push_back(&s_light);
+    lights.push_back(&s1_light);
+    std::vector<Shape *>
+        shapes;
     Vector3d camera(0, 0, 0);
 
     Vector3d k = Vector3d(0.3, 0.55, 0.3);
@@ -86,6 +95,9 @@ int main(int argc, char *argv[])
 
     Cone cone(reflex_c, Vector3d(0, 20, -100),
               (1.5 * 50) / 2, Vector3d(0, 1, -0.5).normalize(), 1.5 * 20);
+
+    Cone cone_1(reflex_c, Vector3d(0, 0, -45),
+                (1.5 * 50) / 10, Vector3d(0, -1, -1).normalize(), 0.2 * 20);
 
     Vector3d vertex = centro_cone;
     vertex.y_ = vertex.y_ + 50.0;
@@ -133,8 +145,22 @@ int main(int argc, char *argv[])
 
     Mesh cubo(reflex_gift, "blender objects/cubo_17.obj");
 
-    std::vector<Shape *>
-        shapes;
+    // cubo.rotate(Axis::Y_AXIS, 45);
+    // cubo.rotate(Axis::X_AXIS, 300);
+
+    cubo.scale(Vector3d(20, 20, 20));
+    // cubo.shearing(ShearingTypes::XZ, 43);
+    // cubo.rotate(Axis::X_AXIS, 20);
+    cubo.translate(Vector3d(0, -130, -165));
+
+    // Mesh r_c = cubo;
+    // r_c.reflection(ReflectionPlane::XY_PLANE);
+    // cubo.translate(Vector3d(0, -150, -165));
+
+    //   cubo.scale(Vector3d(10, 10, 10));
+
+    //  cubo.scale(Vector3d(1, 1, 0.3));
+
     // shapes.push_back(&background);
     // shapes.push_back(&floor);
     // shapes.push_back(&sphere);
@@ -145,14 +171,15 @@ int main(int argc, char *argv[])
     shapes.push_back(&right_wall);
     shapes.push_back(&front_wall);
     shapes.push_back(&left_wall);
-    // shapes.push_back(&ceil_wall);
+    shapes.push_back(&ceil_wall);
     shapes.push_back(&wood);
     shapes.push_back(&tree);
     shapes.push_back(&star);
+    // shapes.push_back(&r_c);
     shapes.push_back(&cubo);
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
-    Scene scene(shapes, canvas, d_light, ambient_light);
+    Scene scene(shapes, canvas, lights);
 
     ViewPort vp(wJanela, hJanela, z);
 

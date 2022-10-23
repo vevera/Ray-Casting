@@ -44,6 +44,12 @@ public:
     double intersect(Vector3d p_0, Vector3d dr);
     Vector3d normal(Vector3d p_i);
 
+    void scale(Vector3d scale_factor);
+    void translate(Vector3d target_position);
+    void rotate(Axis rotation_axis, double angle);
+    void shearing(ShearingTypes shearing_axis, double angle);
+    void reflection(ReflectionPlane r_plane);
+
 private:
     std::vector<Vector3d> vertex_list = {Vector3d(0, 0, 0)};
     std::vector<Vector3d> normal_list = {Vector3d(0, 0, 0)};

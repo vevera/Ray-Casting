@@ -5,16 +5,20 @@ include(CTest)
 enable_testing()
 
 list(APPEND CMAKE_PREFIX_PATH src/lib/cmake/SDL2/)
+#list(APPEND CMAKE_PREFIX_PATH eigen-3.4.0/cmake/)
 #list(APPEND CMAKE_PREFIX_PATH C:/opencv/build/x64/mingw/lib)
 #find_package(SDL2 REQUIRED)
 #find_package(OpenCV REQUIRED)
+# set(Eigen3_DIR "eigen-3.4.0/cmake/")
+# find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+
 
 
 set(SDL2_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/src/include")
 set(SDL2_LIB_DIR "${CMAKE_CURRENT_LIST_DIR}/src/lib")
 set(OpenCV_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/opencv/include")
 set(OpenCV_LIB_DIRS "${CMAKE_CURRENT_LIST_DIR}/opencv/lib")
-
+#set(EIGEN_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/eigen-3.4.0/Eigen")
 
 message("${SDL2_INCLUDE_DIRS}")
 message("${OpenCV_LIBS}")

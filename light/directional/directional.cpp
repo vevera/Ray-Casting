@@ -15,7 +15,7 @@ Vector3d *Directional::get_intensity()
 
 Vector3d *Directional::get_l(Vector3d &p)
 {
-    Vector3d l = *this->direction_ * -1;
+    Vector3d l = (*this->direction_ * -1).normalize();
     return new Vector3d(l.x_, l.y_, l.z_);
 }
 

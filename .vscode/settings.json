@@ -51,6 +51,8 @@
         "regex": "cpp",
         "string_view": "cpp",
         "numbers": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "dense": "cpp",
+        "thread": "cpp"
     }
 }

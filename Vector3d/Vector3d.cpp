@@ -1,17 +1,47 @@
 #include "Vector3d.h"
 
 #include <cmath>
-
+#include <algorithm>
+#include <iostream>
 using std::vector;
 
 Vector3d::Vector3d(double x, double y, double z) : x_(x), y_(y), z_(z), w_(1){};
 
 Vector3d::Vector3d(double x, double y, double z, double w) : x_(x), y_(y), z_(z), w_(w){};
 
+double Vector3d::get(int el)
+{
+
+    switch (el)
+    {
+    case 0:
+        return x_;
+        break;
+    case 1:
+        return y_;
+        break;
+    case 2:
+        return z_;
+        break;
+    case 3:
+        return w_;
+        break;
+    default:
+        return 0;
+        break;
+    }
+}
+
 Vector3d Vector3d::operator+(Vector3d const &op)
 {
 
     return Vector3d(x_ + op.x_, y_ + op.y_, z_ + op.z_);
+};
+
+Vector3d *Vector3d::operator+(Vector3d const *op)
+{
+
+    return new Vector3d(x_ + op->x_, y_ + op->y_, z_ + op->z_);
 };
 
 Vector3d Vector3d::operator-(Vector3d const &op)
@@ -20,10 +50,22 @@ Vector3d Vector3d::operator-(Vector3d const &op)
     return Vector3d(x_ - op.x_, y_ - op.y_, z_ - op.z_);
 };
 
+Vector3d *Vector3d::operator-(Vector3d const *op)
+{
+
+    return new Vector3d(x_ - op->x_, y_ - op->y_, z_ - op->z_);
+};
+
 Vector3d Vector3d::operator*(Vector3d const &op)
 {
 
     return Vector3d(x_ * op.x_, y_ * op.y_, z_ * op.z_);
+};
+
+Vector3d *Vector3d::operator*(Vector3d const *op)
+{
+
+    return new Vector3d(x_ * op->x_, y_ * op->y_, z_ * op->z_);
 };
 
 Vector3d Vector3d::operator*(double const &scalar)
@@ -38,6 +80,12 @@ Vector3d Vector3d::operator/(Vector3d const &op)
     return Vector3d(x_ / op.x_, y_ / op.y_, z_ / op.z_);
 };
 
+Vector3d *Vector3d::operator/(Vector3d const *op)
+{
+
+    return new Vector3d(x_ / op->x_, y_ / op->y_, z_ / op->z_);
+};
+
 Vector3d Vector3d::operator/(double const &div)
 {
     return Vector3d(x_ / div, y_ / div, z_ / div);
@@ -47,6 +95,12 @@ double Vector3d::dot(Vector3d const &vector)
 {
 
     return (x_ * vector.x_) + (y_ * vector.y_) + (z_ * vector.z_);
+};
+
+double Vector3d::dot4d(Vector3d const &vector)
+{
+
+    return (x_ * vector.x_) + (y_ * vector.y_) + (z_ * vector.z_) + (w_ * vector.w_);
 };
 
 Vector3d Vector3d::cross_product(Vector3d const &op)
@@ -81,10 +135,24 @@ std::vector<Vector3d> Vector3d::subtraction(std::vector<Vector3d> &m1, std::vect
 
 Vector3d Vector3d::mult_vector_matriz(std::vector<Vector3d> &matriz)
 {
-    double x = this->dot(matriz.at(0));
-    double y = this->dot(matriz.at(1));
-    double z = this->dot(matriz.at(2));
+    double x, y, z, w;
+
+    x = this->dot(matriz.at(0));
+    y = this->dot(matriz.at(1));
+    z = this->dot(matriz.at(2));
+
     return Vector3d(x, y, z);
+}
+
+Vector3d Vector3d::mult_vector_matriz4d(std::vector<Vector3d> &matriz)
+{
+    double x, y, z;
+
+    x = this->dot4d(matriz.at(0));
+    y = this->dot4d(matriz.at(1));
+    z = this->dot4d(matriz.at(2));
+
+    return Vector3d(x, y, z, 1);
 }
 
 double Vector3d::length()
@@ -95,6 +163,7 @@ double Vector3d::length()
 
 Vector3d Vector3d::normalize()
 {
+    //*this = *this / this->length();
     return *this / this->length();
 };
 
@@ -106,5 +175,6 @@ std::string Vector3d::toStr()
     out += std::to_string(x_) + "/";
     out += std::to_string(y_) + "/";
     out += std::to_string(z_) + "/";
+    out += std::to_string(w_) + "/";
     return out;
 }

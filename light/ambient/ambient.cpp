@@ -12,7 +12,7 @@ Vector3d *Ambient::get_intensity()
 
 Vector3d *Ambient::get_l(Vector3d &p)
 {
-    return nullptr;
+    return new Vector3d(0, 0, 0);
 }
 
 Vector3d *Ambient::get_contribution(Reflexivity &reflex,
@@ -22,11 +22,7 @@ Vector3d *Ambient::get_contribution(Reflexivity &reflex,
                                     Vector3d &r)
 {
     Vector3d *ka = reflex.ka;
-
-    double x = this->intensity_->x_ * ka->x_;
-    double y = this->intensity_->y_ * ka->y_;
-    double z = this->intensity_->z_ * ka->z_;
-    return new Vector3d(x, y, z);
+    return *this->intensity_ * ka;
 }
 
 double Ambient::get_distance_from_p(Vector3d p_i)

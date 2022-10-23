@@ -55,14 +55,15 @@ class Scene
 {
 
 public:
-    Scene(std::vector<Shape *> shapes, Canvas canvas, Light &light, Light &ambient_light);
+    Scene(std::vector<Shape *> shapes, Canvas canvas, std::vector<Light *> lights);
     void take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor);
 
 private:
     std::vector<Shape *> shapes_;
     Canvas canvas_;
-    Light *light_;
-    Light *ambient_light_;
+    std::vector<Light *> lights_;
+    // Light *light_;
+    // Light *ambient_light_;
 };
 
 #endif

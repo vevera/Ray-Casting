@@ -9,7 +9,7 @@ Spot::Spot(Vector3d *intensity,
                            direction_(direction),
                            angle_(angle)
 {
-    this->direction_->normalize();
+    *this->direction_ = this->direction_->normalize();
     cos_t = std::cos(angle);
 };
 
@@ -20,12 +20,8 @@ Vector3d *Spot::get_intensity()
 
 Vector3d *Spot::get_l(Vector3d &p)
 {
-    double x = this->position_->x_ - p.x_;
-    double y = this->position_->y_ - p.y_;
-    double z = this->position_->z_ - p.z_;
-
-    Vector3d *l = new Vector3d(x, y, z);
-    l->normalize();
+    Vector3d *l = *this->position_ - &p;
+    *l = l->normalize();
     return l;
 }
 
@@ -36,7 +32,7 @@ Vector3d *Spot::get_contribution(Reflexivity &reflex,
                                  Vector3d &r)
 {
 
-    double clds = l.dot(*this->direction_ * (-1));
+    double clds = l.dot((*this->direction_ * (-1)).normalize());
 
     if (clds < cos_t)
     {
