@@ -1,31 +1,28 @@
 #ifndef CYLINDER_H
 #define CYLINDER_H
 
-#include "../shape.h"
 #include "../plane/plane.h"
+#include "../shape.h"
 
-enum INTERSECTION_TYPE
-{
+enum INTERSECTION_TYPE {
     CYLINDER_SURFACE,
     BASE_SURFACE,
     TOP_SURFACE,
 };
 
-class Cylinder : public Shape
-{
-public:
-    Cylinder(Reflexivity reflexivity,
-             Vector3d base_center, Vector3d top_center,
+class Cylinder : public Shape {
+   public:
+    Cylinder(Reflexivity reflexivity, Vector3d base_center, Vector3d top_center,
              double radius, std::string texture_path = "");
 
-    Cylinder(Reflexivity reflexivity,
-             Vector3d base_center, double height,
-             Vector3d cylinder_direction, double radius, std::string texture_path = "");
+    Cylinder(Reflexivity reflexivity, Vector3d base_center, double height,
+             Vector3d cylinder_direction, double radius,
+             std::string texture_path = "");
 
     double intersect(Vector3d p_0, Vector3d dr);
     Vector3d normal(Vector3d p_i);
 
-private:
+   private:
     Vector3d base_center_;
     Vector3d top_center_;
     Vector3d cylinder_direction;

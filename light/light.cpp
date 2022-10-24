@@ -1,5 +1,6 @@
-#include "../Vector3d/Vector3d.h"
 #include "light.h"
+
+#include "../Vector3d/Vector3d.h"
 #include "../shapes/shape.h"
 
 Light::Light(Vector3d *intensity, Vector3d *position)
@@ -8,14 +9,9 @@ Light::Light(Vector3d *intensity, Vector3d *position)
 Light::Light(Vector3d *intensity)
     : intensity_(intensity), position_(new Vector3d(0, 0, 0)){};
 
-Vector3d Light::calc_diffuse_specular(Reflexivity &reflex,
-                                      Vector3d &intensity,
-                                      Vector3d &l,
-                                      Vector3d &n,
-                                      Vector3d &v,
-                                      Vector3d &r)
-{
-
+Vector3d Light::calc_diffuse_specular(Reflexivity &reflex, Vector3d &intensity,
+                                      Vector3d &l, Vector3d &n, Vector3d &v,
+                                      Vector3d &r) {
     Vector3d *kd = reflex.kd;
     Vector3d *ke = reflex.ke;
     double m = reflex.m;

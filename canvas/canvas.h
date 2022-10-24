@@ -2,19 +2,18 @@
 #define CANVAS_H
 
 #include <vector>
+
 #include "../Vector3d/Vector3d.h"
 
-class Canvas
-{
-
-public:
+class Canvas {
+   public:
     Canvas(int width, int height, int n_col, int n_row);
     int n_cols();
     int n_rows();
     void add_pixel(Vector3d row);
     unsigned char *pixels;
 
-private:
+   private:
     int width_;
     int height_;
     int n_col_;

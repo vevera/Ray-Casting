@@ -1,12 +1,13 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "../Vector3d/Vector3d.h"
-#include <vector>
 #include <string>
-#include "../shapes/shape.h"
+#include <vector>
+
+#include "../Vector3d/Vector3d.h"
 #include "../canvas/canvas.h"
 #include "../light/light.h"
+#include "../shapes/shape.h"
 using std::string;
 
 // struct Light
@@ -37,28 +38,25 @@ using std::string;
 //     }
 // };
 
-struct ViewPort
-{
+struct ViewPort {
     int width;
     int height;
     double z;
 
-    ViewPort(int width_, int height_, int z_)
-    {
+    ViewPort(int width_, int height_, int z_) {
         width = width_;
         height = height_;
         z = z_;
     }
 };
 
-class Scene
-{
-
-public:
-    Scene(std::vector<Shape *> shapes, Canvas canvas, std::vector<Light *> lights);
+class Scene {
+   public:
+    Scene(std::vector<Shape *> shapes, Canvas canvas,
+          std::vector<Light *> lights);
     void take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor);
 
-private:
+   private:
     std::vector<Shape *> shapes_;
     Canvas canvas_;
     std::vector<Light *> lights_;

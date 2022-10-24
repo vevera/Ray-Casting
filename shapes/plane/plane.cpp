@@ -1,20 +1,17 @@
 #include "plane.h"
 
-Plane::Plane(Reflexivity reflexivity,
-             Vector3d p_pi,
-             Vector3d n,
-             std::string texture_path) : Shape(reflexivity, texture_path), p_pi_(p_pi), n_(n){};
+Plane::Plane(Reflexivity reflexivity, Vector3d p_pi, Vector3d n,
+             std::string texture_path)
+    : Shape(reflexivity, texture_path), p_pi_(p_pi), n_(n){};
 
-double Plane::intersect(Vector3d p_0, Vector3d dr)
-{
+double Plane::intersect(Vector3d p_0, Vector3d dr) {
     double t;
 
     Vector3d w = p_0 - p_pi_;
 
     double den = dr.dot(n_);
 
-    if (den == 0)
-    {
+    if (den == 0) {
         return INFINITY;
     }
 
@@ -23,7 +20,4 @@ double Plane::intersect(Vector3d p_0, Vector3d dr)
     return t;
 };
 
-Vector3d Plane::normal(Vector3d p_i)
-{
-    return n_;
-};
+Vector3d Plane::normal(Vector3d p_i) { return n_; };

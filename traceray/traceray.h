@@ -6,22 +6,16 @@
 class Shape;
 class Light;
 
-Vector3d trace_ray(Vector3d p_0, Vector3d dr,
-                   double t_min, double t_max,
+Vector3d trace_ray(Vector3d p_0, Vector3d dr, double t_min, double t_max,
                    vector<Shape *> &shapes, Vector3d bgcolor,
                    std::vector<Light *> &lights, int x, int y);
 
-Vector3d calculate_light_intensity(std::vector<Light *> &lights,
-                                   Vector3d &n,
-                                   Vector3d &v,
-                                   Vector3d &pi,
-                                   std::vector<Shape *> &shapes,
-                                   Shape &obj,
-                                   int x,
-                                   int y);
+Vector3d calculate_light_intensity(std::vector<Light *> &lights, Vector3d &n,
+                                   Vector3d &v, Vector3d &pi,
+                                   std::vector<Shape *> &shapes, Shape &obj,
+                                   int x, int y);
 
 bool light_being_blocked(Shape &cls_shape, vector<Shape *> &shapes,
-                         Vector3d &p_i, Light &light,
-                         Vector3d &lr);
+                         Vector3d &p_i, Light &light, Vector3d &lr);
 
 #endif
