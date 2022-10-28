@@ -8,13 +8,13 @@
 #include "light/directional/directional.h"
 #include "light/point/point_light.h"
 #include "light/spot/spot.h"
+#include "matrix/matrix.h"
 #include "scene/scene.h"
 #include "shapes/cone/cone.h"
 #include "shapes/cylinder/cylinder.h"
 #include "shapes/mesh/mesh.h"
 #include "shapes/plane/plane.h"
 #include "shapes/sphere/sphere.h"
-
 //#include <opencv2/opencv.hpp>
 
 //#include <Magick++.h>
@@ -126,7 +126,7 @@ int main(int argc, char *argv[]) {
                      Vector3d(0.0, 1.0, 0.0));
     Plane right_wall(reflex_wall, Vector3d(200.0, -150.0, 0.0),
                      Vector3d(-1.0, 0.0, 0.0));
-    Plane front_wall(reflex_wall, Vector3d(200.0, -150.0, -400.0),
+    Plane front_wall(reflex_wall, Vector3d(200.0, -150.0, -800.0),
                      Vector3d(0.0, 0.0, 1.0));
     Plane left_wall(reflex_wall, Vector3d(-200.0, -150.0, 0.0),
                     Vector3d(1.0, 0.0, 0.0));
@@ -152,20 +152,24 @@ int main(int argc, char *argv[]) {
     Reflexivity reflex_star(&k_star, &k_star, &k_star, 1);
     Sphere star(reflex_star, Vector3d(0.0, 95.0, -200), 5);
 
-    Mesh cubo(reflex_gift, "blender objects/cubo_17.obj");
+    Mesh lid(reflex_gift, "blender objects/cubo_17.obj");
 
-    // Mesh cubo(reflex_gift, "blender objects/cubo_17.obj");
-    // Mesh cubo(reflex_gift, "blender objects/cubo_17.obj");
+    Mesh suport_1(reflex_gift, "blender objects/cubo_17.obj");
+    Mesh suport_2(reflex_gift, "blender objects/cubo_17.obj");
 
     // cubo.rotate(Axis::Y_AXIS, 45);
     // cubo.rotate(Axis::X_AXIS, 300);
 
-    cubo.scale(Vector3d(20, 20, 20));
-    cubo.shearing(ShearingTypes::ZX, 43);
-    // cubo.rotate(Axis::X_AXIS, 40);
-    // cubo.rotate(Axis::Y_AXIS, 40);
-    cubo.translate(Vector3d(0, -50, -165));
+    lid.scale(Vector3d(250, 5, 150));
+    // lid.shearing(ShearingTypes::ZX, 43);
+    //  cubo.rotate(Axis::X_AXIS, 40);
+    //  cubo.rotate(Axis::Y_AXIS, 40);
+    lid.translate(Vector3d(0, -55, -300));
 
+    suport_1.scale(Vector3d(5, 95, 150));
+    suport_1.translate(Vector3d(-125, -102.5, -300));
+    suport_2.scale(Vector3d(5, 95, 150));
+    suport_2.translate(Vector3d(125, -102.5, -300));
     // Mesh r_c = cubo;
     // r_c.reflection(ReflectionPlane::XY_PLANE);
     // cubo.translate(Vector3d(0, -150, -165));
@@ -181,15 +185,39 @@ int main(int argc, char *argv[]) {
     // shapes.push_back(&cone1);
 
     shapes.push_back(&floor_wall);
-    shapes.push_back(&right_wall);
-    shapes.push_back(&front_wall);
-    shapes.push_back(&left_wall);
-    shapes.push_back(&ceil_wall);
+    // shapes.push_back(&right_wall);
+    // shapes.push_back(&front_wall);
+    // shapes.push_back(&left_wall);
+    // shapes.push_back(&ceil_wall);
     // shapes.push_back(&wood);
     // shapes.push_back(&tree);
     // shapes.push_back(&star);
     //  shapes.push_back(&r_c);
-    shapes.push_back(&cubo);
+    shapes.push_back(&lid);
+    shapes.push_back(&suport_1);
+    shapes.push_back(&suport_2);
+
+    auto ms = Matrix::scale(Vector3d(1, 2, 3)) *
+              Matrix::scale(Vector3d(5, 5, 4)) *
+              Matrix::translate(Vector3d(200, 200, 200));
+
+    auto mj = ms * ms;
+
+    // auto ms_t = Matrix::translate(Vector3d(200, 200, 200)) *
+    //             Matrix::scale(Vector3d(1, 2, 3)) *
+    //             Matrix::scale(Vector3d(5, 5, 4));
+
+    std::for_each(mj.acc_t->begin(), mj.acc_t->end(), [](auto &m) {
+        // std::cout << "AGORA 1: ";
+        std::for_each(m.begin(), m.end(), [](Vector3d &e) {
+            std::cout << "AGORA: " << e.toStr() << std::endl;
+        });
+    });
+
+    // std::for_each(
+    //     begin(ms.scale_matrix), end(ms.scale_matrix),
+    //     [](Vector3d &e) { std::cout << "Teste: " << e.toStr() << std::endl;
+    //     });
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
     Scene scene(shapes, canvas, lights);

@@ -11,7 +11,8 @@ class Vector3d {
     Vector3d() = default;
     Vector3d(double x, double y, double z);
     Vector3d(double x, double y, double z, double w);
-    double get(int el);
+    double get(int el) const;
+    void set(int el, double val);
     // Sum of vectors
     Vector3d operator+(Vector3d const &op);
     Vector3d *operator+(Vector3d const *op);

@@ -28,7 +28,8 @@ include_directories(
     )
 
 add_executable(raycasting 
-                Vector3d/Vector3d.cpp 
+                Vector3d/Vector3d.cpp
+                matrix/matrix.cpp 
                 shapes/shape.cpp 
                 shapes/plane/plane.cpp 
                 shapes/sphere/sphere.cpp 

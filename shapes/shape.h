@@ -9,6 +9,7 @@
 #include <opencv2/opencv.hpp>
 
 #include "../Vector3d/Vector3d.h"
+#include "../matrix/matrix.h"
 
 enum Axis { X_AXIS, Y_AXIS, Z_AXIS };
 
@@ -52,6 +53,7 @@ class Shape {
 
     bool has_texture();
     Vector3d *get_pixel(double x, double z);
+    // virtual void operator*(gMatrix &m);
 
    private:
     Reflexivity reflexivity_;

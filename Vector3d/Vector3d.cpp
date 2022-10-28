@@ -10,7 +10,7 @@ Vector3d::Vector3d(double x, double y, double z) : x_(x), y_(y), z_(z), w_(1){};
 Vector3d::Vector3d(double x, double y, double z, double w)
     : x_(x), y_(y), z_(z), w_(w){};
 
-double Vector3d::get(int el) {
+double Vector3d::get(int el) const {
     switch (el) {
         case 0:
             return x_;
@@ -26,6 +26,25 @@ double Vector3d::get(int el) {
             break;
         default:
             return 0;
+            break;
+    }
+}
+
+void Vector3d::set(int el, double val) {
+    switch (el) {
+        case 0:
+            x_ = val;
+            break;
+        case 1:
+            y_ = val;
+            break;
+        case 2:
+            z_ = val;
+            break;
+        case 3:
+            w_ = val;
+            break;
+        default:
             break;
     }
 }
