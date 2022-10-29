@@ -281,3 +281,27 @@ void Mesh::reflection(ReflectionPlane r_plane) {
         p = p.mult_vector_matriz4d(matrix_scale);
     });
 }
+
+void Mesh::operator*(AccMatrix m) {
+    std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &m) {
+        std::for_each(begin(vertex_list) + 1, end(vertex_list),
+                      [&](Vector3d &p) {
+                          p = p.mult_vector_matriz4d(m.transform_matrix);
+                      });
+
+        std::for_each(begin(normal_list) + 1, end(normal_list),
+                      [&](Vector3d &p) {
+                          p = p.mult_vector_matriz4d(m.n_fix).normalize();
+                      });
+    });
+};
+
+void Mesh::operator*(gMatrix m) {
+    std::for_each(begin(vertex_list) + 1, end(vertex_list), [&](Vector3d &p) {
+        p = p.mult_vector_matriz4d(m.transform_matrix);
+    });
+
+    std::for_each(begin(normal_list) + 1, end(normal_list), [&](Vector3d &p) {
+        p = p.mult_vector_matriz4d(m.n_fix).normalize();
+    });
+};

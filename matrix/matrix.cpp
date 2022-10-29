@@ -6,50 +6,38 @@
 
 #include "../Vector3d/Vector3d.h"
 AccMatrix gMatrix::operator*(gMatrix const &m) {
+    std::cout << "op 1" << std::endl;
     shared_ptr<AccMatrix> acc = std::make_shared<AccMatrix>();
-
-    acc->acc_t->push_back(transform_matrix);
-    acc->acc_n->push_back(n_fix);
-
-    acc->acc_t->push_back(m.transform_matrix);
-    acc->acc_n->push_back(m.n_fix);
+    acc->acc->push_back(*this);
+    acc->acc->push_back(m);
 
     return *acc.get();
 };
 
 AccMatrix gMatrix::operator*(AccMatrix &acc) {
+    std::cout << "op 2" << std::endl;
     shared_ptr<AccMatrix> acc_shared =
         std::make_shared<AccMatrix>(std::move(acc));
 
-    // acc_shared->acc_t->insert(acc_shared->acc_t->begin(), transform_matrix);
-    // acc_shared->acc_n->insert(acc_shared->acc_n->begin(), n_fix);
-
+    acc_shared->acc->insert(acc_shared->acc->begin(), *this);
     return *acc_shared.get();
 };
 
 AccMatrix AccMatrix::operator*(gMatrix m) {
-    shared_ptr<AccMatrix> acc = std::make_shared<AccMatrix>();
-    acc->acc_t = acc_t;
-    acc->acc_n = acc_n;
+    std::cout << "op 3" << std::endl;
+    shared_ptr<AccMatrix> accm = std::make_shared<AccMatrix>();
 
-    acc->acc_t->push_back(m.transform_matrix);
-    acc->acc_n->push_back(m.n_fix);
+    accm->acc = acc;
+    accm->acc->push_back(m);
 
-    return *acc.get();
+    return *accm.get();
 };
 
-AccMatrix AccMatrix::operator*(AccMatrix &acc) {
+AccMatrix AccMatrix::operator*(AccMatrix &acc_o) {
+    std::cout << "op 4" << std::endl;
     shared_ptr<AccMatrix> acc_shared =
-        std::make_shared<AccMatrix>(std::move(acc));
-
-    std::for_each(acc_t->end(), acc_t->begin(), [&](auto &e) {
-        std::cout << "HERE \n";
-        acc_shared->acc_t->insert(acc_shared->acc_t->begin(), e);
-    });
-    // acc_shared->acc_t->insert(acc_shared->acc_t->end(), acc_t->begin(),
-    //                           acc_t->end());
-    // acc_shared->acc_n->insert(acc_shared->acc_n->begin(), acc_n->begin(),
-    //                           acc_n->end());
+        std::make_shared<AccMatrix>(std::move(acc_o));
+    acc_shared->acc->insert(acc_shared->acc->begin(), acc->begin(), acc->end());
 
     return *acc_shared.get();
 };

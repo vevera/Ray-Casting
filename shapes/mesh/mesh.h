@@ -44,6 +44,8 @@ class Mesh : public Shape {
     void rotate(Axis rotation_axis, double angle);
     void shearing(ShearingTypes shearing_axis, double angle);
     void reflection(ReflectionPlane r_plane);
+    void operator*(AccMatrix m);
+    void operator*(gMatrix m);
 
    private:
     std::vector<Vector3d> vertex_list = {Vector3d(0, 0, 0)};

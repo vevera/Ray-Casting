@@ -140,3 +140,33 @@ bool Cylinder::in_lid_surface(Vector3d &p0, Vector3d &dr, double &t,
     double h = cb_pi.length();
     return h <= radius_;
 }
+
+void Cylinder::operator*(AccMatrix m) {
+    std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &m) {
+        switch (m.t_type) {
+            case TransformType::SCALE:
+                radius_ = radius_ * m.transform_matrix.at(0).get(0);
+                height = height * m.transform_matrix.at(1).get(1);
+                top_center_ = base_center_ + cylinder_direction * height;
+                break;
+            case TransformType::SHEARING:
+                break;
+            case TransformType::TRANSLATE:
+                base_center_ =
+                    base_center_.mult_vector_matriz4d(m.transform_matrix);
+                top_center_ = base_center_ + cylinder_direction * height;
+                break;
+            default:
+                base_center_ =
+                    base_center_.mult_vector_matriz4d(m.transform_matrix);
+                cylinder_direction =
+                    cylinder_direction.mult_vector_matriz4d(m.n_fix)
+                        .normalize();
+                top_center_ = base_center_ + cylinder_direction * height;
+                break;
+        }
+    });
+};
+void Cylinder::operator*(gMatrix m){
+
+};

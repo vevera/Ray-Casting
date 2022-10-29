@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+class gMatrix;
 using std::vector;
 
 class Vector3d {
@@ -23,6 +24,7 @@ class Vector3d {
     Vector3d operator*(Vector3d const &op);
     Vector3d *operator*(Vector3d const *op);
     Vector3d operator*(double const &scalar);
+    void operator*(std::vector<Vector3d> &m);
     // Division of vectors
     Vector3d operator/(Vector3d const &op);
     Vector3d *operator/(Vector3d const *op);

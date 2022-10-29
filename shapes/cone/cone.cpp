@@ -107,7 +107,7 @@ Vector3d Cone::normal(Vector3d p_i) {
 bool Cone::in_cone_surface(Vector3d &p0, Vector3d &dr, double &t) {
     Vector3d p_i = (p0 + dr * t);
     double h = (vertex_ - p_i).dot(cone_direction_);
-    return h >= 0.0001 && h <= height_;
+    return h >= 0.0000 && h <= height_;
 };
 
 bool Cone::in_base_surface(Vector3d &p0, Vector3d &dr, double &t,
@@ -120,4 +120,36 @@ bool Cone::in_base_surface(Vector3d &p0, Vector3d &dr, double &t,
 
     double h = cb_pi.length();
     return h <= radius_;
+};
+
+void Cone::operator*(AccMatrix m) {
+    std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &m) {
+        switch (m.t_type) {
+            case TransformType::SCALE:
+                radius_ = radius_ * m.transform_matrix.at(0).get(0);
+                height_ = height_ * m.transform_matrix.at(1).get(1);
+                vertex_ = base_center_ + (cone_direction_ * height_);
+                break;
+            case TransformType::SHEARING:
+                break;
+            case TransformType::TRANSLATE:
+                base_center_ =
+                    base_center_.mult_vector_matriz4d(m.transform_matrix);
+                vertex_ = base_center_ + (cone_direction_ * height_);
+                break;
+            default:
+
+                base_center_ =
+                    base_center_.mult_vector_matriz4d(m.transform_matrix);
+
+                cone_direction_ =
+                    cone_direction_.mult_vector_matriz4d(m.n_fix).normalize();
+
+                vertex_ = base_center_ + (cone_direction_ * height_);
+                break;
+        }
+    });
+};
+void Cone::operator*(gMatrix m){
+
 };

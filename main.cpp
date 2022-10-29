@@ -63,161 +63,193 @@ int main(int argc, char *argv[]) {
     // lights.push_back(&s_light);
     // lights.push_back(&s1_light);
     std::vector<Shape *> shapes;
+
+    // Posicao do fotografo -------------------------------- begin
+
+    int lx = 500;
+    int ly = 450;
+    int lz = 1500;
+
     Vector3d camera(0, 0, 0);
+    Vector3d eye = Vector3d(lx, ly, lz, 1);
 
-    Vector3d k = Vector3d(0.3, 0.55, 0.3);
-    Reflexivity reflex(&k, &k, &k, 10);
+    Vector3d at = Vector3d(lx, ly, 1, 1);
 
-    Vector3d ka_f = Vector3d(0.2, 0.7, 0.2);
-    Vector3d ke = Vector3d(0.0, 0.0, 0.0);
-    Reflexivity reflex_f(&ka_f, &ke, &ka_f, 1);
+    Vector3d up = Vector3d(lx, ly + 100, lz, 1);
 
-    Vector3d ka_p = Vector3d(0.3, 0.3, 0.7);
-    Vector3d ke_p = Vector3d(0.0, 0.0, 0.0);
-    Reflexivity reflex_p(&ka_p, &ke_p, &ka_p, 1);
+    Vector3d vup = up - eye;
 
-    Vector3d ka_cy = Vector3d(0.0, 0.9, 0.0);
-    Reflexivity reflex_cy(&ka_cy, &ka_cy, &ka_cy, 1);
+    Vector3d k_c = (eye - at).normalize();                 // z da camera
+    Vector3d i_c = (vup.cross_product(k_c)).normalize();   // x da camera
+    Vector3d j_c = (k_c.cross_product(i_c)).normalize();   // y da camera
 
-    Vector3d ka_c = Vector3d(0.0, 0.9, 0.0);
-    Reflexivity reflex_c(&ka_c, &ka_c, &ka_c, 1);
+    // matriz que vai converter para as coordenadas de camera
 
-    Sphere sphere(reflex, Vector3d(0.0, 0.0, -100), rEsfera);
-    Plane background(reflex_p, Vector3d(0.0, 0.0, -300), Vector3d(0.0, 0.0, 1));
-    Plane floor(reflex_f, Vector3d(0.0, -rEsfera, 0.0), Vector3d(0.0, 1, 0.0));
+    std::vector<Vector3d> t_c = {
+        Vector3d(i_c.get(0), i_c.get(1), i_c.get(2), -(i_c.dot(eye))),
+        Vector3d(j_c.get(0), j_c.get(1), j_c.get(2), -(j_c.dot(eye))),
+        Vector3d(k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye))),
+        Vector3d(0, 0, 0, 1)};
 
-    Cylinder cylinder(reflex_cy, Vector3d(0.0, 0.0, -100), 3 * rEsfera,
-                      Vector3d(-1 / sqrt(3), 1 / sqrt(3), -1 / sqrt(3)),
-                      rEsfera / 3);
+    gMatrix matriz_wc(t_c, TransformType::CAMERA);
 
-    Vector3d centro_cone =
-        Vector3d(0, 0, -100) +
-        Vector3d(-1 / sqrt(3), 1 / sqrt(3), -1 / sqrt(3)) * (3 * rEsfera);
+    Vector3d eye_aux = eye;
+    eye *matriz_wc.transform_matrix;
+    camera = eye;
+    std::cout << "CAMERA: " << eye.toStr() << std::endl;
 
-    Cone cone(reflex_c, Vector3d(0, 20, -100), (1.5 * 50) / 2,
-              Vector3d(0, 1, -0.5).normalize(), 1.5 * 20);
-
-    Cone cone_1(reflex_c, Vector3d(0, 0, -45), (1.5 * 50) / 10,
-                Vector3d(0, -1, -1).normalize(), 0.2 * 20);
-
-    Vector3d vertex = centro_cone;
-    vertex.y_ = vertex.y_ + 50.0;
-
-    Vector3d cc1 = centro_cone;
-    cc1.z_ = cc1.z_ + 20;
-    Cone cone1(reflex_c, Vector3d(0.0, 30.0, -100.0), 30, Vector3d(0.0, 1, 0.0),
-               rEsfera);
-
-    Cone cone2(reflex_c, Vector3d(0, 30, -90), 40, Vector3d(0, 1, 0), rEsfera);
-
-    // TRABALHO 5 -
-    // 1., 0.078., 0.576
     Vector3d k_gift_a = Vector3d(1.0, 0.078, 0.576);
-    // Vector3d k_gift_e = Vector3d(0.0, 0.0, 0.0);
-    // Vector3d k_gift_d = Vector3d(0.0, 0.0, 0.0);
     Reflexivity reflex_gift(&k_gift_a, &k_gift_a, &k_gift_a, 1);
-    Vector3d k_wall = Vector3d(0.686, 0.933, 0.933);
-    Vector3d k_ceil = Vector3d(0.933, 0.933, 0.933);
-    Reflexivity reflex_wall(&k_wall, &k_wall, &k_wall, 1);
-    Reflexivity reflex_ceil(&k_ceil, &k_ceil, &k_ceil, 1);
 
-    // walls
-    Plane floor_wall(reflex_p, Vector3d(0.0, -150.0, 0.0),
+    Vector3d k_floor_a = Vector3d(0.3, 0.6, 0.1);
+    Reflexivity reflex_floor(&k_floor_a, &k_floor_a, &k_floor_a, 1);
+
+    // Objeto complexo 01 ==========================================
+
+    Plane floor_wall(reflex_floor, Vector3d(0.0, 0.0, 0.0),
                      Vector3d(0.0, 1.0, 0.0));
-    Plane right_wall(reflex_wall, Vector3d(200.0, -150.0, 0.0),
-                     Vector3d(-1.0, 0.0, 0.0));
-    Plane front_wall(reflex_wall, Vector3d(200.0, -150.0, -800.0),
-                     Vector3d(0.0, 0.0, 1.0));
-    Plane left_wall(reflex_wall, Vector3d(-200.0, -150.0, 0.0),
-                    Vector3d(1.0, 0.0, 0.0));
-    Plane ceil_wall(reflex_ceil, Vector3d(0.0, 150.0, 0.0),
-                    Vector3d(0.0, -1.0, 0.0));
 
-    // cylinder
-    Vector3d k_wood = Vector3d(0.824, 0.706, 0.549);
-    Reflexivity reflex_wood(&k_wood, &k_wood, &k_wood, 1);
-    Cylinder wood(reflex_wood, Vector3d(0, -150, -200), 90, Vector3d(0, 1, 0),
-                  5);
-
-    // cone
-    // Vector3d k_tree_a = Vector3d(0.0, 0.0, 0.0);
-    Vector3d k_tree_d = Vector3d(0.0, 1.0, 0.498);
-    // Vector3d k_tree_e = Vector3d(0.0, 0.0, 0.0);
-    Reflexivity reflex_tree(&k_tree_d, &k_tree_d, &k_tree_d, 10);
-    Cone tree(reflex_tree, Vector3d(0, -60, -200), 150, Vector3d(0, 1, 0), 90);
-    // Cone tree(reflex_tree, Vector3d(0, 0, -200), 150, Vector3d(0, 0, -1),
-    // 150);
-    //  esfera
-    Vector3d k_star = Vector3d(0.854, 0.647, 0.125);
-    Reflexivity reflex_star(&k_star, &k_star, &k_star, 1);
-    Sphere star(reflex_star, Vector3d(0.0, 95.0, -200), 5);
-
-    Mesh lid(reflex_gift, "blender objects/cubo_17.obj");
+    floor_wall *matriz_wc;
 
     Mesh suport_1(reflex_gift, "blender objects/cubo_17.obj");
     Mesh suport_2(reflex_gift, "blender objects/cubo_17.obj");
+    gMatrix scale_t = Matrix::scale(Vector3d(5, 95, 150));
 
-    // cubo.rotate(Axis::Y_AXIS, 45);
-    // cubo.rotate(Axis::X_AXIS, 300);
+    auto sup1_t =
+        scale_t * Matrix::translate(Vector3d(300 - 125, 47.5, 500)) * matriz_wc;
 
-    lid.scale(Vector3d(250, 5, 150));
-    // lid.shearing(ShearingTypes::ZX, 43);
-    //  cubo.rotate(Axis::X_AXIS, 40);
-    //  cubo.rotate(Axis::Y_AXIS, 40);
-    lid.translate(Vector3d(0, -55, -300));
+    auto sup2_t =
+        scale_t * Matrix::translate(Vector3d(300 + 125, 47.5, 500)) * matriz_wc;
 
-    suport_1.scale(Vector3d(5, 95, 150));
-    suport_1.translate(Vector3d(-125, -102.5, -300));
-    suport_2.scale(Vector3d(5, 95, 150));
-    suport_2.translate(Vector3d(125, -102.5, -300));
-    // Mesh r_c = cubo;
-    // r_c.reflection(ReflectionPlane::XY_PLANE);
-    // cubo.translate(Vector3d(0, -150, -165));
+    suport_1 *sup1_t;
+    suport_2 *sup2_t;
 
-    //   cubo.scale(Vector3d(10, 10, 10));
+    Mesh lid(reflex_gift, "blender objects/cubo_17.obj");
 
-    //  cubo.scale(Vector3d(1, 1, 0.3));
+    auto lid_t = Matrix::scale(Vector3d(250, 5, 150)) *
+                 Matrix::translate(Vector3d(300, 97.5, 500)) * matriz_wc;
+    lid *lid_t;
 
-    // shapes.push_back(&background);
-    // shapes.push_back(&floor);
-    // shapes.push_back(&sphere);
-    // shapes.push_back(&cylinder);
-    // shapes.push_back(&cone1);
+    // Objeto complexo 02 ==========================================
+
+    Cylinder suppord_tree(reflex_gift, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0),
+                          1);
+
+    auto suppord_tree_t = Matrix::scale(Vector3d(30, 9, 1)) *
+                          Matrix::translate(Vector3d(300, 100, 500)) *
+                          matriz_wc;
+
+    suppord_tree *suppord_tree_t;
+
+    Cylinder wood_2(reflex_gift, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0), 1);
+
+    auto wood_t = Matrix::scale(Vector3d(6, 40, 4.5)) *
+                  Matrix::translate(Vector3d(300, 109, 500)) * matriz_wc;
+
+    wood_2 *wood_t;
+
+    Cone tree_2(reflex_gift, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0), 1);
+
+    auto tree_t = Matrix::scale(Vector3d(60, 150, 4.5)) *
+                  Matrix::translate(Vector3d(300, 149, 500)) * matriz_wc;
+
+    tree_2 *tree_t;
+
+    Sphere star_2(reflex_gift, Vector3d(0, 0, 0), 1);
+    auto star_t = Matrix::scale(Vector3d(4.5, 4.5, 4.5)) *
+                  Matrix::translate(Vector3d(300, 299, 500)) * matriz_wc;
+
+    star_2 *star_t;
+
+    // Objeto complexo 03 ==========================================
+
+    gMatrix scale_column = Matrix::scale(Vector3d(50, 500, 30));
+    Mesh left_column(reflex_gift, "blender objects/cubo_17.obj");
+    auto left_column_t =
+        scale_column * Matrix::translate(Vector3d(0, 250, 1000)) * matriz_wc;
+    left_column *left_column_t;
+
+    Mesh right_column(reflex_gift, "blender objects/cubo_17.obj");
+    auto right_column_t =
+        scale_column * Matrix::translate(Vector3d(600, 250, 1000)) * matriz_wc;
+
+    right_column *right_column_t;
+
+    Mesh back_left_column(reflex_gift, "blender objects/cubo_17.obj");
+    auto back_left_column_t =
+        scale_column * Matrix::translate(Vector3d(0, 250, 0)) * matriz_wc;
+
+    back_left_column *back_left_column_t;
+
+    Mesh back_right_column(reflex_gift, "blender objects/cubo_17.obj");
+    auto back_right_column_t =
+        scale_column * Matrix::translate(Vector3d(600, 250, 0)) * matriz_wc;
+
+    back_right_column *back_right_column_t;
+
+    // QUASE
+    Mesh left_beam(reflex_gift, "blender objects/cubo_17.obj");
+    auto left_beam_t = Matrix::scale(Vector3d(300, 50, 30)) *
+                       Matrix::shearing(ShearTypes::XY, 42.97183) *
+                       Matrix::translate(Vector3d(150, 600, 1000));
+
+    left_beam *left_beam_t;
+
+    Mesh right_beam = left_beam;
+    auto right_beam_t = Matrix::translate(Vector3d(-150, -600, -1000)) *
+                        Matrix::reflection(RPlane::YZ_PLANE) *
+                        Matrix::translate(Vector3d(450, 600, 1000)) * matriz_wc;
+
+    right_beam *(right_beam_t);
+    left_beam *matriz_wc;
+
+    Mesh back_left_beam(reflex_gift, "blender objects/cubo_17.obj");
+    auto back_left_beam_t = Matrix::scale(Vector3d(300, 50, 30)) *
+                            Matrix::shearing(ShearTypes::XY, 42.97183) *
+                            Matrix::translate(Vector3d(150, 600, 0));
+
+    back_left_beam *back_left_beam_t;
+
+    Mesh back_right_beam = back_left_beam;
+    auto back_right_beam_t = Matrix::translate(Vector3d(-150, -600, 0)) *
+                             Matrix::reflection(RPlane::YZ_PLANE) *
+                             Matrix::translate(Vector3d(450, 600, 0)) *
+                             matriz_wc;
+
+    back_right_beam *(back_right_beam_t);
+    back_left_beam *matriz_wc;
 
     shapes.push_back(&floor_wall);
-    // shapes.push_back(&right_wall);
-    // shapes.push_back(&front_wall);
-    // shapes.push_back(&left_wall);
-    // shapes.push_back(&ceil_wall);
-    // shapes.push_back(&wood);
-    // shapes.push_back(&tree);
-    // shapes.push_back(&star);
-    //  shapes.push_back(&r_c);
-    shapes.push_back(&lid);
     shapes.push_back(&suport_1);
     shapes.push_back(&suport_2);
+    shapes.push_back(&lid);
+    shapes.push_back(&suppord_tree);
+    shapes.push_back(&wood_2);
+    shapes.push_back(&tree_2);
+    shapes.push_back(&star_2);
+    shapes.push_back(&left_column);
+    shapes.push_back(&right_column);
+    shapes.push_back(&back_left_column);
+    shapes.push_back(&back_right_column);
+    shapes.push_back(&left_beam);
+    shapes.push_back(&right_beam);
+    shapes.push_back(&back_left_beam);
+    shapes.push_back(&back_right_beam);
+    // TRABALHO 06
 
-    auto ms = Matrix::scale(Vector3d(1, 2, 3)) *
-              Matrix::scale(Vector3d(5, 5, 4)) *
-              Matrix::translate(Vector3d(200, 200, 200));
+    // Objeto complexo 4
 
-    auto mj = ms * ms;
+    // Objeto complexo 3
+    // shapes.push_back(&right_column);
+    // shapes.push_back(&left_column);
+    // shapes.push_back(&left_beam);
+    // shapes.push_back(&right_beam);
+    // Objeto complexo 2
 
-    // auto ms_t = Matrix::translate(Vector3d(200, 200, 200)) *
-    //             Matrix::scale(Vector3d(1, 2, 3)) *
-    //             Matrix::scale(Vector3d(5, 5, 4));
+    //   Objeto complexo 1
+    // shapes.push_back(&lid);
 
-    std::for_each(mj.acc_t->begin(), mj.acc_t->end(), [](auto &m) {
-        // std::cout << "AGORA 1: ";
-        std::for_each(m.begin(), m.end(), [](Vector3d &e) {
-            std::cout << "AGORA: " << e.toStr() << std::endl;
-        });
-    });
-
-    // std::for_each(
-    //     begin(ms.scale_matrix), end(ms.scale_matrix),
-    //     [](Vector3d &e) { std::cout << "Teste: " << e.toStr() << std::endl;
-    //     });
+    // WINDOW
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
     Scene scene(shapes, canvas, lights);

@@ -27,3 +27,21 @@ double Sphere::intersect(Vector3d p_0, Vector3d dr) {
 }
 
 Vector3d Sphere::normal(Vector3d p_i) { return (p_i - center_) / radius_; }
+
+void Sphere::operator*(AccMatrix m) {
+    std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &m) {
+        switch (m.t_type) {
+            case TransformType::SCALE:
+                radius_ = radius_ * m.transform_matrix.at(0).get(0);
+                break;
+            case TransformType::SHEARING:
+                break;
+            default:
+                center_ = center_.mult_vector_matriz4d(m.transform_matrix);
+                break;
+        }
+    });
+};
+void Sphere::operator*(gMatrix m){
+
+};

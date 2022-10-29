@@ -3,6 +3,9 @@
 #include <algorithm>
 #include <cmath>
 #include <iostream>
+
+#include "../matrix/matrix.h"
+
 using std::vector;
 
 Vector3d::Vector3d(double x, double y, double z) : x_(x), y_(y), z_(z), w_(1){};
@@ -76,6 +79,12 @@ Vector3d *Vector3d::operator*(Vector3d const *op) {
 Vector3d Vector3d::operator*(double const &scalar) {
     return Vector3d(x_ * scalar, y_ * scalar, z_ * scalar);
 };
+
+void Vector3d::operator*(vector<Vector3d> &m) {
+    Vector3d result = this->mult_vector_matriz4d(m);
+
+    *this = result;
+}
 
 Vector3d Vector3d::operator/(Vector3d const &op) {
     return Vector3d(x_ / op.x_, y_ / op.y_, z_ / op.z_);

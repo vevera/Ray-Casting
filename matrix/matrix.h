@@ -8,7 +8,6 @@
 #include "../Vector3d/Vector3d.h"
 
 #define matrix_t std::vector<Vector3d>
-// #define acc_matrix_t std::vector<matrix_t>
 
 using std::shared_ptr;
 using std::vector;
@@ -20,6 +19,7 @@ enum class TransformType {
     SHEARING,
     REFLECTION,
     MIXED,
+    CAMERA,
 };
 
 enum class TAxis { X_AXIS, Y_AXIS, Z_AXIS };
@@ -59,23 +59,13 @@ struct gMatrix {
 };
 
 struct AccMatrix {
-    shared_ptr<vector<matrix_t>> acc_t = std::make_shared<vector<matrix_t>>();
+    shared_ptr<vector<gMatrix>> acc = std::make_shared<vector<gMatrix>>();
 
-    shared_ptr<vector<matrix_t>> acc_n = std::make_shared<vector<matrix_t>>();
-
-    AccMatrix() {
-        acc_t->reserve(4);
-        acc_n->reserve(4);
-    }
-
-    AccMatrix(shared_ptr<vector<matrix_t>> t, shared_ptr<vector<matrix_t>> n) {
-        acc_t = t;
-        acc_n = n;
-    }
+    AccMatrix() {}
 
     AccMatrix operator*(gMatrix m);
 
-    AccMatrix operator*(AccMatrix &acc);
+    AccMatrix operator*(AccMatrix &acc_o);
 };
 
 class Matrix {
