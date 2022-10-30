@@ -15,22 +15,9 @@
 #include "shapes/mesh/mesh.h"
 #include "shapes/plane/plane.h"
 #include "shapes/sphere/sphere.h"
-//#include <opencv2/opencv.hpp>
 
-//#include <Magick++.h>
 using std::cout;
-using namespace cv;
 int main(int argc, char *argv[]) {
-    // std::string image_path = samples::findFile("./texture/wood.png");
-    // Mat img = imread("texture/wood.png", IMREAD_COLOR);
-    // if (img.empty())
-    // {
-    //     std::cout << "Could not read the image: "
-    //               << "image_path" << std::endl;
-    //     return 1;
-    // }
-    // imshow("Display window", img);
-    // int g = waitKey(0);
     int wCanvas, hCanvas, dJanela, rEsfera, wJanela, hJanela, nLin, nCol, z;
     Vector3d bgColor, i_f, p_f, i_a;
     wCanvas = 500;
@@ -66,8 +53,8 @@ int main(int argc, char *argv[]) {
 
     // Posicao do fotografo -------------------------------- begin
 
-    int lx = 500;
-    int ly = 850;
+    int lx = 300;
+    int ly = 450;
     int lz = 1500;
 
     Vector3d camera(0, 0, 0);
@@ -75,7 +62,7 @@ int main(int argc, char *argv[]) {
 
     Vector3d at = Vector3d(lx, ly, 1, 1);
 
-    Vector3d up = Vector3d(lx, ly + 100, lz, 1);
+    Vector3d up = Vector3d(lx, ly - 100, lz, 1);
 
     Vector3d vup = up - eye;
 
@@ -96,21 +83,44 @@ int main(int argc, char *argv[]) {
     Vector3d eye_aux = eye;
     eye *matriz_wc.transform_matrix;
     camera = eye;
-    std::cout << "CAMERA: " << eye.toStr() << std::endl;
+    //std::cout << "CAMERA: " << eye.toStr() << std::endl;
 
-    Vector3d k_gift_a = Vector3d(1.0, 0.078, 0.576);
-    Reflexivity reflex_gift(&k_gift_a, &k_gift_a, &k_gift_a, 1);
+    // Reflexidade dos objetos
 
     Vector3d k_floor_a = Vector3d(0.3, 0.6, 0.1);
     Reflexivity reflex_floor(&k_floor_a, &k_floor_a, &k_floor_a, 1);
+
+    Vector3d k_support_table = Vector3d(210.0/255.0,105.0/255.0,30.0/255.0);
+    Reflexivity reflex_support_table(&k_support_table, &k_support_table, &k_support_table, 1);
+
+    Vector3d k_lid_table = Vector3d(65.0/255.0,105.0/255.0,225.0/255.0);
+    Reflexivity reflex_lid_table(&k_lid_table, &k_lid_table, &k_lid_table, 1);
+
+    Vector3d k_tree_wood = Vector3d(139.0/255.0,69.0/255.0,19.0/255.0);
+    Reflexivity reflex_tree_wood(&k_tree_wood, &k_tree_wood, &k_tree_wood, 1);
+
+    Vector3d k_star = Vector3d(1.0, 1.0, 0.0);
+    Reflexivity reflex_star(&k_star, &k_star, &k_star, 1);
+
+    Vector3d k_tree = Vector3d(0.0,1.0,0.0);
+    Reflexivity reflex_tree(&k_tree, &k_tree, &k_tree, 1);
+
+    Vector3d k_wood_column = Vector3d(205.0/255.0,133.0/255.0,63.0/255.0);
+    Reflexivity reflex_wood_column(&k_wood_column, &k_wood_column, &k_wood_column, 1);
+
+    Vector3d k_roof = Vector3d(1,69.0/255.0,0);
+    Reflexivity reflex_roof(&k_roof, &k_roof, &k_roof, 1);
+
+    Vector3d k_wall = Vector3d(222.0/255.0, 184.0/255.0, 135.0/255.0);
+    Reflexivity reflex_wall(&k_wall, &k_wall, &k_wall, 1);
 
     // Objeto complexo 01 ==========================================
 
     Plane floor_wall(reflex_floor, Vector3d(0.0, 0.0, 0.0),
                      Vector3d(0.0, 1.0, 0.0));
 
-    Mesh suport_1(reflex_gift, "blender objects/cubo_17.obj");
-    Mesh suport_2(reflex_gift, "blender objects/cubo_17.obj");
+    Mesh suport_1(reflex_support_table, "blender objects/cubo_17.obj");
+    Mesh suport_2(reflex_support_table, "blender objects/cubo_17.obj");
     gMatrix scale_t = Matrix::scale(Vector3d(5, 95, 150));
 
     auto sup1_t = scale_t * Matrix::translate(Vector3d(300 - 125, 47.5, 500));
@@ -120,7 +130,7 @@ int main(int argc, char *argv[]) {
     suport_1 *sup1_t;
     suport_2 *sup2_t;
 
-    Mesh lid(reflex_gift, "blender objects/cubo_17.obj");
+    Mesh lid(reflex_lid_table, "blender objects/cubo_17.obj");
 
     auto lid_t = Matrix::scale(Vector3d(250, 5, 150)) *
                  Matrix::translate(Vector3d(300, 97.5, 500));
@@ -128,7 +138,7 @@ int main(int argc, char *argv[]) {
 
     // Objeto complexo 02 ==========================================
 
-    Cylinder suppord_tree(reflex_gift, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0),
+    Cylinder suppord_tree(reflex_tree_wood, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0),
                           1);
 
     auto suppord_tree_t = Matrix::scale(Vector3d(30, 9, 1)) *
@@ -136,21 +146,21 @@ int main(int argc, char *argv[]) {
 
     suppord_tree *suppord_tree_t;
 
-    Cylinder wood_2(reflex_gift, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0), 1);
+    Cylinder wood_2(reflex_tree_wood, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0), 1);
 
     auto wood_t = Matrix::scale(Vector3d(6, 40, 4.5)) *
                   Matrix::translate(Vector3d(300, 109, 500));
 
     wood_2 *wood_t;
 
-    Cone tree_2(reflex_gift, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0), 1);
+    Cone tree_2(reflex_tree, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0), 1);
 
     auto tree_t = Matrix::scale(Vector3d(60, 150, 4.5)) *
                   Matrix::translate(Vector3d(300, 149, 500));
 
     tree_2 *tree_t;
 
-    Sphere star_2(reflex_gift, Vector3d(0, 0, 0), 1);
+    Sphere star_2(reflex_star, Vector3d(0, 0, 0), 1);
     auto star_t = Matrix::scale(Vector3d(4.5, 4.5, 4.5)) *
                   Matrix::translate(Vector3d(300, 299, 500));
 
@@ -160,7 +170,7 @@ int main(int argc, char *argv[]) {
     auto left_column_t = Matrix::scale(Vector3d(50, 500, 30)) *
                          Matrix::translate(Vector3d(0, 250, 1000));
 
-    Mesh left_column(reflex_gift, "blender objects/cubo_17.obj");
+    Mesh left_column(reflex_wood_column, "blender objects/cubo_17.obj");
     left_column *left_column_t;
 
     Mesh right_column = left_column;
@@ -173,7 +183,7 @@ int main(int argc, char *argv[]) {
     back_right_column *Matrix::translate(Vector3d(0, 0, -1000));
 
     // QUASE
-    Mesh left_beam(reflex_gift, "blender objects/cubo_17.obj");
+    Mesh left_beam(reflex_wood_column, "blender objects/cubo_17.obj");
     auto left_beam_t = Matrix::scale(Vector3d(300, 50, 30)) *
                        Matrix::shearing(ShearTypes::XY, 42.97183) *
                        Matrix::translate(Vector3d(150, 600, 1000));
@@ -187,7 +197,7 @@ int main(int argc, char *argv[]) {
 
     right_beam *(right_beam_t);
 
-    Mesh back_left_beam(reflex_gift, "blender objects/cubo_17.obj");
+    Mesh back_left_beam(reflex_wood_column, "blender objects/cubo_17.obj");
     auto back_left_beam_t = Matrix::scale(Vector3d(300, 50, 30)) *
                             Matrix::shearing(ShearTypes::XY, 42.97183) *
                             Matrix::translate(Vector3d(150, 600, 0));
@@ -200,6 +210,38 @@ int main(int argc, char *argv[]) {
                              Matrix::translate(Vector3d(450, 600, 0));
 
     back_right_beam *(back_right_beam_t);
+
+    Mesh left_roof(reflex_roof, "blender objects/cubo_17.obj");
+    auto left_roof_t = Matrix::scale(Vector3d(300, 10, 1000)) *
+                       Matrix::shearing(ShearTypes::XY, 42.97183) *
+                       Matrix::translate(Vector3d(150, 600, 500));
+    // Matrix::scale(Vector3d(300, 50, 30)) *
+    left_roof *left_roof_t;
+
+    Mesh right_roof = left_roof;
+    auto right_roof_t = Matrix::translate(Vector3d(-150, -600, -1000)) *
+                        Matrix::reflection(RPlane::YZ_PLANE) *
+                        Matrix::translate(Vector3d(450, 600, 1000));
+
+    right_roof *(right_roof_t);
+
+    Mesh left_wall(reflex_wall, "blender objects/cubo_17.obj");
+    auto left_wall_t = Matrix::scale(Vector3d(20, 500, 1000)) *
+                         Matrix::translate(Vector3d(0, 250, 500));
+    // Matrix::scale(Vector3d(300, 50, 30)) *
+    left_wall *left_wall_t;
+
+    Mesh right_wall = left_wall;
+    auto right_wall_t = Matrix::translate(Vector3d(0, -250, -500)) *
+                        Matrix::translate(Vector3d(600, 250, 500));
+
+    right_wall *(right_wall_t);
+
+    Mesh back_wall(reflex_wood_column, "blender objects/cubo_17.obj");
+    auto back_wall_t = Matrix::scale(Vector3d(600, 500, 20))*
+                        Matrix::translate(Vector3d(300, 250, 0));
+
+    back_wall *(back_wall_t);
 
     shapes.push_back(&floor_wall);
     shapes.push_back(&suport_1);
@@ -217,19 +259,11 @@ int main(int argc, char *argv[]) {
     shapes.push_back(&right_beam);
     shapes.push_back(&back_left_beam);
     shapes.push_back(&back_right_beam);
-    // TRABALHO 06
-
-    // Objeto complexo 4
-
-    // Objeto complexo 3
-    // shapes.push_back(&right_column);
-    // shapes.push_back(&left_column);
-    // shapes.push_back(&left_beam);
-    // shapes.push_back(&right_beam);
-    // Objeto complexo 2
-
-    //   Objeto complexo 1
-    // shapes.push_back(&lid);
+    shapes.push_back(&right_roof);
+    shapes.push_back(&left_roof);
+    shapes.push_back(&right_wall);
+    shapes.push_back(&left_wall);
+    shapes.push_back(&back_wall);
 
     // WINDOW
 
@@ -263,7 +297,7 @@ int main(int argc, char *argv[]) {
     SDL_UpdateWindowSurface(window);
 
     if (NULL == surf) {
-        std::cout << "Could not create window: " << SDL_GetError() << std::endl;
+        //std::cout << "Could not create window: " << SDL_GetError() << std::endl;
         return 1;
     }
 
