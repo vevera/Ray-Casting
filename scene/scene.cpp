@@ -1,11 +1,15 @@
 #include "scene.h"
 
+#include <algorithm>
 #include <iostream>
 
 #include "../traceray/traceray.h"
 Scene::Scene(std::vector<Shape *> shapes, Canvas canvas,
-             std::vector<Light *> lights)
-    : shapes_(shapes), canvas_(canvas), lights_(lights){};
+             std::vector<Light *> lights, gMatrix wc)
+    : shapes_(shapes), canvas_(canvas), lights_(lights) {
+    std::for_each(begin(shapes_), end(shapes_),
+                  [&](Shape *shape) { *shape *wc; });
+};
 
 void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor) {
     double dx = vp.width / (double) canvas_.n_cols();

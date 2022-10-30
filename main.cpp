@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
     // Posicao do fotografo -------------------------------- begin
 
     int lx = 500;
-    int ly = 450;
+    int ly = 850;
     int lz = 1500;
 
     Vector3d camera(0, 0, 0);
@@ -109,17 +109,13 @@ int main(int argc, char *argv[]) {
     Plane floor_wall(reflex_floor, Vector3d(0.0, 0.0, 0.0),
                      Vector3d(0.0, 1.0, 0.0));
 
-    floor_wall *matriz_wc;
-
     Mesh suport_1(reflex_gift, "blender objects/cubo_17.obj");
     Mesh suport_2(reflex_gift, "blender objects/cubo_17.obj");
     gMatrix scale_t = Matrix::scale(Vector3d(5, 95, 150));
 
-    auto sup1_t =
-        scale_t * Matrix::translate(Vector3d(300 - 125, 47.5, 500)) * matriz_wc;
+    auto sup1_t = scale_t * Matrix::translate(Vector3d(300 - 125, 47.5, 500));
 
-    auto sup2_t =
-        scale_t * Matrix::translate(Vector3d(300 + 125, 47.5, 500)) * matriz_wc;
+    auto sup2_t = scale_t * Matrix::translate(Vector3d(300 + 125, 47.5, 500));
 
     suport_1 *sup1_t;
     suport_2 *sup2_t;
@@ -127,7 +123,7 @@ int main(int argc, char *argv[]) {
     Mesh lid(reflex_gift, "blender objects/cubo_17.obj");
 
     auto lid_t = Matrix::scale(Vector3d(250, 5, 150)) *
-                 Matrix::translate(Vector3d(300, 97.5, 500)) * matriz_wc;
+                 Matrix::translate(Vector3d(300, 97.5, 500));
     lid *lid_t;
 
     // Objeto complexo 02 ==========================================
@@ -136,72 +132,60 @@ int main(int argc, char *argv[]) {
                           1);
 
     auto suppord_tree_t = Matrix::scale(Vector3d(30, 9, 1)) *
-                          Matrix::translate(Vector3d(300, 100, 500)) *
-                          matriz_wc;
+                          Matrix::translate(Vector3d(300, 100, 500));
 
     suppord_tree *suppord_tree_t;
 
     Cylinder wood_2(reflex_gift, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0), 1);
 
     auto wood_t = Matrix::scale(Vector3d(6, 40, 4.5)) *
-                  Matrix::translate(Vector3d(300, 109, 500)) * matriz_wc;
+                  Matrix::translate(Vector3d(300, 109, 500));
 
     wood_2 *wood_t;
 
     Cone tree_2(reflex_gift, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0), 1);
 
     auto tree_t = Matrix::scale(Vector3d(60, 150, 4.5)) *
-                  Matrix::translate(Vector3d(300, 149, 500)) * matriz_wc;
+                  Matrix::translate(Vector3d(300, 149, 500));
 
     tree_2 *tree_t;
 
     Sphere star_2(reflex_gift, Vector3d(0, 0, 0), 1);
     auto star_t = Matrix::scale(Vector3d(4.5, 4.5, 4.5)) *
-                  Matrix::translate(Vector3d(300, 299, 500)) * matriz_wc;
+                  Matrix::translate(Vector3d(300, 299, 500));
 
     star_2 *star_t;
 
     // Objeto complexo 03 ==========================================
+    auto left_column_t = Matrix::scale(Vector3d(50, 500, 30)) *
+                         Matrix::translate(Vector3d(0, 250, 1000));
 
-    gMatrix scale_column = Matrix::scale(Vector3d(50, 500, 30));
     Mesh left_column(reflex_gift, "blender objects/cubo_17.obj");
-    auto left_column_t =
-        scale_column * Matrix::translate(Vector3d(0, 250, 1000)) * matriz_wc;
     left_column *left_column_t;
 
-    Mesh right_column(reflex_gift, "blender objects/cubo_17.obj");
-    auto right_column_t =
-        scale_column * Matrix::translate(Vector3d(600, 250, 1000)) * matriz_wc;
+    Mesh right_column = left_column;
+    right_column *Matrix::translate(Vector3d(600, 0, 0));
 
-    right_column *right_column_t;
+    Mesh back_left_column = left_column;
+    back_left_column *Matrix::translate(Vector3d(0, 0, -1000));
 
-    Mesh back_left_column(reflex_gift, "blender objects/cubo_17.obj");
-    auto back_left_column_t =
-        scale_column * Matrix::translate(Vector3d(0, 250, 0)) * matriz_wc;
-
-    back_left_column *back_left_column_t;
-
-    Mesh back_right_column(reflex_gift, "blender objects/cubo_17.obj");
-    auto back_right_column_t =
-        scale_column * Matrix::translate(Vector3d(600, 250, 0)) * matriz_wc;
-
-    back_right_column *back_right_column_t;
+    Mesh back_right_column = right_column;
+    back_right_column *Matrix::translate(Vector3d(0, 0, -1000));
 
     // QUASE
     Mesh left_beam(reflex_gift, "blender objects/cubo_17.obj");
     auto left_beam_t = Matrix::scale(Vector3d(300, 50, 30)) *
                        Matrix::shearing(ShearTypes::XY, 42.97183) *
                        Matrix::translate(Vector3d(150, 600, 1000));
-
+    // Matrix::scale(Vector3d(300, 50, 30)) *
     left_beam *left_beam_t;
 
     Mesh right_beam = left_beam;
     auto right_beam_t = Matrix::translate(Vector3d(-150, -600, -1000)) *
                         Matrix::reflection(RPlane::YZ_PLANE) *
-                        Matrix::translate(Vector3d(450, 600, 1000)) * matriz_wc;
+                        Matrix::translate(Vector3d(450, 600, 1000));
 
     right_beam *(right_beam_t);
-    left_beam *matriz_wc;
 
     Mesh back_left_beam(reflex_gift, "blender objects/cubo_17.obj");
     auto back_left_beam_t = Matrix::scale(Vector3d(300, 50, 30)) *
@@ -213,11 +197,9 @@ int main(int argc, char *argv[]) {
     Mesh back_right_beam = back_left_beam;
     auto back_right_beam_t = Matrix::translate(Vector3d(-150, -600, 0)) *
                              Matrix::reflection(RPlane::YZ_PLANE) *
-                             Matrix::translate(Vector3d(450, 600, 0)) *
-                             matriz_wc;
+                             Matrix::translate(Vector3d(450, 600, 0));
 
     back_right_beam *(back_right_beam_t);
-    back_left_beam *matriz_wc;
 
     shapes.push_back(&floor_wall);
     shapes.push_back(&suport_1);
@@ -252,7 +234,7 @@ int main(int argc, char *argv[]) {
     // WINDOW
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
-    Scene scene(shapes, canvas, lights);
+    Scene scene(shapes, canvas, lights, matriz_wc);
 
     ViewPort vp(wJanela, hJanela, z);
 

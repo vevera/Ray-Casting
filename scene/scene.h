@@ -53,7 +53,7 @@ struct ViewPort {
 class Scene {
    public:
     Scene(std::vector<Shape *> shapes, Canvas canvas,
-          std::vector<Light *> lights);
+          std::vector<Light *> lights, gMatrix wc);
     void take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor);
 
    private:

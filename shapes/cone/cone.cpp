@@ -1,7 +1,7 @@
 #include "cone.h"
 
+#include <functional>
 #include <iostream>
-
 Cone::Cone(Reflexivity reflexivity, Vector3d base_center, Vector3d vertex,
            double radius, std::string texture_path)
     : Shape(reflexivity, texture_path),
@@ -123,33 +123,30 @@ bool Cone::in_base_surface(Vector3d &p0, Vector3d &dr, double &t,
 };
 
 void Cone::operator*(AccMatrix m) {
-    std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &m) {
-        switch (m.t_type) {
-            case TransformType::SCALE:
-                radius_ = radius_ * m.transform_matrix.at(0).get(0);
-                height_ = height_ * m.transform_matrix.at(1).get(1);
-                vertex_ = base_center_ + (cone_direction_ * height_);
-                break;
-            case TransformType::SHEARING:
-                break;
-            case TransformType::TRANSLATE:
-                base_center_ =
-                    base_center_.mult_vector_matriz4d(m.transform_matrix);
-                vertex_ = base_center_ + (cone_direction_ * height_);
-                break;
-            default:
-
-                base_center_ =
-                    base_center_.mult_vector_matriz4d(m.transform_matrix);
-
-                cone_direction_ =
-                    cone_direction_.mult_vector_matriz4d(m.n_fix).normalize();
-
-                vertex_ = base_center_ + (cone_direction_ * height_);
-                break;
-        }
-    });
+    std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &m) { *this *m; });
 };
-void Cone::operator*(gMatrix m){
+void Cone::operator*(gMatrix m) {
+    switch (m.t_type) {
+        case TransformType::SCALE:
+            radius_ = radius_ * m.transform_matrix.at(0).get(0);
+            height_ = height_ * m.transform_matrix.at(1).get(1);
+            vertex_ = base_center_ + (cone_direction_ * height_);
+            break;
+        case TransformType::SHEARING:
+            break;
+        case TransformType::TRANSLATE:
+            base_center_ =
+                base_center_.mult_vector_matriz4d(m.transform_matrix);
+            vertex_ = base_center_ + (cone_direction_ * height_);
+            break;
+        default:
+            base_center_ =
+                base_center_.mult_vector_matriz4d(m.transform_matrix);
 
+            cone_direction_ =
+                cone_direction_.mult_vector_matriz4d(m.n_fix).normalize();
+
+            vertex_ = base_center_ + (cone_direction_ * height_);
+            break;
+    }
 };

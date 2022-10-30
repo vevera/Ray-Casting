@@ -5,8 +5,6 @@
 #include <iostream>
 #include <regex>
 
-int d = 1;
-
 Mesh::Mesh(Reflexivity reflexivity, std::string object_data_path,
            std::string texture_path)
     : Shape(reflexivity, texture_path)
@@ -98,22 +96,12 @@ double Mesh::intersect(Vector3d p_0, Vector3d dr) {
         ti = -(p_0 - p1).dot(normal) / dr.dot(normal);
         p_i = p_0 + (dr * ti);
 
-        if (d == 1) {
-            std::cout << ti << std::endl;
-            std::cout << p_i.toStr() << std::endl;
-        }
-
         c1 = ((p3 - p_i).cross_product(p1 - p_i).dot(normal) /
               r1.cross_product(r2).dot(normal));
         c2 = ((p1 - p_i).cross_product(p2 - p_i).dot(normal) /
               r1.cross_product(r2).dot(normal));
         c3 = 1 - c1 - c2;
 
-        if (d == 1) {
-            std::cout << c1 << std::endl;
-            std::cout << c2 << std::endl;
-            std::cout << c3 << std::endl;
-        }
         min = std::min({c1, c2, c3});
         if (min >= 0.0) {
             if (ti < t_min) {
@@ -121,8 +109,6 @@ double Mesh::intersect(Vector3d p_0, Vector3d dr) {
                 n = normal;
             }
         }
-
-        d = d + 1;
     });
 
     return t_min;
@@ -283,17 +269,44 @@ void Mesh::reflection(ReflectionPlane r_plane) {
 }
 
 void Mesh::operator*(AccMatrix m) {
-    std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &m) {
-        std::for_each(begin(vertex_list) + 1, end(vertex_list),
-                      [&](Vector3d &p) {
-                          p = p.mult_vector_matriz4d(m.transform_matrix);
-                      });
+    // vector<Vector3d> macc_t = m.acc->at(0).transform_matrix;
+    // vector<Vector3d> macc_n = m.acc->at(0).n_fix;
 
-        std::for_each(begin(normal_list) + 1, end(normal_list),
-                      [&](Vector3d &p) {
-                          p = p.mult_vector_matriz4d(m.n_fix).normalize();
-                      });
+    // vector<Vector3d> macc_tr = m.acc->at(0).transform_matrix;
+    // vector<Vector3d> macc_nr = m.acc->at(0).n_fix;
+
+    // double sum_t = 0;
+    // double sum_n = 0;
+
+    std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &m) {
+        *this *m;
+        // for (int i = 0; i < 4; i++) {
+        //     for (int j = 0; j < 4; j++) {
+        //         sum_t = 0;
+        //         sum_n = 0;
+        //         for (int k = 0; k < 4; k++) {
+        //             sum_t = sum_t + macc_t.at(i).get(k) *
+        //                                 m.transform_matrix.at(k).get(j);
+        //             sum_n = sum_n + macc_n.at(i).get(k) *
+        //             m.n_fix.at(k).get(j);
+        //         }
+        //         macc_tr.at(i).set(j, sum_t);
+        //         macc_nr.at(i).set(j, sum_n);
+        //     }
+        // }
+        // std::copy(macc_tr.begin(), macc_tr.end(), macc_t.begin());
+        // std::copy(macc_nr.begin(), macc_nr.end(), macc_n.begin());
+        // macc_t = macc_tr;
+        // macc_n = macc_nr;
     });
+
+    // std::for_each(begin(vertex_list) + 1, end(vertex_list),
+    //               [&](Vector3d &p) { p = p.mult_vector_matriz4d(macc_tr); });
+
+    // std::for_each(begin(normal_list) + 1, end(normal_list), [&](Vector3d &p)
+    // {
+    //     p = p.mult_vector_matriz4d(macc_nr).normalize();
+    // });
 };
 
 void Mesh::operator*(gMatrix m) {

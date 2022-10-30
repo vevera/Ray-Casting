@@ -160,5 +160,6 @@ gMatrix Matrix::reflection(RPlane r_plane) {
                                 Vector3d(0, 0, 1, 0), Vector3d(0, 0, 0, 1)};
             break;
     }
-    return gMatrix(mirroring_matrix, TransformType::REFLECTION);
+    return gMatrix(mirroring_matrix, mirroring_matrix,
+                   TransformType::REFLECTION);
 };
