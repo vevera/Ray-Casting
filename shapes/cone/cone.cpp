@@ -134,6 +134,12 @@ void Cone::operator*(gMatrix m) {
             break;
         case TransformType::SHEARING:
             break;
+        case TransformType::CAMERA:
+            vertex_ = vertex_.mult_vector_matriz4d(m.transform_matrix);
+            base_center_ =
+                base_center_.mult_vector_matriz4d(m.transform_matrix);
+            cone_direction_ = (vertex_ - base_center_).normalize();
+            break;
         case TransformType::TRANSLATE:
             base_center_ =
                 base_center_.mult_vector_matriz4d(m.transform_matrix);

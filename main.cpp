@@ -60,9 +60,9 @@ int main(int argc, char *argv[]) {
     Vector3d camera(0, 0, 0);
     Vector3d eye = Vector3d(lx, ly, lz, 1);
 
-    Vector3d at = Vector3d(lx, ly, 1, 1);
+    Vector3d at = Vector3d(lx, 1, lz, 1);
 
-    Vector3d up = Vector3d(lx, ly - 100, lz, 1);
+    Vector3d up = Vector3d(lx, ly + 100, lz, 1);
 
     Vector3d vup = up - eye;
 

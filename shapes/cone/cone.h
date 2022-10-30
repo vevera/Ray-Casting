@@ -3,6 +3,8 @@
 
 #include "../plane/plane.h"
 #include "../shape.h"
+#include <iostream>
+#include <algorithm>
 
 enum INTERSECTION_CONE_TYPE {
     CONE_SURFACE,

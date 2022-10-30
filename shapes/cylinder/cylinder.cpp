@@ -153,6 +153,12 @@ void Cylinder::operator*(gMatrix m) {
             break;
         case TransformType::SHEARING:
             break;
+        case TransformType::CAMERA:
+            top_center_ = top_center_.mult_vector_matriz4d(m.transform_matrix);
+            base_center_ =
+                base_center_.mult_vector_matriz4d(m.transform_matrix);
+            cylinder_direction = (top_center_ - base_center_).normalize();
+            break;
         case TransformType::TRANSLATE:
             base_center_ =
                 base_center_.mult_vector_matriz4d(m.transform_matrix);

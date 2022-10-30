@@ -3,7 +3,8 @@
 
 #include "../plane/plane.h"
 #include "../shape.h"
-
+#include <iostream>
+#include <algorithm>
 enum INTERSECTION_TYPE {
     CYLINDER_SURFACE,
     BASE_SURFACE,

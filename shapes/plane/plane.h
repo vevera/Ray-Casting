@@ -2,7 +2,8 @@
 #define PLANE_H
 
 #include "../shape.h"
-
+#include <iostream>
+#include <algorithm>
 class Plane : public Shape {
    public:
     Plane(Reflexivity reflexivity, Vector3d p_pi, Vector3d n,

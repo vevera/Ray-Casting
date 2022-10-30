@@ -2,6 +2,8 @@
 #define SPHERE_H
 
 #include "../shape.h"
+#include <iostream>
+#include <algorithm>
 
 class Sphere : public Shape {
    public:
