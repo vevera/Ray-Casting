@@ -13,6 +13,7 @@ Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center,
     Vector3d Cb_Ct = (top_center - base_center);
     height = Cb_Ct.length();
     cylinder_direction = Cb_Ct.normalize();
+    cylinder_direction.set(3, 0);
 
     vector<Vector3d> identity = {Vector3d(1, 0, 0), Vector3d(0, 1, 0),
                                  Vector3d(0, 0, 1)};
@@ -33,6 +34,7 @@ Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center, double height,
       last_dr(nullptr)
 
 {
+    cylinder_direction.set(3, 0);
     top_center_ = base_center_ + cylinder_direction * height;
 
     vector<Vector3d> identity = {Vector3d(1, 0, 0), Vector3d(0, 1, 0),
@@ -50,13 +52,10 @@ double Cylinder::intersect(Vector3d p_0, Vector3d dr) {
 
     Vector3d w = p_0 - base_center_;
 
-    // a = dr_transposta * M * dr
     double a = (dr.mult_vector_matriz(M)).dot(dr);
 
-    // b = 2 * w_transposta * M * dr
     double b = (w.mult_vector_matriz(M)).dot(dr) * 2;
 
-    // c = w_transposta * M * w - Rc2
     double c = (w.mult_vector_matriz(M)).dot(w) - pow(radius_, 2);
 
     double delta = pow(b, 2) - 4 * a * c;
@@ -76,12 +75,15 @@ double Cylinder::intersect(Vector3d p_0, Vector3d dr) {
 
     double t_base = -((p_0 - base_center_).dot(cylinder_direction)) /
                     (dr.dot(cylinder_direction));
-    // t = -(P-Ct).dc / dr.dc
+
     double t_top = -((p_0 - top_center_).dot(cylinder_direction)) /
                    (dr.dot(cylinder_direction));
 
     bool t_base_valid = in_lid_surface(p_0, dr, t_base, base_center_);
     bool t_top_valid = in_lid_surface(p_0, dr, t_top, top_center_);
+
+    t_top = !t_top_valid ? INFINITY : t_top;
+    t_base = !t_base_valid ? INFINITY : t_base;
 
     double min_cylinder = min_valid ? min : max_valid ? max : INFINITY;
 
@@ -94,16 +96,15 @@ double Cylinder::intersect(Vector3d p_0, Vector3d dr) {
         return min_cylinder;
     }
 
-    else if (t_top >= t_base && t_base_valid) {
-        type = INTERSECTION_TYPE::BASE_SURFACE;
-        return t_base;
-    }
-
-    else if (t_top < t_base && t_top_valid) {
+    if (t_top < t_base && t_top_valid) {
         type = INTERSECTION_TYPE::TOP_SURFACE;
         return t_top;
     }
 
+    if (t_top >= t_base && t_base_valid) {
+        type = INTERSECTION_TYPE::BASE_SURFACE;
+        return t_base;
+    }
     return INFINITY;
 };
 
@@ -111,8 +112,9 @@ Vector3d Cylinder::normal(Vector3d p_i) {
     if (type == INTERSECTION_TYPE::BASE_SURFACE)
         return cylinder_direction * -1;
 
-    if (type == INTERSECTION_TYPE::TOP_SURFACE)
+    if (type == INTERSECTION_TYPE::TOP_SURFACE) {
         return cylinder_direction;
+    }
 
     Vector3d d = p_i - base_center_;
     Vector3d N = d.mult_vector_matriz(M);
@@ -126,7 +128,7 @@ bool Cylinder::in_cylinder_surface(Vector3d &p0, Vector3d &dr, double &t) {
     Vector3d cb_pi = p_i - base_center_;
 
     double h = cb_pi.dot(cylinder_direction);
-    return h >= 0.0001 && h <= height;
+    return h >= 0.0 && h <= height;
 }
 
 bool Cylinder::in_lid_surface(Vector3d &p0, Vector3d &dr, double &t,
@@ -153,23 +155,65 @@ void Cylinder::operator*(gMatrix m) {
             break;
         case TransformType::SHEARING:
             break;
-        case TransformType::CAMERA:
-            top_center_ = top_center_.mult_vector_matriz4d(m.transform_matrix);
-            base_center_ =
-                base_center_.mult_vector_matriz4d(m.transform_matrix);
-            cylinder_direction = (top_center_ - base_center_).normalize();
-            break;
+        // case TransformType::CAMERA:
+
+        //     std::cout << "Cylinder Base B: " << base_center_.toStr()
+        //               << std::endl;
+
+        //     base_center_ =
+        //         base_center_.mult_vector_matriz4d(m.transform_matrix);
+
+        //     std::cout << "Cylinder Base D: " << base_center_.toStr()
+        //               << std::endl;
+
+        //     std::cout << "Cylinder Topo B: " << top_center_.toStr()
+        //               << std::endl;
+
+        //     top_center_ =
+        //     top_center_.mult_vector_matriz4d(m.transform_matrix);
+
+        //     std::cout << "Cylinder Topo D: " << top_center_.toStr()
+        //               << std::endl;
+
+        //     cylinder_direction.set(3, 0);
+        //     std::cout << "Cylinder Dir B: " << cylinder_direction.toStr()
+        //               << std::endl;
+
+        //     cylinder_direction =
+        //         cylinder_direction.mult_vector_matriz4d(m.n_fix).normalize();
+
+        //     std::cout << "Cylinder Dir D: " << cylinder_direction.toStr()
+        //               << std::endl;
+
+        //     rebuild_M();
+
+        //     // std::cout << "Cylinder Dir A: " << cylinder_direction.toStr()
+        //     //           << std::endl;
+        //     // cylinder_direction.set(3, 0);
+        //     // top_center_ = base_center_ + (cylinder_direction * height);
+        //     break;
         case TransformType::TRANSLATE:
             base_center_ =
                 base_center_.mult_vector_matriz4d(m.transform_matrix);
-            top_center_ = base_center_ + cylinder_direction * height;
+            top_center_ = base_center_ + (cylinder_direction * height);
             break;
         default:
             base_center_ =
                 base_center_.mult_vector_matriz4d(m.transform_matrix);
+            top_center_ = top_center_.mult_vector_matriz4d(m.transform_matrix);
+            cylinder_direction.set(3, 0);
             cylinder_direction =
                 cylinder_direction.mult_vector_matriz4d(m.n_fix).normalize();
-            top_center_ = base_center_ + cylinder_direction * height;
+            rebuild_M();
             break;
     }
+};
+
+void Cylinder::rebuild_M() {
+    vector<Vector3d> identity = {Vector3d(1, 0, 0), Vector3d(0, 1, 0),
+                                 Vector3d(0, 0, 1)};
+
+    vector<Vector3d> dc_dot_dct = cylinder_direction.dotTr(cylinder_direction);
+
+    M = Vector3d::subtraction(identity, dc_dot_dct);
 };

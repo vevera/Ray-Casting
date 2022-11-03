@@ -134,7 +134,7 @@ std::vector<Vector3d> Vector3d::subtraction(std::vector<Vector3d> &m1,
 };
 
 Vector3d Vector3d::mult_vector_matriz(std::vector<Vector3d> &matriz) {
-    double x, y, z, w;
+    double x, y, z;
 
     x = this->dot(matriz.at(0));
     y = this->dot(matriz.at(1));
@@ -158,9 +158,19 @@ double Vector3d::length() {
     return std::sqrt(sum);
 };
 
+double Vector3d::length4d() {
+    double sum = dot4d(*this);
+    return std::sqrt(sum);
+};
+
 Vector3d Vector3d::normalize() {
     //*this = *this / this->length();
     return *this / this->length();
+};
+
+Vector3d Vector3d::normalize4d() {
+    //*this = *this / this->length();
+    return *this / this->length4d();
 };
 
 std::string Vector3d::toStr() {

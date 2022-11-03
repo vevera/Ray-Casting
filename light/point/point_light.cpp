@@ -29,3 +29,7 @@ Vector3d *PointLight::get_contribution(Reflexivity &reflex, Vector3d &l,
 
     return new Vector3d(cont.x_, cont.y_, cont.z_);
 };
+
+void PointLight::operator*(gMatrix m) {
+    *position_ = position_->mult_vector_matriz4d(m.transform_matrix);
+};

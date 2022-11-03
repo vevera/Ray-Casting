@@ -36,3 +36,5 @@ double Spot::get_distance_from_p(Vector3d p_i) {
     Vector3d dr = *this->position_ - p_i;
     return dr.length();
 }
+
+void Spot::operator*(gMatrix m) {}

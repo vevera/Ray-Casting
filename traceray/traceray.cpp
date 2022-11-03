@@ -17,7 +17,7 @@ Vector3d trace_ray(Vector3d p_0, Vector3d dr, double t_min, double t_max,
     double closest_t = INFINITY;
     Shape *closest_shape = nullptr;
     double t = 0;
-
+    dr.set(3, 0);
     std::for_each(shapes.begin(), shapes.end(), [&](Shape *shape) {
         t = shape->intersect(p_0, dr);
         if ((t > 0) && ((t >= t_min) && (t <= t_max)) && (t < closest_t)) {

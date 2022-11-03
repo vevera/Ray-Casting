@@ -33,9 +33,11 @@ class Vector3d {
     Vector3d mult_vector_matriz(std::vector<Vector3d> &matriz);
     Vector3d mult_vector_matriz4d(std::vector<Vector3d> &matriz);
     Vector3d normalize();
+    Vector3d normalize4d();
     Vector3d cross_product(Vector3d const &op);
 
     double length();
+    double length4d();
     double dot(Vector3d const &vector);
     double dot4d(Vector3d const &vector);
 

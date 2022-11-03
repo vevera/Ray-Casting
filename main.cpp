@@ -20,55 +20,50 @@ using std::cout;
 int main(int argc, char *argv[]) {
     int wCanvas, hCanvas, dJanela, rEsfera, wJanela, hJanela, nLin, nCol, z;
     Vector3d bgColor, i_f, p_f, i_a;
-    wCanvas = 500;
-    hCanvas = 500;
+    wCanvas = 300;
+    hCanvas = 300;
     dJanela = 25;
     rEsfera = 40;
     wJanela = 60;
     hJanela = 60;
     bgColor = Vector3d(0., 0., 0.);
-    nLin = 500;
-    nCol = 500;
+    nLin = 300;
+    nCol = 300;
     z = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
-    p_f = Vector3d(-100.0, 140.0, -20.0);
+    p_f = Vector3d(300, 100, 2000.0);
     i_a = Vector3d(0.3, 0.3, 0.3);
 
-    std::vector<Light *> lights;
-
-    PointLight light(&i_f, &p_f);
-    Ambient ambient_light(&i_a);
-    Directional d_light(&i_f, new Vector3d(0, -1, 0));
-    Spot s_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0.5, -1), 0.2);
-
-    Spot s1_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0, -1), 0.9);
-
-    lights.push_back(&light);
-    lights.push_back(&ambient_light);
     // lights.push_back(&d_light);
     // lights.push_back(&s_light);
     // lights.push_back(&s1_light);
     std::vector<Shape *> shapes;
 
     // Posicao do fotografo -------------------------------- begin
-
-    int lx = 300;
-    int ly = 450;
-    int lz = 1500;
+    /*
+    int lx =
+    */
+    double lx = 500;
+    double ly = 800;
+    double lz = 1500;
 
     Vector3d camera(0, 0, 0);
     Vector3d eye = Vector3d(lx, ly, lz, 1);
 
-    Vector3d at = Vector3d(lx, 1, lz, 1);
+    Vector3d at = Vector3d(300, 97.5, 500, 1);
 
     Vector3d up = Vector3d(lx, ly + 100, lz, 1);
 
     Vector3d vup = up - eye;
 
-    Vector3d k_c = (eye - at).normalize();                 // z da camera
-    Vector3d i_c = (vup.cross_product(k_c)).normalize();   // x da camera
-    Vector3d j_c = (k_c.cross_product(i_c)).normalize();   // y da camera
+    Vector3d k_c = (eye - at).normalize();     // z da camera
+    Vector3d i_c = (vup.cross_product(k_c));   // x da camera
+    Vector3d j_c = (k_c.cross_product(i_c));   // y da camera
+
+    k_c = k_c.normalize();
+    i_c = i_c.normalize();
+    j_c = j_c.normalize();
 
     // matriz que vai converter para as coordenadas de camera
 
@@ -78,40 +73,68 @@ int main(int argc, char *argv[]) {
         Vector3d(k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye))),
         Vector3d(0, 0, 0, 1)};
 
-    gMatrix matriz_wc(t_c, TransformType::CAMERA);
+    std::cout << "Matrix: " << std::endl;
+
+    std::for_each(begin(t_c), end(t_c),
+                  [](auto v) { std::cout << v.toStr() << std::endl; });
+
+    gMatrix matriz_wc(t_c, t_c, TransformType::CAMERA);
 
     Vector3d eye_aux = eye;
     eye *matriz_wc.transform_matrix;
+    std::cout << "Camera: " << eye.toStr() << std::endl;
     camera = eye;
-    //std::cout << "CAMERA: " << eye.toStr() << std::endl;
+
+    std::vector<Light *> lights;
+
+    PointLight light(&i_f, &p_f);
+    light *matriz_wc;
+
+    Ambient ambient_light(&i_a);
+    Directional d_light(&i_f, new Vector3d(0, -1, 0));
+    Spot s_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0.5, -1), 0.2);
+
+    Spot s1_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0, -1), 0.9);
+
+    lights.push_back(&light);
+    lights.push_back(&ambient_light);
 
     // Reflexidade dos objetos
-
+    Vector3d k_spec = Vector3d(0, 0, 0);
     Vector3d k_floor_a = Vector3d(0.3, 0.6, 0.1);
     Reflexivity reflex_floor(&k_floor_a, &k_floor_a, &k_floor_a, 1);
 
-    Vector3d k_support_table = Vector3d(210.0/255.0,105.0/255.0,30.0/255.0);
-    Reflexivity reflex_support_table(&k_support_table, &k_support_table, &k_support_table, 1);
+    Vector3d k_support_table =
+        Vector3d(210.0 / 255.0, 105.0 / 255.0, 30.0 / 255.0);
+    Reflexivity reflex_support_table(&k_support_table, &k_support_table,
+                                     &k_support_table, 1);
 
-    Vector3d k_lid_table = Vector3d(65.0/255.0,105.0/255.0,225.0/255.0);
+    Vector3d k_lid_table = Vector3d(65.0 / 255.0, 105.0 / 255.0, 225.0 / 255.0);
     Reflexivity reflex_lid_table(&k_lid_table, &k_lid_table, &k_lid_table, 1);
 
-    Vector3d k_tree_wood = Vector3d(139.0/255.0,69.0/255.0,19.0/255.0);
+    Vector3d k_tree_wood = Vector3d(139.0 / 255.0, 69.0 / 255.0, 19.0 / 255.0);
     Reflexivity reflex_tree_wood(&k_tree_wood, &k_tree_wood, &k_tree_wood, 1);
+
+    Vector3d k_tree_support = Vector3d(1, 1, 0);
+
+    Reflexivity reflex_support(&k_tree_support, &k_tree_support,
+                               &k_tree_support, 1);
 
     Vector3d k_star = Vector3d(1.0, 1.0, 0.0);
     Reflexivity reflex_star(&k_star, &k_star, &k_star, 1);
 
-    Vector3d k_tree = Vector3d(0.0,1.0,0.0);
+    Vector3d k_tree = Vector3d(0.0, 1.0, 0.0);
     Reflexivity reflex_tree(&k_tree, &k_tree, &k_tree, 1);
 
-    Vector3d k_wood_column = Vector3d(205.0/255.0,133.0/255.0,63.0/255.0);
-    Reflexivity reflex_wood_column(&k_wood_column, &k_wood_column, &k_wood_column, 1);
+    Vector3d k_wood_column =
+        Vector3d(205.0 / 255.0, 133.0 / 255.0, 63.0 / 255.0);
+    Reflexivity reflex_wood_column(&k_wood_column, &k_wood_column,
+                                   &k_wood_column, 1);
 
-    Vector3d k_roof = Vector3d(1,69.0/255.0,0);
+    Vector3d k_roof = Vector3d(1, 69.0 / 255.0, 0);
     Reflexivity reflex_roof(&k_roof, &k_roof, &k_roof, 1);
 
-    Vector3d k_wall = Vector3d(222.0/255.0, 184.0/255.0, 135.0/255.0);
+    Vector3d k_wall = Vector3d(222.0 / 255.0, 184.0 / 255.0, 135.0 / 255.0);
     Reflexivity reflex_wall(&k_wall, &k_wall, &k_wall, 1);
 
     // Objeto complexo 01 ==========================================
@@ -138,15 +161,16 @@ int main(int argc, char *argv[]) {
 
     // Objeto complexo 02 ==========================================
 
-    Cylinder suppord_tree(reflex_tree_wood, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0),
-                          1);
+    Cylinder suppord_tree(reflex_support, Vector3d(0, 0, 0), 1,
+                          Vector3d(0, 1, 0), 1);
 
     auto suppord_tree_t = Matrix::scale(Vector3d(30, 9, 1)) *
                           Matrix::translate(Vector3d(300, 100, 500));
 
     suppord_tree *suppord_tree_t;
 
-    Cylinder wood_2(reflex_tree_wood, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0), 1);
+    Cylinder wood_2(reflex_tree_wood, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0),
+                    1);
 
     auto wood_t = Matrix::scale(Vector3d(6, 40, 4.5)) *
                   Matrix::translate(Vector3d(300, 109, 500));
@@ -227,7 +251,8 @@ int main(int argc, char *argv[]) {
 
     Mesh left_wall(reflex_wall, "blender objects/cubo_17.obj");
     auto left_wall_t = Matrix::scale(Vector3d(20, 500, 1000)) *
-                         Matrix::translate(Vector3d(0, 250, 500));
+                       Matrix::translate(Vector3d(0, 250, 500));
+
     // Matrix::scale(Vector3d(300, 50, 30)) *
     left_wall *left_wall_t;
 
@@ -238,8 +263,8 @@ int main(int argc, char *argv[]) {
     right_wall *(right_wall_t);
 
     Mesh back_wall(reflex_wood_column, "blender objects/cubo_17.obj");
-    auto back_wall_t = Matrix::scale(Vector3d(600, 500, 20))*
-                        Matrix::translate(Vector3d(300, 250, 0));
+    auto back_wall_t = Matrix::scale(Vector3d(600, 500, 20)) *
+                       Matrix::translate(Vector3d(300, 250, 0));
 
     back_wall *(back_wall_t);
 
@@ -271,7 +296,7 @@ int main(int argc, char *argv[]) {
     Scene scene(shapes, canvas, lights, matriz_wc);
 
     ViewPort vp(wJanela, hJanela, z);
-
+    std::cout << "before take a pic" << std::endl;
     scene.take_a_picture(camera, vp, bgColor);
 
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -297,7 +322,8 @@ int main(int argc, char *argv[]) {
     SDL_UpdateWindowSurface(window);
 
     if (NULL == surf) {
-        //std::cout << "Could not create window: " << SDL_GetError() << std::endl;
+        // std::cout << "Could not create window: " << SDL_GetError() <<
+        // std::endl;
         return 1;
     }
 

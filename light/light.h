@@ -3,7 +3,7 @@
 
 class Vector3d;
 class Reflexivity;
-
+#include "../matrix/matrix.h"
 class Light {
    protected:
     Vector3d *intensity_;
@@ -22,6 +22,7 @@ class Light {
                                        Vector3d &n, Vector3d &v,
                                        Vector3d &r) = 0;
     virtual double get_distance_from_p(Vector3d p_i) = 0;
+    virtual void operator*(gMatrix m) = 0;
 };
 
 #endif

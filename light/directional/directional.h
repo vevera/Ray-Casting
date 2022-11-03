@@ -14,6 +14,7 @@ class Directional : public Light {
     Vector3d *get_contribution(Reflexivity &reflex, Vector3d &l, Vector3d &n,
                                Vector3d &v, Vector3d &r);
     double get_distance_from_p(Vector3d p_i);
+    void operator*(gMatrix m){};
 };
 
 #endif

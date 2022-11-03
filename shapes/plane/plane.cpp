@@ -34,10 +34,12 @@ void Plane::operator*(gMatrix m) {
             break;
         case TransformType::SCALE:
             break;
-        default:
-            std::cout << "PLANO: " << p_pi_.toStr() << std::endl;
+        case TransformType::CAMERA:
             p_pi_ = p_pi_.mult_vector_matriz4d(m.transform_matrix);
-            std::cout << "PLANO: " << p_pi_.toStr() << std::endl;
+            n_ = n_.mult_vector_matriz(m.transform_matrix).normalize();
+            break;
+        default:
+            p_pi_ = p_pi_.mult_vector_matriz4d(m.transform_matrix);
             n_ = n_.mult_vector_matriz4d(m.n_fix).normalize();
             break;
     }

@@ -39,11 +39,6 @@ class Mesh : public Shape {
     double intersect(Vector3d p_0, Vector3d dr);
     Vector3d normal(Vector3d p_i);
 
-    void scale(Vector3d scale_factor);
-    void translate(Vector3d target_position);
-    void rotate(Axis rotation_axis, double angle);
-    void shearing(ShearingTypes shearing_axis, double angle);
-    void reflection(ReflectionPlane r_plane);
     void operator*(AccMatrix m);
     void operator*(gMatrix m);
 

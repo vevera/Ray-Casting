@@ -1,10 +1,11 @@
 #ifndef CYLINDER_H
 #define CYLINDER_H
 
+#include <algorithm>
+#include <iostream>
+
 #include "../plane/plane.h"
 #include "../shape.h"
-#include <iostream>
-#include <algorithm>
 enum INTERSECTION_TYPE {
     CYLINDER_SURFACE,
     BASE_SURFACE,
@@ -22,6 +23,7 @@ class Cylinder : public Shape {
 
     double intersect(Vector3d p_0, Vector3d dr);
     Vector3d normal(Vector3d p_i);
+    void rebuild_M();
     void operator*(AccMatrix m);
     void operator*(gMatrix m);
 

@@ -127,18 +127,12 @@ void Cone::operator*(AccMatrix m) {
 };
 void Cone::operator*(gMatrix m) {
     switch (m.t_type) {
+        case TransformType::SHEARING:
+            break;
         case TransformType::SCALE:
             radius_ = radius_ * m.transform_matrix.at(0).get(0);
             height_ = height_ * m.transform_matrix.at(1).get(1);
             vertex_ = base_center_ + (cone_direction_ * height_);
-            break;
-        case TransformType::SHEARING:
-            break;
-        case TransformType::CAMERA:
-            vertex_ = vertex_.mult_vector_matriz4d(m.transform_matrix);
-            base_center_ =
-                base_center_.mult_vector_matriz4d(m.transform_matrix);
-            cone_direction_ = (vertex_ - base_center_).normalize();
             break;
         case TransformType::TRANSLATE:
             base_center_ =
@@ -146,13 +140,13 @@ void Cone::operator*(gMatrix m) {
             vertex_ = base_center_ + (cone_direction_ * height_);
             break;
         default:
+            vertex_ = vertex_.mult_vector_matriz4d(m.transform_matrix);
             base_center_ =
                 base_center_.mult_vector_matriz4d(m.transform_matrix);
 
+            cone_direction_.set(3, 0);
             cone_direction_ =
                 cone_direction_.mult_vector_matriz4d(m.n_fix).normalize();
-
-            vertex_ = base_center_ + (cone_direction_ * height_);
             break;
     }
 };
