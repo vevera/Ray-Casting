@@ -20,15 +20,15 @@ using std::cout;
 int main(int argc, char *argv[]) {
     int wCanvas, hCanvas, dJanela, rEsfera, wJanela, hJanela, nLin, nCol, z;
     Vector3d bgColor, i_f, p_f, i_a;
-    wCanvas = 500;
-    hCanvas = 500;
+    wCanvas = 800;
+    hCanvas = 800;
     dJanela = 25;
     rEsfera = 40;
     wJanela = 60;
     hJanela = 60;
     bgColor = Vector3d(0., 0., 0.);
-    nLin = 500;
-    nCol = 500;
+    nLin = 800;
+    nCol = 800;
     z = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
@@ -44,8 +44,8 @@ int main(int argc, char *argv[]) {
     /*
     int lx =
     */
-    double lx = 500;
-    double ly = 1200;
+    double lx = 300;
+    double ly = 300;
     double lz = 1400;
 
     Vector3d camera(0, 0, 0);

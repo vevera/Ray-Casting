@@ -4,13 +4,13 @@
 Shape::Shape(Reflexivity reflexivity, std::string texture_path)
     : reflexivity_(reflexivity), texture_path_(texture_path) {
     if (!texture_path.empty()) {
-        img = imread(texture_path, cv::IMREAD_COLOR);
-        img_w = img.cols;
-        img_h = img.rows;
-        cv::Vec3b bgrPixel = img.at<cv::Vec3b>(30, 30);
-        std::cout << bgrPixel << std::endl;
-        std::cout << img_w << std::endl;
-        std::cout << img_h << std::endl;
+        // img = imread(texture_path, cv::IMREAD_COLOR);
+        // img_w = img.cols;
+        // img_h = img.rows;
+        // cv::Vec3b bgrPixel = img.at<cv::Vec3b>(30, 30);
+        // std::cout << bgrPixel << std::endl;
+        // std::cout << img_w << std::endl;
+        // std::cout << img_h << std::endl;
     }
 };
 
@@ -46,12 +46,12 @@ Vector3d* Shape::get_pixel(double x, double z) {
     int map_x = 0.0 + fx * (img_w - 1);
     int map_z = 0.0 + fz * (img_h - 1);
 
-    cv::Vec3b bgrPixel = img.at<cv::Vec3b>(map_x, map_z);
+    // cv::Vec3b bgrPixel = img.at<cv::Vec3b>(map_x, map_z);
 
-    if (color)
-        delete color;
+    // if (color)
+    //     delete color;
 
-    color = new Vector3d(bgrPixel[2] / 255.0, bgrPixel[1] / 255.0,
-                         bgrPixel[0] / 255.0);
+    // color = new Vector3d(bgrPixel[2] / 255.0, bgrPixel[1] / 255.0,
+    //                      bgrPixel[0] / 255.0);
     return color;
 }

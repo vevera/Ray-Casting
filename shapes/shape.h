@@ -3,10 +3,10 @@
 
 #include <cmath>
 #include <memory>
-#include <opencv2/core.hpp>
-#include <opencv2/highgui.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/opencv.hpp>
+// #include <opencv2/core.hpp>
+// #include <opencv2/highgui.hpp>
+// #include <opencv2/imgcodecs.hpp>
+// #include <opencv2/opencv.hpp>
 
 #include "../Vector3d/Vector3d.h"
 #include "../matrix/matrix.h"
@@ -59,7 +59,7 @@ class Shape {
    private:
     Reflexivity reflexivity_;
     std::string texture_path_ = "";
-    cv::Mat img;
+    // cv::Mat img;
     Vector3d *color = nullptr;
     int img_w = 0;
     int img_h = 0;

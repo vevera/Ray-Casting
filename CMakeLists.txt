@@ -1,10 +1,27 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.7)
 project(raycasting VERSION 0.1.0)
 
 include(CTest)
 enable_testing()
 
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -Ofast -Wextra")
+
+
 list(APPEND CMAKE_PREFIX_PATH src/lib/cmake/SDL2/)
+list(APPEND CMAKE_PREFIX_PATH Eigen/)
+
+# set(Eigen3_DIR "${CMAKE_CURRENT_LIST_DIR}/Eigen/cmake")
+#list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/Eigen/build")
+#set(Eigen3_DIR "${CMAKE_CURRENT_LIST_DIR}/Eigen/cmake")
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+find_package(SDL2 REQUIRED)
+
 #list(APPEND CMAKE_PREFIX_PATH eigen-3.4.0/cmake/)
 #list(APPEND CMAKE_PREFIX_PATH C:/opencv/build/x64/mingw/lib)
 #find_package(SDL2 REQUIRED)
@@ -13,18 +30,19 @@ list(APPEND CMAKE_PREFIX_PATH src/lib/cmake/SDL2/)
 # find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
 
-
-set(SDL2_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/src/include")
-set(SDL2_LIB_DIR "${CMAKE_CURRENT_LIST_DIR}/src/lib")
-set(OpenCV_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/opencv/include")
-set(OpenCV_LIB_DIRS "${CMAKE_CURRENT_LIST_DIR}/opencv/lib")
+#set(EIGEN_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/Eigen")
+# set(SDL2_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/src/include")
+# set(SDL2_LIB_DIR "${CMAKE_CURRENT_LIST_DIR}/src/lib")
+# set(OpenCV_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/opencv/include")
+# set(OpenCV_LIB_DIRS "${CMAKE_CURRENT_LIST_DIR}/opencv/lib")
 #set(EIGEN_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/eigen-3.4.0/Eigen")
 
+message("${SDL2_LIBRARIES}")
 message("${SDL2_INCLUDE_DIRS}")
-message("${OpenCV_LIBS}")
 include_directories( 
+    
     ${SDL2_INCLUDE_DIRS}
-    ${OpenCV_INCLUDE_DIRS}
+    # ${OpenCV_INCLUDE_DIRS}
     )
 
 add_executable(raycasting 
@@ -48,25 +66,28 @@ add_executable(raycasting
 
 target_link_libraries( 
     raycasting 
-    ${OpenCV_LIB_DIRS}/libopencv_calib3d341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_core341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_dnn341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_features2d341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_flann341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_highgui341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_imgcodecs341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_imgproc341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_ml341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_objdetect341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_photo341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_shape341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_stitching341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_superres341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_video341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_videoio341.dll.a
-    ${OpenCV_LIB_DIRS}/libopencv_videostab341.dll.a
-    ${SDL2_LIB_DIR}/libSDL2.dll.a
-    ${SDL2_LIB_DIR}/libSDL2main.a
+    Eigen3::Eigen
+    # ${OpenCV_LIB_DIRS}/libopencv_calib3d341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_core341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_dnn341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_features2d341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_flann341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_highgui341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_imgcodecs341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_imgproc341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_ml341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_objdetect341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_photo341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_shape341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_stitching341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_superres341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_video341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_videoio341.dll.a
+    # ${OpenCV_LIB_DIRS}/libopencv_videostab341.dll.a
+    # ${SDL_MAIN_LIBRARY}
+    # ${SDL2_LIBRARIES}
+    -L/opt/local/x86_64-w64-mingw32/lib -lSDL2main -lSDL2
+    # SDL2::Main
     )
 
 add_definitions(-DSDL_MAIN_HANDLED)
