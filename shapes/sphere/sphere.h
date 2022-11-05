@@ -8,16 +8,16 @@
 
 class Sphere : public Shape {
    public:
-    Sphere(Reflexivity reflexivity, Vector3d center, double radius,
+    Sphere(Reflexivity reflexivity, Vector4d center, double radius,
            std::string texture_path = "");
 
-    double intersect(Vector3d &p_0, Vector3d &dr);
-    Vector3d normal(Vector3d &p_i);
+    double intersect(Vector4d &p_0, Vector4d &dr);
+    Vector4d normal(Vector4d &p_i);
     void operator*(AccMatrix m);
     void operator*(gMatrix m);
 
    private:
-    Vector3d center_;
+    Vector4d center_;
     double radius_;
 };
 #endif

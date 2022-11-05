@@ -3,28 +3,28 @@
 #include <math.h>
 
 #include <iostream>
-Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center,
-                   Vector3d top_center, double radius, std::string texture_path)
+Cylinder::Cylinder(Reflexivity reflexivity, Vector4d base_center,
+                   Vector4d top_center, double radius, std::string texture_path)
     : Shape(reflexivity, texture_path),
       base_center_(base_center),
       top_center_(top_center),
       radius_(radius),
       last_dr(nullptr) {
-    Vector3d Cb_Ct = (top_center - base_center);
-    height = Cb_Ct.length();
-    cylinder_direction = Cb_Ct.normalize();
-    cylinder_direction.set(3, 0);
+    Vector4d Cb_Ct = (top_center - base_center);
+    height = Cb_Ct.norm();
+    cylinder_direction = Cb_Ct.normalized();
+    // cylinder_direction.set(3, 0);
 
-    vector<Vector3d> identity = {Vector3d(1, 0, 0), Vector3d(0, 1, 0),
-                                 Vector3d(0, 0, 1)};
+    // Eigen::Matrix3d identity;
+    // identity << 1, 0, 0, 0, 1, 0, 0, 0, 1;
+    // = {Vector3d(1, 0, 0), Vector3d(0, 1, 0),
+    //                              Vector3d(0, 0, 1)};
 
-    vector<Vector3d> dc_dot_dct = cylinder_direction.dotTr(cylinder_direction);
-
-    M = Vector3d::subtraction(identity, dc_dot_dct);
+    rebuild_M();
 };
 
-Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center, double height,
-                   Vector3d cylinder_direction, double radius,
+Cylinder::Cylinder(Reflexivity reflexivity, Vector4d base_center, double height,
+                   Vector4d cylinder_direction, double radius,
                    std::string texture_path)
     : Shape(reflexivity, texture_path),
       base_center_(base_center),
@@ -34,29 +34,24 @@ Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center, double height,
       last_dr(nullptr)
 
 {
-    cylinder_direction.set(3, 0);
+    // cylinder_direction.set(3, 0);
     top_center_ = base_center_ + cylinder_direction * height;
 
-    vector<Vector3d> identity = {Vector3d(1, 0, 0), Vector3d(0, 1, 0),
-                                 Vector3d(0, 0, 1)};
-
-    vector<Vector3d> dc_dot_dct = cylinder_direction.dotTr(cylinder_direction);
-
-    M = Vector3d::subtraction(identity, dc_dot_dct);
+    rebuild_M();
 }
 
-double Cylinder::intersect(Vector3d &p_0, Vector3d &dr) {
+double Cylinder::intersect(Vector4d &p_0, Vector4d &dr) {
     last_dr = &dr;
 
     double t1, t2;
 
-    Vector3d w = p_0 - base_center_;
+    Vector4d w = p_0 - base_center_;
 
-    double a = (dr.mult_vector_matriz(M)).dot(dr);
+    double a = (M * dr.head<3>()).dot(dr.head<3>());
 
-    double b = (w.mult_vector_matriz(M)).dot(dr) * 2;
+    double b = (M * w.head<3>()).dot(dr.head<3>()) * 2;
 
-    double c = (w.mult_vector_matriz(M)).dot(w) - pow(radius_, 2);
+    double c = (M * w.head<3>()).dot(w.head<3>()) - pow(radius_, 2);
 
     double delta = pow(b, 2) - 4 * a * c;
 
@@ -108,7 +103,7 @@ double Cylinder::intersect(Vector3d &p_0, Vector3d &dr) {
     return INFINITY;
 };
 
-Vector3d Cylinder::normal(Vector3d &p_i) {
+Vector4d Cylinder::normal(Vector4d &p_i) {
     if (type == INTERSECTION_TYPE::BASE_SURFACE)
         return cylinder_direction * -1;
 
@@ -116,30 +111,31 @@ Vector3d Cylinder::normal(Vector3d &p_i) {
         return cylinder_direction;
     }
 
-    Vector3d d = p_i - base_center_;
-    Vector3d N = d.mult_vector_matriz(M);
-    Vector3d normal = N.normalize();
+    Vector4d d = p_i - base_center_;
+    Vector4d N(0, 0, 0, 0);
+    N.head<3>() = M * d.head<3>();
+    Vector4d normal = N.normalized();
 
     return normal;
 };
 
-bool Cylinder::in_cylinder_surface(Vector3d &p0, Vector3d &dr, double &t) {
-    Vector3d p_i = p0 + (dr * t);
-    Vector3d cb_pi = p_i - base_center_;
+bool Cylinder::in_cylinder_surface(Vector4d &p0, Vector4d &dr, double &t) {
+    Vector4d p_i = p0 + (dr * t);
+    Vector4d cb_pi = p_i - base_center_;
 
     double h = cb_pi.dot(cylinder_direction);
     return h >= 0.0 && h <= height;
 }
 
-bool Cylinder::in_lid_surface(Vector3d &p0, Vector3d &dr, double &t,
-                              Vector3d &lid_center) {
+bool Cylinder::in_lid_surface(Vector4d &p0, Vector4d &dr, double &t,
+                              Vector4d &lid_center) {
     if (t == INFINITY)
         return false;
 
-    Vector3d p_i = p0 + (dr * t);
-    Vector3d cb_pi = p_i - lid_center;
+    Vector4d p_i = p0 + (dr * t);
+    Vector4d cb_pi = p_i - lid_center;
 
-    double h = cb_pi.length();
+    double h = cb_pi.norm();
     return h <= radius_;
 }
 
@@ -149,34 +145,29 @@ void Cylinder::operator*(AccMatrix m) {
 void Cylinder::operator*(gMatrix m) {
     switch (m.t_type) {
         case TransformType::SCALE:
-            radius_ = radius_ * m.transform_matrix.at(0).get(0);
-            height = height * m.transform_matrix.at(1).get(1);
-            top_center_ = base_center_ + cylinder_direction * height;
+            radius_ = radius_ * m.transform_matrix(0, 0);
+            height = height * m.transform_matrix(1, 1);
+            top_center_ = base_center_ + (cylinder_direction * height);
             break;
         case TransformType::SHEARING:
             break;
         case TransformType::TRANSLATE:
-            base_center_ =
-                base_center_.mult_vector_matriz4d(m.transform_matrix);
+            base_center_ = m.transform_matrix * base_center_;
             top_center_ = base_center_ + (cylinder_direction * height);
             break;
         default:
-            base_center_ =
-                base_center_.mult_vector_matriz4d(m.transform_matrix);
-            top_center_ = top_center_.mult_vector_matriz4d(m.transform_matrix);
-            cylinder_direction.set(3, 0);
-            cylinder_direction =
-                cylinder_direction.mult_vector_matriz4d(m.n_fix).normalize();
+            base_center_ = m.transform_matrix * base_center_;
+            top_center_ = m.transform_matrix * top_center_;
+            // cylinder_direction.set(3, 0);
+            cylinder_direction = (m.n_fix * cylinder_direction).normalized();
             rebuild_M();
             break;
     }
 };
 
 void Cylinder::rebuild_M() {
-    vector<Vector3d> identity = {Vector3d(1, 0, 0), Vector3d(0, 1, 0),
-                                 Vector3d(0, 0, 1)};
+    Eigen::Matrix3d dc_dot_dct =
+        cylinder_direction.head<3>() * cylinder_direction.head<3>().transpose();
 
-    vector<Vector3d> dc_dot_dct = cylinder_direction.dotTr(cylinder_direction);
-
-    M = Vector3d::subtraction(identity, dc_dot_dct);
+    M = Eigen::Matrix<double, 3, 3>::Identity() - dc_dot_dct;
 };

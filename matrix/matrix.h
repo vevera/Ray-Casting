@@ -5,9 +5,12 @@
 #include <tuple>
 #include <vector>
 
-#include "../Vector3d/Vector3d.h"
+// #include "../Vector3d/Vector3d.h"
+#include <Eigen/Dense>
 
-#define matrix_t std::vector<Vector3d>
+using Eigen::Vector4d;
+
+#define matrix_t Eigen::Matrix4d
 
 using std::shared_ptr;
 using std::vector;
@@ -40,8 +43,11 @@ struct gMatrix {
 
     gMatrix(matrix_t t, TransformType t_) {
         transform_matrix = t;
-        n_fix = {Vector3d(1, 0, 0, 0), Vector3d(0, 1, 0, 0),
-                 Vector3d(0, 0, 1, 0), Vector3d(0, 0, 0, 1)};
+
+        n_fix << 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1;
+        // << 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1;
+        // n_fix = {Vector4d(1, 0, 0, 0), Vector4d(0, 1, 0, 0),
+        //          Vector4d(0, 0, 1, 0), Vector4d(0, 0, 0, 1)};
 
         t_type = t_;
     }
@@ -73,8 +79,8 @@ class Matrix {
     Matrix() = default;
     ~Matrix(){};
 
-    static gMatrix scale(Vector3d scale_factor);
-    static gMatrix translate(Vector3d target_position);
+    static gMatrix scale(Vector4d scale_factor);
+    static gMatrix translate(Vector4d target_position);
     static gMatrix rotate(TAxis rotation_axis, double angle);
     static gMatrix shearing(ShearTypes shearing_axis, double angle);
     static gMatrix reflection(RPlane r_plane);

@@ -3,14 +3,18 @@
 
 #include <vector>
 
-#include "../Vector3d/Vector3d.h"
+// #include "../Vector3d/Vector3d.h"
+
+#include <Eigen/Dense>
+
+using Eigen::Vector4d;
 
 class Canvas {
    public:
     Canvas(int width, int height, int n_col, int n_row);
     int n_cols();
     int n_rows();
-    void add_pixel(Vector3d row);
+    void add_pixel(Vector4d row);
     unsigned char *pixels;
 
    private:

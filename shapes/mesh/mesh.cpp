@@ -31,14 +31,14 @@ void Mesh::read_obj(std::string obj_path) {
             if (regex_match(line, vertex_regex)) {
                 double x, y, z;
                 sscanf(line.c_str(), "v %lf %lf %lf", &x, &z, &y);
-                Vector3d vertex(x, y, z);
+                Vector4d vertex(x, y, z, 1);
                 vertex_list.push_back(vertex);
             }
 
             if (regex_match(line, normals_regex)) {
                 double x, y, z;
                 sscanf(line.c_str(), "vn %lf %lf %lf", &x, &z, &y);
-                Vector3d normal(x, y, z, 0);
+                Vector4d normal(x, y, z, 0);
                 normal_list.push_back(normal);
             }
             if (regex_match(line, faces_regex)) {
@@ -62,9 +62,9 @@ void Mesh::read_obj(std::string obj_path) {
 
 void Mesh::read_mtl(std::string mtl_path) { return; }
 
-std::vector<Face *> Mesh::back_face_culling(Vector3d dr) {
+std::vector<Face *> Mesh::back_face_culling(Vector4d dr) {
     std::vector<Face *> valid_faces;
-    Vector3d n;
+    Vector4d n;
 
     std::for_each(begin(face_list) + 1, end(face_list), [&](Face &face) {
         n = normal_list.at(face.normal_id);
@@ -76,8 +76,8 @@ std::vector<Face *> Mesh::back_face_culling(Vector3d dr) {
     return valid_faces;
 }
 
-double Mesh::intersect(Vector3d &p_0, Vector3d &dr) {
-    Vector3d r1, r2, p1, p2, p3, normal, p_i;
+double Mesh::intersect(Vector4d &p_0, Vector4d &dr) {
+    Vector4d r1, r2, p1, p2, p3, normal, p_i;
     double t_min = INFINITY;
     double c1, c2, c3, ti, min;
     bool it = true;
@@ -96,10 +96,16 @@ double Mesh::intersect(Vector3d &p_0, Vector3d &dr) {
         ti = -(p_0 - p1).dot(normal) / dr.dot(normal);
         p_i = p_0 + (dr * ti);
 
-        c1 = ((p3 - p_i).cross_product(p1 - p_i).dot(normal) /
-              r1.cross_product(r2).dot(normal));
-        c2 = ((p1 - p_i).cross_product(p2 - p_i).dot(normal) /
-              r1.cross_product(r2).dot(normal));
+        c1 = ((p3 - p_i)
+                  .head<3>()
+                  .cross((p1 - p_i).head<3>())
+                  .dot(normal.head<3>()) /
+              r1.head<3>().cross(r2.head<3>()).dot(normal.head<3>()));
+        c2 = ((p1 - p_i)
+                  .head<3>()
+                  .cross((p2 - p_i).head<3>())
+                  .dot(normal.head<3>()) /
+              r1.head<3>().cross(r2.head<3>()).dot(normal.head<3>()));
         c3 = 1 - c1 - c2;
 
         min = std::min({c1, c2, c3});
@@ -113,20 +119,19 @@ double Mesh::intersect(Vector3d &p_0, Vector3d &dr) {
 
     return t_min;
 }
-Vector3d Mesh::normal(Vector3d &p_i) { return n; }
+Vector4d Mesh::normal(Vector4d &p_i) { return n; }
 
 void Mesh::operator*(AccMatrix m) {
     std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &m) { *this *m; });
 };
 
 void Mesh::operator*(gMatrix m) {
-    std::for_each(begin(vertex_list) + 1, end(vertex_list), [&](Vector3d &p) {
-        p = p.mult_vector_matriz4d(m.transform_matrix);
-    });
+    std::for_each(begin(vertex_list) + 1, end(vertex_list),
+                  [&](Vector4d &p) { p = m.transform_matrix * p; });
 
-    std::for_each(begin(normal_list) + 1, end(normal_list), [&](Vector3d &p) {
-        p = p.mult_vector_matriz4d(m.n_fix).normalize();
-        p.set(3, 0);
+    std::for_each(begin(normal_list) + 1, end(normal_list), [&](Vector4d &p) {
+        p = (m.n_fix * p).normalized();
+        // p.set(3, 0);
     });
 
     // if (m.t_type == TransformType::CAMERA) {

@@ -13,10 +13,10 @@ int Canvas::n_cols() { return n_col_; }
 
 int Canvas::n_rows() { return n_row_; }
 
-void Canvas::add_pixel(Vector3d row) {
-    pixels[cur_index] = row.x_ * 255.0;
-    pixels[cur_index + 1] = row.y_ * 255.0;
-    pixels[cur_index + 2] = row.z_ * 255.0;
+void Canvas::add_pixel(Vector4d row) {
+    pixels[cur_index] = row(0) * 255.0;
+    pixels[cur_index + 1] = row(1) * 255.0;
+    pixels[cur_index + 2] = row(2) * 255.0;
 
     cur_index += 3;
 }

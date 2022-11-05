@@ -14,27 +14,27 @@ enum INTERSECTION_CONE_TYPE {
 
 class Cone : public Shape {
    public:
-    Cone(Reflexivity reflexivity, Vector3d base_center, Vector3d vertex,
+    Cone(Reflexivity reflexivity, Vector4d base_center, Vector4d vertex,
          double radius, std::string texture_path = "");
 
-    Cone(Reflexivity reflexivity, Vector3d base_center, double height,
-         Vector3d cone_direction, double radius, std::string texture_path = "");
+    Cone(Reflexivity reflexivity, Vector4d base_center, double height,
+         Vector4d cone_direction, double radius, std::string texture_path = "");
 
-    double intersect(Vector3d &p_0, Vector3d &dr);
-    Vector3d normal(Vector3d &p_i);
+    double intersect(Vector4d &p_0, Vector4d &dr);
+    Vector4d normal(Vector4d &p_i);
     void operator*(AccMatrix m);
     void operator*(gMatrix m);
 
    private:
-    Vector3d base_center_;
-    Vector3d vertex_;
-    Vector3d cone_direction_;
-    Vector3d *last_dr = nullptr;
+    Vector4d base_center_;
+    Vector4d vertex_;
+    Vector4d cone_direction_;
+    Vector4d *last_dr = nullptr;
     double height_;
     double radius_;
-    bool in_cone_surface(Vector3d &p0, Vector3d &dr, double &t);
-    bool in_base_surface(Vector3d &p0, Vector3d &dr, double &t,
-                         Vector3d &base_center_);
+    bool in_cone_surface(Vector4d &p0, Vector4d &dr, double &t);
+    bool in_base_surface(Vector4d &p0, Vector4d &dr, double &t,
+                         Vector4d &base_center_);
     INTERSECTION_CONE_TYPE type = INTERSECTION_CONE_TYPE::CONE_SURFACE;
 };
 

@@ -2,34 +2,36 @@
 
 #include <memory>
 
-#include "../../Vector3d/Vector3d.h"
+// #include "../../Vector3d/Vector3d.h"
 #include "../../shapes/shape.h"
 
-PointLight::PointLight(Vector3d *intensity) : Light(intensity){};
-PointLight::PointLight(Vector3d *intensity, Vector3d *position)
+PointLight::PointLight(Vector4d *intensity) : Light(intensity){};
+PointLight::PointLight(Vector4d *intensity, Vector4d *position)
     : Light(intensity, position){};
 
-Vector3d *PointLight::get_intensity() { return this->intensity_; }
+Vector4d *PointLight::get_intensity() { return this->intensity_; }
 
-Vector3d *PointLight::get_l(Vector3d &p) {
-    Vector3d *l = *this->position_ - &p;
-    *l = l->normalize();
-    return l;
+Vector4d *PointLight::get_l(Vector4d &p) {
+    Vector4d l = *this->position_ - p;
+    l = l.normalized();
+
+    Vector4d *lp = new Vector4d(l(0), l(1), l(2), 0);
+    return lp;
 }
 
-double PointLight::get_distance_from_p(Vector3d p_i) {
-    Vector3d dr = *this->position_ - p_i;
-    return dr.length();
+double PointLight::get_distance_from_p(Vector4d p_i) {
+    Vector4d dr = *this->position_ - p_i;
+    return dr.norm();
 };
 
-Vector3d *PointLight::get_contribution(Reflexivity &reflex, Vector3d &l,
-                                       Vector3d &n, Vector3d &v, Vector3d &r) {
-    Vector3d cont =
+Vector4d *PointLight::get_contribution(Reflexivity &reflex, Vector4d &l,
+                                       Vector4d &n, Vector4d &v, Vector4d &r) {
+    Vector4d cont =
         this->calc_diffuse_specular(reflex, *this->intensity_, l, n, v, r);
 
-    return new Vector3d(cont.x_, cont.y_, cont.z_);
+    return new Vector4d(cont(0), cont(1), cont(2), 1);
 };
 
 void PointLight::operator*(gMatrix m) {
-    *position_ = position_->mult_vector_matriz4d(m.transform_matrix);
+    *position_ = m.transform_matrix * (*position_);
 };

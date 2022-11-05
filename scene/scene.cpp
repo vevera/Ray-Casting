@@ -12,7 +12,7 @@ Scene::Scene(std::vector<Shape *> shapes, Canvas canvas,
                   [&](Shape *shape) { *shape *wc; });
 };
 
-void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor) {
+void Scene::take_a_picture(Vector4d camera, ViewPort vp, Vector4d bgColor) {
     double dx = vp.width / (double) canvas_.n_cols();
     double dy = vp.height / (double) canvas_.n_rows();
 
@@ -29,13 +29,14 @@ void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor) {
     for (int l = 0; l < rows; l++) {
         yj = (vp.height / 2) - (dy / 2) - (l * dy);
         for (int c = 0; c < cols; c++) {
+            // std::cout << l << c << std::endl;
             xj = (-vp.width / 2.0) + (dx / 2.0) + (c * dx);
 
-            Vector3d dr = Vector3d(xj, yj, vp.z) - camera;
+            Vector4d dr = Vector4d(xj, yj, vp.z, 1) - camera;
 
             // Vector3d point = Vector3d(xj, yj, vp.z);
 
-            Vector3d cor = trace_ray(camera, dr, vp.z, INFINITY, shapes_,
+            Vector4d cor = trace_ray(camera, dr, vp.z, INFINITY, shapes_,
                                      bgColor, lights_, c, l);
 
             canvas_.add_pixel(cor);

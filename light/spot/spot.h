@@ -5,18 +5,18 @@
 
 class Spot : public Light {
    private:
-    Vector3d *direction_;
+    Vector4d *direction_;
     double angle_;
     double cos_t;
 
    public:
-    Spot(Vector3d *intensity, Vector3d *position, Vector3d *direction,
+    Spot(Vector4d *intensity, Vector4d *position, Vector4d *direction,
          double angle);
-    Vector3d *get_intensity();
-    Vector3d *get_l(Vector3d &p);
-    Vector3d *get_contribution(Reflexivity &reflex, Vector3d &l, Vector3d &n,
-                               Vector3d &v, Vector3d &r);
-    double get_distance_from_p(Vector3d p_i);
+    Vector4d *get_intensity();
+    Vector4d *get_l(Vector4d &p);
+    Vector4d *get_contribution(Reflexivity &reflex, Vector4d &l, Vector4d &n,
+                               Vector4d &v, Vector4d &r);
+    double get_distance_from_p(Vector4d p_i);
     void operator*(gMatrix m);
 };
 

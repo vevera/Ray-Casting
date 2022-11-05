@@ -36,21 +36,21 @@ class Mesh : public Shape {
    public:
     Mesh(Reflexivity reflexivity, std::string object_data_pat,
          std::string texture_path = "");
-    double intersect(Vector3d &p_0, Vector3d &dr);
-    Vector3d normal(Vector3d &p_i);
+    double intersect(Vector4d &p_0, Vector4d &dr);
+    Vector4d normal(Vector4d &p_i);
 
     void operator*(AccMatrix m);
     void operator*(gMatrix m);
 
    private:
-    std::vector<Vector3d> vertex_list = {Vector3d(0, 0, 0)};
-    std::vector<Vector3d> normal_list = {Vector3d(0, 0, 0)};
+    std::vector<Vector4d> vertex_list = {Vector4d(0, 0, 0, 1)};
+    std::vector<Vector4d> normal_list = {Vector4d(0, 0, 0, 0)};
     std::vector<Edge> edge_list = {Edge(0, 0, 0)};
     std::vector<Face> face_list = {Face(0, 0, 0, 0, 0)};
     void read_obj(std::string obj_path);
     void read_mtl(std::string mtl_path);
-    Vector3d n;
-    std::vector<Face *> back_face_culling(Vector3d dr);
+    Vector4d n;
+    std::vector<Face *> back_face_culling(Vector4d dr);
 };
 
 #endif

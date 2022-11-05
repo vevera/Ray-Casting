@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "../Vector3d/Vector3d.h"
+// #include "../Vector3d/Vector3d.h"
 #include "../canvas/canvas.h"
 #include "../light/light.h"
 #include "../shapes/shape.h"
@@ -54,7 +54,7 @@ class Scene {
    public:
     Scene(std::vector<Shape *> shapes, Canvas canvas,
           std::vector<Light *> lights, gMatrix wc);
-    void take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor);
+    void take_a_picture(Vector4d camera, ViewPort vp, Vector4d bgColor);
 
    private:
     std::vector<Shape *> shapes_;
