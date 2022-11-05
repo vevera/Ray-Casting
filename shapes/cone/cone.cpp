@@ -23,7 +23,7 @@ Cone::Cone(Reflexivity reflexivity, Vector3d base_center, double height,
     vertex_ = base_center_ + (cone_direction_ * height_);
 }
 
-double Cone::intersect(Vector3d p_0, Vector3d dr) {
+double Cone::intersect(Vector3d &p_0, Vector3d &dr) {
     last_dr = &dr;
 
     double t1, t2 = 0;
@@ -92,7 +92,7 @@ double Cone::intersect(Vector3d p_0, Vector3d dr) {
     return INFINITY;
 };
 
-Vector3d Cone::normal(Vector3d p_i) {
+Vector3d Cone::normal(Vector3d &p_i) {
     if (type == INTERSECTION_CONE_TYPE::BASE_CONE_SURFACE)
         return cone_direction_ * -1.0;
 

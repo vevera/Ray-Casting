@@ -62,21 +62,21 @@ void Mesh::read_obj(std::string obj_path) {
 
 void Mesh::read_mtl(std::string mtl_path) { return; }
 
-std::vector<Face> Mesh::back_face_culling(Vector3d dr) {
-    std::vector<Face> valid_faces;
+std::vector<Face *> Mesh::back_face_culling(Vector3d dr) {
+    std::vector<Face *> valid_faces;
     Vector3d n;
 
-    std::for_each(begin(face_list) + 1, end(face_list), [&](Face face) {
+    std::for_each(begin(face_list) + 1, end(face_list), [&](Face &face) {
         n = normal_list.at(face.normal_id);
         if (n.dot(dr) < 0) {
-            valid_faces.push_back(face);
+            valid_faces.push_back(&face);
         }
     });
 
     return valid_faces;
 }
 
-double Mesh::intersect(Vector3d p_0, Vector3d dr) {
+double Mesh::intersect(Vector3d &p_0, Vector3d &dr) {
     Vector3d r1, r2, p1, p2, p3, normal, p_i;
     double t_min = INFINITY;
     double c1, c2, c3, ti, min;
@@ -84,15 +84,15 @@ double Mesh::intersect(Vector3d p_0, Vector3d dr) {
 
     auto valid_faces = back_face_culling(dr);
 
-    std::for_each(begin(valid_faces), end(valid_faces), [&](Face face) {
-        p1 = vertex_list.at(edge_list.at(face.edge1_id).v2_id);
-        p2 = vertex_list.at(edge_list.at(face.edge2_id).v2_id);
-        p3 = vertex_list.at(edge_list.at(face.edge3_id).v2_id);
+    std::for_each(begin(valid_faces), end(valid_faces), [&](Face *face) {
+        p1 = vertex_list.at(edge_list.at(face->edge1_id).v2_id);
+        p2 = vertex_list.at(edge_list.at(face->edge2_id).v2_id);
+        p3 = vertex_list.at(edge_list.at(face->edge3_id).v2_id);
 
         r1 = p2 - p1;
         r2 = p3 - p1;
 
-        normal = normal_list.at(face.normal_id);
+        normal = normal_list.at(face->normal_id);
         ti = -(p_0 - p1).dot(normal) / dr.dot(normal);
         p_i = p_0 + (dr * ti);
 
@@ -113,7 +113,7 @@ double Mesh::intersect(Vector3d p_0, Vector3d dr) {
 
     return t_min;
 }
-Vector3d Mesh::normal(Vector3d p_i) { return n; }
+Vector3d Mesh::normal(Vector3d &p_i) { return n; }
 
 void Mesh::operator*(AccMatrix m) {
     std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &m) { *this *m; });

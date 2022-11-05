@@ -46,13 +46,8 @@ add_executable(raycasting
                 traceray/traceray.cpp 
                 main.cpp)
 
-
-message(" a aaa ${ImageMagick_INCLUDE_DIRS}")
-#target_link_directories(raycasting PUBLIC ${OpenCV_LIB_DIRS})
 target_link_libraries( 
     raycasting 
-    #${OpenCV_LIBS}
-    
     ${OpenCV_LIB_DIRS}/libopencv_calib3d341.dll.a
     ${OpenCV_LIB_DIRS}/libopencv_core341.dll.a
     ${OpenCV_LIB_DIRS}/libopencv_dnn341.dll.a

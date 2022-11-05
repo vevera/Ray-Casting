@@ -1,6 +1,7 @@
 #include "scene.h"
 
 #include <algorithm>
+#include <chrono>
 #include <iostream>
 
 #include "../traceray/traceray.h"
@@ -18,12 +19,21 @@ void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor) {
     double yj;
     double xj;
 
-    for (int l = 0; l < canvas_.n_rows(); l++) {
+    auto start = std::chrono::steady_clock::now();
+
+    // Vector3d dr_ort = Vector3d(0, 0, -1);
+
+    int rows = canvas_.n_rows();
+    int cols = canvas_.n_cols();
+
+    for (int l = 0; l < rows; l++) {
         yj = (vp.height / 2) - (dy / 2) - (l * dy);
-        for (int c = 0; c < canvas_.n_cols(); c++) {
+        for (int c = 0; c < cols; c++) {
             xj = (-vp.width / 2.0) + (dx / 2.0) + (c * dx);
 
             Vector3d dr = Vector3d(xj, yj, vp.z) - camera;
+
+            // Vector3d point = Vector3d(xj, yj, vp.z);
 
             Vector3d cor = trace_ray(camera, dr, vp.z, INFINITY, shapes_,
                                      bgColor, lights_, c, l);
@@ -31,4 +41,10 @@ void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor) {
             canvas_.add_pixel(cor);
         }
     }
+    std::cout << "Elapsed(ms)="
+              << std::chrono::duration_cast<std::chrono::milliseconds>(
+                     std::chrono::steady_clock::now() - start)
+                         .count() /
+                     1000.0
+              << std::endl;
 }

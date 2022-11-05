@@ -21,8 +21,8 @@ class Cylinder : public Shape {
              Vector3d cylinder_direction, double radius,
              std::string texture_path = "");
 
-    double intersect(Vector3d p_0, Vector3d dr);
-    Vector3d normal(Vector3d p_i);
+    double intersect(Vector3d &p_0, Vector3d &dr);
+    Vector3d normal(Vector3d &p_i);
     void rebuild_M();
     void operator*(AccMatrix m);
     void operator*(gMatrix m);

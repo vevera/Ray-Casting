@@ -42,8 +42,8 @@ class Shape {
     Shape(Reflexivity reflexivity, std::string texture_path);
     ~Shape(){};
 
-    virtual double intersect(Vector3d p_0, Vector3d dr) = 0;
-    virtual Vector3d normal(Vector3d p_i) = 0;
+    virtual double intersect(Vector3d &p_0, Vector3d &dr) = 0;
+    virtual Vector3d normal(Vector3d &p_i) = 0;
 
     Vector3d *kd(int x, int y);
     Vector3d *ke(int x, int y);

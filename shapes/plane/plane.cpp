@@ -4,7 +4,7 @@ Plane::Plane(Reflexivity reflexivity, Vector3d p_pi, Vector3d n,
              std::string texture_path)
     : Shape(reflexivity, texture_path), p_pi_(p_pi), n_(n){};
 
-double Plane::intersect(Vector3d p_0, Vector3d dr) {
+double Plane::intersect(Vector3d &p_0, Vector3d &dr) {
     double t;
 
     Vector3d w = p_0 - p_pi_;
@@ -20,7 +20,7 @@ double Plane::intersect(Vector3d p_0, Vector3d dr) {
     return t;
 };
 
-Vector3d Plane::normal(Vector3d p_i) { return n_; };
+Vector3d Plane::normal(Vector3d &p_i) { return n_; };
 
 void Plane::operator*(AccMatrix m) {
     std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &m) { *this *m; });

@@ -53,6 +53,8 @@
         "numbers": "cpp",
         "cinttypes": "cpp",
         "dense": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "chrono": "cpp",
+        "ratio": "cpp"
     }
 }

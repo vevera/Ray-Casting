@@ -45,7 +45,7 @@ Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center, double height,
     M = Vector3d::subtraction(identity, dc_dot_dct);
 }
 
-double Cylinder::intersect(Vector3d p_0, Vector3d dr) {
+double Cylinder::intersect(Vector3d &p_0, Vector3d &dr) {
     last_dr = &dr;
 
     double t1, t2;
@@ -108,7 +108,7 @@ double Cylinder::intersect(Vector3d p_0, Vector3d dr) {
     return INFINITY;
 };
 
-Vector3d Cylinder::normal(Vector3d p_i) {
+Vector3d Cylinder::normal(Vector3d &p_i) {
     if (type == INTERSECTION_TYPE::BASE_SURFACE)
         return cylinder_direction * -1;
 
@@ -155,43 +155,6 @@ void Cylinder::operator*(gMatrix m) {
             break;
         case TransformType::SHEARING:
             break;
-        // case TransformType::CAMERA:
-
-        //     std::cout << "Cylinder Base B: " << base_center_.toStr()
-        //               << std::endl;
-
-        //     base_center_ =
-        //         base_center_.mult_vector_matriz4d(m.transform_matrix);
-
-        //     std::cout << "Cylinder Base D: " << base_center_.toStr()
-        //               << std::endl;
-
-        //     std::cout << "Cylinder Topo B: " << top_center_.toStr()
-        //               << std::endl;
-
-        //     top_center_ =
-        //     top_center_.mult_vector_matriz4d(m.transform_matrix);
-
-        //     std::cout << "Cylinder Topo D: " << top_center_.toStr()
-        //               << std::endl;
-
-        //     cylinder_direction.set(3, 0);
-        //     std::cout << "Cylinder Dir B: " << cylinder_direction.toStr()
-        //               << std::endl;
-
-        //     cylinder_direction =
-        //         cylinder_direction.mult_vector_matriz4d(m.n_fix).normalize();
-
-        //     std::cout << "Cylinder Dir D: " << cylinder_direction.toStr()
-        //               << std::endl;
-
-        //     rebuild_M();
-
-        //     // std::cout << "Cylinder Dir A: " << cylinder_direction.toStr()
-        //     //           << std::endl;
-        //     // cylinder_direction.set(3, 0);
-        //     // top_center_ = base_center_ + (cylinder_direction * height);
-        //     break;
         case TransformType::TRANSLATE:
             base_center_ =
                 base_center_.mult_vector_matriz4d(m.transform_matrix);

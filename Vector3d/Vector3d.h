@@ -30,6 +30,11 @@ class Vector3d {
     Vector3d *operator/(Vector3d const *op);
     Vector3d operator/(double const &div);
 
+    // Vector3d &operator=(Vector3d &&op) {
+    //     *this = std::move(op);
+    //     return *this;
+    // };
+
     Vector3d mult_vector_matriz(std::vector<Vector3d> &matriz);
     Vector3d mult_vector_matriz4d(std::vector<Vector3d> &matriz);
     Vector3d normalize();

@@ -1,10 +1,11 @@
 #ifndef CONE_H
 #define CONE_H
 
+#include <algorithm>
+#include <iostream>
+
 #include "../plane/plane.h"
 #include "../shape.h"
-#include <iostream>
-#include <algorithm>
 
 enum INTERSECTION_CONE_TYPE {
     CONE_SURFACE,
@@ -19,8 +20,8 @@ class Cone : public Shape {
     Cone(Reflexivity reflexivity, Vector3d base_center, double height,
          Vector3d cone_direction, double radius, std::string texture_path = "");
 
-    double intersect(Vector3d p_0, Vector3d dr);
-    Vector3d normal(Vector3d p_i);
+    double intersect(Vector3d &p_0, Vector3d &dr);
+    Vector3d normal(Vector3d &p_i);
     void operator*(AccMatrix m);
     void operator*(gMatrix m);
 
