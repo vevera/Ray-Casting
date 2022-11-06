@@ -20,15 +20,15 @@ using std::cout;
 int main(int argc, char *argv[]) {
     int wCanvas, hCanvas, dJanela, rEsfera, wJanela, hJanela, nLin, nCol, z;
     Vector3d bgColor, i_f, p_f, i_a;
-    wCanvas = 800;
-    hCanvas = 800;
+    wCanvas = 400;
+    hCanvas = 400;
     dJanela = 25;
     rEsfera = 40;
     wJanela = 60;
     hJanela = 60;
     bgColor = Vector3d(0., 0., 0.);
-    nLin = 800;
-    nCol = 800;
+    nLin = 400;
+    nCol = 400;
     z = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
