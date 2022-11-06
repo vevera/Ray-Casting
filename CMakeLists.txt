@@ -13,13 +13,13 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -Ofast -Wextra")
 
 
-list(APPEND CMAKE_PREFIX_PATH src/lib/cmake/SDL2/)
-list(APPEND CMAKE_PREFIX_PATH Eigen/)
+# list(APPEND CMAKE_PREFIX_PATH src/lib/cmake/SDL2/)
+# list(APPEND CMAKE_PREFIX_PATH Eigen/)
 
 # set(Eigen3_DIR "${CMAKE_CURRENT_LIST_DIR}/Eigen/cmake")
 #list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/Eigen/build")
 #set(Eigen3_DIR "${CMAKE_CURRENT_LIST_DIR}/Eigen/cmake")
-find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+#find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 find_package(SDL2 REQUIRED)
 
 #list(APPEND CMAKE_PREFIX_PATH eigen-3.4.0/cmake/)
@@ -66,7 +66,7 @@ add_executable(raycasting
 
 target_link_libraries( 
     raycasting 
-    Eigen3::Eigen
+    #Eigen3::Eigen
     # ${OpenCV_LIB_DIRS}/libopencv_calib3d341.dll.a
     # ${OpenCV_LIB_DIRS}/libopencv_core341.dll.a
     # ${OpenCV_LIB_DIRS}/libopencv_dnn341.dll.a
@@ -85,8 +85,8 @@ target_link_libraries(
     # ${OpenCV_LIB_DIRS}/libopencv_videoio341.dll.a
     # ${OpenCV_LIB_DIRS}/libopencv_videostab341.dll.a
     # ${SDL_MAIN_LIBRARY}
-    # ${SDL2_LIBRARIES}
-    -L/opt/local/x86_64-w64-mingw32/lib -lSDL2main -lSDL2
+    ${SDL2_LIBRARIES}
+    #-L/opt/local/x86_64-w64-mingw32/lib -lSDL2main -lSDL2
     # SDL2::Main
     )
 
