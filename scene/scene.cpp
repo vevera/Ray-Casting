@@ -28,6 +28,7 @@ void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor) {
     int rows = canvas_.n_rows();
     int cols = canvas_.n_cols();
 
+    canvas_.reset_count();
     for (int l = 0; l < rows; l++) {
         yj = (vp.height / 2) - (dy / 2) - (l * dy);
         for (int c = 0; c < cols; c++) {

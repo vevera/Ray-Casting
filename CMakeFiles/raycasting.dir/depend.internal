@@ -9,6 +9,10 @@ CMakeFiles/raycasting.dir/canvas/canvas.cpp.o
  /home/daniel/repos/Ray-Casting/Vector3d/Vector3d.h
  /home/daniel/repos/Ray-Casting/canvas/canvas.cpp
  /home/daniel/repos/Ray-Casting/canvas/canvas.h
+ /home/daniel/repos/Ray-Casting/light/light.h
+ /home/daniel/repos/Ray-Casting/matrix/matrix.h
+ /home/daniel/repos/Ray-Casting/scene/scene.h
+ /home/daniel/repos/Ray-Casting/shapes/shape.h
 CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.o
  /home/daniel/repos/Ray-Casting/Vector3d/Vector3d.h
  /home/daniel/repos/Ray-Casting/light/ambient/ambient.cpp

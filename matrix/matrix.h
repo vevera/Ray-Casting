@@ -13,6 +13,7 @@ using std::shared_ptr;
 using std::vector;
 
 enum class TransformType {
+    NONE,
     SCALE,
     TRANSLATE,
     ROTATE,
@@ -36,7 +37,7 @@ struct gMatrix {
     matrix_t n_fix;
     TransformType t_type;
 
-    gMatrix() {}
+    gMatrix() : t_type(TransformType::NONE) {}
 
     gMatrix(matrix_t t, TransformType t_) {
         transform_matrix = t;

@@ -175,6 +175,18 @@ int main(int argc, char *argv[]) {
 
     suppord_tree *suppord_tree_t;
 
+    // Sphere cat_wrap(reflex_star, Vector3d(0, 0, 0), 2);
+    // Cylinder cat_wrapc(reflex_star, Vector3d(1, 0.5, 0), 2, Vector3d(1, 0,
+    // 0),
+    //                    0.5);
+    // Mesh gato(reflex_wood_column, "blender objects/gato_1.obj", "",
+    // &cat_wrapc); gato *(Matrix::scale(Vector3d(850, 850, 850)) *
+    //        //    Matrix::rotate(TAxis::X_AXIS, 45) *
+    //        //    Matrix::rotate(TAxis::Y_AXIS, 90) *
+    //        //    Matrix::rotate(TAxis::Z_AXIS, 135) *
+    //        Matrix::translate(Vector3d(300, -800, 600)));
+    // gato *matriz_wc;
+
     Cylinder wood_2(reflex_tree_wood, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0),
                     1);
 
@@ -295,8 +307,9 @@ int main(int argc, char *argv[]) {
     shapes.push_back(&right_wall);
     shapes.push_back(&left_wall);
     shapes.push_back(&back_wall);
-
-    // WINDOW
+    // shapes.push_back(&gato);
+    // shapes.push_back(&cat_wrap);
+    //  WINDOW
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
 
@@ -306,79 +319,48 @@ int main(int argc, char *argv[]) {
     std::cout << "before take a pic" << std::endl;
     scene.take_a_picture(camera, vp, bgColor);
 
-    int d = 0;
-
-    std::thread object_operations([&d]() {
-        while (true) {
-            std::cout << "Digite alguma coisa: " << std::endl;
-            std::cin >> d;
-        }
-    });
-
-    SDL_Init(SDL_INIT_EVERYTHING);
-
-    SDL_Window *window = SDL_CreateWindow("Cena", SDL_WINDOWPOS_UNDEFINED,
-                                          SDL_WINDOWPOS_UNDEFINED, wCanvas,
-                                          hCanvas, SDL_WINDOW_ALLOW_HIGHDPI);
-
-    SDL_Surface *screen = SDL_GetWindowSurface(window);
-
-    SDL_Surface *surf = SDL_CreateRGBSurfaceFrom(
-        (void *) canvas.pixels, wCanvas, hCanvas, 24, 3 * wCanvas, 0x000000ff,
-        0x0000ff00, 0x00ff0000, 0xff000000);
-    SDL_Rect offset;
-
-    // Give the offsets to the rectangle
-    offset.x = 0;
-    offset.y = 0;
-
-    // Blit the surface
-    SDL_BlitSurface(surf, NULL, screen, &offset);
-    SDL_FreeSurface(surf);
-    SDL_UpdateWindowSurface(window);
-
-    if (NULL == surf) {
-        return 1;
-    }
-
-    /** PICKING **/
+    canvas.init_window();
+    canvas.update_window();
 
     Shape *pick_shape;
-
-    Vector3d p_start;
-    Vector3d direction;
-
-    double xj, yj;
 
     double dx = vp.width / (double) canvas.n_cols();
     double dy = vp.height / (double) canvas.n_rows();
 
-    SDL_Event windowEvent;
+    int option;
+    std::thread object_operations([&]() {
+        while (true) {
+            // std::cout << "Choose a transformation to apply in the
+            //     selected object : \n ";
+            std::cout << "1 - Translate: \n";
+            std::cout << "2 - Scale: \n";
+            std::cout << "3 - Rotate: \n";
+            std::cout << "4 - Shear: \n";
+            std::cout << "5 - Mirroring: \n";
+            std::cin >> option;
 
-    while (true) {
-        if (SDL_PollEvent(&windowEvent)) {
-            if (SDL_QUIT == windowEvent.type) {
-                break;
+            gMatrix transform_m;
+
+            switch (option) {
+                case 1:
+                    double x, y, z;
+                    std::cin >> x;
+                    std::cin >> y;
+                    std::cin >> z;
+                    transform_m = Matrix::translate(Vector3d(x, y, z));
+                    break;
+                default:
+                    break;
             }
-            if (SDL_MOUSEBUTTONDOWN == windowEvent.type) {
-                yj = (vp.height / 2.0) - (dy / 2.0) -
-                     (windowEvent.motion.y * dy);
-                xj = (-vp.width / 2.0) + (dx / 2.0) +
-                     (windowEvent.motion.x * dx);
 
-                p_start = Vector3d(xj, yj, z);
-
-                direction = (p_start - camera).normalize();
-
-                pick_shape = scene.picking(camera, direction, dJanela);
-
-                std::cout << "PICKING CONCLUIDO: " << std::endl;
+            if (pick_shape != nullptr) {
+                *pick_shape *transform_m;
+                scene.take_a_picture(camera, vp, bgColor);
+                canvas.update_window();
             }
         }
-    }
+    });
 
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-
+    canvas.wait_event(&pick_shape, scene, camera, dx, dy, dJanela, vp);
     return EXIT_SUCCESS;
 }

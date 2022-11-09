@@ -34,7 +34,7 @@ void Sphere::operator*(AccMatrix m) {
 void Sphere::operator*(gMatrix m) {
     switch (m.t_type) {
         case TransformType::SCALE:
-            radius_ = radius_ * m.transform_matrix.at(0).get(0);
+            radius_ = radius_ * (m.transform_matrix.at(0).get(0) / 2);
             break;
         case TransformType::SHEARING:
             break;

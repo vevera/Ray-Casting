@@ -35,7 +35,7 @@ struct Face {
 class Mesh : public Shape {
    public:
     Mesh(Reflexivity reflexivity, std::string object_data_pat,
-         std::string texture_path = "");
+         std::string texture_path = "", Shape *wrap_shape = nullptr);
     double intersect(Vector3d &p_0, Vector3d &dr);
     Vector3d normal(Vector3d &p_i);
 
@@ -51,6 +51,7 @@ class Mesh : public Shape {
     void read_mtl(std::string mtl_path);
     Vector3d n;
     std::vector<Face *> back_face_culling(Vector3d dr);
+    Shape *wrap_shape_;
 };
 
 #endif

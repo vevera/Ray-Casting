@@ -8,6 +8,10 @@ CMakeFiles/raycasting.dir/Vector3d/Vector3d.cpp.o: matrix/matrix.h
 CMakeFiles/raycasting.dir/canvas/canvas.cpp.o: Vector3d/Vector3d.h
 CMakeFiles/raycasting.dir/canvas/canvas.cpp.o: canvas/canvas.cpp
 CMakeFiles/raycasting.dir/canvas/canvas.cpp.o: canvas/canvas.h
+CMakeFiles/raycasting.dir/canvas/canvas.cpp.o: light/light.h
+CMakeFiles/raycasting.dir/canvas/canvas.cpp.o: matrix/matrix.h
+CMakeFiles/raycasting.dir/canvas/canvas.cpp.o: scene/scene.h
+CMakeFiles/raycasting.dir/canvas/canvas.cpp.o: shapes/shape.h
 
 CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.o: Vector3d/Vector3d.h
 CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.o: light/ambient/ambient.cpp

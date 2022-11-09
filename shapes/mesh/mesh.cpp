@@ -6,8 +6,9 @@
 #include <regex>
 
 Mesh::Mesh(Reflexivity reflexivity, std::string object_data_path,
-           std::string texture_path)
-    : Shape(reflexivity, texture_path)
+           std::string texture_path, Shape *wrap_shape)
+    : Shape(reflexivity, texture_path),
+      wrap_shape_(wrap_shape)
 
 {
     read_obj(object_data_path);
@@ -77,6 +78,15 @@ std::vector<Face *> Mesh::back_face_culling(Vector3d dr) {
 }
 
 double Mesh::intersect(Vector3d &p_0, Vector3d &dr) {
+    double t_wrap;
+    if (wrap_shape_ != nullptr) {
+        t_wrap = wrap_shape_->intersect(p_0, dr);
+        // return t_wrap;
+        if (t_wrap == INFINITY) {
+            return INFINITY;
+        }
+    }
+
     Vector3d r1, r2, p1, p2, p3, normal, p_i;
     double t_min = INFINITY;
     double c1, c2, c3, ti, min;
@@ -120,6 +130,10 @@ void Mesh::operator*(AccMatrix m) {
 };
 
 void Mesh::operator*(gMatrix m) {
+    if (wrap_shape_ != nullptr) {
+        *wrap_shape_ *m;
+    }
+
     std::for_each(begin(vertex_list) + 1, end(vertex_list), [&](Vector3d &p) {
         p = p.mult_vector_matriz4d(m.transform_matrix);
     });
