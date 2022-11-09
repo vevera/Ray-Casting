@@ -1,2 +1,5 @@
 Makefile
 build/
+.vscode/settings.json
+CMakeFiles/
+raycasting

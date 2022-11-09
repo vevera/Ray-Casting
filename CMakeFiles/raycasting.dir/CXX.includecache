@@ -13,6 +13,8 @@ vector
 -
 
 /home/daniel/repos/Ray-Casting/canvas/canvas.h
+SDL2/SDL.h
+-
 vector
 -
 ../Vector3d/Vector3d.h
@@ -39,9 +41,9 @@ vector
 /home/daniel/repos/Ray-Casting/light/light.h
 
 /home/daniel/repos/Ray-Casting/main.cpp
-SDL2/SDL.h
--
 iostream
+-
+thread
 -
 Vector3d/Vector3d.h
 /home/daniel/repos/Ray-Casting/Vector3d/Vector3d.h

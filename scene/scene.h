@@ -55,6 +55,7 @@ class Scene {
     Scene(std::vector<Shape *> shapes, Canvas canvas,
           std::vector<Light *> lights, gMatrix wc);
     void take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor);
+    Shape *picking(Vector3d &p0, Vector3d &direction, double t_min);
 
    private:
     std::vector<Shape *> shapes_;

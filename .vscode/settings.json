@@ -55,6 +55,13 @@
         "dense": "cpp",
         "thread": "cpp",
         "chrono": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "complex": "cpp",
+        "condition_variable": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "optional": "cpp",
+        "iomanip": "cpp",
+        "shared_mutex": "cpp"
     }
 }

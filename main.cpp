@@ -1,6 +1,8 @@
-#include <SDL2/SDL.h>
+
+// #include <SDL2/SDL.h>
 
 #include <iostream>
+#include <thread>
 
 #include "Vector3d/Vector3d.h"
 #include "canvas/canvas.h"
@@ -15,24 +17,24 @@
 #include "shapes/mesh/mesh.h"
 #include "shapes/plane/plane.h"
 #include "shapes/sphere/sphere.h"
-
 using std::cout;
 int main(int argc, char *argv[]) {
     int wCanvas, hCanvas, dJanela, rEsfera, wJanela, hJanela, nLin, nCol, z;
-    Vector3d bgColor, i_f, p_f, i_a;
-    wCanvas = 800;
-    hCanvas = 800;
+    Vector3d bgColor, i_f, p_f, p_f2, i_a;
+    wCanvas = 500;
+    hCanvas = 500;
     dJanela = 25;
     rEsfera = 40;
     wJanela = 60;
     hJanela = 60;
     bgColor = Vector3d(0., 0., 0.);
-    nLin = 800;
-    nCol = 800;
+    nLin = 500;
+    nCol = 500;
     z = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
     p_f = Vector3d(300, 100, 2000.0);
+    // p_f2 = Vector3d(300, 8000, 500.0);
     i_a = Vector3d(0.3, 0.3, 0.3);
 
     // lights.push_back(&d_light);
@@ -45,8 +47,8 @@ int main(int argc, char *argv[]) {
     int lx =
     */
     double lx = 300;
-    double ly = 300;
-    double lz = 1400;
+    double ly = 500;
+    double lz = 1500;
 
     Vector3d camera(0, 0, 0);
     Vector3d eye = Vector3d(lx, ly, lz, 1);
@@ -90,6 +92,9 @@ int main(int argc, char *argv[]) {
     PointLight light(&i_f, &p_f);
     light *matriz_wc;
 
+    // PointLight light2(&i_f, &p_f2);
+    // light2 *matriz_wc;
+
     Ambient ambient_light(&i_a);
     Directional d_light(&i_f, new Vector3d(0, -1, 0));
     Spot s_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0.5, -1), 0.2);
@@ -97,6 +102,7 @@ int main(int argc, char *argv[]) {
     Spot s1_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0, -1), 0.9);
 
     lights.push_back(&light);
+    // lights.push_back(&light);
     lights.push_back(&ambient_light);
 
     // Reflexidade dos objetos
@@ -293,11 +299,21 @@ int main(int argc, char *argv[]) {
     // WINDOW
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
+
     Scene scene(shapes, canvas, lights, matriz_wc);
 
     ViewPort vp(wJanela, hJanela, z);
     std::cout << "before take a pic" << std::endl;
     scene.take_a_picture(camera, vp, bgColor);
+
+    int d = 0;
+
+    std::thread object_operations([&d]() {
+        while (true) {
+            std::cout << "Digite alguma coisa: " << std::endl;
+            std::cin >> d;
+        }
+    });
 
     SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -322,10 +338,20 @@ int main(int argc, char *argv[]) {
     SDL_UpdateWindowSurface(window);
 
     if (NULL == surf) {
-        // std::cout << "Could not create window: " << SDL_GetError() <<
-        // std::endl;
         return 1;
     }
+
+    /** PICKING **/
+
+    Shape *pick_shape;
+
+    Vector3d p_start;
+    Vector3d direction;
+
+    double xj, yj;
+
+    double dx = vp.width / (double) canvas.n_cols();
+    double dy = vp.height / (double) canvas.n_rows();
 
     SDL_Event windowEvent;
 
@@ -333,6 +359,20 @@ int main(int argc, char *argv[]) {
         if (SDL_PollEvent(&windowEvent)) {
             if (SDL_QUIT == windowEvent.type) {
                 break;
+            }
+            if (SDL_MOUSEBUTTONDOWN == windowEvent.type) {
+                yj = (vp.height / 2.0) - (dy / 2.0) -
+                     (windowEvent.motion.y * dy);
+                xj = (-vp.width / 2.0) + (dx / 2.0) +
+                     (windowEvent.motion.x * dx);
+
+                p_start = Vector3d(xj, yj, z);
+
+                direction = (p_start - camera).normalize();
+
+                pick_shape = scene.picking(camera, direction, dJanela);
+
+                std::cout << "PICKING CONCLUIDO: " << std::endl;
             }
         }
     }

@@ -1,5 +1,7 @@
 #include "scene.h"
 
+#include <SDL2/SDL.h>
+
 #include <algorithm>
 #include <chrono>
 #include <iostream>
@@ -21,7 +23,7 @@ void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor) {
 
     auto start = std::chrono::steady_clock::now();
 
-    // Vector3d dr_ort = Vector3d(0, 0, -1);
+    Vector3d dr_ort = Vector3d(0, 0, -1);
 
     int rows = canvas_.n_rows();
     int cols = canvas_.n_cols();
@@ -47,4 +49,23 @@ void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor) {
                          .count() /
                      1000.0
               << std::endl;
+}
+
+Shape *Scene::picking(Vector3d &p0, Vector3d &direction, double t_min) {
+    double closest_t = INFINITY;
+    double t;
+    Shape *closest_shape = nullptr;
+
+    std::for_each(begin(shapes_), end(shapes_), [&](Shape *shape) {
+        /****/
+
+        t = shape->intersect(p0, direction);
+        if ((t > 0) && (t >= t_min) && (t < closest_t)) {
+            closest_t = t;
+            closest_shape = shape;
+        }
+        /****/
+    });
+
+    return closest_shape;
 }
