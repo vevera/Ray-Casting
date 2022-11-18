@@ -24,7 +24,7 @@ AccMatrix gMatrix::operator*(AccMatrix &acc) {
     return *acc_shared.get();
 };
 
-AccMatrix AccMatrix::operator=(gMatrix m){
+void AccMatrix::operator=(const gMatrix &m){
     acc->push_back(m);
 }
 

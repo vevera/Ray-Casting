@@ -179,8 +179,7 @@ int main(int argc, char *argv[]) {
     // Cylinder cat_wrapc(reflex_star, Vector3d(1, 0.5, 0), 2, Vector3d(1, 0,
     // 0),
     //                    0.5);
-    Mesh gato(reflex_wood_column, "blender objects/gato_1.obj", "",
-    &cat_wrap); 
+    Mesh gato(reflex_wood_column, "blender objects/gato_1.obj", &cat_wrap); 
     gato *(Matrix::scale(Vector3d(250, 250, 250)) *
            //    Matrix::rotate(TAxis::X_AXIS, 45) *
            //    Matrix::rotate(TAxis::Y_AXIS, 90) *
@@ -350,20 +349,21 @@ int main(int argc, char *argv[]) {
 
             switch (option) {
                 case 1:
-                    
+                    std::cout << "before case 1" << std::endl;
                     std::cin >> x;
                     std::cin >> y;
                     std::cin >> z;
                     transform_m = Matrix::translate(Vector3d(x, y, z));
+                    std::cout << "after case 1" << std::endl;
                     break;
                 case 2:
                     std::cin >> x;
                     std::cin >> y;
                     std::cin >> z;
                     std::cout << clicked_point->toStr() << std::endl;
-                    std::cout << clicked_point->mult_vector_matriz4d(matriz_wc.transform_matrix).toStr() << std::endl;
-                    std::cout << clicked_point->mult_vector_matriz(matriz_wc.transform_matrix).toStr() << std::endl;
-                    transform_m = Matrix::translate(eye) * Matrix::scale(Vector3d(x, y, z)) * Matrix::translate(*clicked_point);
+                    std::cout << pick_shape->shape_center.toStr() << std::endl;
+                    //std::cout << pick_shape->shape_center.toStr() << std::endl;
+                    transform_m = Matrix::translate(pick_shape->shape_center * -1) * Matrix::scale(Vector3d(x, y, z)) * Matrix::translate(pick_shape->shape_center);
                     break;
                 case 3:
                     // std::cin >> x;
@@ -388,9 +388,12 @@ int main(int argc, char *argv[]) {
             }
 
             if (pick_shape != nullptr) {
+                std::cout << "before take a pic" << std::endl;
+
                 *pick_shape *transform_m;
                 scene.take_a_picture(camera, vp, bgColor);
                 canvas.update_window();
+                std::cout << "after take a pic" << std::endl;
             }
         }
     });

@@ -44,31 +44,35 @@ find_package(SDL2 REQUIRED)
 # set(OpenCV_LIB_DIRS "${CMAKE_CURRENT_LIST_DIR}/opencv/lib")
 #set(EIGEN_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/eigen-3.4.0/Eigen")
 
+set(  
+      RAYCASTING_INCLUDE_FILES
+      Vector3d/Vector3d.h
+      matrix/matrix.h 
+      shapes/shape.h 
+      shapes/plane/plane.h 
+      shapes/sphere/sphere.h 
+      shapes/cylinder/cylinder.h 
+      shapes/cone/cone.h 
+      shapes/mesh/mesh.h 
+      scene/scene.h 
+      canvas/canvas.h
+      light/light.h
+      light/point/point_light.h
+      light/ambient/ambient.h
+      light/directional/directional.h
+      light/spot/spot.h
+      traceray/traceray.h
+    )
+
 message("${SDL2_LIBRARIES}")
 message("${SDL2_INCLUDE_DIRS}")
 include_directories( 
-    
     ${SDL2_INCLUDE_DIRS}
     # ${OpenCV_INCLUDE_DIRS}
     )
 
 add_executable(raycasting 
-                Vector3d/Vector3d.h
-                matrix/matrix.h 
-                shapes/shape.h 
-                shapes/plane/plane.h 
-                shapes/sphere/sphere.h 
-                shapes/cylinder/cylinder.h 
-                shapes/cone/cone.h 
-                shapes/mesh/mesh.h 
-                scene/scene.h 
-                canvas/canvas.h
-                light/light.h
-                light/point/point_light.h
-                light/ambient/ambient.h
-                light/directional/directional.h
-                light/spot/spot.h
-                traceray/traceray.h
+                ${RAYCASTING_INCLUDE_FILES}
                 Vector3d/Vector3d.cpp
                 matrix/matrix.cpp 
                 shapes/shape.cpp 

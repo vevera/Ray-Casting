@@ -3,8 +3,8 @@
 #include <functional>
 #include <iostream>
 Cone::Cone(Reflexivity reflexivity, Vector3d base_center, Vector3d vertex,
-           double radius, std::string texture_path)
-    : Shape(reflexivity, texture_path),
+           double radius)
+    : Shape(reflexivity, base_center),
       base_center_(base_center),
       vertex_(vertex),
       radius_(radius) {
@@ -14,8 +14,8 @@ Cone::Cone(Reflexivity reflexivity, Vector3d base_center, Vector3d vertex,
 }
 
 Cone::Cone(Reflexivity reflexivity, Vector3d base_center, double height,
-           Vector3d cone_direction, double radius, std::string texture_path)
-    : Shape(reflexivity, texture_path),
+           Vector3d cone_direction, double radius)
+    : Shape(reflexivity, base_center),
       base_center_(base_center),
       height_(height),
       cone_direction_(cone_direction),
@@ -61,11 +61,9 @@ double Cone::intersect(Vector3d &p_0, Vector3d &dr) {
 
     bool min_valid = in_cone_surface(p_0, dr, min);
     bool max_valid = in_cone_surface(p_0, dr, max);
-    // base_center_ - p_0
+    
     double t_base =
         ((base_center_ - p_0).dot(cone_direction_)) / (dr.dot(cone_direction_));
-
-    // std::cout << t_base_i << t_base << std::endl;
 
     bool t_base_valid = in_base_surface(p_0, dr, t_base, base_center_);
 
@@ -135,11 +133,13 @@ void Cone::operator*(gMatrix m) {
             vertex_ = base_center_ + (cone_direction_ * height_);
             break;
         case TransformType::TRANSLATE:
+            shape_center = shape_center.mult_vector_matriz4d(m.transform_matrix);
             base_center_ =
                 base_center_.mult_vector_matriz4d(m.transform_matrix);
             vertex_ = base_center_ + (cone_direction_ * height_);
             break;
         default:
+            shape_center = shape_center.mult_vector_matriz4d(m.transform_matrix);
             vertex_ = vertex_.mult_vector_matriz4d(m.transform_matrix);
             base_center_ =
                 base_center_.mult_vector_matriz4d(m.transform_matrix);

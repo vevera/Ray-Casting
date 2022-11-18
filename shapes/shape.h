@@ -39,7 +39,7 @@ struct Reflexivity {
 
 class Shape {
    public:
-    Shape(Reflexivity reflexivity, std::string texture_path);
+    Shape(Reflexivity reflexivity, Vector3d shape_center_);
     ~Shape(){};
 
     virtual double intersect(Vector3d &p_0, Vector3d &dr) = 0;
@@ -48,14 +48,14 @@ class Shape {
     Vector3d *kd(int x, int y);
     Vector3d *ke(int x, int y);
     Vector3d *ka(int x, int y);
+
     double m();
 
-    bool has_texture();
-    Vector3d *get_pixel(double x, double z);
     virtual void operator*(AccMatrix m) = 0;
     virtual void operator*(gMatrix m) = 0;
-    // virtual void operator*(gMatrix &m);
 
+    Vector3d shape_center;
+    
    private:
     Reflexivity reflexivity_;
     std::string texture_path_ = "";

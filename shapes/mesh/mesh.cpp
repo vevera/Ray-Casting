@@ -5,9 +5,8 @@
 #include <iostream>
 #include <regex>
 
-Mesh::Mesh(Reflexivity reflexivity, std::string object_data_path,
-           std::string texture_path, Shape *wrap_shape)
-    : Shape(reflexivity, texture_path),
+Mesh::Mesh(Reflexivity reflexivity, std::string object_data_path, Shape *wrap_shape)
+    : Shape(reflexivity, Vector3d(0,0,0,1)),
       wrap_shape_(wrap_shape)
 
 {
@@ -134,6 +133,7 @@ void Mesh::operator*(gMatrix m) {
         *wrap_shape_ *m;
     }
 
+    shape_center = shape_center.mult_vector_matriz4d(m.transform_matrix);
     std::for_each(begin(vertex_list) + 1, end(vertex_list), [&](Vector3d &p) {
         p = p.mult_vector_matriz4d(m.transform_matrix);
     });

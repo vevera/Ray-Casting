@@ -4,8 +4,8 @@
 
 #include <iostream>
 Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center,
-                   Vector3d top_center, double radius, std::string texture_path)
-    : Shape(reflexivity, texture_path),
+                   Vector3d top_center, double radius)
+    : Shape(reflexivity, base_center),
       base_center_(base_center),
       top_center_(top_center),
       radius_(radius),
@@ -24,9 +24,8 @@ Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center,
 };
 
 Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center, double height,
-                   Vector3d cylinder_direction, double radius,
-                   std::string texture_path)
-    : Shape(reflexivity, texture_path),
+                   Vector3d cylinder_direction, double radius)
+    : Shape(reflexivity, base_center),
       base_center_(base_center),
       height(height),
       radius_(radius),
@@ -156,11 +155,13 @@ void Cylinder::operator*(gMatrix m) {
         case TransformType::SHEARING:
             break;
         case TransformType::TRANSLATE:
+            shape_center = shape_center.mult_vector_matriz4d(m.transform_matrix);
             base_center_ =
                 base_center_.mult_vector_matriz4d(m.transform_matrix);
             top_center_ = base_center_ + (cylinder_direction * height);
             break;
         default:
+            shape_center = shape_center.mult_vector_matriz4d(m.transform_matrix);
             base_center_ =
                 base_center_.mult_vector_matriz4d(m.transform_matrix);
             top_center_ = top_center_.mult_vector_matriz4d(m.transform_matrix);

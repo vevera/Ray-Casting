@@ -15,10 +15,10 @@ enum INTERSECTION_CONE_TYPE {
 class Cone : public Shape {
    public:
     Cone(Reflexivity reflexivity, Vector3d base_center, Vector3d vertex,
-         double radius, std::string texture_path = "");
+         double radius);
 
     Cone(Reflexivity reflexivity, Vector3d base_center, double height,
-         Vector3d cone_direction, double radius, std::string texture_path = "");
+         Vector3d cone_direction, double radius);
 
     double intersect(Vector3d &p_0, Vector3d &dr);
     Vector3d normal(Vector3d &p_i);
