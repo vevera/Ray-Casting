@@ -25,8 +25,8 @@ int main(int argc, char *argv[]) {
     hCanvas = 500;
     dJanela = 25;
     rEsfera = 40;
-    wJanela = 60;
-    hJanela = 60;
+    wJanela = 70;
+    hJanela = 70;
     bgColor = Vector3d(0., 0., 0.);
     nLin = 500;
     nCol = 500;
@@ -175,17 +175,18 @@ int main(int argc, char *argv[]) {
 
     suppord_tree *suppord_tree_t;
 
-    // Sphere cat_wrap(reflex_star, Vector3d(0, 0, 0), 2);
+    Sphere cat_wrap(reflex_star, Vector3d(0, 0, 0), 2);
     // Cylinder cat_wrapc(reflex_star, Vector3d(1, 0.5, 0), 2, Vector3d(1, 0,
     // 0),
     //                    0.5);
-    // Mesh gato(reflex_wood_column, "blender objects/gato_1.obj", "",
-    // &cat_wrapc); gato *(Matrix::scale(Vector3d(850, 850, 850)) *
-    //        //    Matrix::rotate(TAxis::X_AXIS, 45) *
-    //        //    Matrix::rotate(TAxis::Y_AXIS, 90) *
-    //        //    Matrix::rotate(TAxis::Z_AXIS, 135) *
-    //        Matrix::translate(Vector3d(300, -800, 600)));
-    // gato *matriz_wc;
+    Mesh gato(reflex_wood_column, "blender objects/gato_1.obj", "",
+    &cat_wrap); 
+    gato *(Matrix::scale(Vector3d(250, 250, 250)) *
+           //    Matrix::rotate(TAxis::X_AXIS, 45) *
+           //    Matrix::rotate(TAxis::Y_AXIS, 90) *
+           //    Matrix::rotate(TAxis::Z_AXIS, 135) *
+           Matrix::translate(Vector3d(300, 0, 600)));
+    //gato *matriz_wc;
 
     Cylinder wood_2(reflex_tree_wood, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0),
                     1);
@@ -307,6 +308,7 @@ int main(int argc, char *argv[]) {
     shapes.push_back(&right_wall);
     shapes.push_back(&left_wall);
     shapes.push_back(&back_wall);
+    //shapes.push_back(&gato);
     // shapes.push_back(&gato);
     // shapes.push_back(&cat_wrap);
     //  WINDOW
@@ -314,7 +316,7 @@ int main(int argc, char *argv[]) {
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
 
     Scene scene(shapes, canvas, lights, matriz_wc);
-
+    //scene.set_projection(Projection::ORTHOGRAPHIC);
     ViewPort vp(wJanela, hJanela, z);
     std::cout << "before take a pic" << std::endl;
     scene.take_a_picture(camera, vp, bgColor);
@@ -324,11 +326,16 @@ int main(int argc, char *argv[]) {
 
     Shape *pick_shape;
 
+    Vector3d *clicked_point = new Vector3d(0,0,0);
+
     double dx = vp.width / (double) canvas.n_cols();
     double dy = vp.height / (double) canvas.n_rows();
 
     int option;
     std::thread object_operations([&]() {
+
+        double x, y, z;
+
         while (true) {
             // std::cout << "Choose a transformation to apply in the
             //     selected object : \n ";
@@ -339,11 +346,38 @@ int main(int argc, char *argv[]) {
             std::cout << "5 - Mirroring: \n";
             std::cin >> option;
 
-            gMatrix transform_m;
+            AccMatrix transform_m;
 
             switch (option) {
                 case 1:
-                    double x, y, z;
+                    
+                    std::cin >> x;
+                    std::cin >> y;
+                    std::cin >> z;
+                    transform_m = Matrix::translate(Vector3d(x, y, z));
+                    break;
+                case 2:
+                    std::cin >> x;
+                    std::cin >> y;
+                    std::cin >> z;
+                    std::cout << clicked_point->toStr() << std::endl;
+                    std::cout << clicked_point->mult_vector_matriz4d(matriz_wc.transform_matrix).toStr() << std::endl;
+                    std::cout << clicked_point->mult_vector_matriz(matriz_wc.transform_matrix).toStr() << std::endl;
+                    transform_m = Matrix::translate(eye) * Matrix::scale(Vector3d(x, y, z)) * Matrix::translate(*clicked_point);
+                    break;
+                case 3:
+                    // std::cin >> x;
+                    // std::cin >> y;
+                    // std::cin >> z;
+                    // transform_m = Matrix::translate(Vector3d(x, y, z));
+                    break;
+                case 4:
+                    std::cin >> x;
+                    std::cin >> y;
+                    std::cin >> z;
+                    transform_m = Matrix::translate(Vector3d(x, y, z));
+                    break;
+                case 5:
                     std::cin >> x;
                     std::cin >> y;
                     std::cin >> z;
@@ -361,6 +395,6 @@ int main(int argc, char *argv[]) {
         }
     });
 
-    canvas.wait_event(&pick_shape, scene, camera, dx, dy, dJanela, vp);
+    canvas.wait_event(&pick_shape, scene, camera, dx, dy, dJanela, vp, &clicked_point);
     return EXIT_SUCCESS;
 }

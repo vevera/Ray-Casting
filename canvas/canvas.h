@@ -20,7 +20,7 @@ class Canvas {
     void reset_count();
     void update_window();
     void wait_event(Shape **pick_shape, Scene &scene, Vector3d &camera,
-                    double &dx, double &dy, int &dJanela, ViewPort &vp);
+                    double &dx, double &dy, int &dJanela, ViewPort &vp, Vector3d **clicked_point);
     void init_window();
 
    private:

@@ -9,7 +9,7 @@
 #include "../traceray/traceray.h"
 Scene::Scene(std::vector<Shape *> shapes, Canvas canvas,
              std::vector<Light *> lights, gMatrix wc)
-    : shapes_(shapes), canvas_(canvas), lights_(lights) {
+    : shapes_(shapes), canvas_(canvas), lights_(lights), projection(Projection::PERSPECTIVE) {
     std::for_each(begin(shapes_), end(shapes_),
                   [&](Shape *shape) { *shape *wc; });
 };
@@ -21,24 +21,26 @@ void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor) {
     double yj;
     double xj;
 
-    auto start = std::chrono::steady_clock::now();
-
-    Vector3d dr_ort = Vector3d(0, 0, -1);
+    auto start = std::chrono::steady_clock::now(); 
 
     int rows = canvas_.n_rows();
     int cols = canvas_.n_cols();
 
+    Vector3d dr;
+    Vector3d p0;
+
     canvas_.reset_count();
+
     for (int l = 0; l < rows; l++) {
         yj = (vp.height / 2) - (dy / 2) - (l * dy);
         for (int c = 0; c < cols; c++) {
             xj = (-vp.width / 2.0) + (dx / 2.0) + (c * dx);
 
-            Vector3d dr = Vector3d(xj, yj, vp.z) - camera;
+            dr = projection == Projection::PERSPECTIVE? Vector3d(xj, yj, vp.z) - camera : Vector3d(0,0,-1);
 
-            // Vector3d point = Vector3d(xj, yj, vp.z);
+            p0 = projection == Projection::PERSPECTIVE? camera : Vector3d(xj, yj, vp.z);
 
-            Vector3d cor = trace_ray(camera, dr, vp.z, INFINITY, shapes_,
+            Vector3d cor = trace_ray(p0, dr, vp.z, INFINITY, shapes_,
                                      bgColor, lights_, c, l);
 
             canvas_.add_pixel(cor);
@@ -52,10 +54,21 @@ void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor) {
               << std::endl;
 }
 
-Shape *Scene::picking(Vector3d &p0, Vector3d &direction, double t_min) {
+void Scene::set_projection(Projection projection_){
+    projection = projection_;
+}
+
+Shape *Scene::picking(Vector3d &camera, double x, double y, double t_min, Vector3d **clicked_point) {
+
     double closest_t = INFINITY;
     double t;
     Shape *closest_shape = nullptr;
+
+    std::cout << "TYPE: " << (projection == Projection::PERSPECTIVE) << std::endl;
+    Vector3d p0 = projection == Projection::PERSPECTIVE ? camera : Vector3d(x, y, -t_min);
+    Vector3d direction = projection == Projection::PERSPECTIVE ? 
+                                        (Vector3d(x, y, -t_min) - camera).normalize() : 
+                                        Vector3d(0, 0, -1);
 
     std::for_each(begin(shapes_), end(shapes_), [&](Shape *shape) {
         /****/
@@ -67,6 +80,8 @@ Shape *Scene::picking(Vector3d &p0, Vector3d &direction, double t_min) {
         }
         /****/
     });
+
+    *(*clicked_point) = p0 + (direction * closest_t);
 
     return closest_shape;
 }

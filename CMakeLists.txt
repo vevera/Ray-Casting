@@ -10,7 +10,7 @@ endif()
 
 set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "-Ofast -Wall -Wextra")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2 -Wall -Wextra")
 
 set(CMAKE_THREAD_LIBS_INIT "-lpthread")
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
@@ -53,6 +53,22 @@ include_directories(
     )
 
 add_executable(raycasting 
+                Vector3d/Vector3d.h
+                matrix/matrix.h 
+                shapes/shape.h 
+                shapes/plane/plane.h 
+                shapes/sphere/sphere.h 
+                shapes/cylinder/cylinder.h 
+                shapes/cone/cone.h 
+                shapes/mesh/mesh.h 
+                scene/scene.h 
+                canvas/canvas.h
+                light/light.h
+                light/point/point_light.h
+                light/ambient/ambient.h
+                light/directional/directional.h
+                light/spot/spot.h
+                traceray/traceray.h
                 Vector3d/Vector3d.cpp
                 matrix/matrix.cpp 
                 shapes/shape.cpp 

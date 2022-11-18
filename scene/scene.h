@@ -8,35 +8,15 @@
 #include "../canvas/canvas.h"
 #include "../light/light.h"
 #include "../shapes/shape.h"
+
 using std::string;
 
-// struct Light
-// {
-//     Vector3d *intensity;
-//     Vector3d *position;
-//     string type;
+enum class Projection {
 
-//     Light()
-//     {
-//         intensity = new Vector3d(1, 1, 1);
-//         position = new Vector3d(0, 0, 0);
-//         type = "point";
-//     }
+    PERSPECTIVE,
+    ORTHOGRAPHIC
 
-//     Light(Vector3d *intensity_, Vector3d *position_, string type_)
-//     {
-//         intensity = intensity_;
-//         position = position_;
-//         type = type_;
-//     }
-
-//     Light(Vector3d *intensity_)
-//     {
-//         intensity = intensity_;
-//         position = new Vector3d(0, 0, 0);
-//         type = "ambient";
-//     }
-// };
+};
 
 struct ViewPort {
     int width;
@@ -55,14 +35,14 @@ class Scene {
     Scene(std::vector<Shape *> shapes, Canvas canvas,
           std::vector<Light *> lights, gMatrix wc);
     void take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor);
-    Shape *picking(Vector3d &p0, Vector3d &direction, double t_min);
+    Shape *picking(Vector3d &camera, double x, double y, double t_min, Vector3d **clicked_point);
+    void set_projection(Projection projection_);
 
    private:
     std::vector<Shape *> shapes_;
     Canvas canvas_;
     std::vector<Light *> lights_;
-    // Light *light_;
-    // Light *ambient_light_;
+    Projection projection;
 };
 
 #endif

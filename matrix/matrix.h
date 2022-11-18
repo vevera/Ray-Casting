@@ -64,6 +64,8 @@ struct AccMatrix {
 
     AccMatrix() {}
 
+    AccMatrix operator=(gMatrix m);
+
     AccMatrix operator*(gMatrix m);
 
     AccMatrix operator*(AccMatrix &acc_o);

@@ -5,6 +5,9 @@
 #include <iostream>
 
 #include "../Vector3d/Vector3d.h"
+
+
+
 AccMatrix gMatrix::operator*(gMatrix const &m) {
     shared_ptr<AccMatrix> acc = std::make_shared<AccMatrix>();
     acc->acc->push_back(*this);
@@ -20,6 +23,10 @@ AccMatrix gMatrix::operator*(AccMatrix &acc) {
     acc_shared->acc->insert(acc_shared->acc->begin(), *this);
     return *acc_shared.get();
 };
+
+AccMatrix AccMatrix::operator=(gMatrix m){
+    acc->push_back(m);
+}
 
 AccMatrix AccMatrix::operator*(gMatrix m) {
     shared_ptr<AccMatrix> accm = std::make_shared<AccMatrix>();
