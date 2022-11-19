@@ -113,7 +113,8 @@ target_link_libraries(
     # ${OpenCV_LIB_DIRS}/libopencv_videostab341.dll.a
     # ${SDL_MAIN_LIBRARY}
     # ${SDL2_LIBRARIES}
-    -L/opt/local/x86_64-w64-mingw32/lib -lSDL2main -lSDL2
+    ${SDL2_LIBRARIES}
+    #-L/opt/local/x86_64-w64-mingw32/lib -lSDL2main -lSDL2
     # SDL2::Main
     )
 

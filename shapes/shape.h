@@ -10,11 +10,6 @@
 
 #include "../Vector3d/Vector3d.h"
 #include "../matrix/matrix.h"
-enum Axis { X_AXIS, Y_AXIS, Z_AXIS };
-
-enum ReflectionPlane { XY_PLANE, YZ_PLANE, XZ_PLANE };
-
-enum ShearingTypes { XZ, ZX, YZ, ZY, XY, YX };
 
 struct Reflexivity {
     Vector3d *kd;

@@ -39,9 +39,6 @@ Canvas::~Canvas() {
         SDL_DestroyWindow(window);
 
     SDL_Quit();
-
-    // if (pixels != nullptr)
-    //     delete[] pixels;
 }
 
 int Canvas::n_cols() { return n_col_; }
@@ -57,8 +54,8 @@ void Canvas::add_pixel(Vector3d row) {
 }
 void Canvas::reset_count() { cur_index = 0; };
 void Canvas::update_window() {
-    SDL_Rect offset;
 
+    SDL_Rect offset;
     // Give the offsets to the rectangle
     offset.x = 0;
     offset.y = 0;
@@ -66,7 +63,6 @@ void Canvas::update_window() {
     surf = SDL_CreateRGBSurfaceFrom((void *) pixels, width_, height_, 24,
                                     3 * width_, 0x000000ff, 0x0000ff00,
                                     0x00ff0000, 0xff000000);
-
     // Blit the surface
     SDL_BlitSurface(surf, NULL, screen, &offset);
     SDL_FreeSurface(surf);

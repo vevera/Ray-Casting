@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "../Vector3d/Vector3d.h"
-
+#include <Eigen/Dense>
 
 
 AccMatrix gMatrix::operator*(gMatrix const &m) {
@@ -46,12 +46,12 @@ AccMatrix AccMatrix::operator*(AccMatrix &acc_o) {
 };
 
 gMatrix Matrix::scale(Vector3d scale_factor) {
-    matrix_t matrix_scale;
+    matrix_tr matrix_scale;
     matrix_scale = {Vector3d(scale_factor.x_, 0, 0, 0),
                     Vector3d(0, scale_factor.y_, 0, 0),
                     Vector3d(0, 0, scale_factor.z_, 0), Vector3d(0, 0, 0, 1)};
 
-    matrix_t fixing_matrix;
+    matrix_tr fixing_matrix;
     fixing_matrix = {Vector3d(1 / scale_factor.x_, 0, 0, 0),
                      Vector3d(0, 1 / scale_factor.y_, 0, 0),
                      Vector3d(0, 0, 1 / scale_factor.z_, 0),
@@ -61,7 +61,7 @@ gMatrix Matrix::scale(Vector3d scale_factor) {
 };
 
 gMatrix Matrix::translate(Vector3d target_position) {
-    matrix_t translate_matrix;
+    matrix_tr translate_matrix;
     translate_matrix = {Vector3d(1, 0, 0, target_position.x_),
                         Vector3d(0, 1, 0, target_position.y_),
                         Vector3d(0, 0, 1, target_position.z_),
@@ -72,7 +72,7 @@ gMatrix Matrix::translate(Vector3d target_position) {
 gMatrix Matrix::rotate(TAxis rotation_axis, double angle) {
     angle = (angle * M_PI) / 180;
 
-    matrix_t rotate_matrix;
+    matrix_tr rotate_matrix;
 
     double cos_t = cos(angle);
     double sin_t = sin(angle);
@@ -98,8 +98,8 @@ gMatrix Matrix::rotate(TAxis rotation_axis, double angle) {
 };
 gMatrix Matrix::shearing(ShearTypes shearing_axis, double angle) {
     angle = (angle * M_PI) / 180;
-    matrix_t shear_matrix;
-    matrix_t inverse_t;
+    matrix_tr shear_matrix;
+    matrix_tr inverse_t;
 
     double tg_t = tan(angle);
 
@@ -147,7 +147,7 @@ gMatrix Matrix::shearing(ShearTypes shearing_axis, double angle) {
     return gMatrix(shear_matrix, inverse_t, TransformType::SHEARING);
 };
 gMatrix Matrix::reflection(RPlane r_plane) {
-    matrix_t mirroring_matrix;
+    matrix_tr mirroring_matrix;
 
     switch (r_plane) {
         case RPlane::XY_PLANE:
@@ -165,4 +165,57 @@ gMatrix Matrix::reflection(RPlane r_plane) {
     }
     return gMatrix(mirroring_matrix, mirroring_matrix,
                    TransformType::REFLECTION);
+};
+
+
+gMatrix Matrix::world_camera(Vector3d eye, Vector3d at, Vector3d up){
+
+    Vector3d vup = up - eye;
+
+    Vector3d k_c = (eye - at).normalize();     // z da camera
+    Vector3d i_c = (vup.cross_product(k_c));   // x da camera
+    Vector3d j_c = (k_c.cross_product(i_c));   // y da camera
+
+    k_c = k_c.normalize();
+    i_c = i_c.normalize();
+    j_c = j_c.normalize();
+
+    // matriz que vai converter para as coordenadas de camera
+
+    std::vector<Vector3d> t_c = {
+        Vector3d(i_c.get(0), i_c.get(1), i_c.get(2), -(i_c.dot(eye))),
+        Vector3d(j_c.get(0), j_c.get(1), j_c.get(2), -(j_c.dot(eye))),
+        Vector3d(k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye))),
+        Vector3d(0, 0, 0, 1)};
+
+    return gMatrix(t_c, t_c, TransformType::CAMERA);
+};
+gMatrix Matrix::camera_world(Vector3d eye, Vector3d at, Vector3d up){
+    
+    Vector3d vup = up - eye;
+
+    Vector3d k_c = (eye - at).normalize();     // z da camera
+    Vector3d i_c = (vup.cross_product(k_c));   // x da camera
+    Vector3d j_c = (k_c.cross_product(i_c));   // y da camera
+
+    k_c = k_c.normalize();
+    i_c = i_c.normalize();
+    j_c = j_c.normalize();
+
+    Eigen::Matrix4d e_tc;
+    e_tc << i_c.get(0), i_c.get(1), i_c.get(2), -(i_c.dot(eye)), 
+            j_c.get(0), j_c.get(1), j_c.get(2), -(j_c.dot(eye)),
+            k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye)),
+            0, 0, 0, 1;
+
+    e_tc = e_tc.inverse().eval();
+    
+    std::vector<Vector3d> t_m = {
+        Vector3d(e_tc(0,0), e_tc(0,1), e_tc(0,2), e_tc(0,3)),
+        Vector3d(e_tc(1,0), e_tc(1,1), e_tc(1,2), e_tc(1,3)),
+        Vector3d(e_tc(2,0), e_tc(2,1), e_tc(2,2), e_tc(2,3)),
+        Vector3d(e_tc(3,0), e_tc(3,1), e_tc(3,2), e_tc(3,3))};
+
+    return gMatrix(t_m, t_m, TransformType::CAMERA);
+
 };

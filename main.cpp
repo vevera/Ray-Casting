@@ -17,6 +17,7 @@
 #include "shapes/mesh/mesh.h"
 #include "shapes/plane/plane.h"
 #include "shapes/sphere/sphere.h"
+#include <Eigen/Dense>
 using std::cout;
 int main(int argc, char *argv[]) {
     int wCanvas, hCanvas, dJanela, rEsfera, wJanela, hJanela, nLin, nCol, z;
@@ -75,12 +76,27 @@ int main(int argc, char *argv[]) {
         Vector3d(k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye))),
         Vector3d(0, 0, 0, 1)};
 
+    Eigen::Matrix4d e_tc;
+    e_tc << i_c.get(0), i_c.get(1), i_c.get(2), -(i_c.dot(eye)), 
+            j_c.get(0), j_c.get(1), j_c.get(2), -(j_c.dot(eye)),
+            k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye)),
+            0, 0, 0, 1;
+
+    e_tc = e_tc.inverse().eval();
+    
+    std::vector<Vector3d> t_m = {
+        Vector3d(e_tc(0,0), e_tc(0,1), e_tc(0,2), e_tc(0,3)),
+        Vector3d(e_tc(1,0), e_tc(1,1), e_tc(1,2), e_tc(1,3)),
+        Vector3d(e_tc(2,0), e_tc(2,1), e_tc(2,2), e_tc(2,3)),
+        Vector3d(e_tc(3,0), e_tc(3,1), e_tc(3,2), e_tc(3,3))};
+
     std::cout << "Matrix: " << std::endl;
 
-    std::for_each(begin(t_c), end(t_c),
+    std::for_each(begin(t_m), end(t_m),
                   [](auto v) { std::cout << v.toStr() << std::endl; });
 
     gMatrix matriz_wc(t_c, t_c, TransformType::CAMERA);
+    gMatrix matriz_cw(t_m, t_m, TransformType::CAMERA);
 
     Vector3d eye_aux = eye;
     eye *matriz_wc.transform_matrix;
@@ -226,9 +242,11 @@ int main(int argc, char *argv[]) {
 
     // QUASE
     Mesh left_beam(reflex_wood_column, "blender objects/cubo_17.obj");
-    auto left_beam_t = Matrix::scale(Vector3d(300, 50, 30)) *
-                       Matrix::shearing(ShearTypes::XY, 42.97183) *
-                       Matrix::translate(Vector3d(150, 600, 1000));
+    auto left_beam_t = 
+                       Matrix::scale(Vector3d(300, 50, 30)) *
+                       //Matrix::shearing(ShearTypes::XY, 42.97183) *
+                       Matrix::translate(Vector3d(150.0, 600.0, 1000.0));
+                       //Matrix::translate(Vector3d(0.0, 130.0, 0.0));
     // Matrix::scale(Vector3d(300, 50, 30)) *
     left_beam *left_beam_t;
 
@@ -240,7 +258,8 @@ int main(int argc, char *argv[]) {
     right_beam *(right_beam_t);
 
     Mesh back_left_beam(reflex_wood_column, "blender objects/cubo_17.obj");
-    auto back_left_beam_t = Matrix::scale(Vector3d(300, 50, 30)) *
+    auto back_left_beam_t = 
+                            Matrix::scale(Vector3d(300, 50, 30)) *
                             Matrix::shearing(ShearTypes::XY, 42.97183) *
                             Matrix::translate(Vector3d(150, 600, 0));
 
@@ -299,7 +318,7 @@ int main(int argc, char *argv[]) {
     shapes.push_back(&back_left_column);
     shapes.push_back(&back_right_column);
     shapes.push_back(&left_beam);
-    shapes.push_back(&right_beam);
+    //shapes.push_back(&right_beam);
     shapes.push_back(&back_left_beam);
     shapes.push_back(&back_right_beam);
     shapes.push_back(&right_roof);
@@ -318,6 +337,7 @@ int main(int argc, char *argv[]) {
     //scene.set_projection(Projection::ORTHOGRAPHIC);
     ViewPort vp(wJanela, hJanela, z);
     std::cout << "before take a pic" << std::endl;
+    //scene.set_projection(Projection::ORTHOGRAPHIC);
     scene.take_a_picture(camera, vp, bgColor);
 
     canvas.init_window();
@@ -330,10 +350,13 @@ int main(int argc, char *argv[]) {
     double dx = vp.width / (double) canvas.n_cols();
     double dy = vp.height / (double) canvas.n_rows();
 
-    int option;
     std::thread object_operations([&]() {
 
-        double x, y, z;
+        int option, axis_index, shear_index, plane_index;
+        double x, y, z, angle, angle_shear;
+        TAxis axis;
+        ShearTypes shear_type;
+        RPlane r_plane;
 
         while (true) {
             // std::cout << "Choose a transformation to apply in the
@@ -349,39 +372,104 @@ int main(int argc, char *argv[]) {
 
             switch (option) {
                 case 1:
-                    std::cout << "before case 1" << std::endl;
                     std::cin >> x;
                     std::cin >> y;
                     std::cin >> z;
                     transform_m = Matrix::translate(Vector3d(x, y, z));
-                    std::cout << "after case 1" << std::endl;
                     break;
                 case 2:
                     std::cin >> x;
                     std::cin >> y;
                     std::cin >> z;
-                    std::cout << clicked_point->toStr() << std::endl;
-                    std::cout << pick_shape->shape_center.toStr() << std::endl;
-                    //std::cout << pick_shape->shape_center.toStr() << std::endl;
                     transform_m = Matrix::translate(pick_shape->shape_center * -1) * Matrix::scale(Vector3d(x, y, z)) * Matrix::translate(pick_shape->shape_center);
                     break;
                 case 3:
-                    // std::cin >> x;
-                    // std::cin >> y;
+                    std::cout << "Type the rotate angle: " << std::endl;
+                    std::cin >> angle;
+                    std::cout << "Type the rotate axis: " << std::endl;
+                    std::cout << "1 - X_AXIS: " << std::endl;
+                    std::cout << "2 - Y_AXIS: " << std::endl;
+                    std::cout << "3 - Z_AXIS: " << std::endl;
+                    std::cin >> axis_index;
+                    switch (axis_index) {
+                        case 1:
+                            axis = TAxis::X_AXIS ;
+                            break;
+                        case 2:
+                            axis = TAxis::Y_AXIS ;
+                            break;
+                        case 3:
+                            axis = TAxis::Z_AXIS ;
+                            break;
+                        default:
+                            continue;
+                    }
                     // std::cin >> z;
-                    // transform_m = Matrix::translate(Vector3d(x, y, z));
+                    transform_m = Matrix::translate(pick_shape->shape_center * -1) * Matrix::rotate(axis, angle) * Matrix::translate(pick_shape->shape_center);
                     break;
                 case 4:
-                    std::cin >> x;
-                    std::cin >> y;
-                    std::cin >> z;
-                    transform_m = Matrix::translate(Vector3d(x, y, z));
+                    std::cout << clicked_point->toStr() << std::endl;
+                    std::cout << pick_shape->shape_center.toStr() << std::endl;
+                    std::cout << Vector3d(150, 600, 1000).mult_vector_matriz4d(matriz_wc.transform_matrix).toStr() << std::endl;
+                    std::cout << "Type the rotate angle: " << std::endl;
+                    std::cin >> angle_shear;
+                    std::cout << "Type the shear: " << std::endl;
+                    std::cout << "1 - XZ: " << std::endl;
+                    std::cout << "2 - ZX: " << std::endl;
+                    std::cout << "3 - XY: " << std::endl;
+                    std::cout << "4 - YX: " << std::endl;
+                    std::cout << "5 - ZY: " << std::endl;
+                    std::cout << "6 - YZ: " << std::endl;
+                    std::cin >> shear_index;
+                    switch (shear_index) {
+                        case 1:
+                            shear_type = ShearTypes::XZ ;
+                            break;
+                        case 2:
+                            shear_type = ShearTypes::ZX ;
+                            break;
+                        case 3:
+                            shear_type = ShearTypes::XY ;
+                            break;
+                        case 4:
+                            shear_type = ShearTypes::YX ;
+                            break;
+                        case 5:
+                            shear_type = ShearTypes::ZY ;
+                            break;
+                        case 6:
+                            shear_type = ShearTypes::YZ ;
+                            break;
+                        default:
+                            continue;
+                    }
+                    transform_m = matriz_cw * 
+                                  Matrix::translate(pick_shape->shape_center.mult_vector_matriz4d(matriz_cw.transform_matrix) * -1) * 
+                                  Matrix::shearing(shear_type, angle_shear) * 
+                                  Matrix::translate(pick_shape->shape_center.mult_vector_matriz4d(matriz_cw.transform_matrix)) * 
+                                  matriz_wc;
                     break;
                 case 5:
-                    std::cin >> x;
-                    std::cin >> y;
-                    std::cin >> z;
-                    transform_m = Matrix::translate(Vector3d(x, y, z));
+                    std::cout << "Type the shear: " << std::endl;
+                    std::cout << "1 - Plane XY: " << std::endl;
+                    std::cout << "2 - Plane YZ: " << std::endl;
+                    std::cout << "3 - Plane XZ: " << std::endl;
+                    std::cin >> plane_index;
+                    
+                    switch (plane_index) {
+                        case 1:
+                            r_plane = RPlane::XY_PLANE;
+                            break;
+                        case 2:
+                            r_plane = RPlane::YZ_PLANE;
+                            break;
+                        case 3:
+                            r_plane = RPlane::XZ_PLANE;
+                            break;
+                        default:
+                            continue;
+                    }
+                    transform_m = matriz_cw * Matrix::reflection(r_plane) * matriz_wc;
                     break;
                 default:
                     break;
@@ -390,7 +478,7 @@ int main(int argc, char *argv[]) {
             if (pick_shape != nullptr) {
                 std::cout << "before take a pic" << std::endl;
 
-                *pick_shape *transform_m;
+                *pick_shape * transform_m;
                 scene.take_a_picture(camera, vp, bgColor);
                 canvas.update_window();
                 std::cout << "after take a pic" << std::endl;

@@ -7,7 +7,7 @@
 
 #include "../Vector3d/Vector3d.h"
 
-#define matrix_t std::vector<Vector3d>
+#define matrix_tr std::vector<Vector3d>
 
 using std::shared_ptr;
 using std::vector;
@@ -33,13 +33,13 @@ enum class ShearTypes { XZ, ZX, YZ, ZY, XY, YX };
 struct AccMatrix;
 
 struct gMatrix {
-    matrix_t transform_matrix;
-    matrix_t n_fix;
+    matrix_tr transform_matrix;
+    matrix_tr n_fix;
     TransformType t_type;
 
     gMatrix() : t_type(TransformType::NONE) {}
 
-    gMatrix(matrix_t t, TransformType t_) {
+    gMatrix(matrix_tr t, TransformType t_) {
         transform_matrix = t;
         n_fix = {Vector3d(1, 0, 0, 0), Vector3d(0, 1, 0, 0),
                  Vector3d(0, 0, 1, 0), Vector3d(0, 0, 0, 1)};
@@ -47,10 +47,9 @@ struct gMatrix {
         t_type = t_;
     }
 
-    gMatrix(matrix_t t, matrix_t n, TransformType t_) {
+    gMatrix(matrix_tr t, matrix_tr n, TransformType t_) {
         transform_matrix = t;
         n_fix = n;
-
         t_type = t_;
     }
 
@@ -81,6 +80,8 @@ class Matrix {
     static gMatrix rotate(TAxis rotation_axis, double angle);
     static gMatrix shearing(ShearTypes shearing_axis, double angle);
     static gMatrix reflection(RPlane r_plane);
+    static gMatrix world_camera(Vector3d eye, Vector3d at, Vector3d up);
+    static gMatrix camera_world(Vector3d eye, Vector3d at, Vector3d up);
 };
 
 #endif
