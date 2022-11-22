@@ -70,7 +70,7 @@ void Canvas::update_window() {
 }
 
 void Canvas::wait_event(Shape **pick_shape, Scene &scene, Vector3d &camera,
-                        double &dx, double &dy, int &dJanela, ViewPort &vp, Vector3d **clicked_point) {
+                        double &dx, double &dy, double &dJanela, ViewPort &vp, Vector3d **clicked_point) {
     Vector3d direction, p_start;
     double xj, yj;
     SDL_Event windowEvent;
@@ -85,14 +85,19 @@ void Canvas::wait_event(Shape **pick_shape, Scene &scene, Vector3d &camera,
                 xj = (-vp.width / 2.0) + (dx / 2.0) +
                      (windowEvent.motion.x * dx);
 
+               //std::cout << "X: " << xj << "Y: " << yj << "h: " << (*vp)->height << "w: " << (*vp)->width;     
+
                 p_start = Vector3d(xj, yj, -dJanela);
 
                 direction = (p_start - camera).normalize();
 
                 *pick_shape = scene.picking(camera, xj, yj, dJanela, clicked_point);
 
-                std::cout << "PICKING CONCLUIDO: "
+                if (*pick_shape != nullptr) {
+                    std::cout << "PICKING CONCLUIDO: "
                           << (*pick_shape)->ka(1, 1)->toStr() << std::endl;
+                }
+                
             }
         }
     }

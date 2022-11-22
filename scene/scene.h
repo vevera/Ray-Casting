@@ -23,7 +23,7 @@ struct ViewPort {
     int height;
     double z;
 
-    ViewPort(int width_, int height_, int z_) {
+    ViewPort(int width_, int height_, double &z_) {
         width = width_;
         height = height_;
         z = z_;

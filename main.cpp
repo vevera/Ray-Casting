@@ -20,7 +20,8 @@
 #include <Eigen/Dense>
 using std::cout;
 int main(int argc, char *argv[]) {
-    int wCanvas, hCanvas, dJanela, rEsfera, wJanela, hJanela, nLin, nCol, z;
+    int wCanvas, hCanvas, rEsfera, wJanela, hJanela, nLin, nCol;
+    double dJanela, zj;
     Vector3d bgColor, i_f, p_f, p_f2, i_a;
     wCanvas = 500;
     hCanvas = 500;
@@ -31,7 +32,7 @@ int main(int argc, char *argv[]) {
     bgColor = Vector3d(0., 0., 0.);
     nLin = 500;
     nCol = 500;
-    z = -dJanela;
+    zj = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
     p_f = Vector3d(300, 100, 2000.0);
@@ -335,7 +336,7 @@ int main(int argc, char *argv[]) {
 
     Scene scene(shapes, canvas, lights, matriz_wc);
     //scene.set_projection(Projection::ORTHOGRAPHIC);
-    ViewPort vp(wJanela, hJanela, z);
+    ViewPort vp(wJanela, hJanela, zj);
     std::cout << "before take a pic" << std::endl;
     //scene.set_projection(Projection::ORTHOGRAPHIC);
     scene.take_a_picture(camera, vp, bgColor);
@@ -352,20 +353,26 @@ int main(int argc, char *argv[]) {
 
     std::thread object_operations([&]() {
 
-        int option, axis_index, shear_index, plane_index;
+        int option, axis_index, shear_index, plane_index, projection_index;
         double x, y, z, angle, angle_shear;
         TAxis axis;
         ShearTypes shear_type;
         RPlane r_plane;
+        Projection projection_type;
+        bool obj_transformed = true;
 
         while (true) {
-            // std::cout << "Choose a transformation to apply in the
-            //     selected object : \n ";
+            obj_transformed = true;
+            
             std::cout << "1 - Translate: \n";
             std::cout << "2 - Scale: \n";
             std::cout << "3 - Rotate: \n";
             std::cout << "4 - Shear: \n";
             std::cout << "5 - Mirroring: \n";
+            std::cout << "6 - Change ViewPort Distace: \n";
+            std::cout << "7 - Change Projection: \n";
+            std::cout << "8 - Change window size: \n";
+            std::cout << "9 - Change camera parameters: \n";
             std::cin >> option;
 
             AccMatrix transform_m;
@@ -414,12 +421,7 @@ int main(int argc, char *argv[]) {
                     std::cout << "Type the rotate angle: " << std::endl;
                     std::cin >> angle_shear;
                     std::cout << "Type the shear: " << std::endl;
-                    std::cout << "1 - XZ: " << std::endl;
-                    std::cout << "2 - ZX: " << std::endl;
-                    std::cout << "3 - XY: " << std::endl;
-                    std::cout << "4 - YX: " << std::endl;
-                    std::cout << "5 - ZY: " << std::endl;
-                    std::cout << "6 - YZ: " << std::endl;
+                    std::cout << "1 - XZ: \n2 - ZX: \n3 - XY: \n4 - YX: \n5 - ZY: \n6 - YZ: \n";
                     std::cin >> shear_index;
                     switch (shear_index) {
                         case 1:
@@ -471,18 +473,72 @@ int main(int argc, char *argv[]) {
                     }
                     transform_m = matriz_cw * Matrix::reflection(r_plane) * matriz_wc;
                     break;
+                case 6:
+                    std::cout << "Type the new view port distance: " << std::endl;
+                    std::cin >> dJanela;
+                    zj = -dJanela;
+                    obj_transformed = false;
+                    
+                    // scene.take_a_picture(camera, vp, bgColor);
+                    break;
+                case 7:
+                    std::cout << "Type the new projection: " << std::endl;
+                    std::cout << "1 - orthografic: " << std::endl;
+                    std::cout << "2 - Perspective: " << std::endl;
+                    std::cin >> projection_index;
+                    switch (projection_index) {
+                        case 1:
+                            projection_type = Projection::ORTHOGRAPHIC;
+                            break;
+                        case 2:
+                            projection_type = Projection::PERSPECTIVE;
+                            break;
+                        default:
+                            continue;
+                    }
+                    scene.set_projection(projection_type);
+                    obj_transformed = false;
+                    break;
+                case 8:
+                    std::cout << "Type the new view port width: " << std::endl;
+                    std::cin >> wJanela;
+                    std::cout << "Type the new view port hight: " << std::endl;
+                    std::cin >> hJanela;
+                    obj_transformed = false;
+                    
+                    
+                    // scene.take_a_picture(camera, vp, bgColor);
+                    break;
+                case 9:
+                    std::cout << "1 - modify eye position: " << std::endl;
+                    std::cout << "2 - modify look at point: " << std::endl;
+                    std::cout << "3 - modify view up point: " << std::endl;
+                    // scene.take_a_picture(camera, vp, bgColor);
+                    break;
                 default:
                     break;
+
+                
             }
-
-            if (pick_shape != nullptr) {
-                std::cout << "before take a pic" << std::endl;
-
-                *pick_shape * transform_m;
-                scene.take_a_picture(camera, vp, bgColor);
-                canvas.update_window();
+            if (pick_shape != nullptr && obj_transformed) {
+                *pick_shape * transform_m; 
                 std::cout << "after take a pic" << std::endl;
             }
+
+
+            vp = ViewPort(wJanela, hJanela, zj); 
+            dx = vp.width / (double) canvas.n_cols();
+            dy = vp.height / (double) canvas.n_rows();
+            scene.take_a_picture(camera, vp, bgColor);
+            canvas.update_window();
+            // if (pick_shape != nullptr) {
+            //     std::cout << "before take a pic" << std::endl;
+
+            //     *pick_shape * transform_m;
+            //     scene.take_a_picture(camera, vp, bgColor);
+            //     canvas.update_window();
+            //     std::cout << "after take a pic" << std::endl;
+            // }
         }
     });
 

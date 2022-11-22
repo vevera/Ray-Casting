@@ -6,5 +6,5 @@ CXX_DEFINES = -DSDL_MAIN_HANDLED
 
 CXX_INCLUDES = -I/usr/include/SDL2 -isystem /usr/include/eigen3
 
-CXX_FLAGS = -Wall -Wextra -pthread -O2 -Wall -Wextra
+CXX_FLAGS = -Wall -Wextra -pthread -O2 -Wall
 
