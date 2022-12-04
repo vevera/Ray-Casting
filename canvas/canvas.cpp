@@ -15,7 +15,7 @@ Canvas::Canvas(int width, int height, int n_col, int n_row)
     this->pixels =
         (unsigned char *) malloc(sizeof(unsigned char) * width * height * 3);
 
-    std::cout << "PIXELS MALLOC" << sizeof(pixels) << std::endl;
+    //td::cout << "PIXELS MALLOC" << sizeof(pixels) << std::endl;
 }
 
 void Canvas::init_window() {

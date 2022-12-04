@@ -1,6 +1,3 @@
-
-// #include <SDL2/SDL.h>
-
 #include <iostream>
 #include <thread>
 
@@ -18,7 +15,22 @@
 #include "shapes/plane/plane.h"
 #include "shapes/sphere/sphere.h"
 #include <Eigen/Dense>
+
+void Clear()
+{
+#if defined _WIN32
+    system("cls");
+    //clrscr(); // including header file : conio.h
+#elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
+    system("clear");
+    //std::cout<< u8"\033[2J\033[1;1H"; //Using ANSI Escape Sequences 
+#elif defined (__APPLE__)
+    system("clear");
+#endif
+}
+
 using std::cout;
+
 int main(int argc, char *argv[]) {
     int wCanvas, hCanvas, rEsfera, wJanela, hJanela, nLin, nCol;
     double dJanela, zj;
@@ -91,17 +103,17 @@ int main(int argc, char *argv[]) {
         Vector3d(e_tc(2,0), e_tc(2,1), e_tc(2,2), e_tc(2,3)),
         Vector3d(e_tc(3,0), e_tc(3,1), e_tc(3,2), e_tc(3,3))};
 
-    std::cout << "Matrix: " << std::endl;
+    //std::cout << "Matrix: " << std::endl;
 
-    std::for_each(begin(t_m), end(t_m),
-                  [](auto v) { std::cout << v.toStr() << std::endl; });
+    //std::for_each(begin(t_m), end(t_m),
+    //              [](auto v) { std::cout << v.toStr() << std::endl; });
 
     gMatrix matriz_wc(t_c, t_c, TransformType::CAMERA);
     gMatrix matriz_cw(t_m, t_m, TransformType::CAMERA);
 
     Vector3d eye_aux = eye;
     eye *matriz_wc.transform_matrix;
-    std::cout << "Camera: " << eye.toStr() << std::endl;
+    //std::cout << "Camera: " << eye.toStr() << std::endl;
     camera = eye;
 
     std::vector<Light *> lights;
@@ -193,14 +205,9 @@ int main(int argc, char *argv[]) {
     suppord_tree *suppord_tree_t;
 
     Sphere cat_wrap(reflex_star, Vector3d(0, 0, 0), 2);
-    // Cylinder cat_wrapc(reflex_star, Vector3d(1, 0.5, 0), 2, Vector3d(1, 0,
-    // 0),
-    //                    0.5);
+
     Mesh gato(reflex_wood_column, "blender objects/gato_1.obj", &cat_wrap); 
     gato *(Matrix::scale(Vector3d(250, 250, 250)) *
-           //    Matrix::rotate(TAxis::X_AXIS, 45) *
-           //    Matrix::rotate(TAxis::Y_AXIS, 90) *
-           //    Matrix::rotate(TAxis::Z_AXIS, 135) *
            Matrix::translate(Vector3d(300, 0, 600)));
     //gato *matriz_wc;
 
@@ -241,14 +248,10 @@ int main(int argc, char *argv[]) {
     Mesh back_right_column = right_column;
     back_right_column *Matrix::translate(Vector3d(0, 0, -1000));
 
-    // QUASE
     Mesh left_beam(reflex_wood_column, "blender objects/cubo_17.obj");
-    auto left_beam_t = 
-                       Matrix::scale(Vector3d(300, 50, 30)) *
-                       //Matrix::shearing(ShearTypes::XY, 42.97183) *
+    auto left_beam_t = Matrix::scale(Vector3d(300, 50, 30)) *
                        Matrix::translate(Vector3d(150.0, 600.0, 1000.0));
-                       //Matrix::translate(Vector3d(0.0, 130.0, 0.0));
-    // Matrix::scale(Vector3d(300, 50, 30)) *
+                       
     left_beam *left_beam_t;
 
     Mesh right_beam = left_beam;
@@ -277,7 +280,7 @@ int main(int argc, char *argv[]) {
     auto left_roof_t = Matrix::scale(Vector3d(300, 10, 1000)) *
                        Matrix::shearing(ShearTypes::XY, 42.97183) *
                        Matrix::translate(Vector3d(150, 600, 500));
-    // Matrix::scale(Vector3d(300, 50, 30)) *
+
     left_roof *left_roof_t;
 
     Mesh right_roof = left_roof;
@@ -291,7 +294,6 @@ int main(int argc, char *argv[]) {
     auto left_wall_t = Matrix::scale(Vector3d(20, 500, 1000)) *
                        Matrix::translate(Vector3d(0, 250, 500));
 
-    // Matrix::scale(Vector3d(300, 50, 30)) *
     left_wall *left_wall_t;
 
     Mesh right_wall = left_wall;
@@ -335,10 +337,8 @@ int main(int argc, char *argv[]) {
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
 
     Scene scene(shapes, canvas, lights, matriz_wc);
-    //scene.set_projection(Projection::ORTHOGRAPHIC);
     ViewPort vp(wJanela, hJanela, zj);
-    std::cout << "before take a pic" << std::endl;
-    //scene.set_projection(Projection::ORTHOGRAPHIC);
+    //std::cout << "before take a pic" << std::endl;
     scene.take_a_picture(camera, vp, bgColor);
 
     canvas.init_window();
@@ -353,7 +353,9 @@ int main(int argc, char *argv[]) {
 
     std::thread object_operations([&]() {
 
-        int option, axis_index, shear_index, plane_index, projection_index;
+        int option; 
+        //int axis_index, shear_index, plane_index, projection_index;
+        int index_;
         double x, y, z, angle, angle_shear, m;
         TAxis axis;
         ShearTypes shear_type;
@@ -362,22 +364,26 @@ int main(int argc, char *argv[]) {
         bool obj_transformed = true;
         Vector3d new_property;
 
-        while (true) {
+        bool quit_ = false;
+
+        while (!quit_) {
             obj_transformed = true;
-            
-            std::cout << "1 - Translate: \n";
-            std::cout << "2 - Scale: \n";
-            std::cout << "3 - Rotate: \n";
-            std::cout << "4 - Shear: \n";
-            std::cout << "5 - Mirroring: \n";
-            std::cout << "6 - Change ViewPort Distace: \n";
-            std::cout << "7 - Change Projection: \n";
-            std::cout << "8 - Change window size: \n";
-            std::cout << "9 - Change material property: \n";
-            std::cout << "10 - Change property of lights: \n";
-            std::cout << "11 - Turn on light source: \n";
-            std::cout << "12 - Turn off light source: \n";
-            std::cout << "13 - Change camera parameters: \n";
+            Clear();
+            std::cout << "1 - Translate" << std::endl;
+            std::cout << "2 - Scale" << std::endl;
+            std::cout << "3 - Rotate" << std::endl;
+            std::cout << "4 - Shear" << std::endl;
+            std::cout << "5 - Mirroring" << std::endl;
+            std::cout << "6 - Change ViewPort Distace" << std::endl;
+            std::cout << "7 - Change Projection" << std::endl;
+            std::cout << "8 - Change window size" << std::endl;
+            std::cout << "9 - Change material property" << std::endl;
+            std::cout << "10 - Change property of lights" << std::endl;
+            std::cout << "11 - Turn on light source" << std::endl;
+            std::cout << "12 - Turn off light source" << std::endl;
+            std::cout << "13 - Change camera parameters" << std::endl;
+            std::cout << "14 - Quit" << std::endl;
+            std::cout << ">> ";
             
             std::cin >> option;
 
@@ -385,26 +391,30 @@ int main(int argc, char *argv[]) {
 
             switch (option) {
                 case 1:
+                    x, y, z = 0;
+                    std::cout << "Type position: "<< std::endl << ">> ";
                     std::cin >> x;
                     std::cin >> y;
                     std::cin >> z;
                     transform_m = Matrix::translate(Vector3d(x, y, z));
                     break;
                 case 2:
+                    x, y, z = 1;
+                    std::cout << "Type scale: "<< std::endl << ">> ";
                     std::cin >> x;
                     std::cin >> y;
                     std::cin >> z;
                     transform_m = Matrix::translate(pick_shape->shape_center * -1) * Matrix::scale(Vector3d(x, y, z)) * Matrix::translate(pick_shape->shape_center);
                     break;
                 case 3:
-                    std::cout << "Type the rotate angle: " << std::endl;
+                    std::cout << "Type the rotate angle: " << std::endl<< ">> ";
                     std::cin >> angle;
                     std::cout << "Type the rotate axis: " << std::endl;
                     std::cout << "1 - X_AXIS: " << std::endl;
                     std::cout << "2 - Y_AXIS: " << std::endl;
-                    std::cout << "3 - Z_AXIS: " << std::endl;
-                    std::cin >> axis_index;
-                    switch (axis_index) {
+                    std::cout << "3 - Z_AXIS: " << std::endl<< ">> ";
+                    std::cin >> index_;
+                    switch (index_) {
                         case 1:
                             axis = TAxis::X_AXIS ;
                             break;
@@ -417,19 +427,18 @@ int main(int argc, char *argv[]) {
                         default:
                             continue;
                     }
-                    // std::cin >> z;
                     transform_m = Matrix::translate(pick_shape->shape_center * -1) * Matrix::rotate(axis, angle) * Matrix::translate(pick_shape->shape_center);
                     break;
                 case 4:
                     std::cout << clicked_point->toStr() << std::endl;
                     std::cout << pick_shape->shape_center.toStr() << std::endl;
                     std::cout << Vector3d(150, 600, 1000).mult_vector_matriz4d(matriz_wc.transform_matrix).toStr() << std::endl;
-                    std::cout << "Type the rotate angle: " << std::endl;
+                    std::cout << "Type the rotate angle: " << std::endl<< ">> ";
                     std::cin >> angle_shear;
                     std::cout << "Type the shear: " << std::endl;
-                    std::cout << "1 - XZ: \n2 - ZX: \n3 - XY: \n4 - YX: \n5 - ZY: \n6 - YZ: \n";
-                    std::cin >> shear_index;
-                    switch (shear_index) {
+                    std::cout << "1 - XZ: \n2 - ZX: \n3 - XY: \n4 - YX: \n5 - ZY: \n6 - YZ: \n"<< ">> ";
+                    std::cin >> index_;
+                    switch (index_) {
                         case 1:
                             shear_type = ShearTypes::XZ ;
                             break;
@@ -461,10 +470,9 @@ int main(int argc, char *argv[]) {
                     std::cout << "Type the shear: " << std::endl;
                     std::cout << "1 - Plane XY: " << std::endl;
                     std::cout << "2 - Plane YZ: " << std::endl;
-                    std::cout << "3 - Plane XZ: " << std::endl;
-                    std::cin >> plane_index;
-                    
-                    switch (plane_index) {
+                    std::cout << "3 - Plane XZ: " << std::endl<< ">> ";
+                    std::cin >> index_;
+                    switch (index_) {
                         case 1:
                             r_plane = RPlane::XY_PLANE;
                             break;
@@ -480,7 +488,7 @@ int main(int argc, char *argv[]) {
                     transform_m = matriz_cw * Matrix::reflection(r_plane) * matriz_wc;
                     break;
                 case 6:
-                    std::cout << "Type the new view port distance: " << std::endl;
+                    std::cout << "Type the new view port distance: " << std::endl<< ">> ";
                     std::cin >> dJanela;
                     zj = -dJanela;
                     obj_transformed = false;
@@ -490,9 +498,9 @@ int main(int argc, char *argv[]) {
                 case 7:
                     std::cout << "Type the new projection: " << std::endl;
                     std::cout << "1 - orthografic: " << std::endl;
-                    std::cout << "2 - Perspective: " << std::endl;
-                    std::cin >> projection_index;
-                    switch (projection_index) {
+                    std::cout << "2 - Perspective: " << std::endl<< ">> ";
+                    std::cin >> index_;
+                    switch (index_) {
                         case 1:
                             projection_type = Projection::ORTHOGRAPHIC;
                             break;
@@ -506,9 +514,9 @@ int main(int argc, char *argv[]) {
                     obj_transformed = false;
                     break;
                 case 8:
-                    std::cout << "Type the new view port width: " << std::endl;
+                    std::cout << "Type the new view port width: " << std::endl<< ">> ";
                     std::cin >> wJanela;
-                    std::cout << "Type the new view port hight: " << std::endl;
+                    std::cout << "Type the new view port hight: " << std::endl<< ">> ";
                     std::cin >> hJanela;
                     obj_transformed = false;
                     
@@ -519,18 +527,17 @@ int main(int argc, char *argv[]) {
                     std::cout << "1 - Set Ambient " << std::endl;
                     std::cout << "2 - Set Diffuse " << std::endl;
                     std::cout << "3 - Set Specular " << std::endl;
-                    std::cout << "4 - Set Shineness " << std::endl;
-                    
-                    std::cin >> projection_index;
-                    if (projection_index != 4) {
-                        std::cout << "Digite a propriedade: " << std::endl;
+                    std::cout << "4 - Set Shineness " << std::endl<< ">> ";
+                    std::cin >> index_;
+                    if (index_ != 4) {
+                        std::cout << "Digite a propriedade: " << std::endl<< ">> ";
                         std::cin >> x;
                         std::cin >> y;
                         std::cin >> z;
                         new_property = Vector3d(x, y, z);
                     }
                     
-                    switch (projection_index) {
+                    switch (index_) {
                         case 1:
                             pick_shape->set_ka(new_property);
                             break;
@@ -541,7 +548,7 @@ int main(int argc, char *argv[]) {
                             pick_shape->set_ke(new_property);
                             break;
                         case 4:
-                            std::cout << "Set shineness value: " << std::endl;
+                            std::cout << "Set shineness value: " << std::endl<< ">> ";
                             std::cin >> m;
                             pick_shape->set_m(m);
                             break;
@@ -553,17 +560,26 @@ int main(int argc, char *argv[]) {
                     std::cout << "1 - Position " << std::endl;
                     std::cout << "2 - Intensity " << std::endl;
                     std::cout << "3 - Direction " << std::endl;
-                    std::cout << "4 - Angle " << std::endl;
+                    std::cout << "4 - Angle " << std::endl << ">> ";
+                    std::cin >> index_;
                     break;
                 case 11:
+                    std::cout << "Select light source: "<< std::endl<< ">> ";
+                    std::cin >> index_;
                     break;
                 case 12:
+                    std::cout << "Select light source: "<< std::endl<< ">> ";
+                    std::cin >> index_;
                     break;
                 case 13:
                     std::cout << "1 - modify eye position: " << std::endl;
                     std::cout << "2 - modify look at point: " << std::endl;
-                    std::cout << "3 - modify view up point: " << std::endl;
+                    std::cout << "3 - modify view up point: " << std::endl<< ">> ";
+                    std::cin >> index_;
                     break;
+                case 14:
+                    std::cout << "#TODO" << std::endl;
+                    //return EXIT_SUCCESS;
                 default:
                     break;
 
