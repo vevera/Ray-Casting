@@ -125,40 +125,40 @@ int main(int argc, char *argv[]) {
     // Reflexidade dos objetos
     Vector3d k_spec = Vector3d(0, 0, 0);
     Vector3d k_floor_a = Vector3d(0.3, 0.6, 0.1);
-    Reflexivity reflex_floor(&k_floor_a, &k_floor_a, &k_floor_a, 1);
+    Reflexivity reflex_floor(k_floor_a, k_floor_a, k_floor_a, 1);
 
     Vector3d k_support_table =
         Vector3d(210.0 / 255.0, 105.0 / 255.0, 30.0 / 255.0);
-    Reflexivity reflex_support_table(&k_support_table, &k_support_table,
-                                     &k_support_table, 1);
+    Reflexivity reflex_support_table(k_support_table, k_support_table,
+                                     k_support_table, 1);
 
     Vector3d k_lid_table = Vector3d(65.0 / 255.0, 105.0 / 255.0, 225.0 / 255.0);
-    Reflexivity reflex_lid_table(&k_lid_table, &k_lid_table, &k_lid_table, 1);
+    Reflexivity reflex_lid_table(k_lid_table, k_lid_table, k_lid_table, 1);
 
     Vector3d k_tree_wood = Vector3d(139.0 / 255.0, 69.0 / 255.0, 19.0 / 255.0);
-    Reflexivity reflex_tree_wood(&k_tree_wood, &k_tree_wood, &k_tree_wood, 1);
+    Reflexivity reflex_tree_wood(k_tree_wood, k_tree_wood, k_tree_wood, 1);
 
     Vector3d k_tree_support = Vector3d(1, 1, 0);
 
-    Reflexivity reflex_support(&k_tree_support, &k_tree_support,
-                               &k_tree_support, 1);
+    Reflexivity reflex_support(k_tree_support, k_tree_support,
+                               k_tree_support, 1);
 
     Vector3d k_star = Vector3d(1.0, 1.0, 0.0);
-    Reflexivity reflex_star(&k_star, &k_star, &k_star, 1);
+    Reflexivity reflex_star(k_star, k_star, k_star, 1);
 
     Vector3d k_tree = Vector3d(0.0, 1.0, 0.0);
-    Reflexivity reflex_tree(&k_tree, &k_tree, &k_tree, 1);
+    Reflexivity reflex_tree(k_tree, k_tree, k_tree, 1);
 
     Vector3d k_wood_column =
         Vector3d(205.0 / 255.0, 133.0 / 255.0, 63.0 / 255.0);
-    Reflexivity reflex_wood_column(&k_wood_column, &k_wood_column,
-                                   &k_wood_column, 1);
+    Reflexivity reflex_wood_column(k_wood_column, k_wood_column,
+                                   k_wood_column, 1);
 
     Vector3d k_roof = Vector3d(1, 69.0 / 255.0, 0);
-    Reflexivity reflex_roof(&k_roof, &k_roof, &k_roof, 1);
+    Reflexivity reflex_roof(k_roof, k_roof, k_roof, 1);
 
     Vector3d k_wall = Vector3d(222.0 / 255.0, 184.0 / 255.0, 135.0 / 255.0);
-    Reflexivity reflex_wall(&k_wall, &k_wall, &k_wall, 1);
+    Reflexivity reflex_wall(k_wall, k_wall, k_wall, 1);
 
     // Objeto complexo 01 ==========================================
 
@@ -354,12 +354,13 @@ int main(int argc, char *argv[]) {
     std::thread object_operations([&]() {
 
         int option, axis_index, shear_index, plane_index, projection_index;
-        double x, y, z, angle, angle_shear;
+        double x, y, z, angle, angle_shear, m;
         TAxis axis;
         ShearTypes shear_type;
         RPlane r_plane;
         Projection projection_type;
         bool obj_transformed = true;
+        Vector3d new_property;
 
         while (true) {
             obj_transformed = true;
@@ -372,7 +373,12 @@ int main(int argc, char *argv[]) {
             std::cout << "6 - Change ViewPort Distace: \n";
             std::cout << "7 - Change Projection: \n";
             std::cout << "8 - Change window size: \n";
-            std::cout << "9 - Change camera parameters: \n";
+            std::cout << "9 - Change material property: \n";
+            std::cout << "10 - Change property of lights: \n";
+            std::cout << "11 - Turn on light source: \n";
+            std::cout << "12 - Turn off light source: \n";
+            std::cout << "13 - Change camera parameters: \n";
+            
             std::cin >> option;
 
             AccMatrix transform_m;
@@ -510,10 +516,53 @@ int main(int argc, char *argv[]) {
                     // scene.take_a_picture(camera, vp, bgColor);
                     break;
                 case 9:
+                    std::cout << "1 - Set Ambient " << std::endl;
+                    std::cout << "2 - Set Diffuse " << std::endl;
+                    std::cout << "3 - Set Specular " << std::endl;
+                    std::cout << "4 - Set Shineness " << std::endl;
+                    
+                    std::cin >> projection_index;
+                    if (projection_index != 4) {
+                        std::cout << "Digite a propriedade: " << std::endl;
+                        std::cin >> x;
+                        std::cin >> y;
+                        std::cin >> z;
+                        new_property = Vector3d(x, y, z);
+                    }
+                    
+                    switch (projection_index) {
+                        case 1:
+                            pick_shape->set_ka(new_property);
+                            break;
+                        case 2:
+                            pick_shape->set_kd(new_property);
+                            break;
+                        case 3:
+                            pick_shape->set_ke(new_property);
+                            break;
+                        case 4:
+                            std::cout << "Set shineness value: " << std::endl;
+                            std::cin >> m;
+                            pick_shape->set_m(m);
+                            break;
+                        default:
+                            continue;
+                    }
+                    break;
+                case 10:
+                    std::cout << "1 - Position " << std::endl;
+                    std::cout << "2 - Intensity " << std::endl;
+                    std::cout << "3 - Direction " << std::endl;
+                    std::cout << "4 - Angle " << std::endl;
+                    break;
+                case 11:
+                    break;
+                case 12:
+                    break;
+                case 13:
                     std::cout << "1 - modify eye position: " << std::endl;
                     std::cout << "2 - modify look at point: " << std::endl;
                     std::cout << "3 - modify view up point: " << std::endl;
-                    // scene.take_a_picture(camera, vp, bgColor);
                     break;
                 default:
                     break;

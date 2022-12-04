@@ -12,14 +12,14 @@ Light::Light(Vector3d *intensity)
 Vector3d Light::calc_diffuse_specular(Reflexivity &reflex, Vector3d &intensity,
                                       Vector3d &l, Vector3d &n, Vector3d &v,
                                       Vector3d &r) {
-    Vector3d *kd = reflex.kd;
-    Vector3d *ke = reflex.ke;
+    Vector3d kd = reflex.kd;
+    Vector3d ke = reflex.ke;
     double m = reflex.m;
 
     // difuse reflection
-    Vector3d i_d = ((intensity * (*kd)) * std::max(l.dot(n), 0.0));
+    Vector3d i_d = ((intensity * kd) * std::max(l.dot(n), 0.0));
     // specular reflection
-    Vector3d i_e = ((intensity * (*ke)) * std::max(pow(v.dot(r), m), 0.0));
+    Vector3d i_e = ((intensity * ke) * std::max(pow(v.dot(r), m), 0.0));
 
     return i_d + i_e;
 }

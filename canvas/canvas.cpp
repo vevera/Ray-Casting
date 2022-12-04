@@ -95,7 +95,7 @@ void Canvas::wait_event(Shape **pick_shape, Scene &scene, Vector3d &camera,
 
                 if (*pick_shape != nullptr) {
                     std::cout << "PICKING CONCLUIDO: "
-                          << (*pick_shape)->ka(1, 1)->toStr() << std::endl;
+                          << (*pick_shape)->ka(1, 1).toStr() << std::endl;
                 }
                 
             }

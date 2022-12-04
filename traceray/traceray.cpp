@@ -59,9 +59,9 @@ Vector3d calculate_light_intensity(std::vector<Light *> &lights, Vector3d &n,
                                    int x, int y) {
     Vector3d *l, r;
 
-    Vector3d *kd = obj.kd(x, y);
-    Vector3d *ke = obj.ke(x, y);
-    Vector3d *ka = obj.ka(x, y);
+    Vector3d kd = obj.kd(x, y);
+    Vector3d ke = obj.ke(x, y);
+    Vector3d ka = obj.ka(x, y);
     Vector3d i_eye = Vector3d(0, 0, 0);
     Vector3d i_l;
     double m = obj.m();
