@@ -35,18 +35,10 @@ Vector3d trace_ray(Vector3d &p_0, Vector3d &dr, double t_min, double t_max,
     Vector3d normal, v;
 
     normal = closest_shape->normal(p_i);
-    // lr = *light.get_l(p_i);
-    //  lr = *light.position - p_i;
-    // lr = lr.normalize();
+    
     v = dr * (-1);
     v = v.normalize();
-    // r = ((normal * (lr.dot(normal))) * 2) - lr;
-
-    // Calculo da iluminação/reflexibilidade dos objetos
-
-    // bool light_blocked = light_being_blocked(*closest_shape, shapes, p_i,
-    // light, lr);
-    // color = *closest_shape->kd(p_i.x_, p_i.z_);
+    
     color = calculate_light_intensity(lights, normal, v, p_i, shapes,
                                       *closest_shape, p_i.x_, p_i.z_);
 
@@ -57,13 +49,13 @@ Vector3d calculate_light_intensity(std::vector<Light *> &lights, Vector3d &n,
                                    Vector3d &v, Vector3d &pi,
                                    std::vector<Shape *> &shapes, Shape &obj,
                                    int x, int y) {
-    Vector3d *l, r;
+    Vector3d l, r;
 
     Vector3d kd = obj.kd(x, y);
     Vector3d ke = obj.ke(x, y);
     Vector3d ka = obj.ka(x, y);
     Vector3d i_eye = Vector3d(0, 0, 0);
-    Vector3d i_l;
+    //Vector3d i_l;
     double m = obj.m();
     double max;
     Reflexivity reflex = Reflexivity(kd, ke, ka, m);
@@ -71,17 +63,17 @@ Vector3d calculate_light_intensity(std::vector<Light *> &lights, Vector3d &n,
     std::for_each(begin(lights), end(lights), [&](Light *light) {
         l = light->get_l(pi);
 
-        r = ((n * (l->dot(n))) * 2) - *l;
+        r = ((n * (l.dot(n))) * 2) - l;
 
-        if (!light_being_blocked(obj, shapes, pi, *light, *l)) {
-            i_l = *light->get_contribution(reflex, *l, n, v, r);
+        if (!light_being_blocked(obj, shapes, pi, *light, l)) {
+            //i_l = light->get_contribution(reflex, l, n, v, r);
 
-            i_eye = i_eye + i_l;
+            i_eye = i_eye + light->get_contribution(reflex, l, n, v, r);
         }
     });
     max = std::max({i_eye.x_, i_eye.y_, i_eye.z_});
-    i_eye = max > 1.0 ? i_eye / max : i_eye;
-    return i_eye;
+    //i_eye = max > 1.0 ? i_eye / max : i_eye;
+    return max > 1.0 ? i_eye / max : i_eye;
 }
 
 bool light_being_blocked(Shape &cls_shape, vector<Shape *> &shapes,

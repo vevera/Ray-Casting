@@ -12,6 +12,9 @@ Scene::Scene(std::vector<Shape *> shapes, Canvas canvas,
     : shapes_(shapes), canvas_(canvas), lights_(lights), projection(Projection::PERSPECTIVE) {
     std::for_each(begin(shapes_), end(shapes_),
                   [&](Shape *shape) { *shape *wc; });
+
+    std::for_each(begin(lights_), end(lights_),
+                  [&](Light *lightp) { *lightp *wc; });
 };
 
 void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor) {
@@ -85,3 +88,13 @@ Shape *Scene::picking(Vector3d &camera, double x, double y, double t_min, Vector
 
     return closest_shape;
 }
+
+void Scene::update_world_camera(gMatrix old_cw, gMatrix new_wc){
+
+    std::for_each(begin(shapes_), end(shapes_),
+                  [&](Shape *shape) { *shape *old_cw; *shape *new_wc;});
+
+    std::for_each(begin(lights_), end(lights_),
+                  [&](Light *lightp) { *lightp *old_cw; *lightp *new_wc;});
+
+};

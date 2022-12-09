@@ -71,64 +71,65 @@ int main(int argc, char *argv[]) {
 
     Vector3d up = Vector3d(lx, ly + 100, lz, 1);
 
-    Vector3d vup = up - eye;
+    //Matrix::camera_world(Vector3d eye, Vector3d at, Vector3d up)
 
-    Vector3d k_c = (eye - at).normalize();     // z da camera
-    Vector3d i_c = (vup.cross_product(k_c));   // x da camera
-    Vector3d j_c = (k_c.cross_product(i_c));   // y da camera
+    // Vector3d vup = up - eye;
 
-    k_c = k_c.normalize();
-    i_c = i_c.normalize();
-    j_c = j_c.normalize();
+    // Vector3d k_c = (eye - at).normalize();     // z da camera
+    // Vector3d i_c = (vup.cross_product(k_c));   // x da camera
+    // Vector3d j_c = (k_c.cross_product(i_c));   // y da camera
 
-    // matriz que vai converter para as coordenadas de camera
+    // k_c = k_c.normalize();
+    // i_c = i_c.normalize();
+    // j_c = j_c.normalize();
 
-    std::vector<Vector3d> t_c = {
-        Vector3d(i_c.get(0), i_c.get(1), i_c.get(2), -(i_c.dot(eye))),
-        Vector3d(j_c.get(0), j_c.get(1), j_c.get(2), -(j_c.dot(eye))),
-        Vector3d(k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye))),
-        Vector3d(0, 0, 0, 1)};
+    // // matriz que vai converter para as coordenadas de camera
 
-    Eigen::Matrix4d e_tc;
-    e_tc << i_c.get(0), i_c.get(1), i_c.get(2), -(i_c.dot(eye)), 
-            j_c.get(0), j_c.get(1), j_c.get(2), -(j_c.dot(eye)),
-            k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye)),
-            0, 0, 0, 1;
+    // std::vector<Vector3d> t_c = {
+    //     Vector3d(i_c.get(0), i_c.get(1), i_c.get(2), -(i_c.dot(eye))),
+    //     Vector3d(j_c.get(0), j_c.get(1), j_c.get(2), -(j_c.dot(eye))),
+    //     Vector3d(k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye))),
+    //     Vector3d(0, 0, 0, 1)};
 
-    e_tc = e_tc.inverse().eval();
+    // Eigen::Matrix4d e_tc;
+    // e_tc << i_c.get(0), i_c.get(1), i_c.get(2), -(i_c.dot(eye)), 
+    //         j_c.get(0), j_c.get(1), j_c.get(2), -(j_c.dot(eye)),
+    //         k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye)),
+    //         0, 0, 0, 1;
+
+    // e_tc = e_tc.inverse().eval();
     
-    std::vector<Vector3d> t_m = {
-        Vector3d(e_tc(0,0), e_tc(0,1), e_tc(0,2), e_tc(0,3)),
-        Vector3d(e_tc(1,0), e_tc(1,1), e_tc(1,2), e_tc(1,3)),
-        Vector3d(e_tc(2,0), e_tc(2,1), e_tc(2,2), e_tc(2,3)),
-        Vector3d(e_tc(3,0), e_tc(3,1), e_tc(3,2), e_tc(3,3))};
+    // std::vector<Vector3d> t_m = {
+    //     Vector3d(e_tc(0,0), e_tc(0,1), e_tc(0,2), e_tc(0,3)),
+    //     Vector3d(e_tc(1,0), e_tc(1,1), e_tc(1,2), e_tc(1,3)),
+    //     Vector3d(e_tc(2,0), e_tc(2,1), e_tc(2,2), e_tc(2,3)),
+    //     Vector3d(e_tc(3,0), e_tc(3,1), e_tc(3,2), e_tc(3,3))};
 
     //std::cout << "Matrix: " << std::endl;
 
     //std::for_each(begin(t_m), end(t_m),
     //              [](auto v) { std::cout << v.toStr() << std::endl; });
 
-    gMatrix matriz_wc(t_c, t_c, TransformType::CAMERA);
-    gMatrix matriz_cw(t_m, t_m, TransformType::CAMERA);
+    gMatrix matriz_wc = Matrix::world_camera(eye, at, up);
+    gMatrix matriz_cw = Matrix::camera_world(eye, at, up);
 
-    Vector3d eye_aux = eye;
-    eye *matriz_wc.transform_matrix;
-    //std::cout << "Camera: " << eye.toStr() << std::endl;
+    //Vector3d eye_aux = eye;
+    eye * matriz_wc.transform_matrix;
     camera = eye;
 
     std::vector<Light *> lights;
 
-    PointLight light(&i_f, &p_f);
-    light *matriz_wc;
+    PointLight light(i_f, p_f, "Luz Pontual 1");
+    //light *matriz_wc;
 
     // PointLight light2(&i_f, &p_f2);
     // light2 *matriz_wc;
 
-    Ambient ambient_light(&i_a);
-    Directional d_light(&i_f, new Vector3d(0, -1, 0));
-    Spot s_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0.5, -1), 0.2);
+    Ambient ambient_light(i_a, "Luz Ambiente 1");
+    // Directional d_light(&i_f, new Vector3d(0, -1, 0));
+    // Spot s_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0.5, -1), 0.2);
 
-    Spot s1_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0, -1), 0.9);
+    // Spot s1_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0, -1), 0.9);
 
     lights.push_back(&light);
     // lights.push_back(&light);
@@ -338,7 +339,6 @@ int main(int argc, char *argv[]) {
 
     Scene scene(shapes, canvas, lights, matriz_wc);
     ViewPort vp(wJanela, hJanela, zj);
-    //std::cout << "before take a pic" << std::endl;
     scene.take_a_picture(camera, vp, bgColor);
 
     canvas.init_window();
@@ -353,9 +353,7 @@ int main(int argc, char *argv[]) {
 
     std::thread object_operations([&]() {
 
-        int option; 
-        //int axis_index, shear_index, plane_index, projection_index;
-        int index_;
+        int option, index_, light_index;
         double x, y, z, angle, angle_shear, m;
         TAxis axis;
         ShearTypes shear_type;
@@ -363,6 +361,7 @@ int main(int argc, char *argv[]) {
         Projection projection_type;
         bool obj_transformed = true;
         Vector3d new_property;
+        gMatrix temp;
 
         bool quit_ = false;
 
@@ -379,10 +378,8 @@ int main(int argc, char *argv[]) {
             std::cout << "8 - Change window size" << std::endl;
             std::cout << "9 - Change material property" << std::endl;
             std::cout << "10 - Change property of lights" << std::endl;
-            std::cout << "11 - Turn on light source" << std::endl;
-            std::cout << "12 - Turn off light source" << std::endl;
-            std::cout << "13 - Change camera parameters" << std::endl;
-            std::cout << "14 - Quit" << std::endl;
+            std::cout << "11 - Change camera parameters" << std::endl;
+            std::cout << "12 - Quit" << std::endl;
             std::cout << ">> ";
             
             std::cin >> option;
@@ -557,27 +554,51 @@ int main(int argc, char *argv[]) {
                     }
                     break;
                 case 10:
-                    std::cout << "1 - Position " << std::endl;
-                    std::cout << "2 - Intensity " << std::endl;
-                    std::cout << "3 - Direction " << std::endl;
-                    std::cout << "4 - Angle " << std::endl << ">> ";
-                    std::cin >> index_;
+                    std::cout << "Escolha uma fonte de luz: " << std::endl;
+
+                    light_index = 0;
+                    std::for_each(begin(lights), end(lights), [&light_index, &matriz_cw](Light *light_source){
+                        std::cout << std::to_string(light_index) << " " << light_source->toStr(matriz_cw) << std::endl; 
+                        light_index++;
+                    });
+                    std::cout << ">> ";
+                    std::cin >> light_index;
+                    lights.at(light_index)->change_some_proprety(matriz_wc);
+
                     break;
                 case 11:
-                    std::cout << "Select light source: "<< std::endl<< ">> ";
+
+                    std::cout << "1 - modify eye position: |" << eye.mult_vector_matriz4d(matriz_cw.transform_matrix).toStr()<< std::endl;
+                    std::cout << "2 - modify look at point: |" << at.toStr() << std::endl;
+                    std::cout << "3 - modify view up point: |" << up.toStr() << std::endl << ">> ";
                     std::cin >> index_;
+
+                    std::cout << "Set values x, y, z:" << std::endl<< ">> ";
+                    std::cin >> x;
+                    std::cin >> y;
+                    std::cin >> z;
+                    
+                    eye * matriz_cw.transform_matrix;
+                    if (index_ == 1){
+                        eye = Vector3d(x, y, z);
+                    }   
+                    if (index_ == 2)
+                        at = Vector3d(x, y, z);
+                    if (index_ == 3)
+                        up = Vector3d(x, y, z);
+
+                    temp = matriz_cw;  
+                    
+                    matriz_wc = Matrix::world_camera(eye, at, up);
+                    matriz_cw = Matrix::camera_world(eye, at, up);
+
+                    eye * matriz_wc.transform_matrix;
+                    camera = eye;
+
+                    scene.update_world_camera(temp, matriz_wc);
+                    
                     break;
                 case 12:
-                    std::cout << "Select light source: "<< std::endl<< ">> ";
-                    std::cin >> index_;
-                    break;
-                case 13:
-                    std::cout << "1 - modify eye position: " << std::endl;
-                    std::cout << "2 - modify look at point: " << std::endl;
-                    std::cout << "3 - modify view up point: " << std::endl<< ">> ";
-                    std::cin >> index_;
-                    break;
-                case 14:
                     std::cout << "#TODO" << std::endl;
                     //return EXIT_SUCCESS;
                 default:
@@ -594,16 +615,11 @@ int main(int argc, char *argv[]) {
             vp = ViewPort(wJanela, hJanela, zj); 
             dx = vp.width / (double) canvas.n_cols();
             dy = vp.height / (double) canvas.n_rows();
+
+            std::cout << "Updating Scene... " << std::endl;
             scene.take_a_picture(camera, vp, bgColor);
             canvas.update_window();
-            // if (pick_shape != nullptr) {
-            //     std::cout << "before take a pic" << std::endl;
-
-            //     *pick_shape * transform_m;
-            //     scene.take_a_picture(camera, vp, bgColor);
-            //     canvas.update_window();
-            //     std::cout << "after take a pic" << std::endl;
-            // }
+            
         }
     });
 

@@ -3,11 +3,11 @@
 #include "../Vector3d/Vector3d.h"
 #include "../shapes/shape.h"
 
-Light::Light(Vector3d *intensity, Vector3d *position)
-    : intensity_(intensity), position_(position){};
+Light::Light(Vector3d intensity, Vector3d position, std::string light_name)
+    : intensity_(intensity), position_(position), light_name_(light_name){};
 
-Light::Light(Vector3d *intensity)
-    : intensity_(intensity), position_(new Vector3d(0, 0, 0)){};
+Light::Light(Vector3d intensity, std::string light_name)
+    : intensity_(intensity), position_(Vector3d(0, 0, 0)), light_name_(light_name){};
 
 Vector3d Light::calc_diffuse_specular(Reflexivity &reflex, Vector3d &intensity,
                                       Vector3d &l, Vector3d &n, Vector3d &v,

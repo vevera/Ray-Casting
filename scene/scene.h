@@ -37,6 +37,7 @@ class Scene {
     void take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor);
     Shape *picking(Vector3d &camera, double x, double y, double t_min, Vector3d **clicked_point);
     void set_projection(Projection projection_);
+    void update_world_camera(gMatrix old_cw, gMatrix new_wc);
 
    private:
     std::vector<Shape *> shapes_;
