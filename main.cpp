@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
     rEsfera = 40;
     wJanela = 70;
     hJanela = 70;
-    bgColor = Vector3d(0., 0., 0.);
+    bgColor = Vector3d(16.0/255.0, 17.0/255.0, 30.0/255.0);
     nLin = 500;
     nCol = 500;
     zj = -dJanela;
@@ -96,14 +96,20 @@ int main(int argc, char *argv[]) {
     */
     // START OF FINAL SCENE
 
+    Vector3d k_church_ = Vector3d(115.0/255.0, 116/255.0, 115.0/255.0);
+    Reflexivity reflex_church_tower(k_church_, k_church_, Vector3d(0., 0., 0.), 1);
+
+    Vector3d k_church_roof = Vector3d(157.0/255.0, 95/255.0, 85.0/255.0);
+    Reflexivity reflex_church_roof(k_church_roof, k_church_roof, Vector3d(0., 0., 0.), 1);
+
     Vector3d k_support_table =
-        Vector3d(210.0 / 255.0, 105.0 / 255.0, 30.0 / 255.0);
+        Vector3d(165.0/255.0, 166/255.0, 165.0/255.0);
     Reflexivity reflex_support_table(k_support_table, k_support_table,
                                      k_support_table, 1);
 
     /*---------------------------------------------------------------------------------*/
 
-    Mesh left_church_front(reflex_support_table, "blender objects/cubo_17.obj");
+    Mesh left_church_front(reflex_church_tower, "blender objects/cubo_17.obj");
     auto scale_side_church = Matrix::scale(Vector3d(1000, 1800, 10));
     auto t_left_church = scale_side_church * Matrix::translate(Vector3d(500, 900, 3005));
 
@@ -114,7 +120,7 @@ int main(int argc, char *argv[]) {
 
     /*---------------------------------------------------------------------------------*/
 
-    Mesh left_church_left(reflex_support_table, "blender objects/cubo_17.obj");
+    Mesh left_church_left(reflex_church_tower, "blender objects/cubo_17.obj");
     auto scale_side_church_left = Matrix::scale(Vector3d(10, 1800, 3000));
     auto t_left_church_left = scale_side_church_left * Matrix::translate(Vector3d(5, 900, 1500));
 
@@ -150,13 +156,60 @@ int main(int argc, char *argv[]) {
     Mesh center_church_back = center_church_front;
     center_church_back * Matrix::translate(Vector3d(0, 0, -3100));
 
+    Mesh center_church_left(reflex_support_table, "blender objects/cubo_17.obj"); 
+    
+    center_church_left * ( Matrix::scale(Vector3d(10, 3000, 3000)) * Matrix::translate(Vector3d(1005, 1500, 1500)));
+    
+    Mesh center_church_right = center_church_left;
+    center_church_right * Matrix::translate(Vector3d(1500, 0, 0));
+
+    /*--------------------------ROOF CHURCH------------------------------------------*/
     /*---------------------------------------------------------------------------------*/
 
-    // Mesh center_church_left = left_church_left;
-    // center_church_left * Matrix::translate(Vector3d(2500, 0, 0));
+    Mesh left_roof_church(reflex_church_roof, "blender objects/cubo_17.obj");
+    auto left_roof_church_t =  Matrix::scale(Vector3d(1000, 10, 3000)) *
+                       //Matrix::translate(Vector3d(0, 0, 0))*
+                       Matrix::shearing(ShearTypes::XY, 22.97183) *
+                       Matrix::translate(Vector3d(500, 2000, 1500));
 
-    // Mesh center_church_right = center_church_left;
-    // center_church_right * Matrix::translate(Vector3d(1000, 0, 0));
+    left_roof_church *left_roof_church_t;
+
+    Mesh right_roof_church = left_roof_church;
+    auto right_roof_church_t = Matrix::translate(Vector3d(-500, -2000, -1500)) *
+                         Matrix::reflection(RPlane::YZ_PLANE) *
+                         Matrix::translate(Vector3d(3000, 2000, 1500));
+
+    right_roof_church *(right_roof_church_t);
+
+
+    Mesh left_roof_church_top(reflex_church_roof, "blender objects/cubo_17.obj");
+    auto left_roof_church_top_t =  Matrix::scale(Vector3d(750, 10, 3000)) *
+                       //Matrix::translate(Vector3d(0, 0, 0))*
+                       Matrix::shearing(ShearTypes::XY, 32.97183) *
+                       Matrix::translate(Vector3d(1375, 3200, 1600));
+
+    left_roof_church_top *left_roof_church_top_t;
+
+    Mesh right_roof_church_top = left_roof_church_top;
+    auto right_roof_church_top_t = Matrix::translate(Vector3d(-1375, -3200, -1600)) *
+                         Matrix::reflection(RPlane::YZ_PLANE) *
+                         Matrix::translate(Vector3d(2125, 3200, 1600));
+
+    right_roof_church_top *(right_roof_church_top_t);
+
+
+
+    /*--------------------------CROSS CHURCH------------------------------------------*/
+    /*---------------------------------------------------------------------------------*/
+
+    
+
+    Mesh cross_y(reflex_church_roof, "blender objects/cubo_17.obj");
+    auto cross_y_t = Matrix::scale(Vector3d(50, 500, 30)) *
+                         Matrix::translate(Vector3d(1750, 3800, 3000));
+    cross_y *cross_y_t;
+
+    /*---------------------------------------------------------------------------------*/
 
 
     // END OF FINAL SCENE
@@ -171,7 +224,7 @@ int main(int argc, char *argv[]) {
 
     // Reflexidade dos objetos
     Vector3d k_spec = Vector3d(0, 0, 0);
-    Vector3d k_floor_a = Vector3d(0.3, 0.6, 0.1);
+    Vector3d k_floor_a = Vector3d(0.0, 40/255.0, 0.0);
     Reflexivity reflex_floor(k_floor_a, k_floor_a, k_floor_a, 1);
 
     // Vector3d k_support_table =
@@ -357,6 +410,19 @@ int main(int argc, char *argv[]) {
     //CENTER CHURCH
     shapes.push_back(&center_church_front);
     shapes.push_back(&center_church_back);
+    shapes.push_back(&center_church_left);
+    shapes.push_back(&center_church_right);
+    //LATERAL ROOF CHURCH
+    shapes.push_back(&right_roof_church);
+    shapes.push_back(&left_roof_church);
+    //TOP ROOF CHURCH
+    shapes.push_back(&right_roof_church_top);
+    shapes.push_back(&left_roof_church_top);
+    //CROSS CHURCH
+    shapes.push_back(&cross_y);
+
+
+
     // shapes.push_back(&lid);
     // shapes.push_back(&suppord_tree);
     // shapes.push_back(&wood_2);
