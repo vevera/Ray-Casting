@@ -148,7 +148,7 @@ void Cylinder::operator*(AccMatrix m) {
 void Cylinder::operator*(gMatrix m) {
     switch (m.t_type) {
         case TransformType::SCALE:
-            radius_ = radius_ * m.transform_matrix.at(0).get(0);
+            radius_ = radius_ * m.transform_matrix.at(0).get(0)/2.0;
             height = height * m.transform_matrix.at(1).get(1);
             top_center_ = base_center_ + cylinder_direction * height;
             break;

@@ -21,7 +21,7 @@ double Ambient::get_distance_from_p(Vector3d p_i) { return -1; }
 
 void Ambient::change_some_proprety(gMatrix &wc){
 
-    int x, y, z;
+    double x, y, z;
 
     std::cout << "Change Intensity" << std::endl;
    

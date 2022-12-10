@@ -18,6 +18,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/daniel/repos/Ray-Casting/main.cpp" "CMakeFiles/raycasting.dir/main.cpp.o" "gcc" "CMakeFiles/raycasting.dir/main.cpp.o.d"
   "/home/daniel/repos/Ray-Casting/matrix/matrix.cpp" "CMakeFiles/raycasting.dir/matrix/matrix.cpp.o" "gcc" "CMakeFiles/raycasting.dir/matrix/matrix.cpp.o.d"
   "/home/daniel/repos/Ray-Casting/scene/scene.cpp" "CMakeFiles/raycasting.dir/scene/scene.cpp.o" "gcc" "CMakeFiles/raycasting.dir/scene/scene.cpp.o.d"
+  "/home/daniel/repos/Ray-Casting/shapes/complex/complex_object.cpp" "CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o" "gcc" "CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o.d"
   "/home/daniel/repos/Ray-Casting/shapes/cone/cone.cpp" "CMakeFiles/raycasting.dir/shapes/cone/cone.cpp.o" "gcc" "CMakeFiles/raycasting.dir/shapes/cone/cone.cpp.o.d"
   "/home/daniel/repos/Ray-Casting/shapes/cylinder/cylinder.cpp" "CMakeFiles/raycasting.dir/shapes/cylinder/cylinder.cpp.o" "gcc" "CMakeFiles/raycasting.dir/shapes/cylinder/cylinder.cpp.o.d"
   "/home/daniel/repos/Ray-Casting/shapes/mesh/mesh.cpp" "CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.o" "gcc" "CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.o.d"

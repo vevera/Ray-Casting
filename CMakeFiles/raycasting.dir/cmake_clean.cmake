@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/raycasting.dir/matrix/matrix.cpp.o.d"
   "CMakeFiles/raycasting.dir/scene/scene.cpp.o"
   "CMakeFiles/raycasting.dir/scene/scene.cpp.o.d"
+  "CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o"
+  "CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o.d"
   "CMakeFiles/raycasting.dir/shapes/cone/cone.cpp.o"
   "CMakeFiles/raycasting.dir/shapes/cone/cone.cpp.o.d"
   "CMakeFiles/raycasting.dir/shapes/cylinder/cylinder.cpp.o"

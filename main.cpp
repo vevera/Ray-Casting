@@ -14,6 +14,7 @@
 #include "shapes/mesh/mesh.h"
 #include "shapes/plane/plane.h"
 #include "shapes/sphere/sphere.h"
+#include "shapes/complex/complex_object.h"
 #include <Eigen/Dense>
 
 void Clear()
@@ -47,9 +48,9 @@ int main(int argc, char *argv[]) {
     zj = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
-    p_f = Vector3d(1750, 500, 6000.0);
+    p_f = Vector3d(1750, 2800, 200.0);
     // p_f2 = Vector3d(300, 8000, 500.0);
-    i_a = Vector3d(0.3, 0.3, 0.3);
+    i_a = Vector3d(0.0, 0.4, 0.4);
 
     // lights.push_back(&d_light);
     // lights.push_back(&s_light);
@@ -60,14 +61,21 @@ int main(int argc, char *argv[]) {
     /*
     int lx =
     */
-    double lx = 1750;
-    double ly = 500;
-    double lz = 6000;
+    // double lx = 1750.000000;
+    // double ly = 500.000000;
+    // double lz = 1000.000000;
 
+    double lx = 1750.000000;
+    double ly = 500.000000;
+    double lz = 7000.000000;
+    // double lx = 1750;
+    // double ly = 500;
+    // double lz = 3000;
+    //1750, 120000, -100000
     Vector3d camera(0, 0, 0);
     Vector3d eye = Vector3d(lx, ly, lz, 1);
 
-    Vector3d at = Vector3d(1750, 500, 3000, 1);
+    Vector3d at = Vector3d(1750, 500, -100000, 1);
 
     Vector3d up = Vector3d(lx, ly + 100, lz, 1);
 
@@ -83,8 +91,11 @@ int main(int argc, char *argv[]) {
 
     Ambient ambient_light(i_a, "Luz Ambiente 1");
 
+    Directional moon_light(Vector3d(0.5, 0.5, 0.5), Vector3d(-1750, -120000, 100000), "Moon Light");
+
     lights.push_back(&light);
     lights.push_back(&ambient_light);
+    lights.push_back(&moon_light);
 
 
     /**
@@ -95,23 +106,41 @@ int main(int argc, char *argv[]) {
     
     */
     // START OF FINAL SCENE
+    Vector3d k_moon_ = Vector3d(0.8, 0, 0.2);
+    Reflexivity reflex_moon(k_moon_, Vector3d(0,0,0), Vector3d(0,0,0), 1);
+    Sphere moon(reflex_moon, Vector3d(1750, 120000, -100000), 20000);
+    /*
+    
+    
+    
+    */
 
     Vector3d k_church_ = Vector3d(115.0/255.0, 116/255.0, 115.0/255.0);
-    Reflexivity reflex_church_tower(k_church_, k_church_, Vector3d(0., 0., 0.), 1);
+    Reflexivity reflex_church_tower(k_church_, k_church_, k_church_, 1);
 
-    Vector3d k_church_roof = Vector3d(157.0/255.0, 95/255.0, 85.0/255.0);
-    Reflexivity reflex_church_roof(k_church_roof, k_church_roof, Vector3d(0., 0., 0.), 1);
+    Vector3d k_church_bell = Vector3d(218.0/255.0, 165/255.0, 32.0/255.0);
+    Reflexivity reflex_church_bell(k_church_bell, k_church_bell, k_church_bell, 1);
+
+    Vector3d k_church_floor_ = Vector3d(50.0/255.0, 50.0/255.0, 50.0/255.0);
+    Reflexivity reflex_church_floor(k_church_floor_, k_church_floor_, k_church_floor_, 1);
+
+    Vector3d k_cross_ = Vector3d(0., 0., 0.);
+    Reflexivity reflex_church_cross(k_cross_, k_cross_, k_cross_, 1);
+
+
+    Vector3d k_church_roof = Vector3d(115.0/255.0, 116/255.0, 115.0/255.0);
+    Reflexivity reflex_church_roof(k_church_roof, k_church_roof, k_church_roof, 1);
 
     Vector3d k_support_table =
-        Vector3d(165.0/255.0, 166/255.0, 165.0/255.0);
+        Vector3d(50.0/255.0, 20.0/255.0, 20.0/255.0);
     Reflexivity reflex_support_table(k_support_table, k_support_table,
                                      k_support_table, 1);
 
     /*---------------------------------------------------------------------------------*/
 
     Mesh left_church_front(reflex_church_tower, "blender objects/cubo_17.obj");
-    auto scale_side_church = Matrix::scale(Vector3d(1000, 1800, 10));
-    auto t_left_church = scale_side_church * Matrix::translate(Vector3d(500, 900, 3005));
+    auto scale_side_church = Matrix::scale(Vector3d(1100, 1800, 80));
+    auto t_left_church = scale_side_church * Matrix::translate(Vector3d(550, 900, 3040));
 
     left_church_front * t_left_church;
 
@@ -121,8 +150,8 @@ int main(int argc, char *argv[]) {
     /*---------------------------------------------------------------------------------*/
 
     Mesh left_church_left(reflex_church_tower, "blender objects/cubo_17.obj");
-    auto scale_side_church_left = Matrix::scale(Vector3d(10, 1800, 3000));
-    auto t_left_church_left = scale_side_church_left * Matrix::translate(Vector3d(5, 900, 1500));
+    auto scale_side_church_left = Matrix::scale(Vector3d(80, 1800, 3000));
+    auto t_left_church_left = scale_side_church_left * Matrix::translate(Vector3d(40, 900, 1500));
 
     left_church_left * t_left_church_left;
 
@@ -133,7 +162,7 @@ int main(int argc, char *argv[]) {
     /*---------------------------------------------------------------------------------*/
 
     Mesh right_church_front = left_church_front;
-    right_church_front * Matrix::translate(Vector3d(2500, 0, 0));
+    right_church_front * Matrix::translate(Vector3d(2420, 0, 0));
 
     Mesh right_church_back = right_church_front;
     right_church_back * Matrix::translate(Vector3d(0, 0, -3000));
@@ -141,36 +170,85 @@ int main(int argc, char *argv[]) {
     /*---------------------------------------------------------------------------------*/
 
     Mesh right_church_left = left_church_left;
-    right_church_left * Matrix::translate(Vector3d(2500, 0, 0));
+    right_church_left * Matrix::translate(Vector3d(2420, 0, 0));
 
     Mesh right_church_right = right_church_left;
     right_church_right * Matrix::translate(Vector3d(1000, 0, 0));
 
+    /*--------------------------FLOOR CHURCH------------------------------------------*/
+    /*---------------------------------------------------------------------------------*/
+
+    Mesh church_floor(reflex_church_floor, "blender objects/cubo_17.obj");
+
+    church_floor * ( Matrix::scale(Vector3d(3700, 30, 3200)) * Matrix::translate(Vector3d(1850, 15, 1600)));
+
+
     /*--------------------------CENTER CHURCH------------------------------------------*/
     /*---------------------------------------------------------------------------------*/
 
-    Mesh center_church_front(reflex_support_table, "blender objects/cubo_17.obj");
+    /*--------------------------CENTER FRONT CHURCH------------------------------------------*/
 
-    center_church_front * ( Matrix::scale(Vector3d(1500, 3000, 10)) * Matrix::translate(Vector3d(1750, 1500, 3105)));
+    Mesh center_church_front_1(reflex_support_table, "blender objects/cubo_17.obj");
 
-    Mesh center_church_back = center_church_front;
-    center_church_back * Matrix::translate(Vector3d(0, 0, -3100));
+    center_church_front_1 * ( Matrix::scale(Vector3d(500, 3000, 100)) * Matrix::translate(Vector3d(1250, 1500, 3100)));
+
+    Mesh center_church_front_2 = center_church_front_1;
+    center_church_front_2 * Matrix::translate(Vector3d(1000, 0, 0));
+
+    Mesh center_church_front_3(reflex_support_table, "blender objects/cubo_17.obj");
+
+    center_church_front_3 * ( Matrix::scale(Vector3d(500, 1800, 100)) * Matrix::translate(Vector3d(1750, 1600, 3100)));
+
+    Mesh center_church_back(reflex_support_table, "blender objects/cubo_17.obj");
+
+    center_church_back * ( Matrix::scale(Vector3d(1500, 3000, 100)) * Matrix::translate(Vector3d(1750, 1500, 50)));
 
     Mesh center_church_left(reflex_support_table, "blender objects/cubo_17.obj"); 
     
-    center_church_left * ( Matrix::scale(Vector3d(10, 3000, 3000)) * Matrix::translate(Vector3d(1005, 1500, 1500)));
+    center_church_left * ( Matrix::scale(Vector3d(100, 1200, 3200)) * Matrix::translate(Vector3d(1050, 2400, 1600)));
     
     Mesh center_church_right = center_church_left;
-    center_church_right * Matrix::translate(Vector3d(1500, 0, 0));
+    center_church_right * Matrix::translate(Vector3d(1400, 0, 0));
+
+    Mesh left_contor(reflex_support_table, "blender objects/cubo_17.obj");
+    auto left_contor_t =  Matrix::scale(Vector3d(750, 100, 100)) *
+                       //Matrix::translate(Vector3d(0, 0, 0))*
+                       Matrix::shearing(ShearTypes::XY, 32.97183) *
+                       Matrix::translate(Vector3d(1375, 3200, 3100));
+
+    left_contor *left_contor_t;
+
+    Mesh right_contor = left_contor;
+    auto right_contor_t = Matrix::translate(Vector3d(-1375, -3200, -3100)) *
+                         Matrix::reflection(RPlane::YZ_PLANE) *
+                         Matrix::translate(Vector3d(2125, 3200, 3100));
+
+    right_contor *(right_contor_t);
+
+    
+
+
+
+    std::vector<Shape *> center_list;
+
+    center_list.push_back(&center_church_front_1);
+    center_list.push_back(&center_church_front_2);
+    center_list.push_back(&center_church_front_3);
+    center_list.push_back(&left_contor);
+    center_list.push_back(&right_contor);
+    // center_list.push_back(&center_church_left);
+    // center_list.push_back(&center_church_right);
+
+    ComplexObject center_tower(center_list);
 
     /*--------------------------ROOF CHURCH------------------------------------------*/
     /*---------------------------------------------------------------------------------*/
 
     Mesh left_roof_church(reflex_church_roof, "blender objects/cubo_17.obj");
-    auto left_roof_church_t =  Matrix::scale(Vector3d(1000, 10, 3000)) *
+    auto left_roof_church_t =  Matrix::scale(Vector3d(1000, 100, 3100)) *
                        //Matrix::translate(Vector3d(0, 0, 0))*
                        Matrix::shearing(ShearTypes::XY, 22.97183) *
-                       Matrix::translate(Vector3d(500, 2000, 1500));
+                       Matrix::translate(Vector3d(500, 2000, 1550));
 
     left_roof_church *left_roof_church_t;
 
@@ -183,7 +261,7 @@ int main(int argc, char *argv[]) {
 
 
     Mesh left_roof_church_top(reflex_church_roof, "blender objects/cubo_17.obj");
-    auto left_roof_church_top_t =  Matrix::scale(Vector3d(750, 10, 3000)) *
+    auto left_roof_church_top_t =  Matrix::scale(Vector3d(750, 100, 3000)) *
                        //Matrix::translate(Vector3d(0, 0, 0))*
                        Matrix::shearing(ShearTypes::XY, 32.97183) *
                        Matrix::translate(Vector3d(1375, 3200, 1600));
@@ -194,8 +272,22 @@ int main(int argc, char *argv[]) {
     auto right_roof_church_top_t = Matrix::translate(Vector3d(-1375, -3200, -1600)) *
                          Matrix::reflection(RPlane::YZ_PLANE) *
                          Matrix::translate(Vector3d(2125, 3200, 1600));
+    
+    right_roof_church_top * (right_roof_church_top_t);
 
-    right_roof_church_top *(right_roof_church_top_t);
+    /**                 *******************************                     **/
+    Mesh left_roof_church_top_1(reflex_support_table, "blender objects/cubo_17.obj");
+    auto left_roof_church_top_1_t =  Matrix::scale(Vector3d(1000, 100, 3100)) *
+                       Matrix::translate(Vector3d(500, 1800, 1550));
+
+    left_roof_church_top_1 *left_roof_church_top_1_t;
+
+    Mesh right_roof_church_top_1 = left_roof_church_top_1;
+    auto right_roof_church_top_1_t = Matrix::translate(Vector3d(-500, -1800, -1500)) *
+                         Matrix::reflection(RPlane::YZ_PLANE) *
+                         Matrix::translate(Vector3d(3000, 1800, 1500));
+
+    right_roof_church_top_1 *(right_roof_church_top_1_t);
 
 
 
@@ -204,10 +296,23 @@ int main(int argc, char *argv[]) {
 
     
 
-    Mesh cross_y(reflex_church_roof, "blender objects/cubo_17.obj");
+    Mesh cross_y(reflex_church_cross, "blender objects/cubo_17.obj");
     auto cross_y_t = Matrix::scale(Vector3d(50, 500, 30)) *
                          Matrix::translate(Vector3d(1750, 3800, 3000));
     cross_y *cross_y_t;
+
+    Mesh cross_x(reflex_church_cross, "blender objects/cubo_17.obj");
+    auto cross_x_t = Matrix::scale(Vector3d(500, 50, 30)) *
+                         Matrix::translate(Vector3d(1750, 3900, 3000));
+    cross_x *cross_x_t;
+
+    /*--------------------------BELL CHURCH------------------------------------------*/
+    /*---------------------------------------------------------------------------------*/
+    Cylinder bell_wrap(reflex_church_bell, Vector3d(0, -0.5, 0),
+                   Vector3d(0, 0.5, 0), 0.5);
+    Mesh church_bell(reflex_church_bell, "blender objects/bell.obj");
+
+    church_bell * ( Matrix::scale(Vector3d(200, 200, 200)) * Matrix::translate(Vector3d(1750, 3000, 2900)));
 
     /*---------------------------------------------------------------------------------*/
 
@@ -396,19 +501,23 @@ int main(int argc, char *argv[]) {
 
     back_wall *(back_wall_t);
 
+    //MOON
+    shapes.push_back(&moon);
+
     shapes.push_back(&floor_wall);
     //LEFT CHURCH
     shapes.push_back(&left_church_front);
     shapes.push_back(&left_church_back);
     shapes.push_back(&left_church_left);
-    shapes.push_back(&left_church_right);
+    //shapes.push_back(&left_church_right);
     //RIGHT CHURCH
     shapes.push_back(&right_church_front);
     shapes.push_back(&right_church_back);
-    shapes.push_back(&right_church_left);
+    //shapes.push_back(&right_church_left);
     shapes.push_back(&right_church_right);
     //CENTER CHURCH
-    shapes.push_back(&center_church_front);
+    shapes.push_back(&center_tower);
+    // shapes.push_back(&center_church_front);
     shapes.push_back(&center_church_back);
     shapes.push_back(&center_church_left);
     shapes.push_back(&center_church_right);
@@ -418,8 +527,15 @@ int main(int argc, char *argv[]) {
     //TOP ROOF CHURCH
     shapes.push_back(&right_roof_church_top);
     shapes.push_back(&left_roof_church_top);
+    shapes.push_back(&right_roof_church_top_1);
+    shapes.push_back(&left_roof_church_top_1);
     //CROSS CHURCH
     shapes.push_back(&cross_y);
+    shapes.push_back(&cross_x);
+    //FLOOR CHURCH
+    shapes.push_back(&church_floor);
+    //BELL CHURCH
+    shapes.push_back(&church_bell);
 
 
 
@@ -532,7 +648,7 @@ int main(int argc, char *argv[]) {
                         default:
                             continue;
                     }
-                    transform_m = Matrix::translate(pick_shape->shape_center * -1) * Matrix::rotate(axis, angle) * Matrix::translate(pick_shape->shape_center);
+                    transform_m = /*Matrix::translate(pick_shape->shape_center * -1) **/ Matrix::rotate(axis, angle) /** Matrix::translate(pick_shape->shape_center)*/;
                     break;
                 case 4:
                     std::cout << clicked_point->toStr() << std::endl;

@@ -31,7 +31,8 @@ Vector3d PointLight::get_contribution(Reflexivity &reflex, Vector3d &l,
 
 void PointLight::change_some_proprety(gMatrix &wc){
 
-    int x, y, z, index=0;
+    double x, y, z;
+    int index=0;
 
     std::cout << "Choose a proprety to change: " << std::endl;
     std::cout << "1 - Change Intensity" << std::endl;

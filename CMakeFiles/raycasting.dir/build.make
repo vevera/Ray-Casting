@@ -181,10 +181,24 @@ CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daniel/repos/Ray-Casting/shapes/mesh/mesh.cpp -o CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.s
 
+CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o: CMakeFiles/raycasting.dir/flags.make
+CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o: shapes/complex/complex_object.cpp
+CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o: CMakeFiles/raycasting.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o -MF CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o.d -o CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o -c /home/daniel/repos/Ray-Casting/shapes/complex/complex_object.cpp
+
+CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/daniel/repos/Ray-Casting/shapes/complex/complex_object.cpp > CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.i
+
+CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daniel/repos/Ray-Casting/shapes/complex/complex_object.cpp -o CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.s
+
 CMakeFiles/raycasting.dir/scene/scene.cpp.o: CMakeFiles/raycasting.dir/flags.make
 CMakeFiles/raycasting.dir/scene/scene.cpp.o: scene/scene.cpp
 CMakeFiles/raycasting.dir/scene/scene.cpp.o: CMakeFiles/raycasting.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/raycasting.dir/scene/scene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/raycasting.dir/scene/scene.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/raycasting.dir/scene/scene.cpp.o -MF CMakeFiles/raycasting.dir/scene/scene.cpp.o.d -o CMakeFiles/raycasting.dir/scene/scene.cpp.o -c /home/daniel/repos/Ray-Casting/scene/scene.cpp
 
 CMakeFiles/raycasting.dir/scene/scene.cpp.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/raycasting.dir/scene/scene.cpp.s: cmake_force
 CMakeFiles/raycasting.dir/canvas/canvas.cpp.o: CMakeFiles/raycasting.dir/flags.make
 CMakeFiles/raycasting.dir/canvas/canvas.cpp.o: canvas/canvas.cpp
 CMakeFiles/raycasting.dir/canvas/canvas.cpp.o: CMakeFiles/raycasting.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/raycasting.dir/canvas/canvas.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/raycasting.dir/canvas/canvas.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/raycasting.dir/canvas/canvas.cpp.o -MF CMakeFiles/raycasting.dir/canvas/canvas.cpp.o.d -o CMakeFiles/raycasting.dir/canvas/canvas.cpp.o -c /home/daniel/repos/Ray-Casting/canvas/canvas.cpp
 
 CMakeFiles/raycasting.dir/canvas/canvas.cpp.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/raycasting.dir/canvas/canvas.cpp.s: cmake_force
 CMakeFiles/raycasting.dir/light/light.cpp.o: CMakeFiles/raycasting.dir/flags.make
 CMakeFiles/raycasting.dir/light/light.cpp.o: light/light.cpp
 CMakeFiles/raycasting.dir/light/light.cpp.o: CMakeFiles/raycasting.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/raycasting.dir/light/light.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/raycasting.dir/light/light.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/raycasting.dir/light/light.cpp.o -MF CMakeFiles/raycasting.dir/light/light.cpp.o.d -o CMakeFiles/raycasting.dir/light/light.cpp.o -c /home/daniel/repos/Ray-Casting/light/light.cpp
 
 CMakeFiles/raycasting.dir/light/light.cpp.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/raycasting.dir/light/light.cpp.s: cmake_force
 CMakeFiles/raycasting.dir/light/point/point_light.cpp.o: CMakeFiles/raycasting.dir/flags.make
 CMakeFiles/raycasting.dir/light/point/point_light.cpp.o: light/point/point_light.cpp
 CMakeFiles/raycasting.dir/light/point/point_light.cpp.o: CMakeFiles/raycasting.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/raycasting.dir/light/point/point_light.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/raycasting.dir/light/point/point_light.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/raycasting.dir/light/point/point_light.cpp.o -MF CMakeFiles/raycasting.dir/light/point/point_light.cpp.o.d -o CMakeFiles/raycasting.dir/light/point/point_light.cpp.o -c /home/daniel/repos/Ray-Casting/light/point/point_light.cpp
 
 CMakeFiles/raycasting.dir/light/point/point_light.cpp.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/raycasting.dir/light/point/point_light.cpp.s: cmake_force
 CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.o: CMakeFiles/raycasting.dir/flags.make
 CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.o: light/ambient/ambient.cpp
 CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.o: CMakeFiles/raycasting.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.o -MF CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.o.d -o CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.o -c /home/daniel/repos/Ray-Casting/light/ambient/ambient.cpp
 
 CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/raycasting.dir/light/ambient/ambient.cpp.s: cmake_force
 CMakeFiles/raycasting.dir/light/directional/directional.cpp.o: CMakeFiles/raycasting.dir/flags.make
 CMakeFiles/raycasting.dir/light/directional/directional.cpp.o: light/directional/directional.cpp
 CMakeFiles/raycasting.dir/light/directional/directional.cpp.o: CMakeFiles/raycasting.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/raycasting.dir/light/directional/directional.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/raycasting.dir/light/directional/directional.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/raycasting.dir/light/directional/directional.cpp.o -MF CMakeFiles/raycasting.dir/light/directional/directional.cpp.o.d -o CMakeFiles/raycasting.dir/light/directional/directional.cpp.o -c /home/daniel/repos/Ray-Casting/light/directional/directional.cpp
 
 CMakeFiles/raycasting.dir/light/directional/directional.cpp.i: cmake_force
@@ -268,7 +282,7 @@ CMakeFiles/raycasting.dir/light/directional/directional.cpp.s: cmake_force
 CMakeFiles/raycasting.dir/light/spot/spot.cpp.o: CMakeFiles/raycasting.dir/flags.make
 CMakeFiles/raycasting.dir/light/spot/spot.cpp.o: light/spot/spot.cpp
 CMakeFiles/raycasting.dir/light/spot/spot.cpp.o: CMakeFiles/raycasting.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/raycasting.dir/light/spot/spot.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/raycasting.dir/light/spot/spot.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/raycasting.dir/light/spot/spot.cpp.o -MF CMakeFiles/raycasting.dir/light/spot/spot.cpp.o.d -o CMakeFiles/raycasting.dir/light/spot/spot.cpp.o -c /home/daniel/repos/Ray-Casting/light/spot/spot.cpp
 
 CMakeFiles/raycasting.dir/light/spot/spot.cpp.i: cmake_force
@@ -282,7 +296,7 @@ CMakeFiles/raycasting.dir/light/spot/spot.cpp.s: cmake_force
 CMakeFiles/raycasting.dir/traceray/traceray.cpp.o: CMakeFiles/raycasting.dir/flags.make
 CMakeFiles/raycasting.dir/traceray/traceray.cpp.o: traceray/traceray.cpp
 CMakeFiles/raycasting.dir/traceray/traceray.cpp.o: CMakeFiles/raycasting.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/raycasting.dir/traceray/traceray.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/raycasting.dir/traceray/traceray.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/raycasting.dir/traceray/traceray.cpp.o -MF CMakeFiles/raycasting.dir/traceray/traceray.cpp.o.d -o CMakeFiles/raycasting.dir/traceray/traceray.cpp.o -c /home/daniel/repos/Ray-Casting/traceray/traceray.cpp
 
 CMakeFiles/raycasting.dir/traceray/traceray.cpp.i: cmake_force
@@ -296,7 +310,7 @@ CMakeFiles/raycasting.dir/traceray/traceray.cpp.s: cmake_force
 CMakeFiles/raycasting.dir/main.cpp.o: CMakeFiles/raycasting.dir/flags.make
 CMakeFiles/raycasting.dir/main.cpp.o: main.cpp
 CMakeFiles/raycasting.dir/main.cpp.o: CMakeFiles/raycasting.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/raycasting.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/raycasting.dir/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/raycasting.dir/main.cpp.o -MF CMakeFiles/raycasting.dir/main.cpp.o.d -o CMakeFiles/raycasting.dir/main.cpp.o -c /home/daniel/repos/Ray-Casting/main.cpp
 
 CMakeFiles/raycasting.dir/main.cpp.i: cmake_force
@@ -317,6 +331,7 @@ raycasting_OBJECTS = \
 "CMakeFiles/raycasting.dir/shapes/cylinder/cylinder.cpp.o" \
 "CMakeFiles/raycasting.dir/shapes/cone/cone.cpp.o" \
 "CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.o" \
+"CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o" \
 "CMakeFiles/raycasting.dir/scene/scene.cpp.o" \
 "CMakeFiles/raycasting.dir/canvas/canvas.cpp.o" \
 "CMakeFiles/raycasting.dir/light/light.cpp.o" \
@@ -338,6 +353,7 @@ raycasting: CMakeFiles/raycasting.dir/shapes/sphere/sphere.cpp.o
 raycasting: CMakeFiles/raycasting.dir/shapes/cylinder/cylinder.cpp.o
 raycasting: CMakeFiles/raycasting.dir/shapes/cone/cone.cpp.o
 raycasting: CMakeFiles/raycasting.dir/shapes/mesh/mesh.cpp.o
+raycasting: CMakeFiles/raycasting.dir/shapes/complex/complex_object.cpp.o
 raycasting: CMakeFiles/raycasting.dir/scene/scene.cpp.o
 raycasting: CMakeFiles/raycasting.dir/canvas/canvas.cpp.o
 raycasting: CMakeFiles/raycasting.dir/light/light.cpp.o
@@ -349,7 +365,7 @@ raycasting: CMakeFiles/raycasting.dir/traceray/traceray.cpp.o
 raycasting: CMakeFiles/raycasting.dir/main.cpp.o
 raycasting: CMakeFiles/raycasting.dir/build.make
 raycasting: CMakeFiles/raycasting.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable raycasting"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/daniel/repos/Ray-Casting/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable raycasting"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/raycasting.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

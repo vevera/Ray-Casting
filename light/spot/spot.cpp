@@ -38,15 +38,13 @@ double Spot::get_distance_from_p(Vector3d p_i) {
 }
 
 void Spot::change_some_proprety(gMatrix &wc){
-    int x, y, z, index=0;
-
+    double x, y, z;
+    int index=0;
 
     std::cout << "1 - Change Intensity" << std::endl;
     std::cout << "2 - Change Position" << std::endl;
     std::cout << "3 - Change Direction" << std::endl;
     std::cout << "4 - Change Angle" << std::endl<< ">> ";
-
-    
 
     std::cin >> index;
 

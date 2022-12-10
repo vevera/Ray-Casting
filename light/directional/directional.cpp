@@ -34,7 +34,8 @@ double Directional::get_distance_from_p(Vector3d p_i) { return INFINITY; }
 void Directional::change_some_proprety(gMatrix &wc){
 
 
-    int x, y, z, index;
+    double x, y, z; 
+    int index;
 
     std::cout << "1 - Change Intensity" << std::endl;
     std::cout << "2 - Change Direction" << std::endl; 

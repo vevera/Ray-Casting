@@ -54,6 +54,7 @@ set(
       shapes/cylinder/cylinder.h 
       shapes/cone/cone.h 
       shapes/mesh/mesh.h 
+      shapes/complex/complex_object.h 
       scene/scene.h 
       canvas/canvas.h
       light/light.h
@@ -80,7 +81,8 @@ add_executable(raycasting
                 shapes/sphere/sphere.cpp 
                 shapes/cylinder/cylinder.cpp 
                 shapes/cone/cone.cpp 
-                shapes/mesh/mesh.cpp 
+                shapes/mesh/mesh.cpp
+                shapes/complex/complex_object.cpp 
                 scene/scene.cpp 
                 canvas/canvas.cpp
                 light/light.cpp
