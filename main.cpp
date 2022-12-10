@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
     zj = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
-    p_f = Vector3d(300, 100, 2000.0);
+    p_f = Vector3d(1750, 500, 6000.0);
     // p_f2 = Vector3d(300, 8000, 500.0);
     i_a = Vector3d(0.3, 0.3, 0.3);
 
@@ -60,90 +60,124 @@ int main(int argc, char *argv[]) {
     /*
     int lx =
     */
-    double lx = 300;
+    double lx = 1750;
     double ly = 500;
-    double lz = 1500;
+    double lz = 6000;
 
     Vector3d camera(0, 0, 0);
     Vector3d eye = Vector3d(lx, ly, lz, 1);
 
-    Vector3d at = Vector3d(300, 97.5, 500, 1);
+    Vector3d at = Vector3d(1750, 500, 3000, 1);
 
     Vector3d up = Vector3d(lx, ly + 100, lz, 1);
-
-    //Matrix::camera_world(Vector3d eye, Vector3d at, Vector3d up)
-
-    // Vector3d vup = up - eye;
-
-    // Vector3d k_c = (eye - at).normalize();     // z da camera
-    // Vector3d i_c = (vup.cross_product(k_c));   // x da camera
-    // Vector3d j_c = (k_c.cross_product(i_c));   // y da camera
-
-    // k_c = k_c.normalize();
-    // i_c = i_c.normalize();
-    // j_c = j_c.normalize();
-
-    // // matriz que vai converter para as coordenadas de camera
-
-    // std::vector<Vector3d> t_c = {
-    //     Vector3d(i_c.get(0), i_c.get(1), i_c.get(2), -(i_c.dot(eye))),
-    //     Vector3d(j_c.get(0), j_c.get(1), j_c.get(2), -(j_c.dot(eye))),
-    //     Vector3d(k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye))),
-    //     Vector3d(0, 0, 0, 1)};
-
-    // Eigen::Matrix4d e_tc;
-    // e_tc << i_c.get(0), i_c.get(1), i_c.get(2), -(i_c.dot(eye)), 
-    //         j_c.get(0), j_c.get(1), j_c.get(2), -(j_c.dot(eye)),
-    //         k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye)),
-    //         0, 0, 0, 1;
-
-    // e_tc = e_tc.inverse().eval();
-    
-    // std::vector<Vector3d> t_m = {
-    //     Vector3d(e_tc(0,0), e_tc(0,1), e_tc(0,2), e_tc(0,3)),
-    //     Vector3d(e_tc(1,0), e_tc(1,1), e_tc(1,2), e_tc(1,3)),
-    //     Vector3d(e_tc(2,0), e_tc(2,1), e_tc(2,2), e_tc(2,3)),
-    //     Vector3d(e_tc(3,0), e_tc(3,1), e_tc(3,2), e_tc(3,3))};
-
-    //std::cout << "Matrix: " << std::endl;
-
-    //std::for_each(begin(t_m), end(t_m),
-    //              [](auto v) { std::cout << v.toStr() << std::endl; });
 
     gMatrix matriz_wc = Matrix::world_camera(eye, at, up);
     gMatrix matriz_cw = Matrix::camera_world(eye, at, up);
 
-    //Vector3d eye_aux = eye;
     eye * matriz_wc.transform_matrix;
     camera = eye;
 
     std::vector<Light *> lights;
 
     PointLight light(i_f, p_f, "Luz Pontual 1");
-    //light *matriz_wc;
-
-    // PointLight light2(&i_f, &p_f2);
-    // light2 *matriz_wc;
 
     Ambient ambient_light(i_a, "Luz Ambiente 1");
-    // Directional d_light(&i_f, new Vector3d(0, -1, 0));
-    // Spot s_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0.5, -1), 0.2);
-
-    // Spot s1_light(&i_f, new Vector3d(0, 0, -35), new Vector3d(0, 0, -1), 0.9);
 
     lights.push_back(&light);
-    // lights.push_back(&light);
     lights.push_back(&ambient_light);
+
+
+    /**
+    
+    
+    
+
+    
+    */
+    // START OF FINAL SCENE
+
+    Vector3d k_support_table =
+        Vector3d(210.0 / 255.0, 105.0 / 255.0, 30.0 / 255.0);
+    Reflexivity reflex_support_table(k_support_table, k_support_table,
+                                     k_support_table, 1);
+
+    /*---------------------------------------------------------------------------------*/
+
+    Mesh left_church_front(reflex_support_table, "blender objects/cubo_17.obj");
+    auto scale_side_church = Matrix::scale(Vector3d(1000, 1800, 10));
+    auto t_left_church = scale_side_church * Matrix::translate(Vector3d(500, 900, 3005));
+
+    left_church_front * t_left_church;
+
+    Mesh left_church_back = left_church_front;
+    left_church_back * Matrix::translate(Vector3d(0, 0, -3000));
+
+    /*---------------------------------------------------------------------------------*/
+
+    Mesh left_church_left(reflex_support_table, "blender objects/cubo_17.obj");
+    auto scale_side_church_left = Matrix::scale(Vector3d(10, 1800, 3000));
+    auto t_left_church_left = scale_side_church_left * Matrix::translate(Vector3d(5, 900, 1500));
+
+    left_church_left * t_left_church_left;
+
+    Mesh left_church_right = left_church_left;
+    left_church_right * Matrix::translate(Vector3d(1000, 0, 0));
+
+
+    /*---------------------------------------------------------------------------------*/
+
+    Mesh right_church_front = left_church_front;
+    right_church_front * Matrix::translate(Vector3d(2500, 0, 0));
+
+    Mesh right_church_back = right_church_front;
+    right_church_back * Matrix::translate(Vector3d(0, 0, -3000));
+
+    /*---------------------------------------------------------------------------------*/
+
+    Mesh right_church_left = left_church_left;
+    right_church_left * Matrix::translate(Vector3d(2500, 0, 0));
+
+    Mesh right_church_right = right_church_left;
+    right_church_right * Matrix::translate(Vector3d(1000, 0, 0));
+
+    /*--------------------------CENTER CHURCH------------------------------------------*/
+    /*---------------------------------------------------------------------------------*/
+
+    Mesh center_church_front(reflex_support_table, "blender objects/cubo_17.obj");
+
+    center_church_front * ( Matrix::scale(Vector3d(1500, 3000, 10)) * Matrix::translate(Vector3d(1750, 1500, 3105)));
+
+    Mesh center_church_back = center_church_front;
+    center_church_back * Matrix::translate(Vector3d(0, 0, -3100));
+
+    /*---------------------------------------------------------------------------------*/
+
+    // Mesh center_church_left = left_church_left;
+    // center_church_left * Matrix::translate(Vector3d(2500, 0, 0));
+
+    // Mesh center_church_right = center_church_left;
+    // center_church_right * Matrix::translate(Vector3d(1000, 0, 0));
+
+
+    // END OF FINAL SCENE
+    /**
+    
+    
+    
+    
+    
+    */
+
 
     // Reflexidade dos objetos
     Vector3d k_spec = Vector3d(0, 0, 0);
     Vector3d k_floor_a = Vector3d(0.3, 0.6, 0.1);
     Reflexivity reflex_floor(k_floor_a, k_floor_a, k_floor_a, 1);
 
-    Vector3d k_support_table =
-        Vector3d(210.0 / 255.0, 105.0 / 255.0, 30.0 / 255.0);
-    Reflexivity reflex_support_table(k_support_table, k_support_table,
-                                     k_support_table, 1);
+    // Vector3d k_support_table =
+    //     Vector3d(210.0 / 255.0, 105.0 / 255.0, 30.0 / 255.0);
+    // Reflexivity reflex_support_table(k_support_table, k_support_table,
+    //                                  k_support_table, 1);
 
     Vector3d k_lid_table = Vector3d(65.0 / 255.0, 105.0 / 255.0, 225.0 / 255.0);
     Reflexivity reflex_lid_table(k_lid_table, k_lid_table, k_lid_table, 1);
@@ -310,29 +344,37 @@ int main(int argc, char *argv[]) {
     back_wall *(back_wall_t);
 
     shapes.push_back(&floor_wall);
-    shapes.push_back(&suport_1);
-    shapes.push_back(&suport_2);
-    shapes.push_back(&lid);
-    shapes.push_back(&suppord_tree);
-    shapes.push_back(&wood_2);
-    shapes.push_back(&tree_2);
-    shapes.push_back(&star_2);
-    shapes.push_back(&left_column);
-    shapes.push_back(&right_column);
-    shapes.push_back(&back_left_column);
-    shapes.push_back(&back_right_column);
-    shapes.push_back(&left_beam);
-    //shapes.push_back(&right_beam);
-    shapes.push_back(&back_left_beam);
-    shapes.push_back(&back_right_beam);
-    shapes.push_back(&right_roof);
-    shapes.push_back(&left_roof);
-    shapes.push_back(&right_wall);
-    shapes.push_back(&left_wall);
-    shapes.push_back(&back_wall);
-    //shapes.push_back(&gato);
-    // shapes.push_back(&gato);
-    // shapes.push_back(&cat_wrap);
+    //LEFT CHURCH
+    shapes.push_back(&left_church_front);
+    shapes.push_back(&left_church_back);
+    shapes.push_back(&left_church_left);
+    shapes.push_back(&left_church_right);
+    //RIGHT CHURCH
+    shapes.push_back(&right_church_front);
+    shapes.push_back(&right_church_back);
+    shapes.push_back(&right_church_left);
+    shapes.push_back(&right_church_right);
+    //CENTER CHURCH
+    shapes.push_back(&center_church_front);
+    shapes.push_back(&center_church_back);
+    // shapes.push_back(&lid);
+    // shapes.push_back(&suppord_tree);
+    // shapes.push_back(&wood_2);
+    // shapes.push_back(&tree_2);
+    // shapes.push_back(&star_2);
+    // shapes.push_back(&left_column);
+    // shapes.push_back(&right_column);
+    // shapes.push_back(&back_left_column);
+    // shapes.push_back(&back_right_column);
+    // shapes.push_back(&left_beam);
+    // shapes.push_back(&back_left_beam);
+    // shapes.push_back(&back_right_beam);
+    // shapes.push_back(&right_roof);
+    // shapes.push_back(&left_roof);
+    // shapes.push_back(&right_wall);
+    // shapes.push_back(&left_wall);
+    // shapes.push_back(&back_wall);
+    
     //  WINDOW
 
     Canvas canvas(wCanvas, hCanvas, nCol, nLin);
