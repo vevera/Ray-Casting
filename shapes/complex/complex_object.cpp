@@ -48,12 +48,11 @@ Vector3d ComplexObject::normal(Vector3d &p_i){
 };
 
 void ComplexObject::operator*(AccMatrix m){
-     std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &mc) { std::cout << "DENTRO MUL COMPLEX" << std::endl; *this *mc; });
+     std::for_each(m.acc->begin(), m.acc->end(), [&](gMatrix &mc) { *this *mc; });
 };
 
 void ComplexObject::operator*(gMatrix m){
     std::for_each(begin(components_),end(components_),[&m](Shape * component){
-        std::cout << "DENTRO MUL COMPLEX 1" << std::endl;
         *component * m;
     });
     shape_center = shape_center.mult_vector_matriz4d(m.transform_matrix);

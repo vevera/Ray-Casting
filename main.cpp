@@ -48,7 +48,8 @@ int main(int argc, char *argv[]) {
     zj = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
-    p_f = Vector3d(1750, 2800, 200.0);
+    //p_f = Vector3d(1750, 2800, 200.0);
+    p_f = Vector3d(1750, 3000, 2900);
     // p_f2 = Vector3d(300, 8000, 500.0);
     i_a = Vector3d(0.0, 0.4, 0.4);
 
@@ -62,7 +63,7 @@ int main(int argc, char *argv[]) {
     int lx =
     */
     double lx = 1750.000000;
-    double ly = 1000.000000;
+    double ly = 400.000000;
     double lz = 2000.000000;
 
     // double lx = 1750.000000;
@@ -91,11 +92,15 @@ int main(int argc, char *argv[]) {
 
     Ambient ambient_light(i_a, "Luz Ambiente 1");
 
+   
     Directional moon_light(Vector3d(0.5, 0.5, 0.5), Vector3d(-1750, -120000, 100000), "Moon Light");
 
     lights.push_back(&light);
     lights.push_back(&ambient_light);
     lights.push_back(&moon_light);
+
+
+
 
 
     /**
@@ -114,7 +119,9 @@ int main(int argc, char *argv[]) {
     
     
     */
-
+    Vector3d k_bench_ = Vector3d(68.0/255.0, 14.0/255.0, 11.0/255.0);
+    Reflexivity reflex_bench(k_bench_, k_bench_, k_bench_, 1);
+    
     Vector3d k_church_ = Vector3d(115.0/255.0, 116/255.0, 115.0/255.0);
     Reflexivity reflex_church_tower(k_church_, k_church_, k_church_, 1);
 
@@ -180,7 +187,7 @@ int main(int argc, char *argv[]) {
 
     Mesh church_floor(reflex_church_floor, "blender objects/cubo_17.obj");
 
-    church_floor * ( Matrix::scale(Vector3d(3700, 30, 3200)) * Matrix::translate(Vector3d(1850, 15, 1600)));
+    church_floor * ( Matrix::scale(Vector3d(3800, 30, 3300)) * Matrix::translate(Vector3d(1750, 15, 1500)));
 
 
     /*--------------------------CENTER CHURCH------------------------------------------*/
@@ -321,10 +328,70 @@ int main(int argc, char *argv[]) {
     // Cylinder bell_wrap(reflex_church_bell, Vector3d(0, -0.5, 0),
     //                Vector3d(0, 0.5, 0), 0.5);
 
-    Mesh church_bench(reflex_church_bell, "blender objects/bench_church.obj");
+    //Mesh church_bench(reflex_church_bell, "blender objects/cadeira.obj");
 
     //bell_wrap * ( Matrix::scale(Vector3d(400, 400, 400)) * Matrix::translate(Vector3d(1750, 3000, 2900)));
-    church_bench * ( Matrix::scale(Vector3d(400, 400, 400)) * Matrix::translate(Vector3d(1750, 200, 1500)));
+    //church_bench * ( Matrix::scale(Vector3d(400, 400, 400)) * Matrix::translate(Vector3d(1750, 200, 1500)));
+
+    Mesh church_bench_1(reflex_bench, "blender objects/cubo_17.obj");
+
+    church_bench_1 * (Matrix::scale(Vector3d(500, 20, 100)));
+
+    Mesh church_bench_2(reflex_bench, "blender objects/cubo_17.obj");
+
+    church_bench_2 * (Matrix::scale(Vector3d(500, 100, 20))* Matrix::translate(Vector3d(0, 60, -50)));
+
+    double pern_r = 10;
+
+    Cylinder bench_support_1(reflex_bench, Vector3d(pern_r + (-250), -10, 50 - pern_r), 50,
+                   Vector3d(0, -1, 0), pern_r);
+    
+    Cylinder bench_support_2(reflex_bench, Vector3d(pern_r + (-250), -10, pern_r - 50), 50,
+                   Vector3d(0, -1, 0), pern_r);
+    
+    Cylinder bench_support_3(reflex_bench, Vector3d(-pern_r + (250), -10, 50 - pern_r), 50,
+                   Vector3d(0, -1, 0), pern_r);
+    
+    Cylinder bench_support_4(reflex_bench, Vector3d(-pern_r + (250), -10, pern_r - 50), 50,
+                   Vector3d(0, -1, 0), pern_r);
+
+    std::vector<Shape *> bench_1, bench_2, bench_3, bench_4, bench_5, bench_6;
+    bench_1.push_back(&church_bench_1);
+    bench_1.push_back(&church_bench_2);
+    bench_1.push_back(&bench_support_1);
+    bench_1.push_back(&bench_support_2);
+    bench_1.push_back(&bench_support_3);
+    bench_1.push_back(&bench_support_4);
+
+    
+
+
+    ComplexObject church_bench_00(bench);
+
+    // ComplexObject church_bench_01 = church_bench_00;
+
+    // ComplexObject church_bench_02= church_bench_00;
+
+    ComplexObject church_bench_10 = church_bench_00;
+
+    // ComplexObject church_bench_11= church_bench_00;
+
+    // ComplexObject church_bench_12= church_bench_00;
+
+    church_bench_00 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(1400, 100, 1500)));
+    // church_bench_01 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(1400, 100, 1700)));
+    // church_bench_02 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(1400, 100, 1900)));
+
+    church_bench_10 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(2100, 100, 1500)));
+    // church_bench_11 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(2100, 100, 1700)));
+    // church_bench_12 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(2100, 100, 1900)));
+
+    
+    // Cylinder church_bench_3(reflex_church_bell, Vector3d(-100, -65, 30),
+    //                Vector3d(-100, -5, 30), 10);
+    
+    // Cylinder church_bench_4(reflex_church_bell, Vector3d(100, -65, 30),
+    //                Vector3d(100, -5, 30), 10);
     
     /*---------------------------------------------------------------------------------*/
     /*--------------------------CANDLE CHURCH------------------------------------------*/
@@ -361,8 +428,15 @@ int main(int argc, char *argv[]) {
     
     reflector2 = reflector1;
 
-    reflector2 * (Matrix::translate(reflector1.shape_center*-2) * Matrix::reflection(RPlane::YZ_PLANE));
+    reflector2 * (Matrix::reflection(RPlane::YZ_PLANE) * Matrix::translate(Vector3d(700 + 2800, 0, 0)));
 
+
+    Spot spot_light_1(5, i_a,reflector1.base_center_ + Vector3d(-10, -10, -10), Vector3d(1750, 150, 700),  "Luz spot 1");
+
+    Spot spot_light_2(5, i_a,reflector2.base_center_ + Vector3d(-10, -10, -10), Vector3d(1750, 150, 700), "Luz spot 2");
+
+    lights.push_back(&spot_light_1);
+    lights.push_back(&spot_light_2);
 
     /*---------------------------------------------------------------------------------*/
 
@@ -428,6 +502,13 @@ int main(int argc, char *argv[]) {
     //REFLECTORS CHURCH
     shapes.push_back(&reflector1);
     shapes.push_back(&reflector2);
+    // BENCH CHURCH
+    shapes.push_back(&church_bench_00);
+    // shapes.push_back(&church_bench_01);
+    // shapes.push_back(&church_bench_02);
+    shapes.push_back(&church_bench_10);
+    // shapes.push_back(&church_bench_11);
+    // shapes.push_back(&church_bench_12);
 
 
 

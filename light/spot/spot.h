@@ -6,12 +6,15 @@
 class Spot : public Light {
    private:
     Vector3d direction_;
+    Vector3d at_;
     double angle_;
     double cos_t;
 
    public:
     Spot(Vector3d intensity, Vector3d position, Vector3d direction,
          double angle, std::string light_name);
+    Spot(double angle, Vector3d intensity, Vector3d position, Vector3d at,
+         std::string light_name);
     Vector3d get_intensity();
     Vector3d get_l(Vector3d &p);
     Vector3d get_contribution(Reflexivity &reflex, Vector3d &l, Vector3d &n,

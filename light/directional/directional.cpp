@@ -57,5 +57,6 @@ void Directional::change_some_proprety(gMatrix &wc){
 
 void Directional::operator*(gMatrix m){
 
+    direction_.set(3, 0);
     direction_ = direction_.mult_vector_matriz4d(m.transform_matrix).normalize();
 };

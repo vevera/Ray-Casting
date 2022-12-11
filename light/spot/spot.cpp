@@ -6,27 +6,34 @@
 
 Spot::Spot(Vector3d intensity, Vector3d position, Vector3d direction,
            double angle, std::string light_name)
-    : Light(intensity, position, light_name), direction_(direction), angle_(angle) {
-    this->direction_ = this->direction_.normalize();
-    cos_t = std::cos(angle);
+    : Light(intensity, position, light_name), direction_(direction.normalize()), angle_(angle), cos_t(std::cos((angle * M_PI) / 180)) {
+    // this->direction_ = this->direction_.normalize();
+    // cos_t = std::cos(angle);
 };
 
+Spot::Spot(double angle, Vector3d intensity, Vector3d position, Vector3d at,
+         std::string light_name) : Light(intensity, position, light_name), 
+                                   direction_((at - position).normalize()), 
+                                   at_(at),
+                                   angle_(angle), cos_t(std::cos((angle * M_PI) / 180)){};
 Vector3d Spot::get_intensity() { return this->intensity_; }
 
 Vector3d Spot::get_l(Vector3d &p) {
     //Vector3d l = this->position_ - &p;
+    //return (this->direction_ * -1).normalize();
+    //direction_
     return (this->position_ - p).normalize();
 }
 
 Vector3d Spot::get_contribution(Reflexivity &reflex, Vector3d &l, Vector3d &n,
                                  Vector3d &v, Vector3d &r) {
     double clds = l.dot((this->direction_ * (-1)).normalize());
-
-    if (clds < cos_t) {
+    //(clds - cos_t) < 0.0001
+    if ((clds < cos_t)) {
         return Vector3d(0, 0, 0);
     }
 
-    Vector3d l_i = this->intensity_ * clds;
+    Vector3d l_i = this->intensity_;
     //Vector3d cont = this->calc_diffuse_specular(reflex, l_i, l, n, v, r);
 
     return this->calc_diffuse_specular(reflex, l_i, l, n, v, r);
@@ -50,7 +57,7 @@ void Spot::change_some_proprety(gMatrix &wc){
 
     if (index == 4){
         std::cin >> angle_;
-        cos_t = std::cos(angle_);
+        cos_t = std::cos((angle_ * M_PI) / 180);
         return;
     }
 
@@ -76,6 +83,12 @@ std::string Spot::toStr(gMatrix &cw){
 void Spot::operator*(gMatrix m) {
 
     position_ = position_.mult_vector_matriz4d(m.transform_matrix);
+    at_ = at_.mult_vector_matriz4d(m.transform_matrix);
+
+    //at_ = at_.mult_vector_matriz4d(m.transform_matrix);
+
+    direction_.set(3, 0);
     direction_ = direction_.mult_vector_matriz4d(m.transform_matrix).normalize();
+    //direction_ = (at_ - position_).normalize();
 
 }

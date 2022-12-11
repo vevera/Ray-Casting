@@ -24,11 +24,13 @@ class Cone : public Shape {
     Vector3d normal(Vector3d &p_i);
     void operator*(AccMatrix m);
     void operator*(gMatrix m);
+    Vector3d base_center_;
+    Vector3d cone_direction_;
 
    private:
-    Vector3d base_center_;
+    //Vector3d base_center_;
     Vector3d vertex_;
-    Vector3d cone_direction_;
+    //Vector3d cone_direction_;
     Vector3d *last_dr = nullptr;
     double height_;
     double radius_;

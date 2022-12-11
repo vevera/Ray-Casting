@@ -94,13 +94,11 @@ std::vector<Face *> Mesh::back_face_culling(Vector3d dr) {
 }
 
 double Mesh::intersect(Vector3d &p_0, Vector3d &dr) {
+    
     double t_wrap;
     if (wrap_shape_ != nullptr) {
         t_wrap = wrap_shape_->intersect(p_0, dr);
-        // return t_wrap;
-        if (t_wrap == INFINITY) {
-            return INFINITY;
-        }
+        if (t_wrap == INFINITY) { return INFINITY; }
     }
 
     Vector3d r1, r2, p1, p2, p3, normal, p_i;
@@ -159,49 +157,4 @@ void Mesh::operator*(gMatrix m) {
         p = p.mult_vector_matriz4d(m.n_fix).normalize();
         p.set(3, 0);
     });
-
-    // if (m.t_type == TransformType::CAMERA) {
-    //     std::for_each(
-    //         begin(normal_list) + 1, end(normal_list), [&](Vector3d &p) {
-    //             p = p.mult_vector_matriz4d(m.transform_matrix).normalize();
-    //             p.set(3, 0);
-    //         });
-    // } else {
-    //     std::for_each(begin(normal_list) + 1, end(normal_list),
-    //                   [&](Vector3d &p) {
-    //                       p = p.mult_vector_matriz4d(m.n_fix).normalize();
-    //                       p.set(3, 0);
-    //                   });
-    // }
-
-    // switch (m.t_type) {
-    //     case TransformType::SHEARING:
-    //         std::for_each(
-    //             begin(normal_list) + 1, end(normal_list), [&](Vector3d &p) {
-    //                 p =
-    //                 p.mult_vector_matriz4d(m.transform_matrix).normalize();
-    //             });
-    //         break;
-    //     case TransformType::CAMERA:
-    //         std::for_each(
-    //             begin(normal_list) + 1, end(normal_list), [&](Vector3d &p) {
-    //                 p =
-    //                 p.mult_vector_matriz4d(m.transform_matrix).normalize();
-    //             });
-    //         break;
-    //     // case TR:
-    //     //     std::for_each(
-    //     //         begin(normal_list) + 1, end(normal_list), [&](Vector3d &p)
-    //     {
-    //     //             p =
-    //     p.mult_vector_matriz(m.transform_matrix).normalize();
-    //     //         });
-    //     //     break;
-    //     default:
-    //         std::for_each(
-    //             begin(normal_list) + 1, end(normal_list), [&](Vector3d &p) {
-    //                 p = p.mult_vector_matriz(m.transform_matrix).normalize();
-    //             });
-    //         break;
-    // }
 };
