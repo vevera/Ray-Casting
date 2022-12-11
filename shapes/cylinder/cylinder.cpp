@@ -36,6 +36,8 @@ Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center, double height,
     cylinder_direction.set(3, 0);
     top_center_ = base_center_ + cylinder_direction * height;
 
+    //shape_center = (base_center_ +top_center_)/2;
+
     vector<Vector3d> identity = {Vector3d(1, 0, 0), Vector3d(0, 1, 0),
                                  Vector3d(0, 0, 1)};
 
@@ -148,9 +150,9 @@ void Cylinder::operator*(AccMatrix m) {
 void Cylinder::operator*(gMatrix m) {
     switch (m.t_type) {
         case TransformType::SCALE:
-            radius_ = radius_ * m.transform_matrix.at(0).get(0)/2.0;
+            radius_ = radius_ * m.transform_matrix.at(0).get(0);
             height = height * m.transform_matrix.at(1).get(1);
-            top_center_ = base_center_ + cylinder_direction * height;
+            top_center_ = base_center_ + (cylinder_direction * height);
             break;
         case TransformType::SHEARING:
             break;

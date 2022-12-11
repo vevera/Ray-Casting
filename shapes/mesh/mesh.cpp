@@ -18,6 +18,7 @@ void Mesh::read_obj(std::string obj_path) {
     std::regex vertex_regex("v\\s([-]?[0-9]+[\\.][0-9]+[\\s]?){3}");
     std::regex normals_regex("vn\\s([-]?[0-9]+[\\.][0-9]+[\\s]?){3}");
     std::regex faces_regex("f\\s([0-9]+/[0-9]+/[0-9]+[\\s]?){3}");
+    std::regex faces_regex2("f\\s([0-9]+//[0-9]+[\\s]?){3}");
 
     std::ifstream obj_file(obj_path);
     std::string line;
@@ -45,6 +46,22 @@ void Mesh::read_obj(std::string obj_path) {
                 int v1, v2, v3, vt, n;
                 sscanf(line.c_str(), "f %d/%d/%d %d/%d/%d %d/%d/%d", &v1, &vt,
                        &n, &v2, &vt, &n, &v3, &vt, &n);
+
+                Edge edge_1(id_edge++, v1, v2);
+                Edge edge_2(id_edge++, v2, v3);
+                Edge edge_3(id_edge++, v3, v1);
+
+                edge_list.insert(edge_list.end(), {edge_1, edge_2, edge_3});
+
+                Face face(id_face++, edge_1.id, edge_2.id, edge_3.id, n);
+
+                face_list.push_back(face);
+            }
+
+            if (regex_match(line, faces_regex2)) {
+                int v1, v2, v3, n;
+                sscanf(line.c_str(), "f %d//%d %d//%d %d//%d", &v1, &n,
+                       &v2, &n, &v3, &n);
 
                 Edge edge_1(id_edge++, v1, v2);
                 Edge edge_2(id_edge++, v2, v3);

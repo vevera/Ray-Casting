@@ -128,7 +128,7 @@ void Cone::operator*(gMatrix m) {
         case TransformType::SHEARING:
             break;
         case TransformType::SCALE:
-            radius_ = radius_ * m.transform_matrix.at(0).get(0);
+            radius_ = radius_ * m.transform_matrix.at(0).get(0)/2;
             height_ = height_ * m.transform_matrix.at(1).get(1);
             vertex_ = base_center_ + (cone_direction_ * height_);
             break;

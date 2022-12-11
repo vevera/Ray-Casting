@@ -2,7 +2,28 @@
 #include "complex_object.h"
 #include <algorithm>
 #include <iostream>
-ComplexObject::ComplexObject(std::vector<Shape *> components, Shape *wrap_shape): Shape(Reflexivity(), Vector3d(0,0,0,1)), components_(components), wrap_shape_(wrap_shape){}
+ComplexObject::ComplexObject(std::vector<Shape *> components, Shape *wrap_shape): Shape(Reflexivity(), components.at(0)->shape_center), 
+components_(components), wrap_shape_(wrap_shape){
+
+    double x, y, z;
+    double sum_x, sum_y, sum_z;
+    double size = components.size();
+
+    std::for_each(begin(components),end(components), [&](Shape * shape){
+
+        sum_x += shape->shape_center.get(0);
+        sum_y += shape->shape_center.get(1);
+        sum_z += shape->shape_center.get(2);
+
+    });
+
+    x = sum_x/size;
+    y = sum_y/size;
+    z = sum_z/size;
+
+    shape_center = Vector3d(x,y,z);
+
+}
 
 double ComplexObject::intersect(Vector3d &p_0, Vector3d &dr){
     double near_t = INFINITY;
@@ -35,6 +56,8 @@ void ComplexObject::operator*(gMatrix m){
         std::cout << "DENTRO MUL COMPLEX 1" << std::endl;
         *component * m;
     });
+    shape_center = shape_center.mult_vector_matriz4d(m.transform_matrix);
+    //shape_center = components_.at(0)->shape_center;
 };
 
 

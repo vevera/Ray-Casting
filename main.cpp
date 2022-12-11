@@ -61,13 +61,13 @@ int main(int argc, char *argv[]) {
     /*
     int lx =
     */
+    double lx = 1750.000000;
+    double ly = 2500.000000;
+    double lz = 3500.000000;
+
     // double lx = 1750.000000;
     // double ly = 500.000000;
-    // double lz = 1000.000000;
-
-    double lx = 1750.000000;
-    double ly = 500.000000;
-    double lz = 7000.000000;
+    // double lz = 7000.000000;
     // double lx = 1750;
     // double ly = 500;
     // double lz = 3000;
@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
     Vector3d camera(0, 0, 0);
     Vector3d eye = Vector3d(lx, ly, lz, 1);
 
-    Vector3d at = Vector3d(1750, 500, -100000, 1);
+    Vector3d at = Vector3d(1750, 3000, 2900, 1);
 
     Vector3d up = Vector3d(lx, ly + 100, lz, 1);
 
@@ -312,8 +312,8 @@ int main(int argc, char *argv[]) {
                    Vector3d(0, 0.5, 0), 0.5);
     Mesh church_bell(reflex_church_bell, "blender objects/bell.obj");
 
-    church_bell * ( Matrix::scale(Vector3d(200, 200, 200)) * Matrix::translate(Vector3d(1750, 3000, 2900)));
-
+    bell_wrap * ( Matrix::scale(Vector3d(400, 200, 400)) * Matrix::translate(Vector3d(1750, 3000, 2900)));
+    church_bell * ( Matrix::scale(Vector3d(400, 400, 400)) * Matrix::translate(Vector3d(1750, 3000, 2900)));
     /*---------------------------------------------------------------------------------*/
 
 
@@ -535,6 +535,7 @@ int main(int argc, char *argv[]) {
     //FLOOR CHURCH
     shapes.push_back(&church_floor);
     //BELL CHURCH
+    shapes.push_back(&bell_wrap);
     shapes.push_back(&church_bell);
 
 
@@ -626,6 +627,8 @@ int main(int argc, char *argv[]) {
                     std::cin >> y;
                     std::cin >> z;
                     transform_m = Matrix::translate(pick_shape->shape_center * -1) * Matrix::scale(Vector3d(x, y, z)) * Matrix::translate(pick_shape->shape_center);
+                    //transform_m = Matrix::scale(Vector3d(x, y, z));
+                    
                     break;
                 case 3:
                     std::cout << "Type the rotate angle: " << std::endl<< ">> ";
@@ -648,7 +651,7 @@ int main(int argc, char *argv[]) {
                         default:
                             continue;
                     }
-                    transform_m = /*Matrix::translate(pick_shape->shape_center * -1) **/ Matrix::rotate(axis, angle) /** Matrix::translate(pick_shape->shape_center)*/;
+                    transform_m = Matrix::translate(pick_shape->shape_center * -1) * Matrix::rotate(axis, angle) * Matrix::translate(pick_shape->shape_center);
                     break;
                 case 4:
                     std::cout << clicked_point->toStr() << std::endl;
@@ -706,7 +709,8 @@ int main(int argc, char *argv[]) {
                         default:
                             continue;
                     }
-                    transform_m = matriz_cw * Matrix::reflection(r_plane) * matriz_wc;
+                    //transform_m = matriz_cw * Matrix::reflection(r_plane) * matriz_wc;
+                    transform_m = Matrix::reflection(r_plane);
                     break;
                 case 6:
                     std::cout << "Type the new view port distance: " << std::endl<< ">> ";
@@ -832,7 +836,7 @@ int main(int argc, char *argv[]) {
             }
             if (pick_shape != nullptr && obj_transformed) {
                 *pick_shape * transform_m; 
-                std::cout << "after take a pic" << std::endl;
+                std::cout << "after take a pic" << pick_shape->shape_center.toStr() << std::endl;
             }
 
 
