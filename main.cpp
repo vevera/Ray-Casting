@@ -62,8 +62,8 @@ int main(int argc, char *argv[]) {
     int lx =
     */
     double lx = 1750.000000;
-    double ly = 2500.000000;
-    double lz = 3500.000000;
+    double ly = 1000.000000;
+    double lz = 2000.000000;
 
     // double lx = 1750.000000;
     // double ly = 500.000000;
@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
     Vector3d camera(0, 0, 0);
     Vector3d eye = Vector3d(lx, ly, lz, 1);
 
-    Vector3d at = Vector3d(1750, 3000, 2900, 1);
+    Vector3d at = Vector3d(1750, 200, 500, 1);
 
     Vector3d up = Vector3d(lx, ly + 100, lz, 1);
 
@@ -119,7 +119,7 @@ int main(int argc, char *argv[]) {
     Reflexivity reflex_church_tower(k_church_, k_church_, k_church_, 1);
 
     Vector3d k_church_bell = Vector3d(218.0/255.0, 165/255.0, 32.0/255.0);
-    Reflexivity reflex_church_bell(k_church_bell, k_church_bell, k_church_bell, 1);
+    Reflexivity reflex_church_bell(k_church_bell, k_church_bell, k_church_bell, 10);
 
     Vector3d k_church_floor_ = Vector3d(50.0/255.0, 50.0/255.0, 50.0/255.0);
     Reflexivity reflex_church_floor(k_church_floor_, k_church_floor_, k_church_floor_, 1);
@@ -310,10 +310,60 @@ int main(int argc, char *argv[]) {
     /*---------------------------------------------------------------------------------*/
     Cylinder bell_wrap(reflex_church_bell, Vector3d(0, -0.5, 0),
                    Vector3d(0, 0.5, 0), 0.5);
-    Mesh church_bell(reflex_church_bell, "blender objects/bell.obj");
+    Mesh church_bell(reflex_church_bell, "blender objects/bell.obj", &bell_wrap);
 
-    bell_wrap * ( Matrix::scale(Vector3d(400, 200, 400)) * Matrix::translate(Vector3d(1750, 3000, 2900)));
+    //bell_wrap * ( Matrix::scale(Vector3d(400, 400, 400)) * Matrix::translate(Vector3d(1750, 3000, 2900)));
     church_bell * ( Matrix::scale(Vector3d(400, 400, 400)) * Matrix::translate(Vector3d(1750, 3000, 2900)));
+    
+    /*--------------------------BENCH CHURCH------------------------------------------*/
+    /*---------------------------------------------------------------------------------*/
+    
+    // Cylinder bell_wrap(reflex_church_bell, Vector3d(0, -0.5, 0),
+    //                Vector3d(0, 0.5, 0), 0.5);
+
+    Mesh church_bench(reflex_church_bell, "blender objects/bench_church.obj");
+
+    //bell_wrap * ( Matrix::scale(Vector3d(400, 400, 400)) * Matrix::translate(Vector3d(1750, 3000, 2900)));
+    church_bench * ( Matrix::scale(Vector3d(400, 400, 400)) * Matrix::translate(Vector3d(1750, 200, 1500)));
+    
+    /*---------------------------------------------------------------------------------*/
+    /*--------------------------CANDLE CHURCH------------------------------------------*/
+
+    Cylinder candle(reflex_church_bell, Vector3d(0, -0.5, 0),
+                   Vector3d(0, 0.5, 0), 0.5);
+
+    /*---------------------------------------------------------------------------------*/
+    /*--------------------------TABLE CHURCH------------------------------------------*/
+
+    Mesh table(reflex_church_cross, "blender objects/cubo_17.obj");
+
+
+    /*---------------------------------------------------------------------------------*/
+    /*--------------------------PODIUM CHURCH------------------------------------------*/
+
+    Mesh podium(reflex_church_bell, "blender objects/cubo_17.obj");
+    podium * ( Matrix::scale(Vector3d(2500, 200, 800)) * Matrix::translate(Vector3d(1750, 150, 700)));
+
+
+    /*---------------------------------------------------------------------------------*/
+    /*--------------------------REFLECTORS CHURCH------------------------------------------*/
+    // Vector3d(-1050, 1350, 1150)
+    //Cone reflector1(Reflexivity(), (Vector3d(-1050, 1350, 1150).normalize() * -1),
+    //               Vector3d(700, 1750, 1850), 1);
+
+    Cone reflector1(Reflexivity(), Vector3d(0, 0, 0), 1 ,Vector3d(-1050, 1350, 1150).normalize(), 1);
+    
+    Cone reflector2(Reflexivity(), Vector3d(0, -0.5, 0),
+                   Vector3d(0, 0.5, 0), 0.5);
+    
+    reflector1 * ( Matrix::scale(Vector3d(100, 100, 100)) 
+        * Matrix::translate(Vector3d(700, 1750, 1850) + (Vector3d(-1050, 1350, 1150).normalize() * -100)));
+    
+    reflector2 = reflector1;
+
+    reflector2 * (Matrix::translate(reflector1.shape_center*-2) * Matrix::reflection(RPlane::YZ_PLANE));
+
+
     /*---------------------------------------------------------------------------------*/
 
 
@@ -332,174 +382,10 @@ int main(int argc, char *argv[]) {
     Vector3d k_floor_a = Vector3d(0.0, 40/255.0, 0.0);
     Reflexivity reflex_floor(k_floor_a, k_floor_a, k_floor_a, 1);
 
-    // Vector3d k_support_table =
-    //     Vector3d(210.0 / 255.0, 105.0 / 255.0, 30.0 / 255.0);
-    // Reflexivity reflex_support_table(k_support_table, k_support_table,
-    //                                  k_support_table, 1);
-
-    Vector3d k_lid_table = Vector3d(65.0 / 255.0, 105.0 / 255.0, 225.0 / 255.0);
-    Reflexivity reflex_lid_table(k_lid_table, k_lid_table, k_lid_table, 1);
-
-    Vector3d k_tree_wood = Vector3d(139.0 / 255.0, 69.0 / 255.0, 19.0 / 255.0);
-    Reflexivity reflex_tree_wood(k_tree_wood, k_tree_wood, k_tree_wood, 1);
-
-    Vector3d k_tree_support = Vector3d(1, 1, 0);
-
-    Reflexivity reflex_support(k_tree_support, k_tree_support,
-                               k_tree_support, 1);
-
-    Vector3d k_star = Vector3d(1.0, 1.0, 0.0);
-    Reflexivity reflex_star(k_star, k_star, k_star, 1);
-
-    Vector3d k_tree = Vector3d(0.0, 1.0, 0.0);
-    Reflexivity reflex_tree(k_tree, k_tree, k_tree, 1);
-
-    Vector3d k_wood_column =
-        Vector3d(205.0 / 255.0, 133.0 / 255.0, 63.0 / 255.0);
-    Reflexivity reflex_wood_column(k_wood_column, k_wood_column,
-                                   k_wood_column, 1);
-
-    Vector3d k_roof = Vector3d(1, 69.0 / 255.0, 0);
-    Reflexivity reflex_roof(k_roof, k_roof, k_roof, 1);
-
-    Vector3d k_wall = Vector3d(222.0 / 255.0, 184.0 / 255.0, 135.0 / 255.0);
-    Reflexivity reflex_wall(k_wall, k_wall, k_wall, 1);
-
     // Objeto complexo 01 ==========================================
 
     Plane floor_wall(reflex_floor, Vector3d(0.0, 0.0, 0.0),
                      Vector3d(0.0, 1.0, 0.0));
-
-    Mesh suport_1(reflex_support_table, "blender objects/cubo_17.obj");
-    Mesh suport_2(reflex_support_table, "blender objects/cubo_17.obj");
-    gMatrix scale_t = Matrix::scale(Vector3d(5, 95, 150));
-
-    auto sup1_t = scale_t * Matrix::translate(Vector3d(300 - 125, 47.5, 500));
-
-    auto sup2_t = scale_t * Matrix::translate(Vector3d(300 + 125, 47.5, 500));
-
-    suport_1 *sup1_t;
-    suport_2 *sup2_t;
-
-    Mesh lid(reflex_lid_table, "blender objects/cubo_17.obj");
-
-    auto lid_t = Matrix::scale(Vector3d(250, 5, 150)) *
-                 Matrix::translate(Vector3d(300, 97.5, 500));
-    lid *lid_t;
-
-    // Objeto complexo 02 ==========================================
-
-    Cylinder suppord_tree(reflex_support, Vector3d(0, 0, 0), 1,
-                          Vector3d(0, 1, 0), 1);
-
-    auto suppord_tree_t = Matrix::scale(Vector3d(30, 9, 1)) *
-                          Matrix::translate(Vector3d(300, 100, 500));
-
-    suppord_tree *suppord_tree_t;
-
-    Sphere cat_wrap(reflex_star, Vector3d(0, 0, 0), 2);
-
-    Mesh gato(reflex_wood_column, "blender objects/gato_1.obj", &cat_wrap); 
-    gato *(Matrix::scale(Vector3d(250, 250, 250)) *
-           Matrix::translate(Vector3d(300, 0, 600)));
-    //gato *matriz_wc;
-
-    Cylinder wood_2(reflex_tree_wood, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0),
-                    1);
-
-    auto wood_t = Matrix::scale(Vector3d(6, 40, 4.5)) *
-                  Matrix::translate(Vector3d(300, 109, 500));
-
-    wood_2 *wood_t;
-
-    Cone tree_2(reflex_tree, Vector3d(0, 0, 0), 1, Vector3d(0, 1, 0), 1);
-
-    auto tree_t = Matrix::scale(Vector3d(60, 150, 4.5)) *
-                  Matrix::translate(Vector3d(300, 149, 500));
-
-    tree_2 *tree_t;
-
-    Sphere star_2(reflex_star, Vector3d(0, 0, 0), 1);
-    auto star_t = Matrix::scale(Vector3d(4.5, 4.5, 4.5)) *
-                  Matrix::translate(Vector3d(300, 299, 500));
-
-    star_2 *star_t;
-
-    // Objeto complexo 03 ==========================================
-    auto left_column_t = Matrix::scale(Vector3d(50, 500, 30)) *
-                         Matrix::translate(Vector3d(0, 250, 1000));
-
-    Mesh left_column(reflex_wood_column, "blender objects/cubo_17.obj");
-    left_column *left_column_t;
-
-    Mesh right_column = left_column;
-    right_column *Matrix::translate(Vector3d(600, 0, 0));
-
-    Mesh back_left_column = left_column;
-    back_left_column *Matrix::translate(Vector3d(0, 0, -1000));
-
-    Mesh back_right_column = right_column;
-    back_right_column *Matrix::translate(Vector3d(0, 0, -1000));
-
-    Mesh left_beam(reflex_wood_column, "blender objects/cubo_17.obj");
-    auto left_beam_t = Matrix::scale(Vector3d(300, 50, 30)) *
-                       Matrix::translate(Vector3d(150.0, 600.0, 1000.0));
-                       
-    left_beam *left_beam_t;
-
-    Mesh right_beam = left_beam;
-    auto right_beam_t = Matrix::translate(Vector3d(-150, -600, -1000)) *
-                        Matrix::reflection(RPlane::YZ_PLANE) *
-                        Matrix::translate(Vector3d(450, 600, 1000));
-
-    right_beam *(right_beam_t);
-
-    Mesh back_left_beam(reflex_wood_column, "blender objects/cubo_17.obj");
-    auto back_left_beam_t = 
-                            Matrix::scale(Vector3d(300, 50, 30)) *
-                            Matrix::shearing(ShearTypes::XY, 42.97183) *
-                            Matrix::translate(Vector3d(150, 600, 0));
-
-    back_left_beam *back_left_beam_t;
-
-    Mesh back_right_beam = back_left_beam;
-    auto back_right_beam_t = Matrix::translate(Vector3d(-150, -600, 0)) *
-                             Matrix::reflection(RPlane::YZ_PLANE) *
-                             Matrix::translate(Vector3d(450, 600, 0));
-
-    back_right_beam *(back_right_beam_t);
-
-    Mesh left_roof(reflex_roof, "blender objects/cubo_17.obj");
-    auto left_roof_t = Matrix::scale(Vector3d(300, 10, 1000)) *
-                       Matrix::shearing(ShearTypes::XY, 42.97183) *
-                       Matrix::translate(Vector3d(150, 600, 500));
-
-    left_roof *left_roof_t;
-
-    Mesh right_roof = left_roof;
-    auto right_roof_t = Matrix::translate(Vector3d(-150, -600, -1000)) *
-                        Matrix::reflection(RPlane::YZ_PLANE) *
-                        Matrix::translate(Vector3d(450, 600, 1000));
-
-    right_roof *(right_roof_t);
-
-    Mesh left_wall(reflex_wall, "blender objects/cubo_17.obj");
-    auto left_wall_t = Matrix::scale(Vector3d(20, 500, 1000)) *
-                       Matrix::translate(Vector3d(0, 250, 500));
-
-    left_wall *left_wall_t;
-
-    Mesh right_wall = left_wall;
-    auto right_wall_t = Matrix::translate(Vector3d(0, -250, -500)) *
-                        Matrix::translate(Vector3d(600, 250, 500));
-
-    right_wall *(right_wall_t);
-
-    Mesh back_wall(reflex_wood_column, "blender objects/cubo_17.obj");
-    auto back_wall_t = Matrix::scale(Vector3d(600, 500, 20)) *
-                       Matrix::translate(Vector3d(300, 250, 0));
-
-    back_wall *(back_wall_t);
 
     //MOON
     shapes.push_back(&moon);
@@ -535,8 +421,13 @@ int main(int argc, char *argv[]) {
     //FLOOR CHURCH
     shapes.push_back(&church_floor);
     //BELL CHURCH
-    shapes.push_back(&bell_wrap);
+    //shapes.push_back(&bell_wrap);
     shapes.push_back(&church_bell);
+    //PODIUM CHURCH
+    shapes.push_back(&podium);
+    //REFLECTORS CHURCH
+    shapes.push_back(&reflector1);
+    shapes.push_back(&reflector2);
 
 
 
