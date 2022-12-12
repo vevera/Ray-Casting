@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "../matrix/matrix.h"
-
+#include <Eigen/Dense>
 using std::vector;
 
 Vector3d::Vector3d(double x, double y, double z) : x_(x), y_(y), z_(z), w_(1){};
@@ -103,11 +103,26 @@ double Vector3d::dot(Vector3d const &vector) {
 };
 
 double Vector3d::dot4d(Vector3d const &vector) {
+
+    // Eigen::Vector4d v(x_,y_,z_,w_);
+    // Eigen::Vector4d v1(vector.x_,vector.y_,vector.z_,vector.w_);
+
+    // //Eigen::Vector4d v2 = v.dot(v1);
+    
+    //return v.dot(v1);
     return (x_ * vector.x_) + (y_ * vector.y_) + (z_ * vector.z_) +
            (w_ * vector.w_);
 };
 
 Vector3d Vector3d::cross_product(Vector3d const &op) {
+    // Eigen::Vector4d v(x_,y_,z_,w_);
+    // Eigen::Vector4d v1(op.x_,op.y_,op.z_,op.w_);
+
+    // Eigen::Vector3d v2 = v.head<3>().cross(v1.head<3>());
+
+    // return Vector3d(v2(0), v2(1),
+    //                 v2(2));
+
     return Vector3d(y_ * op.z_ - z_ * op.y_, z_ * op.x_ - x_ * op.z_,
                     x_ * op.y_ - y_ * op.x_);
 }
@@ -150,12 +165,12 @@ Vector3d Vector3d::mult_vector_matriz4d(std::vector<Vector3d> &matriz) {
     y = this->dot4d(matriz.at(1));
     z = this->dot4d(matriz.at(2));
 
-    return Vector3d(x, y, z, 1);
+    return Vector3d(x, y, z, 1.0);
 }
 
 double Vector3d::length() {
     double sum = dot(*this);
-    return std::sqrt(sum);
+    return std::pow(sum, 1.0/2.0);
 };
 
 double Vector3d::length4d() {
@@ -165,6 +180,13 @@ double Vector3d::length4d() {
 
 Vector3d Vector3d::normalize() {
     //*this = *this / this->length();
+
+    // Eigen::Vector3d v1(x_,y_,z_);
+    // v1 = v1.normalized();
+
+    // return Vector3d(v1(0), v1(1),
+    //                 v1(2));
+
     return *this / this->length();
 };
 

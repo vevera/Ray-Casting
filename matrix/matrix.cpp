@@ -206,7 +206,7 @@ gMatrix Matrix::camera_world(Vector3d eye, Vector3d at, Vector3d up){
     e_tc << i_c.get(0), i_c.get(1), i_c.get(2), -(i_c.dot(eye)), 
             j_c.get(0), j_c.get(1), j_c.get(2), -(j_c.dot(eye)),
             k_c.get(0), k_c.get(1), k_c.get(2), -(k_c.dot(eye)),
-            0, 0, 0, 1;
+            0.0, 0.0, 0.0, 1.0;
 
     e_tc = e_tc.inverse().eval();
     

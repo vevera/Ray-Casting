@@ -12,7 +12,7 @@ Vector3d Directional::get_intensity() { return this->intensity_; }
 
 Vector3d Directional::get_l(Vector3d &p) {
     //Vector3d l = (this->direction_ * -1).normalize();
-    return (this->direction_ * -1).normalize();
+    return (this->direction_ * -1.0).normalize();
 }
 
 Vector3d Directional::get_contribution(Reflexivity &reflex, Vector3d &l,
@@ -50,6 +50,7 @@ void Directional::change_some_proprety(gMatrix &wc){
     if (index == 1)
         intensity_ = Vector3d(x, y, z);
     if (index == 2)
+        direction_.set(3, 0);
         direction_ = Vector3d(x, y, z).mult_vector_matriz4d(wc.transform_matrix).normalize();
 
 
@@ -58,5 +59,9 @@ void Directional::change_some_proprety(gMatrix &wc){
 void Directional::operator*(gMatrix m){
 
     direction_.set(3, 0);
-    direction_ = direction_.mult_vector_matriz4d(m.transform_matrix).normalize();
+    std::cout << "before mul: " << direction_.toStr() << std::endl;
+    direction_ = direction_.mult_vector_matriz4d(m.transform_matrix);
+    std::cout << "after mul: " << direction_.toStr() << std::endl;
+    direction_ = direction_.normalize();
+    std::cout << "after norm: " << direction_.toStr() << std::endl;
 };

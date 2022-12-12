@@ -145,7 +145,7 @@ void Mesh::operator*(AccMatrix m) {
 
 void Mesh::operator*(gMatrix m) {
     if (wrap_shape_ != nullptr) {
-        *wrap_shape_ *m;
+        *wrap_shape_ * m;
     }
 
     shape_center = shape_center.mult_vector_matriz4d(m.transform_matrix);

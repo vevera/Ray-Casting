@@ -78,6 +78,11 @@ Vector3d calculate_light_intensity(std::vector<Light *> &lights, Vector3d &n,
 
 bool light_being_blocked(Shape &cls_shape, vector<Shape *> &shapes,
                          Vector3d &p_i, Light &light, Vector3d &lr) {
+
+    // if (cls_shape.ignore_shape_) {
+    //     return false;
+    // }
+
     double s, len_pi_to_light;
     Shape *shape;
     for (int shape_ind = 0; shape_ind < shapes.size(); shape_ind++) {

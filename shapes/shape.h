@@ -56,6 +56,7 @@ class Shape {
     virtual void operator*(gMatrix m) = 0;
 
     Vector3d shape_center;
+    bool ignore_shape_ = false;
     
    private:
     Reflexivity reflexivity_;

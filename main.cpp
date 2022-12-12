@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) {
     */
     double lx = 1750.000000;
     double ly = 400.000000;
-    double lz = 2000.000000;
+    double lz = 9000.000000;
 
     // double lx = 1750.000000;
     // double ly = 500.000000;
@@ -74,11 +74,11 @@ int main(int argc, char *argv[]) {
     // double lz = 3000;
     //1750, 120000, -100000
     Vector3d camera(0, 0, 0);
-    Vector3d eye = Vector3d(lx, ly, lz, 1);
+    Vector3d eye = Vector3d(lx, ly, lz, 1.0);
 
-    Vector3d at = Vector3d(1750, 200, 500, 1);
+    Vector3d at = Vector3d(1750.0, 200.0, 500.0, 1.0);
 
-    Vector3d up = Vector3d(lx, ly + 100, lz, 1);
+    Vector3d up = Vector3d(lx, ly + 100.0, lz, 1.0);
 
     gMatrix matriz_wc = Matrix::world_camera(eye, at, up);
     gMatrix matriz_cw = Matrix::camera_world(eye, at, up);
@@ -92,8 +92,8 @@ int main(int argc, char *argv[]) {
 
     Ambient ambient_light(i_a, "Luz Ambiente 1");
 
-   
-    Directional moon_light(Vector3d(0.5, 0.5, 0.5), Vector3d(-1750, -120000, 100000), "Moon Light");
+    //Vector3d(-1750, -120000, 100000
+    Directional moon_light(Vector3d(0.5, 0.5, 0.5), Vector3d(0.0, 0.0, -1.0), "Moon Light");
 
     lights.push_back(&light);
     lights.push_back(&ambient_light);
@@ -114,11 +114,16 @@ int main(int argc, char *argv[]) {
     Vector3d k_moon_ = Vector3d(0.8, 0, 0.2);
     Reflexivity reflex_moon(k_moon_, Vector3d(0,0,0), Vector3d(0,0,0), 1);
     Sphere moon(reflex_moon, Vector3d(1750, 120000, -100000), 20000);
+    moon.ignore_shape_ = true;
     /*
     
     
     
     */
+
+    Vector3d k_podium_ = Vector3d(148.0/255.0, 79.0/255.0, 57.0/255.0);
+    Reflexivity reflex_podium(k_podium_, k_podium_, k_podium_, 1);
+
     Vector3d k_bench_ = Vector3d(68.0/255.0, 14.0/255.0, 11.0/255.0);
     Reflexivity reflex_bench(k_bench_, k_bench_, k_bench_, 1);
     
@@ -408,7 +413,7 @@ int main(int argc, char *argv[]) {
     /*---------------------------------------------------------------------------------*/
     /*--------------------------PODIUM CHURCH------------------------------------------*/
 
-    Mesh podium(reflex_church_bell, "blender objects/cubo_17.obj");
+    Mesh podium(reflex_podium, "blender objects/cubo_17.obj");
     podium * ( Matrix::scale(Vector3d(2500, 200, 800)) * Matrix::translate(Vector3d(1750, 150, 700)));
 
 
