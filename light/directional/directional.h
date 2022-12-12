@@ -13,7 +13,7 @@ class Directional : public Light {
     Vector3d get_l(Vector3d &p);
     Vector3d get_contribution(Reflexivity &reflex, Vector3d &l, Vector3d &n,
                                Vector3d &v, Vector3d &r);
-    double get_distance_from_p(Vector3d p_i);
+    long double get_distance_from_p(Vector3d p_i);
     void change_some_proprety(gMatrix &wc);
     std::string toStr(gMatrix &cw);
     void operator*(gMatrix m);

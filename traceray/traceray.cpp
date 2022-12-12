@@ -9,14 +9,14 @@
 #include "../shapes/shape.h"
 using std::vector;
 
-Vector3d trace_ray(Vector3d &p_0, Vector3d &dr, double t_min, double t_max,
+Vector3d trace_ray(Vector3d &p_0, Vector3d &dr, long double t_min, long double t_max,
                    vector<Shape *> &shapes, Vector3d &bgcolor,
                    std::vector<Light *> &lights, int x, int y) {
     Vector3d color;
 
-    double closest_t = INFINITY;
+    long double closest_t = INFINITY;
     Shape *closest_shape = nullptr;
-    double t = 0;
+    long double t = 0;
     dr.set(3, 0);
     std::for_each(begin(shapes), end(shapes), [&](Shape *shape) {
         t = shape->intersect(p_0, dr);
@@ -56,8 +56,8 @@ Vector3d calculate_light_intensity(std::vector<Light *> &lights, Vector3d &n,
     Vector3d ka = obj.ka(x, y);
     Vector3d i_eye = Vector3d(0, 0, 0);
     //Vector3d i_l;
-    double m = obj.m();
-    double max;
+    long double m = obj.m();
+    long double max;
     Reflexivity reflex = Reflexivity(kd, ke, ka, m);
 
     std::for_each(begin(lights), end(lights), [&](Light *light) {
@@ -83,7 +83,7 @@ bool light_being_blocked(Shape &cls_shape, vector<Shape *> &shapes,
     //     return false;
     // }
 
-    double s, len_pi_to_light;
+    long double s, len_pi_to_light;
     Shape *shape;
     for (int shape_ind = 0; shape_ind < shapes.size(); shape_ind++) {
         shape = shapes.at(shape_ind);

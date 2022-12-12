@@ -8,12 +8,12 @@
 #include <Eigen/Dense>
 using std::vector;
 
-Vector3d::Vector3d(double x, double y, double z) : x_(x), y_(y), z_(z), w_(1){};
+Vector3d::Vector3d(long double x, long double y, long double z) : x_(x), y_(y), z_(z), w_(1){};
 
-Vector3d::Vector3d(double x, double y, double z, double w)
+Vector3d::Vector3d(long double x, long double y, long double z, long double w)
     : x_(x), y_(y), z_(z), w_(w){};
 
-double Vector3d::get(int el) const {
+long double Vector3d::get(int el) const {
     switch (el) {
         case 0:
             return x_;
@@ -33,7 +33,7 @@ double Vector3d::get(int el) const {
     }
 }
 
-void Vector3d::set(int el, double val) {
+void Vector3d::set(int el, long double val) {
     switch (el) {
         case 0:
             x_ = val;
@@ -76,7 +76,7 @@ Vector3d *Vector3d::operator*(Vector3d const *op) {
     return new Vector3d(x_ * op->x_, y_ * op->y_, z_ * op->z_);
 };
 
-Vector3d Vector3d::operator*(double const &scalar) {
+Vector3d Vector3d::operator*(long double const &scalar) {
     return Vector3d(x_ * scalar, y_ * scalar, z_ * scalar);
 };
 
@@ -94,15 +94,15 @@ Vector3d *Vector3d::operator/(Vector3d const *op) {
     return new Vector3d(x_ / op->x_, y_ / op->y_, z_ / op->z_);
 };
 
-Vector3d Vector3d::operator/(double const &div) {
+Vector3d Vector3d::operator/(long double const &div) {
     return Vector3d(x_ / div, y_ / div, z_ / div);
 };
 
-double Vector3d::dot(Vector3d const &vector) {
+long double Vector3d::dot(Vector3d const &vector) {
     return (x_ * vector.x_) + (y_ * vector.y_) + (z_ * vector.z_);
 };
 
-double Vector3d::dot4d(Vector3d const &vector) {
+long double Vector3d::dot4d(Vector3d const &vector) {
 
     // Eigen::Vector4d v(x_,y_,z_,w_);
     // Eigen::Vector4d v1(vector.x_,vector.y_,vector.z_,vector.w_);
@@ -149,7 +149,7 @@ std::vector<Vector3d> Vector3d::subtraction(std::vector<Vector3d> &m1,
 };
 
 Vector3d Vector3d::mult_vector_matriz(std::vector<Vector3d> &matriz) {
-    double x, y, z;
+    long double x, y, z;
 
     x = this->dot(matriz.at(0));
     y = this->dot(matriz.at(1));
@@ -159,7 +159,7 @@ Vector3d Vector3d::mult_vector_matriz(std::vector<Vector3d> &matriz) {
 }
 
 Vector3d Vector3d::mult_vector_matriz4d(std::vector<Vector3d> &matriz) {
-    double x, y, z;
+    long double x, y, z;
 
     x = this->dot4d(matriz.at(0));
     y = this->dot4d(matriz.at(1));
@@ -168,13 +168,13 @@ Vector3d Vector3d::mult_vector_matriz4d(std::vector<Vector3d> &matriz) {
     return Vector3d(x, y, z, 1.0);
 }
 
-double Vector3d::length() {
-    double sum = dot(*this);
+long double Vector3d::length() {
+    long double sum = dot(*this);
     return std::pow(sum, 1.0/2.0);
 };
 
-double Vector3d::length4d() {
-    double sum = dot4d(*this);
+long double Vector3d::length4d() {
+    long double sum = dot4d(*this);
     return std::sqrt(sum);
 };
 

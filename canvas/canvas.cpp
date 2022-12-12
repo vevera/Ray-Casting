@@ -70,9 +70,9 @@ void Canvas::update_window() {
 }
 
 void Canvas::wait_event(Shape **pick_shape, Scene &scene, Vector3d &camera,
-                        double &dx, double &dy, double &dJanela, ViewPort &vp, Vector3d **clicked_point) {
+                        long double &dx, long double &dy, long double &dJanela, ViewPort &vp, Vector3d **clicked_point) {
     Vector3d direction, p_start;
-    double xj, yj;
+    long double xj, yj;
     SDL_Event windowEvent;
     while (true) {
         if (SDL_PollEvent(&windowEvent)) {

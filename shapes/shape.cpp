@@ -20,7 +20,7 @@ Vector3d Shape::ka(int x, int y) {
     return reflexivity_.ka;
 };
 
-double Shape::m() { return reflexivity_.m; };
+long double Shape::m() { return reflexivity_.m; };
 
 
 void Shape::set_kd(Vector3d kd) {
@@ -35,6 +35,6 @@ void Shape::set_ka(Vector3d ka) {
     reflexivity_.ka = ka;
 }
 
-void Shape::set_m(double m) {
+void Shape::set_m(long double m) {
     reflexivity_.m = m;
 }

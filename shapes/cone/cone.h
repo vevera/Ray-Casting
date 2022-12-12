@@ -15,13 +15,13 @@ enum INTERSECTION_CONE_TYPE {
 class Cone : public Shape {
    public:
     Cone(Reflexivity reflexivity, Vector3d base_center, Vector3d vertex,
-         double radius);
+         long double radius);
 
-    Cone(Reflexivity reflexivity, Vector3d base_center, double height,
-         Vector3d cone_direction, double radius);
+    Cone(Reflexivity reflexivity, Vector3d base_center, long double height,
+         Vector3d cone_direction, long double radius);
 
     Shape * Copy();
-    double intersect(Vector3d &p_0, Vector3d &dr);
+    long double intersect(Vector3d &p_0, Vector3d &dr);
     Vector3d normal(Vector3d &p_i);
     void operator*(AccMatrix m);
     void operator*(gMatrix m);
@@ -33,10 +33,10 @@ class Cone : public Shape {
     Vector3d vertex_;
     //Vector3d cone_direction_;
     Vector3d *last_dr = nullptr;
-    double height_;
-    double radius_;
-    bool in_cone_surface(Vector3d &p0, Vector3d &dr, double &t);
-    bool in_base_surface(Vector3d &p0, Vector3d &dr, double &t,
+    long double height_;
+    long double radius_;
+    bool in_cone_surface(Vector3d &p0, Vector3d &dr, long double &t);
+    bool in_base_surface(Vector3d &p0, Vector3d &dr, long double &t,
                          Vector3d &base_center_);
     INTERSECTION_CONE_TYPE type = INTERSECTION_CONE_TYPE::CONE_SURFACE;
 };

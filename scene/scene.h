@@ -21,9 +21,9 @@ enum class Projection {
 struct ViewPort {
     int width;
     int height;
-    double z;
+    long double z;
 
-    ViewPort(int width_, int height_, double &z_) {
+    ViewPort(int width_, int height_, long double &z_) {
         width = width_;
         height = height_;
         z = z_;
@@ -35,7 +35,7 @@ class Scene {
     Scene(std::vector<Shape *> shapes, Canvas canvas,
           std::vector<Light *> lights, gMatrix wc);
     void take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor);
-    Shape *picking(Vector3d &camera, double x, double y, double t_min, Vector3d **clicked_point);
+    Shape *picking(Vector3d &camera, long double x, long double y, long double t_min, Vector3d **clicked_point);
     void set_projection(Projection projection_);
     void update_world_camera(gMatrix old_cw, gMatrix new_wc);
 

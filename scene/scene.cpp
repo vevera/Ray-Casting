@@ -18,11 +18,11 @@ Scene::Scene(std::vector<Shape *> shapes, Canvas canvas,
 };
 
 void Scene::take_a_picture(Vector3d camera, ViewPort vp, Vector3d bgColor) {
-    double dx = vp.width / (double) canvas_.n_cols();
-    double dy = vp.height / (double) canvas_.n_rows();
+    long double dx = vp.width / (long double) canvas_.n_cols();
+    long double dy = vp.height / (long double) canvas_.n_rows();
 
-    double yj;
-    double xj;
+    long double yj;
+    long double xj;
 
     auto start = std::chrono::steady_clock::now(); 
 
@@ -61,10 +61,10 @@ void Scene::set_projection(Projection projection_){
     projection = projection_;
 }
 
-Shape *Scene::picking(Vector3d &camera, double x, double y, double t_min, Vector3d **clicked_point) {
+Shape *Scene::picking(Vector3d &camera, long double x, long double y, long double t_min, Vector3d **clicked_point) {
 
-    double closest_t = INFINITY;
-    double t;
+    long double closest_t = INFINITY;
+    long double t;
     Shape *closest_shape = nullptr;
 
     std::cout << "TYPE: " << (projection == Projection::PERSPECTIVE) << std::endl;

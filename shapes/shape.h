@@ -15,7 +15,7 @@ struct Reflexivity {
     Vector3d kd;
     Vector3d ke;
     Vector3d ka;
-    double m;
+    long double m;
 
     Reflexivity() {
         kd = Vector3d(1, 1, 1);
@@ -24,7 +24,7 @@ struct Reflexivity {
         m = 1;
     }
 
-    Reflexivity(Vector3d kd_, Vector3d ke_, Vector3d ka_, double m_) {
+    Reflexivity(Vector3d kd_, Vector3d ke_, Vector3d ka_, long double m_) {
         kd = kd_;
         ke = ke_;
         ka = ka_;
@@ -38,7 +38,7 @@ class Shape {
     ~Shape(){};
     virtual Shape * Copy() = 0;
 
-    virtual double intersect(Vector3d &p_0, Vector3d &dr) = 0;
+    virtual long double intersect(Vector3d &p_0, Vector3d &dr) = 0;
     virtual Vector3d normal(Vector3d &p_i) = 0;
 
     Vector3d kd(int x, int y);
@@ -48,9 +48,9 @@ class Shape {
     void set_kd(Vector3d kd);
     void set_ke(Vector3d ke);
     void set_ka(Vector3d ka);
-    void set_m(double m);
+    void set_m(long double m);
 
-    double m();
+    long double m();
 
     virtual void operator*(AccMatrix m) = 0;
     virtual void operator*(gMatrix m) = 0;

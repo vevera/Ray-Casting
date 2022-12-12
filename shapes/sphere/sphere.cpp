@@ -1,10 +1,10 @@
 #include "sphere.h"
 
-Sphere::Sphere(Reflexivity reflexivity, Vector3d center, double radius)
+Sphere::Sphere(Reflexivity reflexivity, Vector3d center, long double radius)
     : Shape(reflexivity, center), center_(center), radius_(radius){};
 
-double Sphere::intersect(Vector3d &p_0, Vector3d &dr) {
-    double t1 = 0, t2 = 0, a = 0, b = 0, c = 0, delta = 0;
+long double Sphere::intersect(Vector3d &p_0, Vector3d &dr) {
+    long double t1 = 0, t2 = 0, a = 0, b = 0, c = 0, delta = 0;
 
     Vector3d w = p_0 - center_;
 

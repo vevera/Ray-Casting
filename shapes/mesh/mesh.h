@@ -35,7 +35,7 @@ struct Face {
 class Mesh : public Shape {
    public:
     Mesh(Reflexivity reflexivity, std::string object_data_pat, Shape *wrap_shape = nullptr);
-    double intersect(Vector3d &p_0, Vector3d &dr);
+    long double intersect(Vector3d &p_0, Vector3d &dr);
     Vector3d normal(Vector3d &p_i);
     Shape * Copy();
 

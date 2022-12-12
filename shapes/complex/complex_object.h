@@ -6,7 +6,7 @@
 class ComplexObject : public Shape {
    public:
     ComplexObject(std::vector<Shape *> components, Shape *wrap_shape = nullptr);
-    double intersect(Vector3d &p_0, Vector3d &dr);
+    long double intersect(Vector3d &p_0, Vector3d &dr);
     Vector3d normal(Vector3d &p_i);
 
     Shape * Copy();

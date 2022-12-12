@@ -30,15 +30,15 @@ void Mesh::read_obj(std::string obj_path) {
         while (obj_file) {
             std::getline(obj_file, line);
             if (regex_match(line, vertex_regex)) {
-                double x, y, z;
-                sscanf(line.c_str(), "v %lf %lf %lf", &x, &z, &y);
+                long double x, y, z;
+                sscanf(line.c_str(), "v %Lf %Lf %Lf", &x, &z, &y);
                 Vector3d vertex(x, y, z);
                 vertex_list.push_back(vertex);
             }
 
             if (regex_match(line, normals_regex)) {
-                double x, y, z;
-                sscanf(line.c_str(), "vn %lf %lf %lf", &x, &z, &y);
+                long double x, y, z;
+                sscanf(line.c_str(), "vn %Lf %Lf %Lf", &x, &z, &y);
                 Vector3d normal(x, y, z, 0);
                 normal_list.push_back(normal);
             }
@@ -93,17 +93,17 @@ std::vector<Face *> Mesh::back_face_culling(Vector3d dr) {
     return valid_faces;
 }
 
-double Mesh::intersect(Vector3d &p_0, Vector3d &dr) {
+long double Mesh::intersect(Vector3d &p_0, Vector3d &dr) {
     
-    double t_wrap;
+    long double t_wrap;
     if (wrap_shape_ != nullptr) {
         t_wrap = wrap_shape_->intersect(p_0, dr);
         if (t_wrap == INFINITY) { return INFINITY; }
     }
 
     Vector3d r1, r2, p1, p2, p3, normal, p_i;
-    double t_min = INFINITY;
-    double c1, c2, c3, ti, min;
+    long double t_min = INFINITY;
+    long double c1, c2, c3, ti, min;
     bool it = true;
 
     auto valid_faces = back_face_culling(dr);
@@ -155,7 +155,7 @@ void Mesh::operator*(gMatrix m) {
 
     std::for_each(begin(normal_list) + 1, end(normal_list), [&](Vector3d &p) {
         p = p.mult_vector_matriz4d(m.n_fix).normalize();
-        p.set(3, 0);
+        p.set(3, 0.0);
     });
 };
 

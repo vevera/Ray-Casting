@@ -2,32 +2,49 @@
 #include "complex_object.h"
 #include <algorithm>
 #include <iostream>
-ComplexObject::ComplexObject(std::vector<Shape *> components, Shape *wrap_shape): Shape(Reflexivity(), components.at(0)->shape_center), 
-components_(components), wrap_shape_(wrap_shape){
 
-    double x, y, z;
-    double sum_x, sum_y, sum_z;
-    double size = components.size();
+Vector3d Centroide(std::vector<Shape *> components){
 
+    // long double x, y, z;
+    // long double sum_x, sum_y, sum_z;
+    long double size = components.size();
+    Vector3d sum(0,0,0,1);
     std::for_each(begin(components),end(components), [&](Shape * shape){
-
-        sum_x += shape->shape_center.get(0);
-        sum_y += shape->shape_center.get(1);
-        sum_z += shape->shape_center.get(2);
-
+        sum = sum + shape->shape_center;
     });
 
-    x = sum_x/size;
-    y = sum_y/size;
-    z = sum_z/size;
 
-    shape_center = Vector3d(x,y,z);
+
+    return (sum / size);
+}
+
+
+ComplexObject::ComplexObject(std::vector<Shape *> components, Shape *wrap_shape): Shape(Reflexivity(), Centroide(components)), 
+components_(components), wrap_shape_(wrap_shape){
+
+    // long double x, y, z;
+    // long double sum_x, sum_y, sum_z;
+    // long double size = components.size();
+
+    // std::for_each(begin(components),end(components), [&](Shape * shape){
+
+    //     sum_x += shape->shape_center.get(0);
+    //     sum_y += shape->shape_center.get(1);
+    //     sum_z += shape->shape_center.get(2);
+
+    // });
+
+    // x = sum_x/size;
+    // y = sum_y/size;
+    // z = sum_z/size;
+
+    // shape_center = Vector3d(x,y,z);
 
 }
 
-double ComplexObject::intersect(Vector3d &p_0, Vector3d &dr){
-    double near_t = INFINITY;
-    double t;
+long double ComplexObject::intersect(Vector3d &p_0, Vector3d &dr){
+    long double near_t = INFINITY;
+    long double t;
 
     std::for_each(begin(components_),end(components_),[&](Shape * component){
         t = component->intersect(p_0, dr);

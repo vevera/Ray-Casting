@@ -10,10 +10,10 @@ using std::vector;
 class Vector3d {
    public:
     Vector3d() = default;
-    Vector3d(double x, double y, double z);
-    Vector3d(double x, double y, double z, double w);
-    double get(int el) const;
-    void set(int el, double val);
+    Vector3d(long double x, long double y, long double z);
+    Vector3d(long double x, long double y, long double z, long double w);
+    long double get(int el) const;
+    void set(int el, long double val);
     // Sum of vectors
     Vector3d operator+(Vector3d const &op);
     Vector3d *operator+(Vector3d const *op);
@@ -23,12 +23,12 @@ class Vector3d {
     // Product of vectors
     Vector3d operator*(Vector3d const &op);
     Vector3d *operator*(Vector3d const *op);
-    Vector3d operator*(double const &scalar);
+    Vector3d operator*(long double const &scalar);
     void operator*(std::vector<Vector3d> &m);
     // Division of vectors
     Vector3d operator/(Vector3d const &op);
     Vector3d *operator/(Vector3d const *op);
-    Vector3d operator/(double const &div);
+    Vector3d operator/(long double const &div);
 
     // Vector3d &operator=(Vector3d &&op) {
     //     *this = std::move(op);
@@ -41,20 +41,20 @@ class Vector3d {
     Vector3d normalize4d();
     Vector3d cross_product(Vector3d const &op);
 
-    double length();
-    double length4d();
-    double dot(Vector3d const &vector);
-    double dot4d(Vector3d const &vector);
+    long double length();
+    long double length4d();
+    long double dot(Vector3d const &vector);
+    long double dot4d(Vector3d const &vector);
 
     std::vector<Vector3d> dotTr(Vector3d &vector);
     static std::vector<Vector3d> subtraction(std::vector<Vector3d> &m1,
                                              std::vector<Vector3d> &m2);
     std::string toStr();
 
-    double x_;
-    double y_;
-    double z_;
-    double w_;
+    long double x_;
+    long double y_;
+    long double z_;
+    long double w_;
 };
 
 #endif

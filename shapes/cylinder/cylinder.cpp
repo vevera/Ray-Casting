@@ -4,7 +4,7 @@
 
 #include <iostream>
 Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center,
-                   Vector3d top_center, double radius)
+                   Vector3d top_center, long double radius)
     : Shape(reflexivity, (base_center+top_center)/2.0),
       base_center_(base_center),
       top_center_(top_center),
@@ -23,8 +23,8 @@ Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center,
     M = Vector3d::subtraction(identity, dc_dot_dct);
 };
 
-Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center, double height,
-                   Vector3d cylinder_direction, double radius)
+Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center, long double height,
+                   Vector3d cylinder_direction, long double radius)
     : Shape(reflexivity, ((base_center*2) + cylinder_direction * height)/2.0),
       base_center_(base_center),
       height(height),
@@ -46,20 +46,20 @@ Cylinder::Cylinder(Reflexivity reflexivity, Vector3d base_center, double height,
     M = Vector3d::subtraction(identity, dc_dot_dct);
 }
 
-double Cylinder::intersect(Vector3d &p_0, Vector3d &dr) {
+long double Cylinder::intersect(Vector3d &p_0, Vector3d &dr) {
     last_dr = &dr;
 
-    double t1, t2;
+    long double t1, t2;
 
     Vector3d w = p_0 - base_center_;
 
-    double a = (dr.mult_vector_matriz(M)).dot(dr);
+    long double a = (dr.mult_vector_matriz(M)).dot(dr);
 
-    double b = (w.mult_vector_matriz(M)).dot(dr) * 2;
+    long double b = (w.mult_vector_matriz(M)).dot(dr) * 2;
 
-    double c = (w.mult_vector_matriz(M)).dot(w) - pow(radius_, 2);
+    long double c = (w.mult_vector_matriz(M)).dot(w) - pow(radius_, 2);
 
-    double delta = pow(b, 2) - 4 * a * c;
+    long double delta = pow(b, 2) - 4 * a * c;
 
     if (delta < 0) {
         return INFINITY;
@@ -68,16 +68,16 @@ double Cylinder::intersect(Vector3d &p_0, Vector3d &dr) {
     t1 = (-b + sqrt(delta)) / (2 * a);
     t2 = (-b - sqrt(delta)) / (2 * a);
 
-    double min = t2 < t1 ? t2 : t1;
-    double max = t2 < t1 ? t1 : t2;
+    long double min = t2 < t1 ? t2 : t1;
+    long double max = t2 < t1 ? t1 : t2;
 
     bool min_valid = in_cylinder_surface(p_0, dr, min);
     bool max_valid = in_cylinder_surface(p_0, dr, max);
 
-    double t_base = -((p_0 - base_center_).dot(cylinder_direction)) /
+    long double t_base = -((p_0 - base_center_).dot(cylinder_direction)) /
                     (dr.dot(cylinder_direction));
 
-    double t_top = -((p_0 - top_center_).dot(cylinder_direction)) /
+    long double t_top = -((p_0 - top_center_).dot(cylinder_direction)) /
                    (dr.dot(cylinder_direction));
 
     bool t_base_valid = in_lid_surface(p_0, dr, t_base, base_center_);
@@ -86,9 +86,9 @@ double Cylinder::intersect(Vector3d &p_0, Vector3d &dr) {
     t_top = !t_top_valid ? INFINITY : t_top;
     t_base = !t_base_valid ? INFINITY : t_base;
 
-    double min_cylinder = min_valid ? min : max_valid ? max : INFINITY;
+    long double min_cylinder = min_valid ? min : max_valid ? max : INFINITY;
 
-    double min_lid = t_base_valid && t_base < t_top  ? t_base
+    long double min_lid = t_base_valid && t_base < t_top  ? t_base
                      : t_top_valid && t_top < t_base ? t_top
                                                      : INFINITY;
 
@@ -124,15 +124,15 @@ Vector3d Cylinder::normal(Vector3d &p_i) {
     return normal;
 };
 
-bool Cylinder::in_cylinder_surface(Vector3d &p0, Vector3d &dr, double &t) {
+bool Cylinder::in_cylinder_surface(Vector3d &p0, Vector3d &dr, long double &t) {
     Vector3d p_i = p0 + (dr * t);
     Vector3d cb_pi = p_i - base_center_;
 
-    double h = cb_pi.dot(cylinder_direction);
+    long double h = cb_pi.dot(cylinder_direction);
     return h >= 0.0 && h <= height;
 }
 
-bool Cylinder::in_lid_surface(Vector3d &p0, Vector3d &dr, double &t,
+bool Cylinder::in_lid_surface(Vector3d &p0, Vector3d &dr, long double &t,
                               Vector3d &lid_center) {
     if (t == INFINITY)
         return false;
@@ -140,7 +140,7 @@ bool Cylinder::in_lid_surface(Vector3d &p0, Vector3d &dr, double &t,
     Vector3d p_i = p0 + (dr * t);
     Vector3d cb_pi = p_i - lid_center;
 
-    double h = cb_pi.length();
+    long double h = cb_pi.length();
     return h <= radius_;
 }
 

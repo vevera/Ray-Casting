@@ -62,9 +62,9 @@ int main(int argc, char *argv[]) {
     /*
     int lx =
     */
-    long double lx = 1750.000000;
-    long double ly = 1000.000000; //400
-    long double lz = 8000.000000; //9000
+    long double lx = 3500.000000;
+    long double ly = 1000.000000;
+    long double lz = 4000.000000;
 
     // long double lx = 1750.000000;
     // long double ly = 500.000000;
@@ -95,7 +95,7 @@ int main(int argc, char *argv[]) {
     //Vector3d(-1750, -120000, 100000
     Directional moon_light(Vector3d(0.5, 0.5, 0.5), Vector3d(0.0, 0.0, -1.0), "Moon Light");
 
-    //lights.push_back(&light);
+    lights.push_back(&light);
     lights.push_back(&ambient_light);
     lights.push_back(&moon_light);
 
@@ -217,7 +217,7 @@ int main(int argc, char *argv[]) {
 
     Mesh center_church_left(reflex_support_table, "blender objects/cubo_17.obj"); 
     
-    center_church_left * ( Matrix::scale(Vector3d(100, 3000, 3200)) * Matrix::translate(Vector3d(1050, 1500, 1600)));
+    center_church_left * ( Matrix::scale(Vector3d(100, 1200, 3200)) * Matrix::translate(Vector3d(1050, 2400, 1600)));
     
     Mesh center_church_right = center_church_left;
     center_church_right * Matrix::translate(Vector3d(1400, 0, 0));
@@ -414,7 +414,7 @@ int main(int argc, char *argv[]) {
     /*--------------------------PODIUM CHURCH------------------------------------------*/
 
     Mesh podium(reflex_podium, "blender objects/cubo_17.obj");
-    podium * ( Matrix::scale(Vector3d(2000, 200, 800)) * Matrix::translate(Vector3d(1750, 150, 700)));
+    podium * ( Matrix::scale(Vector3d(2500, 200, 800)) * Matrix::translate(Vector3d(1750, 150, 700)));
 
 
     /*---------------------------------------------------------------------------------*/
@@ -440,8 +440,8 @@ int main(int argc, char *argv[]) {
 
     Spot spot_light_2(5, i_a,reflector2.base_center_ + Vector3d(-10, -10, -10), Vector3d(1750, 150, 700), "Luz spot 2");
 
-    //lights.push_back(&spot_light_1);
-    //lights.push_back(&spot_light_2);
+    lights.push_back(&spot_light_1);
+    lights.push_back(&spot_light_2);
 
     /*---------------------------------------------------------------------------------*/
 
@@ -470,30 +470,30 @@ int main(int argc, char *argv[]) {
     shapes.push_back(&moon);
 
     shapes.push_back(&floor_wall);
-    // //LEFT CHURCH
-    // shapes.push_back(&left_church_front);
-    // shapes.push_back(&left_church_back);
-    // shapes.push_back(&left_church_left);
-    // //shapes.push_back(&left_church_right);
-    // //RIGHT CHURCH
-    // shapes.push_back(&right_church_front);
-    // shapes.push_back(&right_church_back);
-    // //shapes.push_back(&right_church_left);
-    // shapes.push_back(&right_church_right);
+    //LEFT CHURCH
+    shapes.push_back(&left_church_front);
+    shapes.push_back(&left_church_back);
+    shapes.push_back(&left_church_left);
+    //shapes.push_back(&left_church_right);
+    //RIGHT CHURCH
+    shapes.push_back(&right_church_front);
+    shapes.push_back(&right_church_back);
+    //shapes.push_back(&right_church_left);
+    shapes.push_back(&right_church_right);
     //CENTER CHURCH
     shapes.push_back(&center_tower);
     // shapes.push_back(&center_church_front);
     shapes.push_back(&center_church_back);
     shapes.push_back(&center_church_left);
     shapes.push_back(&center_church_right);
-    // //LATERAL ROOF CHURCH
-    // shapes.push_back(&right_roof_church);
-    // shapes.push_back(&left_roof_church);
+    //LATERAL ROOF CHURCH
+    shapes.push_back(&right_roof_church);
+    shapes.push_back(&left_roof_church);
     //TOP ROOF CHURCH
     shapes.push_back(&right_roof_church_top);
     shapes.push_back(&left_roof_church_top);
-    //shapes.push_back(&right_roof_church_top_1);
-    //shapes.push_back(&left_roof_church_top_1);
+    shapes.push_back(&right_roof_church_top_1);
+    shapes.push_back(&left_roof_church_top_1);
     //CROSS CHURCH
     shapes.push_back(&cross_y);
     shapes.push_back(&cross_x);

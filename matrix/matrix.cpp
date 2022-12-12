@@ -69,13 +69,13 @@ gMatrix Matrix::translate(Vector3d target_position) {
 
     return gMatrix(translate_matrix, TransformType::TRANSLATE);
 };
-gMatrix Matrix::rotate(TAxis rotation_axis, double angle) {
+gMatrix Matrix::rotate(TAxis rotation_axis, long double angle) {
     angle = (angle * M_PI) / 180;
 
     matrix_tr rotate_matrix;
 
-    double cos_t = cos(angle);
-    double sin_t = sin(angle);
+    long double cos_t = cos(angle);
+    long double sin_t = sin(angle);
 
     switch (rotation_axis) {
         case TAxis::X_AXIS:
@@ -96,12 +96,12 @@ gMatrix Matrix::rotate(TAxis rotation_axis, double angle) {
     }
     return gMatrix(rotate_matrix, rotate_matrix, TransformType::ROTATE);
 };
-gMatrix Matrix::shearing(ShearTypes shearing_axis, double angle) {
+gMatrix Matrix::shearing(ShearTypes shearing_axis, long double angle) {
     angle = (angle * M_PI) / 180;
     matrix_tr shear_matrix;
     matrix_tr inverse_t;
 
-    double tg_t = tan(angle);
+    long double tg_t = tan(angle);
 
     switch (shearing_axis) {
         case ShearTypes::XZ:

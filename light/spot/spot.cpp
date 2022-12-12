@@ -5,13 +5,13 @@
 
 
 Spot::Spot(Vector3d intensity, Vector3d position, Vector3d direction,
-           double angle, std::string light_name)
+           long double angle, std::string light_name)
     : Light(intensity, position, light_name), direction_(direction.normalize()), angle_(angle), cos_t(std::cos((angle * M_PI) / 180)) {
     // this->direction_ = this->direction_.normalize();
     // cos_t = std::cos(angle);
 };
 
-Spot::Spot(double angle, Vector3d intensity, Vector3d position, Vector3d at,
+Spot::Spot(long double angle, Vector3d intensity, Vector3d position, Vector3d at,
          std::string light_name) : Light(intensity, position, light_name), 
                                    direction_((at - position).normalize()), 
                                    at_(at),
@@ -27,7 +27,7 @@ Vector3d Spot::get_l(Vector3d &p) {
 
 Vector3d Spot::get_contribution(Reflexivity &reflex, Vector3d &l, Vector3d &n,
                                  Vector3d &v, Vector3d &r) {
-    double clds = l.dot((this->direction_ * (-1)).normalize());
+    long double clds = l.dot((this->direction_ * (-1)).normalize());
     //(clds - cos_t) < 0.0001
     if ((clds < cos_t)) {
         return Vector3d(0, 0, 0);
@@ -39,13 +39,13 @@ Vector3d Spot::get_contribution(Reflexivity &reflex, Vector3d &l, Vector3d &n,
     return this->calc_diffuse_specular(reflex, l_i, l, n, v, r);
 }
 
-double Spot::get_distance_from_p(Vector3d p_i) {
+long double Spot::get_distance_from_p(Vector3d p_i) {
     Vector3d dr = this->position_ - p_i;
     return dr.length();
 }
 
 void Spot::change_some_proprety(gMatrix &wc){
-    double x, y, z;
+    long double x, y, z;
     int index=0;
 
     std::cout << "1 - Change Intensity" << std::endl;

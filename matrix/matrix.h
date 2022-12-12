@@ -77,8 +77,8 @@ class Matrix {
 
     static gMatrix scale(Vector3d scale_factor);
     static gMatrix translate(Vector3d target_position);
-    static gMatrix rotate(TAxis rotation_axis, double angle);
-    static gMatrix shearing(ShearTypes shearing_axis, double angle);
+    static gMatrix rotate(TAxis rotation_axis, long double angle);
+    static gMatrix shearing(ShearTypes shearing_axis, long double angle);
     static gMatrix reflection(RPlane r_plane);
     static gMatrix world_camera(Vector3d eye, Vector3d at, Vector3d up);
     static gMatrix camera_world(Vector3d eye, Vector3d at, Vector3d up);

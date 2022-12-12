@@ -16,7 +16,7 @@ Vector3d PointLight::get_l(Vector3d &p) {
     return (this->position_ - p).normalize();
 }
 
-double PointLight::get_distance_from_p(Vector3d p_i) {
+long double PointLight::get_distance_from_p(Vector3d p_i) {
     Vector3d dr = this->position_ - p_i;
     return dr.length();
 };
@@ -31,7 +31,7 @@ Vector3d PointLight::get_contribution(Reflexivity &reflex, Vector3d &l,
 
 void PointLight::change_some_proprety(gMatrix &wc){
 
-    double x, y, z;
+    long double x, y, z;
     int index=0;
 
     std::cout << "Choose a proprety to change: " << std::endl;

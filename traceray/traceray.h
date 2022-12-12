@@ -6,7 +6,7 @@
 class Shape;
 class Light;
 
-Vector3d trace_ray(Vector3d &p_0, Vector3d &dr, double t_min, double t_max,
+Vector3d trace_ray(Vector3d &p_0, Vector3d &dr, long double t_min, long double t_max,
                    vector<Shape *> &shapes, Vector3d &bgcolor,
                    std::vector<Light *> &lights, int x, int y);
 

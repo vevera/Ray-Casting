@@ -17,11 +17,11 @@ Vector3d Ambient::get_contribution(Reflexivity &reflex, Vector3d &l,
     return this->intensity_ * ka;
 }
 
-double Ambient::get_distance_from_p(Vector3d p_i) { return -1; }
+long double Ambient::get_distance_from_p(Vector3d p_i) { return -1; }
 
 void Ambient::change_some_proprety(gMatrix &wc){
 
-    double x, y, z;
+    long double x, y, z;
 
     std::cout << "Change Intensity" << std::endl;
    
