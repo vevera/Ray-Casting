@@ -158,3 +158,10 @@ void Mesh::operator*(gMatrix m) {
         p.set(3, 0);
     });
 };
+
+
+Shape * Mesh::Copy(){
+    Mesh *m = new Mesh(*this);
+    //m->shape_center = this->shape_center;
+    return m;
+};

@@ -46,3 +46,7 @@ void Plane::operator*(gMatrix m) {
             break;
     }
 };
+
+Shape * Plane::Copy(){
+    return new Plane(*this);
+}

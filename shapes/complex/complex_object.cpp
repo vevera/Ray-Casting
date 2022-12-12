@@ -31,7 +31,7 @@ double ComplexObject::intersect(Vector3d &p_0, Vector3d &dr){
 
     std::for_each(begin(components_),end(components_),[&](Shape * component){
         t = component->intersect(p_0, dr);
-        if (t < near_t){
+        if (t < near_t) {
             last_component_ = component;
             this->set_ka(last_component_->ka(1, 1));
             this->set_kd(last_component_->kd(1, 1));
@@ -56,7 +56,17 @@ void ComplexObject::operator*(gMatrix m){
         *component * m;
     });
     shape_center = shape_center.mult_vector_matriz4d(m.transform_matrix);
-    //shape_center = components_.at(0)->shape_center;
 };
 
+
+Shape * ComplexObject::Copy(){
+    
+    std::vector<Shape *> copy_vector;
+    std::for_each(begin(components_), end(components_), [&copy_vector](Shape* aux){
+        copy_vector.push_back(aux->Copy());
+    });
+    ComplexObject *cp = new ComplexObject(copy_vector);
+    cp->shape_center = this->shape_center;
+    return cp;
+};
 

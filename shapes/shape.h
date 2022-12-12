@@ -36,6 +36,7 @@ class Shape {
    public:
     Shape(Reflexivity reflexivity, Vector3d shape_center_);
     ~Shape(){};
+    virtual Shape * Copy() = 0;
 
     virtual double intersect(Vector3d &p_0, Vector3d &dr) = 0;
     virtual Vector3d normal(Vector3d &p_i) = 0;

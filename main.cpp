@@ -355,7 +355,7 @@ int main(int argc, char *argv[]) {
     Cylinder bench_support_4(reflex_bench, Vector3d(-pern_r + (250), -10, pern_r - 50), 50,
                    Vector3d(0, -1, 0), pern_r);
 
-    std::vector<Shape *> bench_1, bench_2, bench_3, bench_4, bench_5, bench_6;
+    std::vector<Shape *> bench_1;
     bench_1.push_back(&church_bench_1);
     bench_1.push_back(&church_bench_2);
     bench_1.push_back(&bench_support_1);
@@ -366,23 +366,23 @@ int main(int argc, char *argv[]) {
     
 
 
-    ComplexObject church_bench_00(bench);
+    ComplexObject church_bench_00(bench_1);
 
     // ComplexObject church_bench_01 = church_bench_00;
 
     // ComplexObject church_bench_02= church_bench_00;
 
-    ComplexObject church_bench_10 = church_bench_00;
+    Shape *church_bench_10 = church_bench_00.Copy();
 
     // ComplexObject church_bench_11= church_bench_00;
 
     // ComplexObject church_bench_12= church_bench_00;
 
-    church_bench_00 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(1400, 100, 1500)));
+    church_bench_00 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::rotate(TAxis::Y_AXIS, 180)* Matrix::translate(Vector3d(1400, 95, 1500)));
     // church_bench_01 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(1400, 100, 1700)));
     // church_bench_02 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(1400, 100, 1900)));
 
-    church_bench_10 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(2100, 100, 1500)));
+    (*church_bench_10) * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::rotate(TAxis::Y_AXIS, 180)* Matrix::translate(Vector3d(2100, 95, 1500)));
     // church_bench_11 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(2100, 100, 1700)));
     // church_bench_12 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(2100, 100, 1900)));
 
@@ -506,7 +506,7 @@ int main(int argc, char *argv[]) {
     shapes.push_back(&church_bench_00);
     // shapes.push_back(&church_bench_01);
     // shapes.push_back(&church_bench_02);
-    shapes.push_back(&church_bench_10);
+    shapes.push_back(church_bench_10);
     // shapes.push_back(&church_bench_11);
     // shapes.push_back(&church_bench_12);
 
@@ -623,7 +623,11 @@ int main(int argc, char *argv[]) {
                         default:
                             continue;
                     }
-                    transform_m = Matrix::translate(pick_shape->shape_center * -1) * Matrix::rotate(axis, angle) * Matrix::translate(pick_shape->shape_center);
+                    transform_m =  matriz_cw * 
+                                   Matrix::translate(pick_shape->shape_center.mult_vector_matriz4d(matriz_cw.transform_matrix) * -1)  * 
+                                   Matrix::rotate(axis, angle) * 
+                                   Matrix::translate(pick_shape->shape_center.mult_vector_matriz4d(matriz_cw.transform_matrix)) * 
+                                   matriz_wc;
                     break;
                 case 4:
                     std::cout << clicked_point->toStr() << std::endl;

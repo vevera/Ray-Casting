@@ -20,6 +20,7 @@ class Cone : public Shape {
     Cone(Reflexivity reflexivity, Vector3d base_center, double height,
          Vector3d cone_direction, double radius);
 
+    Shape * Copy();
     double intersect(Vector3d &p_0, Vector3d &dr);
     Vector3d normal(Vector3d &p_i);
     void operator*(AccMatrix m);

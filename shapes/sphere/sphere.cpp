@@ -43,3 +43,9 @@ void Sphere::operator*(gMatrix m) {
             break;
     }
 };
+
+
+
+Shape * Sphere::Copy(){
+    return new Sphere(*this);
+};

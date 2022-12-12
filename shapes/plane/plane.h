@@ -8,6 +8,7 @@
 class Plane : public Shape {
    public:
     Plane(Reflexivity reflexivity, Vector3d p_pi, Vector3d n);
+    Shape * Copy();
     double intersect(Vector3d &p_0, Vector3d &dr);
     Vector3d normal(Vector3d &p_i);
     void operator*(AccMatrix m);

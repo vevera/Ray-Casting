@@ -184,3 +184,7 @@ void Cylinder::rebuild_M() {
 
     M = Vector3d::subtraction(identity, dc_dot_dct);
 };
+
+Shape * Cylinder::Copy(){
+    return new Cylinder(*this);
+};

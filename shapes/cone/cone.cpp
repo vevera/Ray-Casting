@@ -150,3 +150,7 @@ void Cone::operator*(gMatrix m) {
             break;
     }
 };
+
+Shape * Cone::Copy(){
+    return new Cone(*this);
+};
