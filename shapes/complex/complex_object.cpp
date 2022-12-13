@@ -19,7 +19,7 @@ Vector3d Centroide(std::vector<Shape *> components){
 }
 
 
-ComplexObject::ComplexObject(std::vector<Shape *> components, Shape *wrap_shape): Shape(Reflexivity(), Centroide(components)), 
+ComplexObject::ComplexObject(Reflexivity reflex, std::vector<Shape *> components, Shape *wrap_shape): Shape(reflex, Centroide(components)), 
 components_(components), wrap_shape_(wrap_shape){
 
     // long double x, y, z;
@@ -50,9 +50,9 @@ long double ComplexObject::intersect(Vector3d &p_0, Vector3d &dr){
         t = component->intersect(p_0, dr);
         if (t < near_t) {
             last_component_ = component;
-            this->set_ka(last_component_->ka(1, 1));
-            this->set_kd(last_component_->kd(1, 1));
-            this->set_ke(last_component_->ke(1, 1));
+            // this->set_ka(last_component_->ka(1, 1));
+            // this->set_kd(last_component_->kd(1, 1));
+            // this->set_ke(last_component_->ke(1, 1));
             near_t = t;
         }
     });
@@ -82,7 +82,7 @@ Shape * ComplexObject::Copy(){
     std::for_each(begin(components_), end(components_), [&copy_vector](Shape* aux){
         copy_vector.push_back(aux->Copy());
     });
-    ComplexObject *cp = new ComplexObject(copy_vector);
+    ComplexObject *cp = new ComplexObject(reflexivity_, copy_vector);
     cp->shape_center = this->shape_center;
     return cp;
 };

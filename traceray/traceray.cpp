@@ -90,7 +90,7 @@ bool light_being_blocked(Shape &cls_shape, vector<Shape *> &shapes,
         s = shape->intersect(p_i, lr);
         len_pi_to_light = light.get_distance_from_p(p_i);
 
-        if (s > 0.0001 && s < len_pi_to_light) {
+        if (s > 0.00001 && s < len_pi_to_light) {
             return true;
         }
     }

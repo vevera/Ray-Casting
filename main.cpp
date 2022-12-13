@@ -35,23 +35,25 @@ using std::cout;
 int main(int argc, char *argv[]) {
     int wCanvas, hCanvas, rEsfera, wJanela, hJanela, nLin, nCol;
     long double dJanela, zj;
-    Vector3d bgColor, i_f, p_f, p_f2, i_a;
-    wCanvas = 500;
-    hCanvas = 500;
-    dJanela = 25;
+    Vector3d bgColor, i_f, p_f, p_f2, i_a, i_s;
+    wCanvas = 400;
+    hCanvas = 400;
+    dJanela = 70;
     rEsfera = 40;
     wJanela = 70;
     hJanela = 70;
     bgColor = Vector3d(16.0/255.0, 17.0/255.0, 30.0/255.0);
-    nLin = 500;
-    nCol = 500;
+    nLin = 400;
+    nCol = 400;
     zj = -dJanela;
 
     i_f = Vector3d(0.7, 0.7, 0.7);
     //p_f = Vector3d(1750, 2800, 200.0);
-    p_f = Vector3d(1750, 3000, 2900);
+    p_f = Vector3d(1750, 1500, 2900);
     // p_f2 = Vector3d(300, 8000, 500.0);
-    i_a = Vector3d(0.0, 0.4, 0.4);
+    i_a = Vector3d(0.4, 0.4, 0.4);
+
+    i_s = Vector3d(0.6, 0.6, 0.6);
 
     // lights.push_back(&d_light);
     // lights.push_back(&s_light);
@@ -64,8 +66,14 @@ int main(int argc, char *argv[]) {
     */
     long double lx = 1750.000000;
     long double ly = 1000.000000; //400
-    long double lz = 8000.000000; //9000
+    long double lz = 6000.000000; //9000
 
+    // long double lx = 1750.000000;
+    // long double ly = 2000.000000; //400
+    // long double lz = 2500.000000; //9000
+
+
+    
     // long double lx = 1750.000000;
     // long double ly = 500.000000;
     // long double lz = 7000.000000;
@@ -76,8 +84,8 @@ int main(int argc, char *argv[]) {
     Vector3d camera(0, 0, 0);
     Vector3d eye = Vector3d(lx, ly, lz, 1.0);
 
-    Vector3d at = Vector3d(1750.0, 200.0, 500.0, 1.0);
-
+    //Vector3d at = Vector3d(1750.0, 450.0, 700.0, 1.0);
+    Vector3d at = Vector3d(1750.0, 120000.0, -100000.0, 1.0);
     Vector3d up = Vector3d(lx, ly + 100.0, lz, 1.0);
 
     gMatrix matriz_wc = Matrix::world_camera(eye, at, up);
@@ -93,9 +101,9 @@ int main(int argc, char *argv[]) {
     Ambient ambient_light(i_a, "Luz Ambiente 1");
 
     //Vector3d(-1750, -120000, 100000
-    Directional moon_light(Vector3d(0.5, 0.5, 0.5), Vector3d(0.0, 0.0, -1.0), "Moon Light");
+    Directional moon_light(Vector3d(0.5, 0.5, 0.5), Vector3d(1750.0, 150.0, 700.0) - Vector3d(1750.0, 3000.0, 2900.0), "Moon Light");
 
-    //lights.push_back(&light);
+    lights.push_back(&light);
     lights.push_back(&ambient_light);
     lights.push_back(&moon_light);
 
@@ -112,7 +120,7 @@ int main(int argc, char *argv[]) {
     */
     // START OF FINAL SCENE
     Vector3d k_moon_ = Vector3d(0.8, 0, 0.2);
-    Reflexivity reflex_moon(k_moon_, Vector3d(0,0,0), Vector3d(0,0,0), 1);
+    Reflexivity reflex_moon(k_moon_, Vector3d(0,0,0), k_moon_, 1);
     Sphere moon(reflex_moon, Vector3d(1750, 120000, -100000), 20000);
     moon.ignore_shape_ = true;
     /*
@@ -124,6 +132,9 @@ int main(int argc, char *argv[]) {
     Vector3d k_podium_ = Vector3d(148.0/255.0, 79.0/255.0, 57.0/255.0);
     Reflexivity reflex_podium(k_podium_, k_podium_, k_podium_, 1);
 
+    Vector3d k_bible_ = Vector3d(200.0/255.0, 200.0/255.0, 200.0/255.0);
+    Reflexivity reflex_bible(k_bible_, k_bible_, k_bible_, 1);
+
     Vector3d k_bench_ = Vector3d(68.0/255.0, 14.0/255.0, 11.0/255.0);
     Reflexivity reflex_bench(k_bench_, k_bench_, k_bench_, 1);
     
@@ -132,6 +143,9 @@ int main(int argc, char *argv[]) {
 
     Vector3d k_church_bell = Vector3d(218.0/255.0, 165/255.0, 32.0/255.0);
     Reflexivity reflex_church_bell(k_church_bell, k_church_bell, k_church_bell, 10);
+
+    Vector3d k_tap = Vector3d(218.0/255.0, 10/255.0, 12.0/255.0);
+    Reflexivity reflex_tap(k_tap, k_tap, k_tap, 1);
 
     Vector3d k_church_floor_ = Vector3d(50.0/255.0, 50.0/255.0, 50.0/255.0);
     Reflexivity reflex_church_floor(k_church_floor_, k_church_floor_, k_church_floor_, 1);
@@ -144,9 +158,9 @@ int main(int argc, char *argv[]) {
     Reflexivity reflex_church_roof(k_church_roof, k_church_roof, k_church_roof, 1);
 
     Vector3d k_support_table =
-        Vector3d(50.0/255.0, 20.0/255.0, 20.0/255.0);
+        Vector3d(250.0/250.0, 235/250.0, 215/250.0);
     Reflexivity reflex_support_table(k_support_table, k_support_table,
-                                     k_support_table, 1);
+                                     k_cross_, 1);
 
     /*---------------------------------------------------------------------------------*/
 
@@ -192,7 +206,7 @@ int main(int argc, char *argv[]) {
 
     Mesh church_floor(reflex_church_floor, "blender objects/cubo_17.obj");
 
-    church_floor * ( Matrix::scale(Vector3d(3800, 30, 3300)) * Matrix::translate(Vector3d(1750, 15, 1500)));
+    church_floor * ( Matrix::scale(Vector3d(3800, 30, 3600)) * Matrix::translate(Vector3d(1750, 15, 1500)));
 
 
     /*--------------------------CENTER CHURCH------------------------------------------*/
@@ -251,7 +265,7 @@ int main(int argc, char *argv[]) {
     // center_list.push_back(&center_church_left);
     // center_list.push_back(&center_church_right);
 
-    ComplexObject center_tower(center_list);
+    ComplexObject center_tower(reflex_support_table, center_list);
 
     /*--------------------------ROOF CHURCH------------------------------------------*/
     /*---------------------------------------------------------------------------------*/
@@ -371,24 +385,24 @@ int main(int argc, char *argv[]) {
     
 
 
-    ComplexObject church_bench_00(bench_1);
+    ComplexObject church_bench_00(reflex_bench, bench_1);
 
-    // ComplexObject church_bench_01 = church_bench_00;
+    Shape * church_bench_01 = church_bench_00.Copy();
 
     // ComplexObject church_bench_02= church_bench_00;
 
-    Shape *church_bench_10 = church_bench_00.Copy();
+    Shape * church_bench_10 = church_bench_00.Copy();
 
-    // ComplexObject church_bench_11= church_bench_00;
+    Shape * church_bench_11 = church_bench_00.Copy();
 
     // ComplexObject church_bench_12= church_bench_00;
 
-    church_bench_00 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::rotate(TAxis::Y_AXIS, 180)* Matrix::translate(Vector3d(1400, 95, 1500)));
-    // church_bench_01 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(1400, 100, 1700)));
+    church_bench_00 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::rotate(TAxis::Y_AXIS, 180)* Matrix::translate(Vector3d(1400, 95, 1200)));
+    (*church_bench_01) * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::rotate(TAxis::Y_AXIS, 180)*Matrix::translate(Vector3d(1400, 95, 2000)));
     // church_bench_02 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(1400, 100, 1900)));
 
     (*church_bench_10) * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::rotate(TAxis::Y_AXIS, 180)* Matrix::translate(Vector3d(2100, 95, 1500)));
-    // church_bench_11 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(2100, 100, 1700)));
+    (*church_bench_11) * ( Matrix::scale(Vector3d(1, 1, 1)) *Matrix::rotate(TAxis::Y_AXIS, 180)*Matrix::translate(Vector3d(2100, 95, 2000)));
     // church_bench_12 * ( Matrix::scale(Vector3d(1, 1, 1)) * Matrix::translate(Vector3d(2100, 100, 1900)));
 
     
@@ -401,8 +415,10 @@ int main(int argc, char *argv[]) {
     /*---------------------------------------------------------------------------------*/
     /*--------------------------CANDLE CHURCH------------------------------------------*/
 
-    Cylinder candle(reflex_church_bell, Vector3d(0, -0.5, 0),
+    Cylinder beam(reflex_tap, Vector3d(0,-0.5, 0),
                    Vector3d(0, 0.5, 0), 0.5);
+
+    beam * ( Matrix::scale(Vector3d(450, 40, 100)) * Matrix::translate(Vector3d(1750, 250, 700)));
 
     /*---------------------------------------------------------------------------------*/
     /*--------------------------TABLE CHURCH------------------------------------------*/
@@ -414,7 +430,7 @@ int main(int argc, char *argv[]) {
     /*--------------------------PODIUM CHURCH------------------------------------------*/
 
     Mesh podium(reflex_podium, "blender objects/cubo_17.obj");
-    podium * ( Matrix::scale(Vector3d(2000, 200, 800)) * Matrix::translate(Vector3d(1750, 150, 700)));
+    podium * ( Matrix::scale(Vector3d(1300, 200, 800)) * Matrix::translate(Vector3d(1750, 150, 550)));
 
 
     /*---------------------------------------------------------------------------------*/
@@ -429,19 +445,28 @@ int main(int argc, char *argv[]) {
                    Vector3d(0, 0.5, 0), 0.5);
     
     reflector1 * ( Matrix::scale(Vector3d(100, 100, 100)) 
-        * Matrix::translate(Vector3d(700, 1750, 1850) + (Vector3d(-1050, 1350, 1150).normalize() * -100)));
+        * Matrix::translate(Vector3d(1100, 1750, 1850) + (Vector3d(-1050, 1350, 1150).normalize() * -100)));
     
     reflector2 = reflector1;
 
-    reflector2 * (Matrix::reflection(RPlane::YZ_PLANE) * Matrix::translate(Vector3d(700 + 2800, 0, 0)));
+    reflector2 * (Matrix::reflection(RPlane::YZ_PLANE) * Matrix::translate(Vector3d(3500, 0, 0)));
 
 
-    Spot spot_light_1(5, i_a,reflector1.base_center_ + Vector3d(-10, -10, -10), Vector3d(1750, 150, 700),  "Luz spot 1");
+    Spot spot_light_1(12, i_s,reflector1.base_center_ + Vector3d(-10, -10, -10), Vector3d(1750, 550, 700),  "Luz spot 1");
 
-    Spot spot_light_2(5, i_a,reflector2.base_center_ + Vector3d(-10, -10, -10), Vector3d(1750, 150, 700), "Luz spot 2");
+    //Spot spot_light_2(12, i_s,reflector2.base_center_ + Vector3d(-10, -10, -10), Vector3d(1750, 150, 700), "Luz spot 2");
 
-    //lights.push_back(&spot_light_1);
+    lights.push_back(&spot_light_1);
     //lights.push_back(&spot_light_2);
+
+    /*---------------------------------------------------------------------------------*/
+    /*--------------------------BIBLE CHURCH------------------------------------------*/
+    //1750, 150, 700
+    Cylinder bible_wrap(reflex_church_bell, Vector3d(0, -0.5, 0),
+                   Vector3d(0, 0.5, 0), 0.5);
+    Mesh bible(reflex_bible, "blender objects/biblia.obj", &bible_wrap);
+
+    bible * ( Matrix::scale(Vector3d(400, 400, 400)) * Matrix::translate(Vector3d(1750, 450, 700)));
 
     /*---------------------------------------------------------------------------------*/
 
@@ -482,7 +507,7 @@ int main(int argc, char *argv[]) {
     // shapes.push_back(&right_church_right);
     //CENTER CHURCH
     shapes.push_back(&center_tower);
-    // shapes.push_back(&center_church_front);
+    //shapes.push_back(&center_church_front);
     shapes.push_back(&center_church_back);
     shapes.push_back(&center_church_left);
     shapes.push_back(&center_church_right);
@@ -509,11 +534,15 @@ int main(int argc, char *argv[]) {
     shapes.push_back(&reflector2);
     // BENCH CHURCH
     shapes.push_back(&church_bench_00);
-    // shapes.push_back(&church_bench_01);
-    // shapes.push_back(&church_bench_02);
+    //shapes.push_back(church_bench_01);
+    // // shapes.push_back(&church_bench_02);
     shapes.push_back(church_bench_10);
-    // shapes.push_back(&church_bench_11);
+    // shapes.push_back(church_bench_11);
     // shapes.push_back(&church_bench_12);
+    // BIBLE
+    shapes.push_back(&bible);
+
+    shapes.push_back(&beam);
 
 
 
@@ -595,7 +624,7 @@ int main(int argc, char *argv[]) {
                     std::cin >> x;
                     std::cin >> y;
                     std::cin >> z;
-                    transform_m = Matrix::translate(Vector3d(x, y, z));
+                    transform_m = matriz_cw * Matrix::translate(Vector3d(x, y, z)) * matriz_wc;
                     break;
                 case 2:
                     x, y, z = 1;
@@ -638,7 +667,7 @@ int main(int argc, char *argv[]) {
                     std::cout << clicked_point->toStr() << std::endl;
                     std::cout << pick_shape->shape_center.toStr() << std::endl;
                     std::cout << Vector3d(150, 600, 1000).mult_vector_matriz4d(matriz_wc.transform_matrix).toStr() << std::endl;
-                    std::cout << "Type the rotate angle: " << std::endl<< ">> ";
+                    std::cout << "Type the shear angle: " << std::endl<< ">> ";
                     std::cin >> angle_shear;
                     std::cout << "Type the shear: " << std::endl;
                     std::cout << "1 - XZ: \n2 - ZX: \n3 - XY: \n4 - YX: \n5 - ZY: \n6 - YZ: \n"<< ">> ";
@@ -790,6 +819,7 @@ int main(int argc, char *argv[]) {
                     eye * matriz_cw.transform_matrix;
                     if (index_ == 1){
                         eye = Vector3d(x, y, z);
+                        up = Vector3d(x, y + 100.0, z);
                     }   
                     if (index_ == 2)
                         at = Vector3d(x, y, z);

@@ -70,14 +70,16 @@ Shape *Scene::picking(Vector3d &camera, long double x, long double y, long doubl
     std::cout << "TYPE: " << (projection == Projection::PERSPECTIVE) << std::endl;
     Vector3d p0 = projection == Projection::PERSPECTIVE ? camera : Vector3d(x, y, -t_min);
     Vector3d direction = projection == Projection::PERSPECTIVE ? 
-                                        (Vector3d(x, y, -t_min) - camera).normalize() : 
-                                        Vector3d(0, 0, -1);
+                                        (Vector3d(x, y, -t_min)).normalize() : 
+                                        Vector3d(0.0, 0.0, -1.0);
 
     std::for_each(begin(shapes_), end(shapes_), [&](Shape *shape) {
         /****/
 
+        
         t = shape->intersect(p0, direction);
-        if ((t > 0) && (t >= t_min) && (t < closest_t)) {
+        std::cout << "VALOR Ts: " << t << " " << t_min << std::endl;
+        if ((t > 0.0) && (t >= t_min) && (t < closest_t)) {
             closest_t = t;
             closest_shape = shape;
         }

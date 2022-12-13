@@ -94,8 +94,8 @@ void Canvas::wait_event(Shape **pick_shape, Scene &scene, Vector3d &camera,
                 *pick_shape = scene.picking(camera, xj, yj, dJanela, clicked_point);
 
                 if (*pick_shape != nullptr) {
-                    std::cout << "PICKING CONCLUIDO: "
-                          << (*pick_shape)->ka(1, 1).toStr() << std::endl;
+                    std::cout << "Obj Selecionado: "
+                          << (*pick_shape)->shape_center.toStr() << std::endl;
                 }
                 
             }

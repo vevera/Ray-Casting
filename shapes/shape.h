@@ -57,9 +57,9 @@ class Shape {
 
     Vector3d shape_center;
     bool ignore_shape_ = false;
-    
-   private:
     Reflexivity reflexivity_;
+   private:
+    //Reflexivity reflexivity_;
     std::string texture_path_ = "";
     Vector3d *color = nullptr;
     int img_w = 0;
