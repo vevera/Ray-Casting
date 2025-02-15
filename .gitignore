@@ -4,3 +4,6 @@ build/
 CMakeFiles/
 .vscode/
 raycasting
+Release/
+Debug/
+old/
