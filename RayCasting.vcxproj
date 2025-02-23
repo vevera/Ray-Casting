@@ -147,6 +147,7 @@
     <ClInclude Include="canvas.hpp" />
     <ClInclude Include="light.hpp" />
     <ClInclude Include="ray.hpp" />
+    <ClInclude Include="reflexivity.hpp" />
     <ClInclude Include="scene.hpp" />
     <ClInclude Include="shapes\plane.hpp" />
     <ClInclude Include="shapes\sphere.hpp" />

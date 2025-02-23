@@ -3,14 +3,15 @@
 
 #include <Eigen/Core>
 
-#include "shapes/types.hpp"
+#include "types.hpp"
+#include "reflexivity.hpp"
 
 using Eigen::Vector3d;
 
 class Sphere {
    public:
-    Sphere(const Vector3d& center, double radius)
-        : center{center}, radius{radius}, mcolor{0.6, 0.2, 0.9} {}
+    Sphere(const Vector3d& center, double radius, const Reflexivity& rfx)
+        : center{center}, radius{radius}, m_Reflexivity{rfx} {}
     ~Sphere() {}
 
     inline double intersect(const Vector3d& p0, const Vector3d& dr) const {
@@ -40,11 +41,11 @@ class Sphere {
 
     inline ObjectTypes type() const { return ObjectTypes::SPHERE; }
 
-    inline const Vector3d& color() const { return mcolor; }
+    inline const Reflexivity& color() const { return m_Reflexivity; }
 
    private:
     Vector3d center;
-    Vector3d mcolor;
+    Reflexivity m_Reflexivity;
     double radius;
 };
 
