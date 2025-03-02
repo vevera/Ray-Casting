@@ -41,8 +41,6 @@ class Sphere {
         return (pi - m_Center) / m_Radius;
     }
 
-    inline Vector3d light_intensity() const { return Vector3d(.4, .2, .3); };
-
     inline ObjectTypes type() const { return ObjectTypes::SPHERE; }
 
     inline LightInteraction light_interation() const { return m_LiType; };

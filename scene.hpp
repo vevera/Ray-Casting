@@ -45,7 +45,7 @@ inline auto Render(const Vector3d& eye, Canvas& canvas, ViewPort vp,
             dr.normalize();
 
             canvas.set_pixel(
-                RayTracer<3, true>::CastRay(p0, dr, 0.8, objects, lights));
+                RayTracer<10, true>::CastRay(p0, dr, 0.6, objects, lights));
         }
     }
 

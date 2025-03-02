@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="canvas.hpp" />
+    <ClInclude Include="cube.hpp" />
     <ClInclude Include="light.hpp" />
     <ClInclude Include="plane.hpp" />
     <ClInclude Include="raytracer.hpp" />
@@ -152,6 +153,9 @@
     <ClInclude Include="scene.hpp" />
     <ClInclude Include="sphere.hpp" />
     <ClInclude Include="types.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

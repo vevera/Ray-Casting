@@ -25,16 +25,14 @@ struct RayTracer {
                                    double attenuation,
                                    const std::tuple<const T&...>& objects,
                                    const std::tuple<const L&...>& lights) {
-        ShadingInfo ct = {Reflexivity{Vector3d(0, 0, 0)},
-                               Vector3d{0, 0, 0}, INFINITY,
-                               LightInteraction::NONE};
+        ShadingInfo ct = {Reflexivity{Vector3d(0, 0, 0)}, Vector3d{0, 0, 0},
+                          INFINITY, LightInteraction::NONE};
 
         std::apply(
             [&](const auto&... objs) {
                 (
                     [&](const auto& objects) {
-                        auto shading_info =
-                            Trace(objects, p0, dr, INFINITY);
+                        auto shading_info = Trace(objects, p0, dr, INFINITY);
 
                         if (shading_info.t < ct.t) {
                             ct = shading_info;
@@ -47,8 +45,13 @@ struct RayTracer {
         Vector3d contrib = Vector3d(0, 0, 0);
 
         if (ct.t != INFINITY) {
-            contrib = CalculateLightsContribution(
-                ct.rfx, p0 + dr * ct.t, ct.normal, dr * -1, objects, lights);
+            /*    the dr * -0.001 is useful to prevent the object from hitting
+               itself due to double imprecision*/
+
+            Vector3d pi = p0 + dr * ct.t + (dr * -0.001);
+            contrib = CalculateLightsContribution(ct.rfx, pi,
+                                                  ct.normal, dr * -1, objects,
+                                                  lights);
 
             switch (ct.lit) {
                 case LightInteraction::REFLECT: {
@@ -56,8 +59,8 @@ struct RayTracer {
                     ray.normalize();
 
                     contrib += RayTracer<N - 1, false>::CastRay(
-                                   p0 + dr * ct.t, ray, attenuation * 0.8,
-                                   objects, lights) *
+                                   pi, ray, attenuation * attenuation, objects,
+                                   lights) *
                                attenuation;
                 }
 
@@ -99,7 +102,7 @@ inline Vector3d CalculateLightsContribution(
         for (const auto& obj : objs) {
             double t = obj.intersect(pi, l.dr);
 
-            if (t > 0.1 && t < l.distance)
+            if (t > 0 && t < l.distance)
                 return true;
         }
 
@@ -127,8 +130,8 @@ inline Vector3d CalculateLightsContribution(
 };
 
 template <typename T>
-inline ShadingInfo Trace(const std::vector<T> &objects, const Vector3d &p0,
-                         const Vector3d &dr, double t_max) {
+inline ShadingInfo Trace(const std::vector<T>& objects, const Vector3d& p0,
+                         const Vector3d& dr, double t_max) {
     double t = 0;
 
     struct {
