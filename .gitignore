@@ -7,3 +7,5 @@ raycasting
 Release/
 Debug/
 old/
+.vs/
+.vscode/

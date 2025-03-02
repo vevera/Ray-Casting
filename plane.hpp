@@ -9,8 +9,9 @@ using Eigen::Vector3d;
 
 class Plane {
    public:
-    Plane(const Vector3d& pi, const Vector3d& normal, const Reflexivity& rfx)
-        : m_Pi{pi}, m_Normal{normal}, m_Reflexivity{rfx} {}
+    Plane(const Vector3d& pi, const Vector3d& normal, const Reflexivity& rfx,
+          const LightInteraction& li_type)
+        : m_Pi{pi}, m_Normal{normal}, m_Reflexivity{rfx}, m_LiType{m_LiType} {}
     ~Plane() {}
 
     inline double intersect(const Vector3d& p0, const Vector3d& dr) const {
@@ -30,12 +31,16 @@ class Plane {
 
     inline ObjectTypes type() const { return ObjectTypes::PLANE; }
 
+    inline LightInteraction light_interation() const { return m_LiType;
+    } ;
+
     inline const Reflexivity& color() const { return m_Reflexivity; }
 
    private:
     Vector3d m_Pi;
     Vector3d m_Normal;
     Reflexivity m_Reflexivity;
+    LightInteraction m_LiType;
 };
 
 #endif

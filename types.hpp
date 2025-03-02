@@ -6,4 +6,9 @@ enum ObjectTypes {
     PLANE,
 };
 
+enum LightInteraction {
+    NONE,
+    REFLECT,
+};
+
 #endif

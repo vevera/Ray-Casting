@@ -11,6 +11,19 @@ using Eigen::Vector3d;
 
 constexpr uint8_t c_ColorMax = 255;
 
+inline Eigen::Vector3d ACESFilm(const Eigen::Vector3d &x) {
+    constexpr double a = 2.51f;
+    constexpr double b = 0.03f;
+    constexpr double c = 2.43f;
+    constexpr double d = 0.59f;
+    constexpr double e = 0.14f;
+
+    return ((x.array() * (a * x.array() + b)) /
+            (x.array() * (c * x.array() + d) + e))
+        .cwiseMin(1.0f)
+        .cwiseMax(0.0f);
+}
+
 class Canvas {
    public:
     static Canvas create(const std::string &name, uint32_t width,
@@ -78,12 +91,12 @@ class Canvas {
         }
     }
 
-    inline void set_pixel(Vector3d color) {
-        color = color * c_ColorMax;
+    inline void set_pixel(const Vector3d &color) {
+        Vector3d filmcolor = ACESFilm(color) * c_ColorMax;
 
-        m.buffer[m.current++] = static_cast<uint8_t>(color(0));
-        m.buffer[m.current++] = static_cast<uint8_t>(color(1));
-        m.buffer[m.current++] = static_cast<uint8_t>(color(2));
+        m.buffer[m.current++] = static_cast<uint8_t>(filmcolor(0));
+        m.buffer[m.current++] = static_cast<uint8_t>(filmcolor(1));
+        m.buffer[m.current++] = static_cast<uint8_t>(filmcolor(2));
     }
 
     void reset_count() { m.current = 0; }
@@ -93,10 +106,9 @@ class Canvas {
         // m.buffer.resize(size);
     }
 
-    const uint32_t collumn_count() { return m.collumn_count; }
-    const uint32_t row_count() { return m.row_count; }
-    const uint32_t width() { return m.width; }
-    const uint32_t height() { return m.height; }
+    const uint32_t collumn_count() const { return m.collumn_count; }
+    const uint32_t row_count() const { return m.row_count; }
+    const uint32_t width() const { return m.width; }
 
    private:
     struct M {

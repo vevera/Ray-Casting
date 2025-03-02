@@ -23,25 +23,25 @@
     <ClInclude Include="canvas.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ray.hpp">
+    <ClInclude Include="raytracer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="scene.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shapes\plane.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shapes\sphere.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shapes\types.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="light.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="reflexivity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="plane.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sphere.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="types.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

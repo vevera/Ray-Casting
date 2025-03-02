@@ -1,11 +1,12 @@
 
 
 #include <Eigen/Core>
+#include <optional>
 #include <vector>
 
 #include "canvas.hpp"
-#include "ray.hpp"
-#include "shapes/types.hpp"
+#include "raytracer.hpp"
+#include "types.hpp"
 
 struct ViewPort {
     int32_t width;
@@ -13,13 +14,10 @@ struct ViewPort {
     int32_t z;
 };
 
-const ray::ShadingInfo default_ct{Reflexivity{Vector3d(0, 0, 0)},
-                                  Vector3d{0, 0, 0}, INFINITY};
-
 template <typename... T, typename... L>
-inline auto intersect(const Vector3d& eye, Canvas& canvas, ViewPort vp,
-                      const std::tuple<const T&...>& objects,
-                      const std::tuple<const L&...>& lights) {
+inline auto Render(const Vector3d& eye, Canvas& canvas, ViewPort vp,
+                   const std::tuple<const T&...>& objects,
+                   const std::tuple<const L&...>& lights) {
     Vector3d dr;
     const Vector3d& p0 = eye;
 
@@ -34,17 +32,7 @@ inline auto intersect(const Vector3d& eye, Canvas& canvas, ViewPort vp,
 
     double yj, xj;
 
-    ray::ShadingInfo ct = default_ct;
-
     std::cout << " dx: " << dx << " dy: " << dy << "\n";
-
-    const auto calltrace = [&](const auto& objects) {
-        auto shading_info = ray::trace(objects, p0, dr, INFINITY);
-
-        if (shading_info.t < ct.t) {
-            ct = shading_info;
-        }
-    };
 
     canvas.reset_count();
 
@@ -54,62 +42,13 @@ inline auto intersect(const Vector3d& eye, Canvas& canvas, ViewPort vp,
             xj = cxj + (dx * c);
 
             dr = Vector3d(xj, yj, vp.z) - eye;
+            dr.normalize();
 
-            std::apply([&](const auto&... objs) { (calltrace(objs), ...); },
-                       objects);
-
-            if (ct.t != INFINITY) {
-                canvas.set_pixel(
-                    calc_lights_contribution(ct.rfx, p0 + dr * ct.t, ct.normal,
-                                             dr * -1, objects, lights));
-            } else {
-                canvas.set_pixel(Vector3d(1, 1, 1));
-            }
-
-            ct = default_ct;
+            canvas.set_pixel(
+                RayTracer<3, true>::CastRay(p0, dr, 0.8, objects, lights));
         }
     }
 
     canvas.update_window();
 }
 
-template <typename... T, typename... L>
-inline auto calc_lights_contribution(const Reflexivity& rfx, const Vector3d& pi,
-                                     const Vector3d& normal, const Vector3d& v,
-                                     const std::tuple<const T&...>& objects,
-                                     const std::tuple<const L&...>& lights) {
-    Vector3d ieye(0, 0, 0);
-    Direction l;
-
-    auto light_is_blocked = [&](const auto& objs) -> bool {
-        for (const auto& obj : objs) {
-            double t = obj.intersect(pi, l.dr);
-
-            if (t > 0.0001 && t < l.distance)
-                return true;
-        }
-
-        return false;
-    };
-
-    const auto get_light_contrib = [&](const auto& lghts) {
-        for (const auto& light : lghts) {
-            l = light.get_direction_from_p(pi);
-
-            if (!std::apply(
-                    [&](const auto&... objs) {
-                        return (light_is_blocked(objs) || ...);
-                    },
-                    objects)) {
-                ieye += light.get_light_contribution(l.dr, v, normal, rfx);
-            }
-        }
-    };
-
-    std::apply([&](const auto&... lghts) { (get_light_contrib(lghts), ...); },
-               lights);
-
-    double max = ieye.maxCoeff();
-
-    return max > 1 ? ieye / max : ieye;
-};
