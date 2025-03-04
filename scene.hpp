@@ -1,7 +1,11 @@
 
+#ifndef SCENE_HPP
+#define SCENE_HPP
 
 #include <Eigen/Core>
-#include <optional>
+#include <algorithm>
+#include <chrono>
+#include <execution>
 #include <vector>
 
 #include "canvas.hpp"
@@ -18,7 +22,6 @@ template <typename... T, typename... L>
 inline auto Render(const Vector3d& eye, Canvas& canvas, ViewPort vp,
                    const std::tuple<const T&...>& objects,
                    const std::tuple<const L&...>& lights) {
-    Vector3d dr;
     const Vector3d& p0 = eye;
 
     uint32_t rows = canvas.row_count();
@@ -30,25 +33,59 @@ inline auto Render(const Vector3d& eye, Canvas& canvas, ViewPort vp,
     const double cxj = (-vp.width / 2.0) + (dx / 2.0);
     const double cyj = (vp.height / 2.0) - (dy / 2.0);
 
-    double yj, xj;
-
-    std::cout << " dx: " << dx << " dy: " << dy << "\n";
-
     canvas.reset_count();
 
-    for (int l = 0; l < rows; l++) {
+    auto start = std::chrono::steady_clock::now();
+
+    const auto tiles = canvas.get_tiles();
+
+#ifdef MT
+    std::for_each(std::execution::par, std::begin(tiles), std::end(tiles),
+                  [&](const auto& tile) {
+                      for (uint64_t l = tile.l0; l < tile.l1; l++) {
+                          double yj = cyj - (dy * l);
+                          for (uint64_t c = tile.c0; c < tile.c1; c++) {
+                              double xj = cxj + (dx * c);
+
+                              Vector3d dr = Vector3d(xj, yj, vp.z) - eye;
+                              dr.normalize();
+
+                              canvas.set_pixel(
+                                  l, c,
+                                  RayTracer<20, true>::CastRay(
+                                      p0, dr, 0.9, objects, lights));
+                          }
+                      }
+                  });
+#else
+    double yj = 0;
+    double xj = 0;
+    Vector3d dr;
+    for (uint64_t l = 0; l < rows; l++) {
         yj = cyj - (dy * l);
-        for (int c = 0; c < cols; c++) {
+        for (uint64_t c = 0; c < cols; c++) {
             xj = cxj + (dx * c);
 
             dr = Vector3d(xj, yj, vp.z) - eye;
             dr.normalize();
 
             canvas.set_pixel(
-                RayTracer<10, true>::CastRay(p0, dr, 0.6, objects, lights));
+                l, c,
+                RayTracer<20, true>::CastRay(p0, dr, 0.88, objects, lights));
         }
     }
 
-    canvas.update_window();
-}
+    std::cout << "The nuber of rays traced is: " << numberOfRays << "\n";
+#endif
 
+    canvas.update_window();
+
+    auto end = std::chrono::steady_clock::now();
+
+ /*   std::cout << "The image took "
+              << std::chrono::duration_cast<std::chrono::milliseconds>(end -
+                                                                       start)
+                     .count()
+              << " milliseconds to render.\n";*/
+}
+#endif   // !

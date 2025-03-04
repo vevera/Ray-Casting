@@ -7,21 +7,22 @@
 #include "types.hpp"
 
 using Eigen::Vector3d;
+using Eigen::Vector4d;
+using Eigen::Matrix4d;
 
 class Sphere {
    public:
     Sphere(const Vector3d& center, double radius, const Reflexivity& rfx,
            const LightInteraction& li_type)
-        : m_Center{center},
-          m_Radius{radius},
-          m_Reflexivity{rfx},
-          m_LiType{li_type} {}
+        : m_Radius{radius}, m_Reflexivity{rfx}, m_LiType{li_type} {
+        m_Center << center, 1;
+    }
     ~Sphere() {}
 
     inline double intersect(const Vector3d& p0, const Vector3d& dr) const {
         double t1, t2, a, b, c, delta;
 
-        Vector3d w = p0 - m_Center;
+        Vector3d w = p0 - m_Center.head<3>();
         a = dr.dot(dr);
         b = 2 * w.dot(dr);
         c = w.dot(w) - (m_Radius * m_Radius);
@@ -38,7 +39,7 @@ class Sphere {
     }
 
     inline Vector3d normal(const Vector3d& pi) const {
-        return (pi - m_Center) / m_Radius;
+        return (pi - m_Center.head<3>()) / m_Radius;
     }
 
     inline ObjectTypes type() const { return ObjectTypes::SPHERE; }
@@ -47,8 +48,14 @@ class Sphere {
 
     inline const Reflexivity& color() const { return m_Reflexivity; }
 
+    inline void set_color(const Reflexivity& relex) { m_Reflexivity = relex; }
+
+    inline void affine_transform(const Matrix4d& transformation) {
+        m_Center = transformation * m_Center;
+    }
+
    private:
-    Vector3d m_Center;
+    Vector4d m_Center;
     Reflexivity m_Reflexivity;
     double m_Radius;
     LightInteraction m_LiType;

@@ -144,8 +144,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="affine.hpp" />
     <ClInclude Include="canvas.hpp" />
-    <ClInclude Include="cube.hpp" />
+    <ClInclude Include="triangle.hpp" />
     <ClInclude Include="light.hpp" />
     <ClInclude Include="plane.hpp" />
     <ClInclude Include="raytracer.hpp" />

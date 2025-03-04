@@ -10,6 +10,12 @@
 using Eigen::Vector3d;
 using Eigen::Vector4d;
 
+#define MT 1
+
+#ifndef MT
+static uint64_t numberOfRays = 0;
+#endif
+
 struct ShadingInfo {
     Reflexivity rfx;
     Vector3d normal;
@@ -21,17 +27,21 @@ template <size_t N, bool First>
 struct RayTracer {
     RayTracer() = delete;
     template <typename... T, typename... L>
-    inline static Vector3d CastRay(const Vector3d& p0, const Vector3d& dr,
+    inline static Vector3d CastRay(const Vector3d &p0, const Vector3d &dr,
                                    double attenuation,
-                                   const std::tuple<const T&...>& objects,
-                                   const std::tuple<const L&...>& lights) {
+                                   const std::tuple<const T &...> &objects,
+                                   const std::tuple<const L &...> &lights) {
+#ifndef MT
+        numberOfRays++;
+#endif
+
         ShadingInfo ct = {Reflexivity{Vector3d(0, 0, 0)}, Vector3d{0, 0, 0},
                           INFINITY, LightInteraction::NONE};
 
         std::apply(
-            [&](const auto&... objs) {
+            [&](const auto &...objs) {
                 (
-                    [&](const auto& objects) {
+                    [&](const auto &objects) {
                         auto shading_info = Trace(objects, p0, dr, INFINITY);
 
                         if (shading_info.t < ct.t) {
@@ -49,9 +59,8 @@ struct RayTracer {
                itself due to double imprecision*/
 
             Vector3d pi = p0 + dr * ct.t + (dr * -0.001);
-            contrib = CalculateLightsContribution(ct.rfx, pi,
-                                                  ct.normal, dr * -1, objects,
-                                                  lights);
+            contrib = CalculateLightsContribution(ct.rfx, pi, ct.normal,
+                                                  dr * -1, objects, lights);
 
             switch (ct.lit) {
                 case LightInteraction::REFLECT: {
@@ -82,24 +91,24 @@ template <>
 struct RayTracer<0, false> {
     RayTracer() = delete;
     template <typename... T, typename... L>
-    inline static Vector3d CastRay(const Vector3d& p0, const Vector3d& dr,
+    inline static Vector3d CastRay(const Vector3d &p0, const Vector3d &dr,
                                    double att,
-                                   const std::tuple<const T&...>& objects,
-                                   const std::tuple<const L&...>& lights) {
+                                   const std::tuple<const T &...> &objects,
+                                   const std::tuple<const L &...> &lights) {
         return Vector3d(0, 0, 0);
     }
 };
 
 template <typename... T, typename... L>
 inline Vector3d CalculateLightsContribution(
-    const Reflexivity& rfx, const Vector3d& pi, const Vector3d& normal,
-    const Vector3d& v, const std::tuple<const T&...>& objects,
-    const std::tuple<const L&...>& lights) {
+    const Reflexivity &rfx, const Vector3d &pi, const Vector3d &normal,
+    const Vector3d &v, const std::tuple<const T &...> &objects,
+    const std::tuple<const L &...> &lights) {
     Vector3d ieye(0, 0, 0);
     Direction l;
 
-    const auto light_is_blocked = [&](const auto& objs) -> bool {
-        for (const auto& obj : objs) {
+    const auto light_is_blocked = [&](const auto &objs) -> bool {
+        for (const auto &obj : objs) {
             double t = obj.intersect(pi, l.dr);
 
             if (t > 0 && t < l.distance)
@@ -109,12 +118,12 @@ inline Vector3d CalculateLightsContribution(
         return false;
     };
 
-    const auto get_light_contrib = [&](const auto& lghts) {
-        for (const auto& light : lghts) {
+    const auto get_light_contrib = [&](const auto &lghts) {
+        for (const auto &light : lghts) {
             l = light.get_direction_from_p(pi);
 
             if (!std::apply(
-                    [&](const auto&... objs) {
+                    [&](const auto &...objs) {
                         return (light_is_blocked(objs) || ...);
                     },
                     objects)) {
@@ -123,15 +132,15 @@ inline Vector3d CalculateLightsContribution(
         }
     };
 
-    std::apply([&](const auto&... lghts) { (get_light_contrib(lghts), ...); },
+    std::apply([&](const auto &...lghts) { (get_light_contrib(lghts), ...); },
                lights);
 
     return ieye;
 };
 
 template <typename T>
-inline ShadingInfo Trace(const std::vector<T>& objects, const Vector3d& p0,
-                         const Vector3d& dr, double t_max) {
+inline ShadingInfo Trace(const std::vector<T> &objects, const Vector3d &p0,
+                         const Vector3d &dr, double t_max) {
     double t = 0;
 
     struct {
@@ -148,12 +157,9 @@ inline ShadingInfo Trace(const std::vector<T>& objects, const Vector3d& p0,
         }
     }
 
-    return {
-        objects[closest.i].color(),
-        objects[closest.i].normal(p0 + dr * closest.t),
-        closest.t,
-        objects[closest.i].light_interation(),
-    };
+    return {objects[closest.i].color(),
+            objects[closest.i].normal(p0 + dr * closest.t), closest.t,
+            objects[closest.i].light_interation()};
 }
 
 #endif

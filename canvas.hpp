@@ -10,6 +10,7 @@
 using Eigen::Vector3d;
 
 constexpr uint8_t c_ColorMax = 255;
+constexpr int32_t c_RenderEvent = 69;
 
 inline Eigen::Vector3d ACESFilm(const Eigen::Vector3d &x) {
     constexpr double a = 2.51f;
@@ -23,6 +24,12 @@ inline Eigen::Vector3d ACESFilm(const Eigen::Vector3d &x) {
         .cwiseMin(1.0f)
         .cwiseMax(0.0f);
 }
+
+struct Tile {
+    Tile(uint64_t c0, uint64_t c1, uint64_t l0, uint64_t l1)
+        : c0{c0}, c1{c1}, l0{l0}, l1{l1} {}
+    uint64_t c0, c1, l0, l1;
+};
 
 class Canvas {
    public:
@@ -48,6 +55,8 @@ class Canvas {
         return Canvas({buffer, 0, window, screen, width, height, collumn_count,
                        row_count});
     }
+
+    enum Event { NONE, Quit, ReadyToRender };
 
     ~Canvas() {
         if (m.screen != nullptr)
@@ -78,25 +87,53 @@ class Canvas {
         if (SDL_UpdateWindowSurface(m.window)) {
             std::cout << "update window faild\n";
         }
+
+        surface_buffer_is_ready();
     }
 
-    void wait_events() {
+    Event poll_event() {
         SDL_Event windowEvent;
-        while (true) {
-            if (SDL_PollEvent(&windowEvent)) {
-                if (SDL_QUIT == windowEvent.type) {
-                    break;
-                }
+        if (SDL_PollEvent(&windowEvent)) {
+            if (SDL_QUIT == windowEvent.type) {
+                return Event::Quit;
+            }
+
+            if (SDL_USEREVENT == windowEvent.type &&
+                windowEvent.user.code == c_RenderEvent) {
+                return Event::ReadyToRender;
             }
         }
+        return Event::NONE;
     }
 
-    inline void set_pixel(const Vector3d &color) {
+    inline void set_pixel(uint64_t x, uint64_t y, const Vector3d &color) {
         Vector3d filmcolor = ACESFilm(color) * c_ColorMax;
 
-        m.buffer[m.current++] = static_cast<uint8_t>(filmcolor(0));
-        m.buffer[m.current++] = static_cast<uint8_t>(filmcolor(1));
-        m.buffer[m.current++] = static_cast<uint8_t>(filmcolor(2));
+        const size_t i = (x * m.collumn_count * 3) + (y * 3);
+
+        m.buffer[i] = static_cast<uint8_t>(filmcolor(0));
+        m.buffer[i + 1] = static_cast<uint8_t>(filmcolor(1));
+        m.buffer[i + 2] = static_cast<uint8_t>(filmcolor(2));
+    }
+
+    inline std::vector<Tile> get_tiles() {
+        std::vector<Tile> tiles;
+
+        constexpr uint64_t c_TileSize = 50;
+
+        uint64_t c0 = 0;
+        uint64_t l0 = 0;
+        uint64_t l = 0;
+        uint64_t c = 0;
+        for (l = 0; l <= m.row_count; l += c_TileSize) {
+            for (c = 0; c <= m.collumn_count; c += c_TileSize) {
+                tiles.emplace_back(c0, c, l0, l);
+                c0 = c;
+            }
+            l0 = l;
+        }
+
+        return tiles;
     }
 
     void reset_count() { m.current = 0; }
@@ -122,7 +159,17 @@ class Canvas {
         uint32_t row_count;
     } m;
 
-    Canvas(M m) : m{std::move(m)} { update_window(); }
+    void surface_buffer_is_ready() {
+        SDL_Event event = {0};
+        memset(&event, 0, sizeof(event));
+
+        event.user.type = SDL_USEREVENT;
+        event.user.code = c_RenderEvent;
+
+        SDL_PushEvent(&event);
+    }
+
+    Canvas(M m) : m{std::move(m)} { surface_buffer_is_ready(); }
 };
 
 #endif

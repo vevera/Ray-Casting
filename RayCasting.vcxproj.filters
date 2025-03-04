@@ -44,7 +44,10 @@
     <ClInclude Include="types.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cube.hpp">
+    <ClInclude Include="triangle.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="affine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
