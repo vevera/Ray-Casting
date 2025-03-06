@@ -3,12 +3,13 @@
 
 #include <Eigen/Core>
 
+#include "object.hpp"
 #include "reflexivity.hpp"
 #include "types.hpp"
 
+using Eigen::Matrix4d;
 using Eigen::Vector3d;
 using Eigen::Vector4d;
-using Eigen::Matrix4d;
 
 class Sphere {
    public:
@@ -52,6 +53,11 @@ class Sphere {
 
     inline void affine_transform(const Matrix4d& transformation) {
         m_Center = transformation * m_Center;
+    }
+
+    inline bool move_towards(const Vector3d& target, double step,
+                             double threshold) {
+        return object::move_towards(m_Center, target, step, threshold);
     }
 
    private:

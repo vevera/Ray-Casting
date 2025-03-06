@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="affine.hpp" />
     <ClInclude Include="canvas.hpp" />
+    <ClInclude Include="object.hpp" />
     <ClInclude Include="triangle.hpp" />
     <ClInclude Include="light.hpp" />
     <ClInclude Include="plane.hpp" />

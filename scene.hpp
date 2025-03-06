@@ -52,7 +52,7 @@ inline auto Render(const Vector3d& eye, Canvas& canvas, ViewPort vp,
 
                               canvas.set_pixel(
                                   l, c,
-                                  RayTracer<20, true>::CastRay(
+                                  RayTracer<5, true>::CastRay(
                                       p0, dr, 0.9, objects, lights));
                           }
                       }
@@ -71,21 +71,21 @@ inline auto Render(const Vector3d& eye, Canvas& canvas, ViewPort vp,
 
             canvas.set_pixel(
                 l, c,
-                RayTracer<20, true>::CastRay(p0, dr, 0.88, objects, lights));
+                RayTracer<5, true>::CastRay(p0, dr, 0.88, objects, lights));
         }
     }
 
-    std::cout << "The nuber of rays traced is: " << numberOfRays << "\n";
+    //std::cout << "The nuber of rays traced is: " << numberOfRays << "\n";
 #endif
 
     canvas.update_window();
 
     auto end = std::chrono::steady_clock::now();
 
- /*   std::cout << "The image took "
+    std::cout << "The image took "
               << std::chrono::duration_cast<std::chrono::milliseconds>(end -
                                                                        start)
                      .count()
-              << " milliseconds to render.\n";*/
+              << " milliseconds to render.\n";
 }
 #endif   // !

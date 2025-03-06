@@ -32,7 +32,7 @@ struct RayTracer {
                                    const std::tuple<const T &...> &objects,
                                    const std::tuple<const L &...> &lights) {
 #ifndef MT
-        numberOfRays++;
+        //numberOfRays++;
 #endif
 
         ShadingInfo ct = {Reflexivity{Vector3d(0, 0, 0)}, Vector3d{0, 0, 0},

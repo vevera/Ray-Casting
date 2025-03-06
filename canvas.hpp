@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 
 #include <Eigen\Core>
+#include <chrono>
 #include <memory>
 #include <vector>
 
@@ -12,7 +13,7 @@ using Eigen::Vector3d;
 constexpr uint8_t c_ColorMax = 255;
 constexpr int32_t c_RenderEvent = 69;
 
-inline Eigen::Vector3d ACESFilm(const Eigen::Vector3d &x) {
+inline Eigen::Vector3d ACESFilm(const Vector3d &x) {
     constexpr double a = 2.51f;
     constexpr double b = 0.03f;
     constexpr double c = 2.43f;
@@ -32,6 +33,8 @@ struct Tile {
 };
 
 class Canvas {
+    using time_point = std::chrono::steady_clock::time_point;
+
    public:
     static Canvas create(const std::string &name, uint32_t width,
                          uint32_t height, uint32_t collumn_count,
@@ -52,8 +55,9 @@ class Canvas {
 
         std::vector<uint8_t> buffer(width * height * 3, 0);
 
-        return Canvas({buffer, 0, window, screen, width, height, collumn_count,
-                       row_count});
+        return Canvas({buffer, 0, window, screen, 0,
+                       std::chrono::steady_clock::now(), width, height,
+                       collumn_count, row_count});
     }
 
     enum Event { NONE, Quit, ReadyToRender };
@@ -68,6 +72,13 @@ class Canvas {
     }
 
     void update_window() {
+        auto now = std::chrono::steady_clock::now();
+        m.deltaTime = std::chrono::duration_cast<std::chrono::milliseconds>(
+                          now - m.lastRenderTime)
+                          .count() /
+                      1000.0;
+        m.lastRenderTime = now;
+
         SDL_Rect offset;
         // Give the offsets to the rectangle
         offset.x = 0;
@@ -106,14 +117,14 @@ class Canvas {
         return Event::NONE;
     }
 
-    inline void set_pixel(uint64_t x, uint64_t y, const Vector3d &color) {
-        Vector3d filmcolor = ACESFilm(color) * c_ColorMax;
+    inline void set_pixel(uint64_t x, uint64_t y, Vector3d &&color) {
+        color = ACESFilm(color) * c_ColorMax;
 
         const size_t i = (x * m.collumn_count * 3) + (y * 3);
 
-        m.buffer[i] = static_cast<uint8_t>(filmcolor(0));
-        m.buffer[i + 1] = static_cast<uint8_t>(filmcolor(1));
-        m.buffer[i + 2] = static_cast<uint8_t>(filmcolor(2));
+        m.buffer[i] = static_cast<uint8_t>(color(0));
+        m.buffer[i + 1] = static_cast<uint8_t>(color(1));
+        m.buffer[i + 2] = static_cast<uint8_t>(color(2));
     }
 
     inline std::vector<Tile> get_tiles() {
@@ -146,6 +157,7 @@ class Canvas {
     const uint32_t collumn_count() const { return m.collumn_count; }
     const uint32_t row_count() const { return m.row_count; }
     const uint32_t width() const { return m.width; }
+    const double delta_time() const { return m.deltaTime; }
 
    private:
     struct M {
@@ -153,6 +165,8 @@ class Canvas {
         size_t current;
         SDL_Window *window;
         SDL_Surface *screen;
+        double deltaTime;
+        time_point lastRenderTime;
         uint32_t width;
         uint32_t height;
         uint32_t collumn_count;
