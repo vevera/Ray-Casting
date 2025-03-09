@@ -36,7 +36,7 @@ class Sphere {
         t1 = (-b + sqrt(delta)) / (2 * a);
         t2 = (-b - sqrt(delta)) / (2 * a);
 
-        return std::min(t1, t2);
+        return std::min<double>(t1, t2);
     }
 
     inline Vector3d normal(const Vector3d& pi) const {

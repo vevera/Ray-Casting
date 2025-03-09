@@ -60,7 +60,7 @@ class Canvas {
                        collumn_count, row_count});
     }
 
-    enum Event { NONE, Quit, ReadyToRender };
+    enum Event { NONE=1, Quit, ReadyToRender, Reload };
 
     ~Canvas() {
         if (m.screen != nullptr)
@@ -107,6 +107,12 @@ class Canvas {
         if (SDL_PollEvent(&windowEvent)) {
             if (SDL_QUIT == windowEvent.type) {
                 return Event::Quit;
+            }
+
+            if (SDL_KEYDOWN == windowEvent.type) {
+                if (windowEvent.key.keysym.sym == SDLK_r) {
+                    return Event::Reload;
+                }
             }
 
             if (SDL_USEREVENT == windowEvent.type &&

@@ -27,9 +27,9 @@ struct PointLight {
     inline Vector3d get_light_contribution(const Vector3d& l, const Vector3d& v,
                                            const Vector3d& normal,
                                            const Reflexivity& rfx) const {
-        return (intensity.cwiseProduct(rfx.k) * std::max(l.dot(normal), 0.0)) +
+        return (intensity.cwiseProduct(rfx.k) * std::max<double>(l.dot(normal), 0.0)) +
                (intensity.cwiseProduct(rfx.k) *
-                std::pow(std::max(v.dot(l.dot(normal) * normal * 2.0 - l), 0.0),
+                std::pow(std::max<double>(v.dot(l.dot(normal) * normal * 2.0 - l), 0.0),
                          rfx.shininess));
     }
 };
